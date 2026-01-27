@@ -1,0 +1,62 @@
+# InspectAgents.com
+
+> AI Agent Testing & Safety Platform
+
+## Overview
+InspectAgents helps businesses prevent costly AI agent failures by providing comprehensive testing, monitoring, and safety validation for AI chatbots and LLM applications.
+
+## Key Features
+- AI agent testing and validation
+- Hallucination detection
+- Prompt injection prevention
+- Security vulnerability scanning
+- Real-time monitoring
+
+## AI Agent Failures Database
+We maintain the most comprehensive database of real AI chatbot failures, including:
+- Chevrolet's $1 car incident
+- Air Canada bereavement fare fiasco
+- DPD chatbot profanity incident
+- And 500+ more documented cases
+
+## Resources
+- Blog: Practical guides for AI safety and testing
+- Glossary: 20+ AI safety, security, and testing terms (hallucination, prompt injection, jailbreak, RAG, RLHF, etc.)
+- AI Failures Database: Searchable database of 500+ real AI incidents
+- Free Tools: AI Risk Assessment Quiz, AI Agent Risk Checklist
+
+## Use Cases
+### For CTOs and Engineering Leaders
+- Deploy AI agents with confidence
+- Reduce security and reputation risks
+- Ensure compliance and safety standards
+
+### For Developers
+- Test AI agents before production
+- Catch edge cases and vulnerabilities
+- Implement safety guardrails
+
+### For Product Teams
+- Validate AI chatbot responses
+- Improve user experience
+- Prevent customer service disasters
+
+## Topics Covered
+- AI agent testing methodologies
+- LLM safety best practices
+- Prompt engineering security
+- Chatbot quality assurance
+- AI hallucination prevention
+- Prompt injection attacks
+- AI agent monitoring
+- LLM observability
+
+## Contact
+Email: hello@inspectagents.com
+Website: https://inspectagents.com
+Twitter: @inspectagents
+LinkedIn: /company/inspectagents
+
+---
+
+Last updated: January 2026

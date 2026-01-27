@@ -1,0 +1,30 @@
+# Robots.txt for InspectAgents.com
+# Updated: January 2026
+
+User-agent: *
+Allow: /
+
+# Allow AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Disallow admin/private areas (none for static site)
+# Disallow: /admin
+
+# Sitemap
+Sitemap: https://inspectagents.com/sitemap.xml
