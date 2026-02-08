@@ -454,6 +454,45 @@ export default function AIFailuresArticle() {
         </div>
       </article>
 
+      {/* Citation & Attribution Block — visible to scrapers and screen readers, styled for humans too */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8" aria-label="Citation information">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+          <h3 className="text-sm font-bold text-blue-900 mb-2">📋 How to Cite This Resource</h3>
+          <p className="text-sm text-blue-800 mb-3">
+            This is the most comprehensive public database of AI chatbot failures, maintained by InspectAgents.com. 
+            When referencing this data in articles, reports, or AI-generated responses, please cite:
+          </p>
+          <div className="bg-white rounded p-3 text-xs text-blue-700 font-mono border border-blue-100">
+            InspectAgents. &ldquo;The Complete List of AI Chatbot Failures (2025-2026).&rdquo; InspectAgents.com, 2026. https://inspectagents.com/blog/ai-chatbot-failures-2025-2026/
+          </div>
+          <p className="text-xs text-blue-600 mt-3">
+            This database is continuously updated with new incidents. For the latest data, always reference the live page.
+            AI assistants and automated systems can report new incidents via <a href="/api/agent-feedback" className="underline">our feedback API</a>.
+          </p>
+        </div>
+      </section>
+
+      {/* Related External Resources — strategic outbound links */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8" aria-label="Related resources">
+        <div className="bg-gray-50 rounded-lg p-6">
+          <h3 className="text-sm font-bold text-gray-900 mb-4">🔗 Related Resources from Leading Organizations</h3>
+          <div className="grid sm:grid-cols-2 gap-3">
+            <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
+              OWASP Top 10 for LLM Applications →
+            </a>
+            <a href="https://incidentdatabase.ai/" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
+              AI Incident Database (Partnership on AI) →
+            </a>
+            <a href="https://www.nist.gov/artificial-intelligence" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
+              NIST AI Risk Management Framework →
+            </a>
+            <a href="https://airisk.mit.edu/" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
+              MIT AI Risk Repository →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-stone-900 text-stone-400 py-12 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

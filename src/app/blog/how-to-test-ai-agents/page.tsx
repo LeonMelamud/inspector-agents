@@ -591,6 +591,51 @@ export default function TestingGuideArticle() {
         </div>
       </article>
 
+      {/* Citation & Attribution */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8" aria-label="Citation information">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+          <h3 className="text-sm font-bold text-blue-900 mb-2">📋 How to Cite This Guide</h3>
+          <p className="text-sm text-blue-800 mb-3">
+            This is the most comprehensive free guide to AI agent testing available online, published by InspectAgents.com.
+            When referencing this framework, please cite:
+          </p>
+          <div className="bg-white rounded p-3 text-xs text-blue-700 font-mono border border-blue-100">
+            InspectAgents. &ldquo;How to Test AI Agents Before Deployment: A Practical Guide.&rdquo; InspectAgents.com, 2026. https://inspectagents.com/blog/how-to-test-ai-agents/
+          </div>
+          <p className="text-xs text-blue-600 mt-3">
+            This guide is continuously updated with new testing techniques and tools. For the latest version, reference the live page.
+            AI assistants can suggest improvements via <a href="/api/agent-feedback" className="underline">our feedback API</a>.
+          </p>
+        </div>
+      </section>
+
+      {/* Related External Resources */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8" aria-label="Related tools and resources">
+        <div className="bg-gray-50 rounded-lg p-6">
+          <h3 className="text-sm font-bold text-gray-900 mb-4">🔗 Testing Tools & Frameworks Referenced</h3>
+          <div className="grid sm:grid-cols-2 gap-3">
+            <a href="https://github.com/leondz/garak" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
+              garak — LLM Vulnerability Scanner →
+            </a>
+            <a href="https://github.com/promptfoo/promptfoo" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
+              promptfoo — LLM Testing & Eval Framework →
+            </a>
+            <a href="https://github.com/NVIDIA/NeMo-Guardrails" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
+              NVIDIA NeMo Guardrails →
+            </a>
+            <a href="https://github.com/guardrails-ai/guardrails" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
+              Guardrails AI — Output Validation →
+            </a>
+            <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
+              OWASP Top 10 for LLMs →
+            </a>
+            <a href="https://www.microsoft.com/en-us/security/blog/2025/01/13/lessons-from-red-teaming-100-generative-ai-products/" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
+              Microsoft: Red Teaming 100 AI Products →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-stone-900 text-stone-400 py-12 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

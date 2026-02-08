@@ -165,3 +165,25 @@ N8N_WEBHOOK_URL=          # n8n webhook (highest priority)
 ```
 
 Provider priority: n8n > Resend > ConvertKit (auto-detected).
+
+## Resend Email Configuration
+
+Domain **inspectagents.com** is verified in Resend (us-east-1 region).
+
+### DNS Records (added to domain provider)
+- **DKIM** — TXT record at `resend._domainkey`
+- **SPF** — MX + TXT records at `send` subdomain
+- **DMARC** — TXT record at `_dmarc` → `v=DMARC1; p=none;`
+
+### Settings
+- **Click Tracking** — Enabled (tracks link clicks in welcome emails)
+- **Open Tracking** — Disabled (hurts deliverability, inaccurate)
+- **TLS** — Opportunistic (default)
+- **Receiving** — Disabled (outbound-only; enable later if inbound routing needed)
+
+### From Address
+All emails send from `InspectAgents <hello@inspectagents.com>`.
+
+### Email Templates
+Static imports in `src/app/api/subscribe/route.ts` — do NOT use dynamic `import()`.
+Three risk-level templates in `src/emails/`: `WelcomeHighRisk`, `WelcomeMediumRisk`, `WelcomeLowRisk`.

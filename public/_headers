@@ -27,3 +27,26 @@
 # Well-known files
 /.well-known/*
   Content-Type: text/plain; charset=utf-8
+
+# LLM-readable files
+/llms.txt
+  Content-Type: text/markdown; charset=utf-8
+  Cache-Control: public, max-age=86400
+  X-Robots-Tag: all
+
+/llms-full.txt
+  Content-Type: text/markdown; charset=utf-8
+  Cache-Control: public, max-age=86400
+  X-Robots-Tag: all
+
+# AI Plugin manifest
+/.well-known/ai-plugin.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
+
+# OpenAPI spec
+/api/openapi.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
