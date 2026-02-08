@@ -90,9 +90,20 @@ The project deploys to **Vercel as a hybrid app** (static pages + serverless API
 
 ### SEO
 - Metadata via `generateSEO()` / `generateArticleSEO()` in `src/lib/seo.ts`
-- JSON-LD structured data in layouts (Organization, FAQPage, Article)
-- `robots.txt` allows all AI crawlers
-- `llms.txt` for AI discoverability
+- JSON-LD structured data in layouts (Organization, FAQPage, Article, Dataset, WebSite, SoftwareApplication)
+- `robots.txt` allows 20+ AI crawlers by name (GPTBot, Claude, Perplexity, Bing, etc.)
+- `llms.txt` and `llms-full.txt` for AI discoverability (llmstxt.org format)
+- `/.well-known/ai-plugin.json` — ChatGPT Plugin manifest
+- `/api/openapi.json` — OpenAPI spec for the feedback API
+- AI-optimized meta tags in layout: `ai:*`, Dublin Core (`DC.*`), citation metadata
+- `sr-only` semantic div in layout with site info for scrapers + screen readers
+- Citation blocks on blog articles with formatted citation + external resource links
+- ExternalResources component on homepage (links to OWASP, NIST, Stanford, MIT, etc.)
+
+### AI Agent Feedback API
+- `POST /api/agent-feedback` — accepts feedback, corrections, incident reports from AI agents
+- `GET /api/agent-feedback` — returns self-documenting API docs
+- Body: `{ type: "feedback"|"correction"|"incident"|"suggestion", message: string, source?: string, url?: string }`
 
 ## File Structure (Key Files)
 
@@ -103,6 +114,7 @@ src/
 │   ├── page.tsx            # Homepage (763 lines, includes FAQ section)
 │   ├── globals.css         # Tailwind + animation utilities
 │   ├── api/subscribe/      # Email subscription endpoint
+│   ├── api/agent-feedback/ # AI agent feedback API (POST/GET)
 │   ├── quiz/               # Quiz + thank-you pages
 │   ├── blog/               # Blog listing + 3 article pages
 │   ├── failures/           # AI failures database
@@ -114,7 +126,10 @@ src/
 │   ├── ExitIntentPopup.tsx  # Exit-intent popup (client)
 │   ├── StickyCtaBar.tsx     # Scroll-triggered CTA bar (client)
 │   ├── TrackedLink.tsx      # Analytics-tracked link (client)
-│   └── HomePageClient.tsx   # Homepage client wrapper for tracking
+│   ├── HomePageClient.tsx   # Homepage client wrapper for tracking
+│   └── sections/
+│       ├── ExternalResources.tsx # Strategic outbound links to authority sites
+│       └── ...              # Other homepage sections
 ├── hooks/
 │   ├── useExitIntent.ts     # Exit intent detection
 │   ├── useScrollPosition.ts # Scroll threshold detection
