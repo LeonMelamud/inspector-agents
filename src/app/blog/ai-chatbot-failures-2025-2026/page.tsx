@@ -1,21 +1,19 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { generateArticleSEO } from '@/lib/seo';
+import { generateArticleSEO, generateArticleJsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
+
+const ARTICLE_URL = 'https://inspectagents.com/blog/ai-chatbot-failures-2025-2026';
+const ARTICLE_TITLE = 'The Complete List of AI Chatbot Failures (2025-2026)';
+const ARTICLE_DESCRIPTION = 'A comprehensive, continuously updated database of AI agent failures, hallucinations, and security breaches from 2025-2026. Learn from real incidents that cost companies millions in lost revenue, reputation damage, and legal liability.';
+const ARTICLE_TAGS = ['AI failures', 'chatbot incidents', 'AI hallucinations', 'prompt injection', 'AI security', 'LLM failures'];
 
 export const metadata: Metadata = generateArticleSEO({
-  title: 'The Complete List of AI Chatbot Failures (2025-2026)',
-  description:
-    'A comprehensive, continuously updated database of AI agent failures, hallucinations, and security breaches from 2025-2026. Learn from real incidents that cost companies millions in lost revenue, reputation damage, and legal liability.',
+  title: ARTICLE_TITLE,
+  description: ARTICLE_DESCRIPTION,
+  canonical: ARTICLE_URL,
   publishedTime: '2026-01-24T00:00:00.000Z',
   authors: ['InspectAgents'],
-  tags: [
-    'AI failures',
-    'chatbot incidents',
-    'AI hallucinations',
-    'prompt injection',
-    'AI security',
-    'LLM failures',
-  ],
+  tags: ARTICLE_TAGS,
 });
 
 interface AIFailure {
@@ -197,8 +195,25 @@ function getSeverityColor(severity: string): string {
 }
 
 export default function AIFailuresArticle() {
+  const articleJsonLd = generateArticleJsonLd({
+    title: ARTICLE_TITLE,
+    description: ARTICLE_DESCRIPTION,
+    url: ARTICLE_URL,
+    publishedTime: '2026-01-24T00:00:00.000Z',
+    authors: ['InspectAgents'],
+    tags: ARTICLE_TAGS,
+  });
+  const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+    { name: 'Home', url: 'https://inspectagents.com' },
+    { name: 'Blog', url: 'https://inspectagents.com/blog' },
+    { name: ARTICLE_TITLE, url: ARTICLE_URL },
+  ]);
+
   return (
-    <div className="min-h-screen bg-stone-50">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleJsonLd }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbJsonLd }} />
+      <div className="min-h-screen bg-stone-50">
       {/* Header */}
       <header className="bg-white border-b border-stone-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -569,5 +584,6 @@ export default function AIFailuresArticle() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

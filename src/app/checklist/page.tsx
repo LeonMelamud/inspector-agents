@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     'prompt injection checklist',
     'AI hallucination prevention',
   ],
+  alternates: {
+    canonical: 'https://inspectagents.com/checklist',
+  },
   openGraph: {
     title: 'Free AI Agent Risk Checklist - 50-Point Safety Testing Guide',
     description: 'Download our comprehensive 50-point AI agent risk checklist. Prevent hallucinations, prompt injection, security breaches, and costly AI failures.',

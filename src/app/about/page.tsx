@@ -4,6 +4,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'About InspectAgents - Our Mission to Make AI Safe',
   description: 'Founded to prevent AI disasters after analyzing 500+ chatbot failures. Learn our story, mission, and commitment to making AI agent testing accessible to every business.',
+  alternates: {
+    canonical: 'https://inspectagents.com/about',
+  },
   openGraph: {
     title: 'About InspectAgents - Our Mission to Make AI Safe',
     description: 'Founded to prevent AI disasters after analyzing 500+ chatbot failures. Learn our story and mission.',

@@ -2,8 +2,15 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service - InspectAgents',
+  title: 'Terms of Service',
   description: 'Terms of service for InspectAgents. Review our terms and conditions for using our AI agent safety platform.',
+  alternates: {
+    canonical: 'https://inspectagents.com/terms',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function TermsPage() {

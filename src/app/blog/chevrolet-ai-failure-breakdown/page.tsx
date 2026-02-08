@@ -1,25 +1,40 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { generateArticleSEO } from '@/lib/seo';
+import { generateArticleSEO, generateArticleJsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
+
+const ARTICLE_URL = 'https://inspectagents.com/blog/chevrolet-ai-failure-breakdown';
+const ARTICLE_TITLE = "Chevrolet's $1 Car Fiasco: Full Breakdown & Prevention Guide";
+const ARTICLE_DESCRIPTION = 'Deep dive into how a prompt injection attack led Chevrolet\'s chatbot to sell a 2024 Tahoe for $1. Complete timeline, technical analysis, legal implications, and step-by-step prevention strategies.';
+const ARTICLE_TAGS = ['Chevrolet AI failure', 'prompt injection', 'chatbot security', 'AI testing', 'dealership chatbot'];
 
 export const metadata: Metadata = generateArticleSEO({
-  title: "Chevrolet's $1 Car Fiasco: Full Breakdown & Prevention Guide",
-  description:
-    'Deep dive into how a prompt injection attack led Chevrolet\'s chatbot to sell a 2024 Tahoe for $1. Complete timeline, technical analysis, legal implications, and step-by-step prevention strategies.',
+  title: ARTICLE_TITLE,
+  description: ARTICLE_DESCRIPTION,
+  canonical: ARTICLE_URL,
   publishedTime: '2026-01-24T00:00:00.000Z',
   authors: ['InspectAgents'],
-  tags: [
-    'Chevrolet AI failure',
-    'prompt injection',
-    'chatbot security',
-    'AI testing',
-    'dealership chatbot',
-  ],
+  tags: ARTICLE_TAGS,
 });
 
 export default function ChevroletCaseStudy() {
+  const articleJsonLd = generateArticleJsonLd({
+    title: ARTICLE_TITLE,
+    description: ARTICLE_DESCRIPTION,
+    url: ARTICLE_URL,
+    publishedTime: '2026-01-24T00:00:00.000Z',
+    authors: ['InspectAgents'],
+    tags: ARTICLE_TAGS,
+  });
+  const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+    { name: 'Home', url: 'https://inspectagents.com' },
+    { name: 'Blog', url: 'https://inspectagents.com/blog' },
+    { name: ARTICLE_TITLE, url: ARTICLE_URL },
+  ]);
   return (
-    <div className="min-h-screen bg-stone-50">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleJsonLd }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbJsonLd }} />
+      <div className="min-h-screen bg-stone-50">
       {/* Header */}
       <header className="bg-white border-b border-stone-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -556,5 +571,6 @@ export default function ChevroletCaseStudy() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

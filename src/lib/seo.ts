@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 
+const BASE_URL = 'https://inspectagents.com';
+
 interface SEOProps {
   title?: string;
   description?: string;
@@ -15,15 +17,10 @@ export function generateSEO({
   description = 'Prevent AI agent failures before they cost your business. Test, monitor, and ensure safety for your AI chatbots and LLM applications.',
   keywords = [],
   canonical,
-  ogImage = '/og-image.png',
+  ogImage = '/images/og-image.png',
   ogType = 'website',
   noindex = false,
 }: SEOProps = {}): Metadata {
-  const baseUrl = 'https://inspectagents.com';
-  const fullTitle = title
-    ? `${title} | InspectAgents`
-    : 'InspectAgents - AI Agent Testing & Safety Platform';
-
   const allKeywords = [
     'AI agent testing',
     'AI chatbot failures',
@@ -32,12 +29,14 @@ export function generateSEO({
     ...keywords,
   ];
 
+  const canonicalUrl = canonical || BASE_URL;
+
   return {
-    title: fullTitle,
+    title,
     description,
     keywords: allKeywords,
     alternates: {
-      canonical: canonical || baseUrl,
+      canonical: canonicalUrl,
     },
     robots: noindex
       ? {
@@ -49,25 +48,25 @@ export function generateSEO({
           follow: true,
         },
     openGraph: {
-      title: fullTitle,
+      title,
       description,
-      url: canonical || baseUrl,
+      url: canonicalUrl,
       siteName: 'InspectAgents',
       images: [
         {
-          url: `${baseUrl}${ogImage}`,
+          url: `${BASE_URL}${ogImage}`,
           width: 1200,
           height: 630,
-          alt: fullTitle,
+          alt: title || 'InspectAgents - AI Agent Testing & Safety Platform',
         },
       ],
-      type: ogType as any,
+      type: ogType as 'website' | 'article',
     },
     twitter: {
       card: 'summary_large_image',
-      title: fullTitle,
+      title,
       description,
-      images: [`${baseUrl}${ogImage}`],
+      images: [`${BASE_URL}${ogImage}`],
       creator: '@inspectagents',
     },
   };
@@ -76,6 +75,7 @@ export function generateSEO({
 export function generateArticleSEO({
   title,
   description,
+  canonical,
   publishedTime,
   modifiedTime,
   authors = ['InspectAgents'],
@@ -84,18 +84,20 @@ export function generateArticleSEO({
 }: {
   title: string;
   description: string;
+  canonical: string;
   publishedTime: string;
   modifiedTime?: string;
   authors?: string[];
   tags?: string[];
   image?: string;
 }): Metadata {
-  const baseUrl = 'https://inspectagents.com';
+  const ogImage = image || '/images/og-image.png';
   const baseSEO = generateSEO({
     title,
     description,
+    canonical,
     keywords: tags,
-    ogImage: image || '/og-image.png',
+    ogImage,
     ogType: 'article',
   });
 
@@ -106,13 +108,14 @@ export function generateArticleSEO({
       type: 'article',
       title,
       description,
+      url: canonical,
       publishedTime,
       modifiedTime: modifiedTime || publishedTime,
       authors,
       tags,
       images: [
         {
-          url: `${baseUrl}${image || '/og-image.png'}`,
+          url: `${BASE_URL}${ogImage}`,
           width: 1200,
           height: 630,
           alt: title,
@@ -120,4 +123,104 @@ export function generateArticleSEO({
       ],
     },
   };
+}
+
+/**
+ * Generate BreadcrumbList JSON-LD structured data
+ */
+export function generateBreadcrumbJsonLd(
+  items: { name: string; url: string }[]
+): string {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  });
+}
+
+/**
+ * Generate Article JSON-LD structured data for blog posts
+ */
+export function generateArticleJsonLd({
+  title,
+  description,
+  url,
+  publishedTime,
+  modifiedTime,
+  authors = ['InspectAgents'],
+  tags = [],
+  image,
+}: {
+  title: string;
+  description: string;
+  url: string;
+  publishedTime: string;
+  modifiedTime?: string;
+  authors?: string[];
+  tags?: string[];
+  image?: string;
+}): string {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    url,
+    image: image ? `${BASE_URL}${image}` : `${BASE_URL}/images/og-image.png`,
+    datePublished: publishedTime,
+    dateModified: modifiedTime || publishedTime,
+    author: authors.map((name) => ({
+      '@type': 'Organization',
+      name,
+      url: BASE_URL,
+    })),
+    publisher: {
+      '@type': 'Organization',
+      name: 'InspectAgents',
+      url: BASE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/images/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+    keywords: tags.join(', '),
+  });
+}
+
+/**
+ * Generate HowTo JSON-LD structured data
+ */
+export function generateHowToJsonLd({
+  name,
+  description,
+  steps,
+  totalTime,
+}: {
+  name: string;
+  description: string;
+  steps: { name: string; text: string }[];
+  totalTime?: string;
+}): string {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name,
+    description,
+    ...(totalTime && { totalTime }),
+    step: steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  });
 }

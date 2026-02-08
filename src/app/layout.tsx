@@ -59,15 +59,21 @@ export const metadata: Metadata = {
     title: 'InspectAgents - AI Agent Testing & Safety Platform',
     description: 'Prevent AI agent failures before they cost your business. Test, monitor, and ensure safety for your AI chatbots and LLM applications.',
     siteName: 'InspectAgents',
+    images: [
+      {
+        url: 'https://inspectagents.com/images/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'InspectAgents - AI Agent Testing & Safety Platform',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'InspectAgents - AI Agent Testing & Safety Platform',
     description: 'Prevent AI agent failures before they cost your business. Test, monitor, and ensure safety for your AI chatbots and LLM applications.',
+    images: ['https://inspectagents.com/images/og-image.png'],
     creator: '@inspectagents',
-  },
-  alternates: {
-    canonical: 'https://inspectagents.com',
   },
 };
 
@@ -95,7 +101,7 @@ export default function RootLayout({
               url: 'https://inspectagents.com',
               description:
                 'The most comprehensive AI agent testing and safety resource. Maintains a database of 500+ documented AI chatbot failures with technical analysis, prevention strategies, and free testing tools.',
-              logo: 'https://inspectagents.com/logo.png',
+              logo: 'https://inspectagents.com/images/logo.png',
               sameAs: [
                 'https://twitter.com/inspectagents',
                 'https://linkedin.com/company/inspectagents',

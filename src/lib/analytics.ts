@@ -189,6 +189,44 @@ export const trackEngagement = {
 };
 
 /**
+ * Track demand / interest signals for features that don't exist yet.
+ * Every click on a "coming soon" card or link is a vote for that feature.
+ */
+export const trackDemand = {
+  /**
+   * User clicked a "coming soon" feature card
+   */
+  featureClicked: (
+    feature: string,
+    location: string,
+    variant?: string
+  ) => {
+    track('demand_feature_clicked', {
+      feature,
+      location,
+      variant: variant ?? 'default',
+    });
+  },
+
+  /**
+   * User submitted their email on a coming-soon page
+   */
+  waitlistSignup: (feature: string) => {
+    track('demand_waitlist_signup', { feature });
+  },
+
+  /**
+   * Which A/B variant was shown to the user
+   */
+  variantShown: (testName: string, variant: string) => {
+    track('ab_variant_shown', {
+      test_name: testName,
+      variant,
+    });
+  },
+};
+
+/**
  * Track email capture
  */
 export const trackEmailCapture = {

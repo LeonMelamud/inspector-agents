@@ -11,7 +11,7 @@
     "type": "openapi",
     "url": "https://inspectagents.com/api/openapi.json"
   },
-  "logo_url": "https://inspectagents.com/logo.png",
+  "logo_url": "https://inspectagents.com/images/logo.png",
   "contact_email": "hello@inspectagents.com",
   "legal_info_url": "https://inspectagents.com/terms/"
 }

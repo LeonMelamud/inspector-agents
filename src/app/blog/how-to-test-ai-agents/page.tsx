@@ -1,21 +1,19 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { generateArticleSEO } from '@/lib/seo';
+import { generateArticleSEO, generateArticleJsonLd, generateBreadcrumbJsonLd, generateHowToJsonLd } from '@/lib/seo';
+
+const ARTICLE_URL = 'https://inspectagents.com/blog/how-to-test-ai-agents';
+const ARTICLE_TITLE = 'How to Test AI Agents Before Deployment: A Practical Guide';
+const ARTICLE_DESCRIPTION = 'Complete testing framework for AI agents and chatbots. Learn how to detect hallucinations, prevent prompt injection, validate security, and monitor production systems. Step-by-step guide with real examples.';
+const ARTICLE_TAGS = ['AI testing', 'chatbot testing', 'LLM testing', 'AI quality assurance', 'prompt injection testing', 'hallucination detection'];
 
 export const metadata: Metadata = generateArticleSEO({
-  title: 'How to Test AI Agents Before Deployment: A Practical Guide',
-  description:
-    'Complete testing framework for AI agents and chatbots. Learn how to detect hallucinations, prevent prompt injection, validate security, and monitor production systems. Step-by-step guide with real examples.',
+  title: ARTICLE_TITLE,
+  description: ARTICLE_DESCRIPTION,
+  canonical: ARTICLE_URL,
   publishedTime: '2026-01-24T00:00:00.000Z',
   authors: ['InspectAgents'],
-  tags: [
-    'AI testing',
-    'chatbot testing',
-    'LLM testing',
-    'AI quality assurance',
-    'prompt injection testing',
-    'hallucination detection',
-  ],
+  tags: ARTICLE_TAGS,
 });
 
 interface TestingPhase {
@@ -221,8 +219,35 @@ export default function TestingGuideArticle() {
   const stagingTests = testingPhases.filter((p) => p.phase === 'Staging');
   const productionTests = testingPhases.filter((p) => p.phase === 'Production');
 
+  const articleJsonLd = generateArticleJsonLd({
+    title: ARTICLE_TITLE,
+    description: ARTICLE_DESCRIPTION,
+    url: ARTICLE_URL,
+    publishedTime: '2026-01-24T00:00:00.000Z',
+    authors: ['InspectAgents'],
+    tags: ARTICLE_TAGS,
+  });
+  const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+    { name: 'Home', url: 'https://inspectagents.com' },
+    { name: 'Blog', url: 'https://inspectagents.com/blog' },
+    { name: ARTICLE_TITLE, url: ARTICLE_URL },
+  ]);
+  const howToJsonLd = generateHowToJsonLd({
+    name: 'How to Test AI Agents Before Deployment',
+    description: 'Complete 8-phase testing framework for AI agents covering hallucination detection, prompt injection, security, bias, performance, and production monitoring.',
+    totalTime: 'P7D',
+    steps: testingPhases.map((phase) => ({
+      name: `${phase.phase}: ${phase.title}`,
+      text: `${phase.description} Key checks: ${phase.checks.join('; ')}. Recommended tools: ${phase.tools.join(', ')}.`,
+    })),
+  });
+
   return (
-    <div className="min-h-screen bg-stone-50">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleJsonLd }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: breadcrumbJsonLd }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: howToJsonLd }} />
+      <div className="min-h-screen bg-stone-50">
       {/* Header */}
       <header className="bg-white border-b border-stone-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -712,5 +737,6 @@ export default function TestingGuideArticle() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

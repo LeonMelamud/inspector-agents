@@ -10,6 +10,7 @@ const CaseStudies = dynamic(() => import('@/components/sections/CaseStudies').th
 const KeyRisks = dynamic(() => import('@/components/sections/KeyRisks').then(m => ({ default: m.KeyRisks })));
 const Stats = dynamic(() => import('@/components/sections/Stats').then(m => ({ default: m.Stats })));
 const CtaSection = dynamic(() => import('@/components/sections/CtaSection').then(m => ({ default: m.CtaSection })));
+const DemandGauge = dynamic(() => import('@/components/sections/DemandGauge').then(m => ({ default: m.DemandGauge })));
 const FaqSection = dynamic(() => import('@/components/sections/FaqSection').then(m => ({ default: m.FaqSection })));
 const ExternalResources = dynamic(() => import('@/components/sections/ExternalResources').then(m => ({ default: m.ExternalResources })));
 const Footer = dynamic(() => import('@/components/sections/Footer').then(m => ({ default: m.Footer })));
@@ -17,11 +18,29 @@ const Footer = dynamic(() => import('@/components/sections/Footer').then(m => ({
 export const metadata: Metadata = {
   title: 'AI Agent Testing & Safety Platform - Prevent Chatbot Failures',
   description: 'Prevent AI agent failures before they cost your business. Learn from 500+ analyzed AI chatbot disasters including Chevrolet, Air Canada, and DPD incidents.',
+  alternates: {
+    canonical: 'https://inspectagents.com',
+  },
   openGraph: {
     title: 'AI Agent Testing & Safety Platform - Prevent Chatbot Failures',
     description: 'Prevent AI agent failures before they cost your business. Learn from 500+ analyzed AI chatbot disasters.',
     type: 'website',
     url: 'https://inspectagents.com',
+    images: [
+      {
+        url: 'https://inspectagents.com/images/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'InspectAgents - AI Agent Testing & Safety Platform',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Agent Testing & Safety Platform - Prevent Chatbot Failures',
+    description: 'Prevent AI agent failures before they cost your business.',
+    images: ['https://inspectagents.com/images/og-image.png'],
+    creator: '@inspectagents',
   },
 };
 
@@ -104,6 +123,10 @@ export default function Home() {
 
       <Suspense fallback={<SectionSkeleton />}>
         <CtaSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionSkeleton />}>
+        <DemandGauge />
       </Suspense>
 
       <Suspense fallback={<SectionSkeleton />}>
