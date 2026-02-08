@@ -137,22 +137,29 @@ async function subscribeWithResend(data: {
   try {
     // Check if Resend is configured
     if (!resend || !process.env.RESEND_API_KEY) {
-      throw new Error('Resend not configured. Set RESEND_API_KEY and RESEND_AUDIENCE_ID environment variables.');
+      throw new Error('Resend not configured. Set RESEND_API_KEY environment variable.');
     }
 
     // Generate tags for segmentation
     const tags = getEmailTags(quizAnswers as any, riskLevel);
 
-    // Add contact to Resend audience
-    const contact = await resend.contacts.create({
-      email,
-      firstName: firstName || email.split('@')[0],
-      audienceId: AUDIENCE_ID,
-      unsubscribed: false,
-    });
-
-    if (!contact.data) {
-      throw new Error('Failed to create contact in Resend');
+    // Optionally add contact to Resend audience (if AUDIENCE_ID is configured)
+    let contactId: string | undefined;
+    if (AUDIENCE_ID) {
+      try {
+        const contact = await resend.contacts.create({
+          email,
+          firstName: firstName || email.split('@')[0],
+          audienceId: AUDIENCE_ID,
+          unsubscribed: false,
+        });
+        contactId = contact.data?.id;
+      } catch (audienceError: any) {
+        // Don't fail if audience add fails — just log it
+        if (!audienceError.message?.includes('already exists')) {
+          logger.warn('Failed to add contact to audience', { error: audienceError.message });
+        }
+      }
     }
 
     // Send immediate welcome email based on risk level
@@ -163,7 +170,7 @@ async function subscribeWithResend(data: {
     return NextResponse.json({
       success: true,
       message: 'Successfully subscribed!',
-      contactId: contact.data.id,
+      ...(contactId && { contactId }),
       riskLevel,
       tags,
     });
