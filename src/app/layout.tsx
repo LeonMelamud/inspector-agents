@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Source_Sans_3 } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { ExitIntentPopup } from '@/components/ExitIntentPopup';
 import { StickyCtaBar } from '@/components/StickyCtaBar';
+import { Navbar } from '@/components/Navbar';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const sourceSans = Source_Sans_3({ subsets: ['latin'], weight: ['400', '600', '700'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://inspectagents.com'),
@@ -158,7 +159,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={sourceSans.className}>
+        <Navbar />
         {children}
         <ExitIntentPopup />
         <StickyCtaBar />

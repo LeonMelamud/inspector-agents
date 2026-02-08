@@ -91,23 +91,25 @@ export function generateArticleSEO({
   image?: string;
 }): Metadata {
   const baseUrl = 'https://inspectagents.com';
+  const baseSEO = generateSEO({
+    title,
+    description,
+    keywords: tags,
+    ogImage: image || '/og-image.png',
+    ogType: 'article',
+  });
 
   return {
-    ...generateSEO({
-      title,
-      description,
-      keywords: tags,
-      ogImage: image || '/og-image.png',
-      ogType: 'article',
-    }),
+    ...baseSEO,
     openGraph: {
+      ...baseSEO.openGraph,
       type: 'article',
       title,
       description,
       publishedTime,
       modifiedTime: modifiedTime || publishedTime,
-      authors: authors,
-      tags: tags,
+      authors,
+      tags,
       images: [
         {
           url: `${baseUrl}${image || '/og-image.png'}`,

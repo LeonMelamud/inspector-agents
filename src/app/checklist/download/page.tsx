@@ -509,11 +509,11 @@ export default function ChecklistDownloadPage() {
 
         {/* Section 8: Production Monitoring */}
         <section className="mb-12 print:mb-8 print:break-inside-avoid">
-          <div className="bg-gradient-to-r from-green-600 to-green-700 text-white p-4 rounded-t-lg print:bg-green-700">
+          <div className="bg-gradient-to-r from-primary-800 to-primary-900 text-white p-4 rounded-t-lg print:bg-primary-700">
             <h2 className="text-2xl font-bold">8. Production Monitoring (5 tests)</h2>
-            <p className="text-green-100 text-sm">Ongoing checks to catch failures in real-time before they go viral</p>
+            <p className="text-primary-200 text-sm">Ongoing checks to catch failures in real-time before they go viral</p>
           </div>
-          <div className="border-2 border-green-600 rounded-b-lg p-6 print:border print:border-stone-300">
+          <div className="border-2 border-primary-600 rounded-b-lg p-6 print:border print:border-stone-300">
             <div className="space-y-4">
               <label className="flex items-start p-3 hover:bg-stone-50 rounded cursor-pointer">
                 <input type="checkbox" className="mt-1 mr-3 w-5 h-5 print:appearance-none print:border print:border-stone-400 print:w-4 print:h-4" />
@@ -563,8 +563,8 @@ export default function ChecklistDownloadPage() {
           <h2 className="text-3xl font-bold text-stone-900 mb-6 text-center">After Completing This Checklist</h2>
           
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6 print:border print:border-stone-300">
-              <h3 className="font-bold text-lg text-green-900 mb-3">✅ If You Passed All Checkpoints</h3>
+            <div className="bg-primary-50 border-2 border-primary-200 rounded-lg p-6 print:border print:border-stone-300">
+              <h3 className="font-bold text-lg text-primary-900 mb-3">✅ If You Passed All Checkpoints</h3>
               <ul className="space-y-2 text-stone-700 text-sm">
                 <li>• Document your test results and keep for compliance</li>
                 <li>• Set calendar reminders for monthly re-audits</li>
@@ -615,41 +615,7 @@ export default function ChecklistDownloadPage() {
         </footer>
       </main>
 
-      {/* Print Styles */}
-      <style jsx global>{`
-        @media print {
-          body {
-            print-color-adjust: exact;
-            -webkit-print-color-adjust: exact;
-          }
-          @page {
-            margin: 1.5cm;
-            size: A4;
-          }
-          .print\\:hidden {
-            display: none !important;
-          }
-          .print\\:block {
-            display: block !important;
-          }
-          .print\\:break-inside-avoid {
-            break-inside: avoid;
-          }
-          .print\\:mb-8 {
-            margin-bottom: 2rem;
-          }
-          .print\\:mb-4 {
-            margin-bottom: 1rem;
-          }
-          input[type="checkbox"] {
-            width: 14px !important;
-            height: 14px !important;
-            border: 1px solid #666 !important;
-            background: white !important;
-            margin-top: 3px !important;
-          }
-        }
-      `}</style>
+      {/* Print styles defined in globals.css (no style jsx) */}
     </div>
   );
 }

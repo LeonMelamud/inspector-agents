@@ -232,17 +232,17 @@ export default function GlossaryPage() {
   return (
     <div className="min-h-screen bg-stone-100">
       {/* Header */}
-      <header className="bg-gradient-to-br from-green-600 to-green-700 text-white py-16">
+      <header className="bg-gradient-to-br from-primary-800 to-primary-900 text-white py-16">
         <div className="container mx-auto px-4 max-w-4xl">
-          <Link href="/" className="text-green-100 hover:text-white mb-4 inline-block">
+          <Link href="/" className="text-primary-200 hover:text-white mb-4 inline-block">
             ← Back to Home
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">AI Safety Glossary</h1>
-          <p className="text-xl text-green-50 mb-6">
+          <p className="text-xl text-primary-100 mb-6">
             Essential terms for understanding AI agent risks, testing, and security
           </p>
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-            <p className="text-green-50">
+            <p className="text-primary-100">
               📚 <strong>{glossaryTerms.length} terms</strong> covering hallucinations, prompt injection, jailbreaks, and more
             </p>
           </div>
@@ -259,7 +259,7 @@ export default function GlossaryPage() {
               placeholder="Search terms, definitions, or aliases..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
           </div>
 
@@ -271,7 +271,7 @@ export default function GlossaryPage() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   selectedCategory === category
-                    ? 'bg-green-600 text-white'
+                    ? 'bg-primary-600 text-white'
                     : 'bg-stone-200 text-stone-700 hover:bg-stone-300'
                 }`}
               >
@@ -299,7 +299,7 @@ export default function GlossaryPage() {
                   href={hasTerms ? `#letter-${letter}` : undefined}
                   className={`w-8 h-8 flex items-center justify-center rounded text-sm font-medium ${
                     hasTerms
-                      ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                      ? 'bg-primary-100 text-primary-700 hover:bg-primary-200'
                       : 'text-stone-300 cursor-not-allowed'
                   }`}
                 >
@@ -321,7 +321,7 @@ export default function GlossaryPage() {
                 setSearchTerm('');
                 setSelectedCategory('All');
               }}
-              className="text-green-600 hover:text-green-700 font-medium"
+              className="text-primary-600 hover:text-primary-700 font-medium"
             >
               Clear filters
             </button>
@@ -334,7 +334,7 @@ export default function GlossaryPage() {
 
               return (
                 <div key={letter} id={`letter-${letter}`}>
-                  <h2 className="text-3xl font-bold text-stone-900 mb-6 pb-2 border-b-2 border-green-600">
+                  <h2 className="text-3xl font-bold text-stone-900 mb-6 pb-2 border-b-2 border-primary-600">
                     {letter}
                   </h2>
                   <div className="space-y-8">
@@ -356,8 +356,8 @@ export default function GlossaryPage() {
                         <p className="text-stone-700 text-lg leading-relaxed mb-4">{term.definition}</p>
 
                         {term.example && (
-                          <div className="bg-green-50 border-l-4 border-green-500 p-4 mb-4">
-                            <p className="text-sm font-semibold text-green-900 mb-1">Example:</p>
+                          <div className="bg-primary-50 border-l-4 border-primary-500 p-4 mb-4">
+                            <p className="text-sm font-semibold text-primary-900 mb-1">Example:</p>
                             <p className="text-stone-700">{term.example}</p>
                           </div>
                         )}
@@ -392,17 +392,17 @@ export default function GlossaryPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-br from-green-600 to-green-700 py-16">
+      <div className="bg-gradient-to-br from-primary-800 to-primary-900 py-16">
         <div className="container mx-auto px-4 max-w-3xl text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Ready to Test Your AI Agents?
           </h2>
-          <p className="text-xl text-green-50 mb-8">
+          <p className="text-xl text-primary-100 mb-8">
             Understanding these terms is just the first step. Take our quiz to identify your specific AI risks.
           </p>
           <Link
             href="/quiz"
-            className="inline-block bg-white text-green-700 px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-50 transition-colors shadow-lg"
+            className="inline-block bg-white text-primary-700 px-8 py-4 rounded-lg font-bold text-lg hover:bg-primary-50 transition-colors shadow-lg"
           >
             Take the AI Risk Assessment Quiz →
           </Link>

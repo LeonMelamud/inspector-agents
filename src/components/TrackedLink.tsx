@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { trackCTAClick, trackNavigation } from '@/lib/analytics';
 import React from 'react';
 
@@ -14,7 +15,10 @@ interface TrackedLinkProps {
 }
 
 /**
- * Link component that automatically tracks clicks
+ * Link component that automatically tracks clicks.
+ *
+ * Uses Next.js <Link> for internal routes (SPA navigation + prefetching)
+ * and a regular <a> for external URLs.
  */
 export function TrackedLink({
   href,
@@ -25,8 +29,10 @@ export function TrackedLink({
   type = 'cta',
   onClick,
 }: TrackedLinkProps) {
+  const isExternal =
+    href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('//');
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // Track the click event
     if (type === 'cta') {
       trackCTAClick(trackingLabel, location, href);
     } else if (type === 'internal') {
@@ -35,15 +41,26 @@ export function TrackedLink({
       trackNavigation.externalLink(trackingLabel, href);
     }
 
-    // Call custom onClick handler if provided
-    if (onClick) {
-      onClick(e);
-    }
+    onClick?.(e);
   };
 
+  if (isExternal) {
+    return (
+      <a
+        href={href}
+        className={className}
+        onClick={handleClick}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <a href={href} className={className} onClick={handleClick}>
+    <Link href={href} className={className} onClick={handleClick}>
       {children}
-    </a>
+    </Link>
   );
 }

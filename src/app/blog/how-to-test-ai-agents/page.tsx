@@ -228,12 +228,12 @@ export default function TestingGuideArticle() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <Link
             href="/blog"
-            className="text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-2 mb-4"
+            className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center gap-2 mb-4"
           >
             ← Back to Blog
           </Link>
           <div className="flex items-center gap-3 mb-4">
-            <span className="inline-block px-3 py-1 text-sm font-medium text-green-700 bg-green-50 rounded-full">
+            <span className="inline-block px-3 py-1 text-sm font-medium text-primary-700 bg-primary-50 rounded-full">
               Guides
             </span>
             <time className="text-sm text-stone-500" dateTime="2026-01-24">
@@ -263,11 +263,11 @@ export default function TestingGuideArticle() {
             framework used by leading AI teams to catch problems before users do.
           </p>
 
-          <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg my-8">
-            <h3 className="text-lg font-bold text-green-900 mb-2">
+          <div className="bg-primary-50 border-l-4 border-primary-600 p-6 rounded-r-lg my-8">
+            <h3 className="text-lg font-bold text-primary-900 mb-2">
               ✅ The Three-Phase Approach
             </h3>
-            <p className="text-green-800 mb-0">
+            <p className="text-primary-800 mb-0">
               Test in three phases: <strong>Pre-Deployment</strong> (catch
               fundamental issues), <strong>Staging</strong> (validate performance
               at scale), and <strong>Production</strong> (continuous monitoring).
@@ -317,7 +317,7 @@ export default function TestingGuideArticle() {
                   <ul className="space-y-2">
                     {test.checks.map((check, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <span className="text-green-600 mt-1">•</span>
+                        <span className="text-primary-600 mt-1">•</span>
                         <span className="text-stone-700">{check}</span>
                       </li>
                     ))}
@@ -385,7 +385,7 @@ export default function TestingGuideArticle() {
                   <ul className="space-y-2">
                     {test.checks.map((check, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <span className="text-green-600 mt-1">•</span>
+                        <span className="text-primary-600 mt-1">•</span>
                         <span className="text-stone-700">{check}</span>
                       </li>
                     ))}
@@ -453,7 +453,7 @@ export default function TestingGuideArticle() {
                   <ul className="space-y-2">
                     {test.checks.map((check, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <span className="text-green-600 mt-1">•</span>
+                        <span className="text-primary-600 mt-1">•</span>
                         <span className="text-stone-700">{check}</span>
                       </li>
                     ))}
@@ -481,7 +481,7 @@ export default function TestingGuideArticle() {
         </section>
 
         {/* Quick Reference Checklist */}
-        <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-lg p-8 mb-12">
+        <div className="bg-gradient-to-br from-primary-50 to-primary-100 border border-primary-200 rounded-lg p-8 mb-12">
           <h2 className="text-2xl font-bold text-stone-900 mb-6">
             📋 Quick Pre-Launch Checklist
           </h2>
@@ -542,18 +542,18 @@ export default function TestingGuideArticle() {
         </div>
 
         {/* CTA */}
-        <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-lg p-8 text-center text-white">
+        <div className="bg-gradient-to-br from-primary-800 to-primary-900 rounded-lg p-8 text-center text-white">
           <h2 className="text-2xl font-bold mb-4">
             Get Your Personalized Testing Plan
           </h2>
-          <p className="text-green-50 mb-6 max-w-2xl mx-auto">
+          <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
             Take our 2-minute quiz to discover which testing gaps are putting
             your AI deployment at risk. Get a customized checklist based on your
             specific use case.
           </p>
           <Link
             href="/quiz"
-            className="inline-block bg-white text-green-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-50 transition-colors shadow-lg"
+            className="inline-block bg-white text-primary-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-50 transition-colors shadow-lg"
           >
             Start Your AI Risk Assessment →
           </Link>
@@ -569,7 +569,7 @@ export default function TestingGuideArticle() {
               href="/blog/ai-chatbot-failures-2025-2026"
               className="group bg-white border border-stone-200 rounded-lg p-6 hover:shadow-md transition-shadow"
             >
-              <h3 className="font-bold text-lg text-stone-900 mb-2 group-hover:text-green-600">
+              <h3 className="font-bold text-lg text-stone-900 mb-2 group-hover:text-primary-600">
                 Complete List of AI Chatbot Failures
               </h3>
               <p className="text-stone-600 text-sm">
@@ -580,7 +580,7 @@ export default function TestingGuideArticle() {
               href="/blog/chevrolet-ai-failure-breakdown"
               className="group bg-white border border-stone-200 rounded-lg p-6 hover:shadow-md transition-shadow"
             >
-              <h3 className="font-bold text-lg text-stone-900 mb-2 group-hover:text-green-600">
+              <h3 className="font-bold text-lg text-stone-900 mb-2 group-hover:text-primary-600">
                 Chevrolet Case Study: Prevention Guide
               </h3>
               <p className="text-stone-600 text-sm">

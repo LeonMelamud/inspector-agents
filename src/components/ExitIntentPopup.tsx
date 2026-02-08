@@ -165,7 +165,7 @@ export function ExitIntentPopup() {
 
           {/* Icon */}
           <div className="mb-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 bg-gradient-to-br from-primary-700 to-primary-800 rounded-lg flex items-center justify-center">
               <svg
                 className="w-7 h-7 text-white"
                 fill="none"
@@ -206,7 +206,7 @@ export function ExitIntentPopup() {
             ].map((benefit) => (
               <li key={benefit} className="flex items-start">
                 <svg
-                  className="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0"
+                  className="w-5 h-5 text-primary-600 mr-2 mt-0.5 flex-shrink-0"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -225,7 +225,7 @@ export function ExitIntentPopup() {
           <Link
             href="/checklist"
             onClick={handleDownload}
-            className="block w-full bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold py-3 px-6 rounded-lg hover:from-green-700 hover:to-green-800 transition-all shadow-md hover:shadow-lg text-center mb-3"
+            className="block w-full bg-gradient-to-r from-primary-800 to-primary-900 text-white font-semibold py-3 px-6 rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all shadow-md hover:shadow-lg text-center mb-3"
           >
             Get Free Checklist →
           </Link>
@@ -239,37 +239,6 @@ export function ExitIntentPopup() {
           </button>
         </div>
       </div>
-
-      {/* Animation Styles */}
-      <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease-out;
-        }
-
-        .animate-slideUp {
-          animation: slideUp 0.4s ease-out;
-        }
-      `}</style>
     </>
   );
 }

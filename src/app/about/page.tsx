@@ -51,7 +51,7 @@ export default function AboutPage() {
                     <span className="font-semibold text-stone-900">Leon Melamud, Founder</span>
                   </p>
                   <a 
-                    href="https://linkedin.com/in/leonmelamud" 
+                    href="https://www.linkedin.com/in/leon-melamud" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold"
@@ -276,7 +276,7 @@ export default function AboutPage() {
             <div className="text-stone-600">
               <p className="mb-4">Want to connect?</p>
               <a 
-                href="https://linkedin.com/in/leonmelamud" 
+                href="https://www.linkedin.com/in/leon-melamud" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold text-lg"
@@ -310,7 +310,7 @@ export default function AboutPage() {
                 <h3 className="text-white font-bold mb-4">Company</h3>
                 <ul className="space-y-2">
                   <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
-                  <li><a href="https://linkedin.com/in/leonmelamud" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
+                  <li><a href="https://www.linkedin.com/in/leon-melamud" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
                 </ul>
               </div>
 

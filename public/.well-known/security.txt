@@ -1,0 +1,23 @@
+# InspectAgents Security Contact
+# This file is intended to help security researchers report vulnerabilities.
+
+# Security contact
+Contact: mailto:security@inspectagents.com
+
+# Encryption key for sensitive reports (optional)
+# Encryption: https://inspectagents.com/.well-known/pgp-key.txt
+
+# Our security policy
+Policy: https://inspectagents.com/security-policy
+
+# Acknowledgements page for security researchers
+# Acknowledgments: https://inspectagents.com/hall-of-fame
+
+# Preferred languages
+Preferred-Languages: en
+
+# Canonical URL
+Canonical: https://inspectagents.com/.well-known/security.txt
+
+# Expiry date (update annually)
+Expires: 2027-01-27T23:59:59.000Z

@@ -1,163 +1,88 @@
-# Deployment Guide
+# Deployment Guide — Vercel
 
-## Quick Start
+InspectAgents deploys to **Vercel** (free Hobby tier). The site uses API routes (`/api/subscribe`) so static export is not supported.
 
-```bash
-# Install dependencies
-npm install
+## Prerequisites
 
-# Run development server
-npm run dev
+- GitHub account with the repo pushed
+- Vercel account (sign up free at [vercel.com](https://vercel.com) with GitHub)
+- Domain DNS access (Cloudflare, Namecheap, etc.)
 
-# Build for production
-npm run build
-```
+## Deploy
 
-The static site will be in the `out/` directory after building.
+1. Go to [vercel.com/new](https://vercel.com/new)
+2. Import the `inspector-agents` repository
+3. Vercel auto-detects Next.js — no build settings needed
+4. Click **Deploy**
 
-## Deploy to GitHub Pages
-
-1. **Enable GitHub Pages in your repository:**
-   - Go to Settings → Pages
-   - Source: Deploy from a branch
-   - Branch: `gh-pages` or `main` (depending on your setup)
-   - Folder: `/` (root) or `/docs` if you move the `out/` contents there
-
-2. **Build and deploy:**
-   ```bash
-   npm run build
-   # Copy contents of out/ to your deployment location
-   ```
-
-3. **Using GitHub Actions (Recommended):**
-   Create `.github/workflows/deploy.yml`:
-   ```yaml
-   name: Deploy to GitHub Pages
-   
-   on:
-     push:
-       branches: [main]
-   
-   jobs:
-     build-and-deploy:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v4
-         
-         - name: Setup Node.js
-           uses: actions/setup-node@v4
-           with:
-             node-version: '20'
-             cache: 'npm'
-         
-         - name: Install dependencies
-           run: npm ci
-         
-         - name: Build
-           run: npm run build
-         
-         - name: Deploy to GitHub Pages
-           uses: peaceiris/actions-gh-pages@v3
-           with:
-             github_token: ${{ secrets.GITHUB_TOKEN }}
-             publish_dir: ./out
-   ```
-
-## Deploy to Vercel (Easiest)
-
-1. **Connect repository to Vercel:**
-   - Go to [vercel.com](https://vercel.com)
-   - Import your Git repository
-   - Vercel auto-detects Next.js
-
-2. **No configuration needed!**
-   - Vercel automatically builds and deploys
-   - Every push to `main` triggers deployment
-   - Pull requests get preview URLs
-
-3. **Custom domain:**
-   - Add domain in Vercel dashboard
-   - Update DNS records as instructed
-
-## Deploy to Netlify
-
-1. **Connect repository:**
-   - Go to [netlify.com](https://netlify.com)
-   - Import your repository
-
-2. **Build settings:**
-   - Build command: `npm run build`
-   - Publish directory: `out`
-
-3. **Deploy:**
-   - Netlify automatically deploys on push
+Every push to `main` auto-deploys. Pull requests get preview URLs.
 
 ## Environment Variables
 
-For production, you may want to set:
+Set these in **Vercel Dashboard → Settings → Environment Variables**:
 
-```env
-NEXT_PUBLIC_SITE_URL=https://inspectagents.com
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX (if using Google Analytics)
-```
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `RESEND_API_KEY` | Yes (for email) | Get from [resend.com](https://resend.com) (free: 3K emails/month) |
+| `RESEND_AUDIENCE_ID` | Yes (for email) | Create an audience in Resend dashboard |
+| `N8N_WEBHOOK_URL` | Optional | n8n webhook (takes priority over Resend if set) |
+| `CONVERTKIT_API_KEY` | Optional | ConvertKit alternative |
+| `CONVERTKIT_FORM_ID` | Optional | ConvertKit form ID |
 
-## Custom Domain Setup
+**Provider priority:** n8n > Resend > ConvertKit (auto-detected).
 
-1. **Update `next.config.ts`** (if needed):
-   ```typescript
-   const nextConfig: NextConfig = {
-     output: 'export',
-     basePath: process.env.BASE_PATH || '',
-     // For GitHub Pages with custom domain, basePath should be ''
-   };
-   ```
+The site works without any email env vars — the quiz and pages load fine, but email capture silently fails.
 
-2. **Add CNAME file** to `public/`:
-   ```
-   inspectagents.com
-   ```
+## Custom Domain (Cloudflare DNS)
 
-3. **Configure DNS:**
-   - For Vercel/Netlify: Use their provided DNS records
-   - For GitHub Pages: 
-     ```
-     CNAME: inspectagents.com → yourusername.github.io
-     ```
+1. In **Vercel Dashboard → Settings → Domains**, add `inspectagents.com`
+2. Select **Connect to an environment → Production** (NOT "Redirect to Another Domain")
+3. In **Cloudflare DNS**, add:
 
-## Testing Production Build Locally
+| Type | Name | Content | Proxy |
+|------|------|---------|-------|
+| A | `@` | `76.76.21.21` | DNS only (gray cloud) |
+| CNAME | `www` | `cname.vercel-dns.com` | DNS only (gray cloud) |
+
+4. In **Cloudflare SSL/TLS**, set mode to **Full (strict)**
+5. Wait 1-5 minutes for DNS propagation + SSL provisioning
+
+**Important:** Use "DNS only" (gray cloud), not "Proxied" (orange cloud). Vercel handles SSL — Cloudflare proxy causes conflicts.
+
+## Local Development
 
 ```bash
-npm run build
-
-# Serve the out/ directory
-npx serve out
-
-# Or use any static server
-python3 -m http.server 8000 -d out
+npm install
+npm run dev        # http://localhost:3000
 ```
+
+## Production Build (Local Test)
+
+```bash
+npm run build      # Builds static pages + serverless functions
+npm run start      # Serves at http://localhost:3000
+```
+
+## Verify Deployment
+
+- [ ] Homepage loads at custom domain
+- [ ] Quiz completes all 3 steps + submits email
+- [ ] `/api/subscribe/` returns 200 (not 405)
+- [ ] Check Resend dashboard for new contact
+- [ ] All pages load: `/failures`, `/blog`, `/checklist`, `/glossary`, `/about`
+- [ ] Mobile responsive on all pages
+- [ ] HTTPS works (green lock)
 
 ## Troubleshooting
 
-### Images not loading
-- Ensure `unoptimized: true` is in `next.config.ts`
-- Use relative paths for images in `public/`
+### 405 Method Not Allowed on `/api/subscribe`
+The config has `trailingSlash: true`. All fetch calls must use `/api/subscribe/` (with trailing slash). Without it, Next.js 308-redirects the POST, which drops the request body.
 
-### 404 on routes
-- Static export doesn't support dynamic routes without fallback
-- Ensure all routes are pre-rendered
+### Email not sending
+Check Vercel logs (Dashboard → Deployments → Functions tab). Likely cause: missing `RESEND_API_KEY` env var.
 
-### CSS not loading
-- Check that `tailwind.config.ts` content paths are correct
-- Verify `globals.css` is imported in `layout.tsx`
+### SSL redirect loop
+Set Cloudflare SSL mode to **Full (strict)** and use **DNS only** (gray cloud) proxy mode.
 
-## Post-Deployment Checklist
-
-- [ ] Site loads at your domain
-- [ ] All pages accessible
-- [ ] Meta tags visible in browser inspector
-- [ ] `robots.txt` accessible at `/robots.txt`
-- [ ] `sitemap.xml` accessible at `/sitemap.xml`
-- [ ] `llms.txt` accessible at `/llms.txt`
-- [ ] Submit sitemap to Google Search Console
-- [ ] Test on mobile devices
-- [ ] Check page speed with Lighthouse
+### Rate limited
+The API allows 3 requests per 5 minutes per IP. Wait and retry.

@@ -6,11 +6,6 @@
 export interface QuizAnswers {
   currentUsage: string;
   biggestFears: string[];
-  experiencedFailure: string;
-  failureDescription?: string;
-  confidenceFactors: string;
-  costImpact: string[];
-  role: string;
   email: string;
 }
 
@@ -23,7 +18,7 @@ export interface EmailData {
 }
 
 /**
- * Calculate risk level based on quiz answers
+ * Calculate risk level based on quiz answers (3-question version)
  */
 export function calculateRiskLevel(answers: QuizAnswers): 'low' | 'medium' | 'high' {
   let riskScore = 0;
@@ -32,22 +27,19 @@ export function calculateRiskLevel(answers: QuizAnswers): 'low' | 'medium' | 'hi
   if (answers.currentUsage === 'yes') riskScore += 2;
   else if (answers.currentUsage === 'planning') riskScore += 1;
 
-  // Experienced failure (0-3 points)
-  if (answers.experiencedFailure === 'yes') riskScore += 3;
-  else if (answers.experiencedFailure === 'not-sure') riskScore += 1;
-
   // Number of fears (0-3 points)
   if (answers.biggestFears.length >= 4) riskScore += 3;
   else if (answers.biggestFears.length >= 2) riskScore += 2;
   else if (answers.biggestFears.length >= 1) riskScore += 1;
 
-  // Cost impact (0-2 points)
-  if (answers.costImpact.includes('all')) riskScore += 2;
-  else if (answers.costImpact.length >= 2) riskScore += 1;
+  // "Don't know what to worry about" is highest risk
+  if (answers.biggestFears.includes('dontKnow')) riskScore += 2;
 
-  // Calculate final risk level
-  if (riskScore >= 7) return 'high';
-  if (riskScore >= 4) return 'medium';
+  // Using AI in production + security fear = high risk
+  if (answers.currentUsage === 'yes' && answers.biggestFears.includes('security')) riskScore += 1;
+
+  if (riskScore >= 5) return 'high';
+  if (riskScore >= 3) return 'medium';
   return 'low';
 }
 
@@ -55,20 +47,8 @@ export function calculateRiskLevel(answers: QuizAnswers): 'low' | 'medium' | 'hi
  * Get top pain points from quiz answers
  */
 export function extractTopPainPoints(answers: QuizAnswers): string[] {
-  const painPoints: string[] = [];
-
-  // Add biggest fears
-  painPoints.push(...answers.biggestFears);
-
-  // Add cost impacts
-  if (answers.costImpact.includes('time')) painPoints.push('time-waste');
-  if (answers.costImpact.includes('money')) painPoints.push('financial-loss');
-  if (answers.costImpact.includes('reputation')) painPoints.push('reputation-damage');
-
-  // Add experienced failure
-  if (answers.experiencedFailure === 'yes') painPoints.push('experienced-failure');
-
-  // Return unique pain points
+  const painPoints: string[] = [...answers.biggestFears];
+  if (answers.currentUsage === 'yes') painPoints.push('in-production');
   return [...new Set(painPoints)];
 }
 
@@ -77,7 +57,7 @@ export function extractTopPainPoints(answers: QuizAnswers): string[] {
  */
 export async function subscribeWithResend(data: EmailData): Promise<{ success: boolean; error?: string }> {
   try {
-    const response = await fetch('/api/subscribe', {
+    const response = await fetch('/api/subscribe/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -106,7 +86,7 @@ export async function subscribeWithResend(data: EmailData): Promise<{ success: b
  */
 export async function subscribeWithConvertKit(data: EmailData): Promise<{ success: boolean; error?: string }> {
   try {
-    const response = await fetch('/api/subscribe', {
+    const response = await fetch('/api/subscribe/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -135,7 +115,7 @@ export async function subscribeWithConvertKit(data: EmailData): Promise<{ succes
  */
 export async function subscribeToNewsletter(data: EmailData): Promise<{ success: boolean; error?: string }> {
   try {
-    const response = await fetch('/api/subscribe', {
+    const response = await fetch('/api/subscribe/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -188,22 +168,9 @@ export function getEmailTags(answers: QuizAnswers, riskLevel: 'low' | 'medium' |
   // Usage status
   tags.push(`usage-${answers.currentUsage}`);
 
-  // Role
-  tags.push(`role-${answers.role.toLowerCase().replace(/\s+/g, '-')}`);
-
   // Pain point tags
   answers.biggestFears.forEach(fear => {
     tags.push(`fear-${fear}`);
-  });
-
-  // Experienced failure
-  if (answers.experiencedFailure === 'yes') {
-    tags.push('experienced-failure');
-  }
-
-  // Cost impact
-  answers.costImpact.forEach(impact => {
-    tags.push(`cost-${impact}`);
   });
 
   return tags;

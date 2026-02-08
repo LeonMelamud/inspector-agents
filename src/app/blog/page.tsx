@@ -79,7 +79,7 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <Link
             href="/"
-            className="text-green-600 hover:text-green-700 font-medium inline-flex items-center gap-2 mb-4"
+            className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center gap-2 mb-4"
           >
             ← Back to Home
           </Link>
@@ -108,14 +108,14 @@ export default function BlogPage() {
               >
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="inline-block px-3 py-1 text-xs font-medium text-green-700 bg-green-50 rounded-full">
+                    <span className="inline-block px-3 py-1 text-xs font-medium text-primary-700 bg-primary-50 rounded-full">
                       {post.category}
                     </span>
                     <span className="text-sm text-stone-500">
                       {post.readTime}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold text-stone-900 mb-3 group-hover:text-green-600 transition-colors">
+                  <h3 className="text-xl font-bold text-stone-900 mb-3 group-hover:text-primary-600 transition-colors">
                     {post.title}
                   </h3>
                   <p className="text-stone-600 mb-4 line-clamp-3">
@@ -128,7 +128,7 @@ export default function BlogPage() {
                     >
                       {formatDate(post.date)}
                     </time>
-                    <span className="text-green-600 font-medium group-hover:text-green-700">
+                    <span className="text-primary-600 font-medium group-hover:text-primary-700">
                       Read more →
                     </span>
                   </div>
@@ -155,14 +155,14 @@ export default function BlogPage() {
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="inline-block px-3 py-1 text-xs font-medium text-green-700 bg-green-50 rounded-full">
+                      <span className="inline-block px-3 py-1 text-xs font-medium text-primary-700 bg-primary-50 rounded-full">
                         {post.category}
                       </span>
                       <span className="text-sm text-stone-500">
                         {post.readTime}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-stone-900 mb-2 group-hover:text-green-600 transition-colors">
+                    <h3 className="text-xl font-bold text-stone-900 mb-2 group-hover:text-primary-600 transition-colors">
                       {post.title}
                     </h3>
                     <p className="text-stone-600">{post.description}</p>
@@ -174,7 +174,7 @@ export default function BlogPage() {
                     >
                       {formatDate(post.date)}
                     </time>
-                    <span className="text-green-600 font-medium group-hover:text-green-700">
+                    <span className="text-primary-600 font-medium group-hover:text-primary-700">
                       Read more →
                     </span>
                   </div>
@@ -186,18 +186,18 @@ export default function BlogPage() {
       )}
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-green-600 to-green-700 py-16">
+      <section className="bg-gradient-to-br from-primary-800 to-primary-900 py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Discover Your AI Risk Level
           </h2>
-          <p className="text-green-50 text-lg mb-8">
+          <p className="text-primary-100 text-lg mb-8">
             Take our 2-minute quiz to identify your biggest AI vulnerabilities
             and get a personalized action plan.
           </p>
           <Link
             href="/quiz"
-            className="inline-block bg-white text-green-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-50 transition-colors shadow-lg"
+            className="inline-block bg-white text-primary-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-50 transition-colors shadow-lg"
           >
             Take the AI Risk Quiz →
           </Link>

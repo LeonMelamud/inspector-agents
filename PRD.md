@@ -47,12 +47,12 @@ Build a focused landing site for InspectAgents.com to **validate the market** an
 ## Technical Details
 
 ### Stack (Phase 1 - Keep It Simple)
-- **Framework**: Next.js 16+ with `output: 'export'` for static site
-- **Hosting**: GitHub Pages OR Vercel (both free, Vercel easier)
+- **Framework**: Next.js 16+ (App Router) — hybrid deployment (static pages + serverless API routes)
+- **Hosting**: Vercel (required for API routes — NOT static export)
 - **Styling**: Tailwind CSS
-- **Analytics**: Plausible (privacy-friendly) or Vercel Analytics
-- **Forms/Email**: Formspree, Typeform embed, or ConvertKit
-- **Quiz**: Client-side React component, stores answers locally, submits to form backend
+- **Analytics**: Vercel Analytics (privacy-friendly)
+- **Forms/Email**: Resend / ConvertKit / n8n (auto-detected from env vars)
+- **Quiz**: Client-side React component, stores answers locally, submits to `/api/subscribe`
 
 ### Color Palette (Professional, Warm, Trustworthy)
 **Primary - Forest Green** (Trust, Growth, Safety):
@@ -215,7 +215,7 @@ module.exports = {
 
 ## Phase 2 (After Validation)
 Once we have 100+ quiz completions and understand the market:
-- Upgrade to Vercel with API routes
+- ~~Upgrade to Vercel with API routes~~ ✅ DONE (moved from static export)
 - Build MCP server for AI chat presence
 - Create OpenAI GPT Action for GPT Store
 - Add MCP-UI for visual presence in AI chats

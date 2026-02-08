@@ -139,26 +139,14 @@ export function StickyCtaBar({
       aria-label="Call to action banner"
     >
       {/* Bar Content */}
-      <div className="bg-gradient-to-r from-green-600 to-green-700 shadow-2xl border-t-4 border-green-500">
+      <div className="bg-primary-900 shadow-2xl border-t border-primary-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             {/* Message */}
             <div className="flex items-center gap-3 text-center sm:text-left">
               {/* Icon */}
-              <div className="hidden sm:block w-10 h-10 bg-white/20 rounded-lg flex-shrink-0 flex items-center justify-center">
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                  />
-                </svg>
+              <div className="hidden sm:flex w-10 h-10 bg-accent-500 rounded-lg flex-shrink-0 items-center justify-center">
+                <span className="text-primary-900 font-bold text-sm">IA</span>
               </div>
 
               {/* Text */}
@@ -166,7 +154,7 @@ export function StickyCtaBar({
                 <p className="text-white font-semibold text-base sm:text-lg">
                   {message}
                 </p>
-                <p className="text-green-100 text-xs sm:text-sm">
+                <p className="text-primary-300 text-xs sm:text-sm">
                   500+ AI failures analyzed • 250+ teams protected
                 </p>
               </div>
@@ -178,7 +166,7 @@ export function StickyCtaBar({
               <Link
                 href={ctaLink}
                 onClick={handlePrimaryClick}
-                className="flex-1 sm:flex-initial bg-white text-green-700 font-semibold px-4 sm:px-6 py-2.5 rounded-lg hover:bg-green-50 transition-colors shadow-lg hover:shadow-xl text-sm sm:text-base whitespace-nowrap text-center"
+                className="flex-1 sm:flex-initial bg-accent-500 text-primary-900 font-semibold px-4 sm:px-6 py-2.5 rounded-full hover:bg-accent-400 transition-colors shadow-lg hover:shadow-xl text-sm sm:text-base whitespace-nowrap text-center"
               >
                 {ctaText}
               </Link>
@@ -187,7 +175,7 @@ export function StickyCtaBar({
               <Link
                 href={secondaryCtaLink}
                 onClick={handleSecondaryClick}
-                className="flex-1 sm:flex-initial bg-green-800 text-white font-medium px-4 sm:px-5 py-2.5 rounded-lg hover:bg-green-900 transition-colors border border-green-500/30 text-sm sm:text-base whitespace-nowrap text-center"
+                className="flex-1 sm:flex-initial bg-primary-800 text-white font-medium px-4 sm:px-5 py-2.5 rounded-full hover:bg-primary-700 transition-colors border border-primary-600 text-sm sm:text-base whitespace-nowrap text-center"
               >
                 {secondaryCtaText}
               </Link>
