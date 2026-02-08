@@ -199,22 +199,73 @@ export function ExternalResources() {
             </div>
           </div>
 
-          {/* CTA back to internal content */}
-          <div className="mt-10 text-center p-6 bg-primary-900 rounded-xl text-white">
-            <p className="text-sm text-primary-300 mb-2">Ready to apply these standards to your AI agents?</p>
-            <div className="flex justify-center gap-4 flex-wrap">
-              <Link
-                href="/quiz/"
-                className="inline-flex items-center bg-accent-500 text-primary-900 px-6 py-2.5 rounded-full font-bold hover:bg-accent-400 transition-colors text-sm"
-              >
-                Take the AI Risk Quiz
-              </Link>
-              <Link
-                href="/failures/"
-                className="inline-flex items-center bg-primary-800 text-white border border-primary-600 px-6 py-2.5 rounded-full font-semibold hover:bg-primary-700 transition-colors text-sm"
-              >
-                Browse 500+ AI Failures
-              </Link>
+          {/* Emotional CTA — human connection */}
+          <div className="mt-14 relative overflow-hidden rounded-2xl">
+            {/* Background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900" />
+            <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
+
+            <div className="relative px-6 py-12 sm:px-10 sm:py-14 text-center">
+              {/* Decorative line */}
+              <div className="flex justify-center mb-6">
+                <div className="w-12 h-[2px] bg-accent-400 rounded-full" />
+              </div>
+
+              <p className="text-primary-300 text-sm font-medium tracking-wide uppercase mb-4">
+                You don&apos;t have to learn all of this alone
+              </p>
+
+              <h3 className="text-2xl sm:text-3xl font-bold text-white max-w-2xl mx-auto leading-snug mb-4">
+                Your family didn&apos;t sign up for
+                <br className="hidden sm:block" />
+                <span className="text-accent-400"> late nights reading AI safety papers.</span>
+              </h3>
+
+              <p className="text-primary-200 max-w-xl mx-auto text-base sm:text-lg leading-relaxed mb-3">
+                There are 20+ frameworks above. Hundreds of pages of research. Risks that evolve faster than any one person can track.
+              </p>
+
+              <p className="text-white max-w-xl mx-auto text-base sm:text-lg leading-relaxed font-medium mb-8">
+                Or you can let us do the learning — so you can go home on time, be present at dinner, and know your AI agents are safe.
+              </p>
+
+              {/* Trust proof */}
+              <div className="flex items-center justify-center gap-6 mb-8 text-sm text-primary-300">
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  500+ failure patterns tracked
+                </span>
+                <span className="hidden sm:flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  Continuously updated
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  2-min risk assessment
+                </span>
+              </div>
+
+              {/* CTA buttons */}
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Link
+                  href="/quiz/"
+                  className="inline-flex items-center justify-center bg-accent-500 text-primary-900 px-8 py-3.5 rounded-full font-bold text-base hover:bg-accent-400 transition-all hover:scale-[1.02] shadow-lg shadow-accent-500/25"
+                >
+                  Find Out If Your AI Is at Risk
+                  <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                </Link>
+                <Link
+                  href="/failures/"
+                  className="inline-flex items-center justify-center bg-white/10 text-white border border-white/20 px-8 py-3.5 rounded-full font-semibold text-base hover:bg-white/15 transition-all backdrop-blur-sm"
+                >
+                  See What Can Go Wrong
+                </Link>
+              </div>
+
+              {/* Closing emotional line */}
+              <p className="mt-8 text-primary-400 text-sm italic">
+                The people who matter most to you are waiting. We&apos;ll handle the rest.
+              </p>
             </div>
           </div>
         </div>
