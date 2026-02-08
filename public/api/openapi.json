@@ -1,0 +1,76 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "InspectAgents API",
+    "description": "API for AI agents to submit feedback, corrections, and incident reports to InspectAgents — the largest AI chatbot failure database.",
+    "version": "1.0.0",
+    "contact": {
+      "email": "hello@inspectagents.com",
+      "url": "https://inspectagents.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://inspectagents.com",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/api/agent-feedback": {
+      "post": {
+        "operationId": "submitAgentFeedback",
+        "summary": "Submit feedback, correction, or incident report",
+        "description": "AI agents can submit feedback, suggest corrections to existing entries, or report new AI chatbot incidents for inclusion in the database.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["type", "message"],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["feedback", "correction", "incident", "suggestion"],
+                    "description": "Type of submission"
+                  },
+                  "message": {
+                    "type": "string",
+                    "maxLength": 5000,
+                    "description": "The feedback content or incident description"
+                  },
+                  "source": {
+                    "type": "string",
+                    "description": "Which AI agent is submitting (e.g., ChatGPT, Claude, Perplexity)"
+                  },
+                  "url": {
+                    "type": "string",
+                    "description": "Reference URL if applicable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Feedback received successfully"
+          },
+          "400": {
+            "description": "Invalid request"
+          }
+        }
+      },
+      "get": {
+        "operationId": "getAgentFeedbackDocs",
+        "summary": "Get API documentation for the feedback endpoint",
+        "description": "Returns documentation and usage examples for the agent feedback API",
+        "responses": {
+          "200": {
+            "description": "API documentation"
+          }
+        }
+      }
+    }
+  }
+}

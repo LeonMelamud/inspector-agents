@@ -21,17 +21,16 @@ Every push to `main` auto-deploys. Pull requests get preview URLs.
 
 Set these in **Vercel Dashboard → Settings → Environment Variables**:
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `RESEND_API_KEY` | Yes (for email) | Get from [resend.com](https://resend.com) (free: 3K emails/month) |
-| `RESEND_AUDIENCE_ID` | Yes (for email) | Create an audience in Resend dashboard |
-| `N8N_WEBHOOK_URL` | Optional | n8n webhook (takes priority over Resend if set) |
-| `CONVERTKIT_API_KEY` | Optional | ConvertKit alternative |
-| `CONVERTKIT_FORM_ID` | Optional | ConvertKit form ID |
+| Variable | Required | Status | Description |
+|----------|----------|--------|-------------|
+| `RESEND_API_KEY` | Yes | ✅ Configured | Get from [resend.com](https://resend.com) (free: 3K emails/month) |
+| `RESEND_AUDIENCE_ID` | Yes | ✅ Configured | Create an audience in Resend dashboard |
 
-**Provider priority:** n8n > Resend > ConvertKit (auto-detected).
+**Active provider:** Resend (configured in Vercel as of Feb 2026).
 
-The site works without any email env vars — the quiz and pages load fine, but email capture silently fails.
+Resend handles contact storage (Audiences), welcome emails (3 risk-level templates), and sending (3K/month free).
+
+The site works without email env vars — the quiz and pages load fine, but email capture silently fails.
 
 ## Custom Domain (Cloudflare DNS)
 

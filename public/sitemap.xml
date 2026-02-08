@@ -56,9 +56,33 @@
   <!-- Checklist -->
   <url>
     <loc>https://inspectagents.com/checklist/</loc>
-    <lastmod>2026-01-24</lastmod>
+    <lastmod>2026-02-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- LLMs.txt - AI Agent Discovery -->
+  <url>
+    <loc>https://inspectagents.com/llms.txt</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- LLMs Full Context -->
+  <url>
+    <loc>https://inspectagents.com/llms-full.txt</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- AI Plugin Manifest -->
+  <url>
+    <loc>https://inspectagents.com/.well-known/ai-plugin.json</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>

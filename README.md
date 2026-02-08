@@ -18,17 +18,14 @@ npm run build       # Production build
 cp .env.example .env.local
 ```
 
-Three providers supported (auto-detected from env vars):
+Email is powered by **Resend** (configured in Vercel):
 
-| Provider | Env Vars | Best For |
-|----------|----------|----------|
-| **n8n** (recommended) | `N8N_WEBHOOK_URL` | Free, flexible workflows |
-| **Resend** | `RESEND_API_KEY`, `RESEND_AUDIENCE_ID` | Developer-friendly |
-| **ConvertKit** | `CONVERTKIT_API_KEY`, `CONVERTKIT_FORM_ID` | Marketer-friendly |
+| Env Var | Description |
+|---------|-------------|
+| `RESEND_API_KEY` | Get from [resend.com](https://resend.com) |
+| `RESEND_AUDIENCE_ID` | Create in Resend dashboard |
 
-Priority: n8n > Resend > ConvertKit.
-
-Guides: [EMAIL_SETUP.md](docs/EMAIL_SETUP.md) | [N8N_SETUP.md](docs/N8N_SETUP.md)
+Guide: [EMAIL_SETUP.md](docs/EMAIL_SETUP.md)
 
 ## Tech Stack
 

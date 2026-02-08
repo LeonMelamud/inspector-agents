@@ -37,6 +37,14 @@ All 17 tasks from PRD.md completed:
 - Updated AGENTS.md with project-specific instructions
 - Cleaned up README.md and PRD.md (removed stale "static export" references)
 
+## Deployment Status (Feb 8, 2026)
+
+- Resend configured in Vercel (RESEND_API_KEY + RESEND_AUDIENCE_ID set)
+- Removed n8n and ConvertKit — Resend is the sole email provider
+- Deleted: n8n-email-workflow.json, docs/N8N_SETUP.md
+- Simplified: route.ts, email.ts, EMAIL_SETUP.md, .env.example, README.md, DEPLOYMENT.md, PRD.md, privacy page
+- Site deployed on Vercel Hobby tier
+
 ## Phase 2 — NOT STARTED
 
 See PRD.md for Phase 2 plan (MCP server, GPT Action, A/B testing, paid features).

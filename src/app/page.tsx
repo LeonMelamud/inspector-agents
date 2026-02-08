@@ -11,6 +11,7 @@ const KeyRisks = dynamic(() => import('@/components/sections/KeyRisks').then(m =
 const Stats = dynamic(() => import('@/components/sections/Stats').then(m => ({ default: m.Stats })));
 const CtaSection = dynamic(() => import('@/components/sections/CtaSection').then(m => ({ default: m.CtaSection })));
 const FaqSection = dynamic(() => import('@/components/sections/FaqSection').then(m => ({ default: m.FaqSection })));
+const ExternalResources = dynamic(() => import('@/components/sections/ExternalResources').then(m => ({ default: m.ExternalResources })));
 const Footer = dynamic(() => import('@/components/sections/Footer').then(m => ({ default: m.Footer })));
 
 export const metadata: Metadata = {
@@ -107,6 +108,10 @@ export default function Home() {
 
       <Suspense fallback={<SectionSkeleton />}>
         <FaqSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionSkeleton />}>
+        <ExternalResources />
       </Suspense>
 
       <Suspense fallback={<SectionSkeleton />}>

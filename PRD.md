@@ -51,7 +51,7 @@ Build a focused landing site for InspectAgents.com to **validate the market** an
 - **Hosting**: Vercel (required for API routes — NOT static export)
 - **Styling**: Tailwind CSS
 - **Analytics**: Vercel Analytics (privacy-friendly)
-- **Forms/Email**: Resend / ConvertKit / n8n (auto-detected from env vars)
+- **Forms/Email**: Resend (contacts, welcome emails, sending)
 - **Quiz**: Client-side React component, stores answers locally, submits to `/api/subscribe`
 
 ### Color Palette (Professional, Warm, Trustworthy)

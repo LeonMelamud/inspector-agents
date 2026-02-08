@@ -23,22 +23,19 @@ Extract Pain Points & Tags
     ↓
 Submit to API (/api/subscribe/route.ts)
     ↓
-Choose Provider (Resend or ConvertKit)
-    ↓
-Send Welcome Email (risk-level specific)
+Resend: Create Contact + Send Welcome Email
     ↓
 Tag for Nurture Sequence
 ```
 
-## Email Providers Supported
-
-### Option 1: Resend (Recommended for Developers)
+## Email Provider: Resend
 
 **Pros:**
 - Developer-friendly API
 - Built-in React email templates
 - Great deliverability
-- Simple pricing
+- Simple pricing (3K emails/month free)
+- Contact storage via Audiences
 
 **Setup:**
 
@@ -77,55 +74,6 @@ curl -X POST http://localhost:3000/api/subscribe \
       "email": "test@example.com"
     },
     "topPainPoints": ["hallucinations", "security"]
-  }'
-```
-
-### Option 2: ConvertKit (Recommended for Marketers)
-
-**Pros:**
-- Powerful automation builder
-- Built-in landing pages
-- Tag-based segmentation
-- Email sequence management
-
-**Setup:**
-
-1. Create account at [convertkit.com](https://convertkit.com)
-2. Create a form for quiz subscribers
-3. Get API key and Form ID
-4. Add environment variables:
-
-```bash
-# .env.local
-CONVERTKIT_API_KEY=ck_xxxxxxxxxxxxxxxxxxxxx
-CONVERTKIT_FORM_ID=123456
-```
-
-5. Set up tags in ConvertKit:
-   - `risk-high`, `risk-medium`, `risk-low`
-   - `fear-hallucinations`, `fear-security`, `fear-reputation`, `fear-cost`, `fear-dont-know`
-   - `usage-yes`, `usage-no`, `usage-planning`
-   - `experienced-failure`
-   - `role-cto`, `role-founder`, `role-developer`, etc.
-
-6. Create custom fields:
-   - `risk_level` (text)
-   - `quiz_completed` (date)
-   - `current_usage` (text)
-   - `biggest_fears` (text)
-   - `role` (text)
-
-**Testing:**
-```bash
-# Test ConvertKit subscription
-curl -X POST http://localhost:3000/api/subscribe \
-  -H "Content-Type: application/json" \
-  -d '{
-    "provider": "convertkit",
-    "email": "test@example.com",
-    "riskLevel": "medium",
-    "quizAnswers": {...},
-    "topPainPoints": ["security", "reputation"]
   }'
 ```
 
@@ -225,33 +173,10 @@ function calculateRiskLevel(answers: QuizAnswers): 'low' | 'medium' | 'high' {
 
 ### In Resend:
 
-1. Use Resend's automation features (if available)
+1. Use Resend's automation features
 2. Or integrate with external automation (Zapier, Make)
 3. Tag contacts based on risk level
 4. Schedule follow-up emails via API
-
-### In ConvertKit:
-
-1. Go to **Automations** → **New Automation**
-2. Create 3 sequences (one per risk level):
-   - "High Risk Nurture"
-   - "Medium Risk Nurture"
-   - "Low Risk Nurture"
-
-3. **Trigger:** Tag added → `risk-high` (or medium/low)
-
-4. **Actions:**
-   - Wait 1 day → Send email "Day 2: #1 Cause"
-   - Wait 1 day → Send email "Day 3: Case Study"
-   - Wait 1 day → Send email "Day 4: 5-Min Audit"
-   - Wait 1 day → Send email "Day 5: Emergency Plan"
-
-5. **Email Content:** Write in ConvertKit's email builder using the structure from `/src/emails/` templates
-
-6. **Advanced:** Add conditional splits based on engagement:
-   - If opened → Continue sequence
-   - If clicked link → Tag as "highly engaged"
-   - If no opens after 3 emails → Tag as "re-engagement needed"
 
 ## Tags & Segmentation
 
@@ -369,13 +294,12 @@ Track these metrics:
 
 ## Next Steps
 
-1. **Set up provider** (Resend or ConvertKit)
-2. **Configure environment variables**
-3. **Test email flow** with sample submission
-4. **Create nurture sequences** in provider dashboard
-5. **Write follow-up emails** (Day 2-5 content)
-6. **Set up analytics** to track performance
-7. **Monitor and optimize** based on engagement
+1. **Verify Resend config** in Vercel env vars
+2. **Test email flow** with sample submission
+3. **Create nurture sequences** in Resend dashboard
+4. **Write follow-up emails** (Day 2-5 content)
+5. **Set up analytics** to track performance
+6. **Monitor and optimize** based on engagement
 
 ## Support
 

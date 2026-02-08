@@ -62,7 +62,7 @@ export default function PrivacyPage() {
 
             <h2 className="font-display text-2xl font-bold text-primary-900 mt-10 mb-4">5. Email Communications</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              If you subscribe to our newsletter, we use third-party email services (such as ConvertKit or Resend) to manage and deliver emails. You can unsubscribe from our emails at any time by clicking the unsubscribe link in any email you receive from us.
+              If you subscribe to our newsletter, we use Resend to manage and deliver emails. You can unsubscribe from our emails at any time by clicking the unsubscribe link in any email you receive from us.
             </p>
 
             <h2 className="font-display text-2xl font-bold text-primary-900 mt-10 mb-4">6. Cookies</h2>

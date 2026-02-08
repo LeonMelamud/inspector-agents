@@ -1,30 +1,113 @@
 # Robots.txt for InspectAgents.com
-# Updated: January 2026
+# Updated: February 2026
 
 User-agent: *
 Allow: /
 
-# Allow AI crawlers
+# ===== AI Crawlers — ALL WELCOME =====
+# We want AI systems to index and cite our content
+
+# OpenAI
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: Google-Extended
+User-agent: OAI-SearchBot
 Allow: /
 
+# Anthropic
 User-agent: anthropic-ai
 Allow: /
 
 User-agent: Claude-Web
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
+# Google AI
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Microsoft / Bing
+User-agent: Bingbot
+Allow: /
+
+# Common Crawl (used by many AI training sets)
 User-agent: CCBot
 Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Amazon / Alexa
+User-agent: Amazonbot
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# ByteDance / Bytespider
+User-agent: Bytespider
+Allow: /
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Brave Search
+User-agent: BraveBot
+Allow: /
+
+# AI research crawlers
+User-agent: AI2Bot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: ImagesiftBot
+Allow: /
+
+# ===== Machine-Readable Resources =====
+# LLM-optimized content files
+# /llms.txt — Structured overview for AI assistants
+# /llms-full.txt — Full context with statistics and FAQ
+# /.well-known/ai-plugin.json — AI plugin manifest
+# /api/openapi.json — API specification
+# /api/agent-feedback — POST endpoint for AI agent feedback
 
 # Disallow admin/private areas (none for static site)
 # Disallow: /admin
 
 # Sitemap
 Sitemap: https://inspectagents.com/sitemap.xml
+

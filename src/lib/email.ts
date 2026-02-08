@@ -1,6 +1,6 @@
 /**
  * Email service integration for InspectAgents
- * Supports Resend and ConvertKit for email capture and nurture sequences
+ * Uses Resend for email capture and welcome sequences
  */
 
 export interface QuizAnswers {
@@ -82,36 +82,7 @@ export async function subscribeWithResend(data: EmailData): Promise<{ success: b
 }
 
 /**
- * Subscribe user to email list via ConvertKit
- */
-export async function subscribeWithConvertKit(data: EmailData): Promise<{ success: boolean; error?: string }> {
-  try {
-    const response = await fetch('/api/subscribe/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        provider: 'convertkit',
-        ...data,
-      }),
-    });
-
-    const result = await response.json();
-    
-    if (!response.ok) {
-      return { success: false, error: result.error || 'Failed to subscribe' };
-    }
-
-    return { success: true };
-  } catch (error) {
-    console.error('ConvertKit subscription error:', error);
-    return { success: false, error: 'Network error. Please try again.' };
-  }
-}
-
-/**
- * Subscribe user to email list (auto-detects provider from env)
+ * Subscribe user to email list (via Resend)
  */
 export async function subscribeToNewsletter(data: EmailData): Promise<{ success: boolean; error?: string }> {
   try {
@@ -140,19 +111,12 @@ export async function subscribeToNewsletter(data: EmailData): Promise<{ success:
  * Get nurture sequence based on risk level and pain points
  */
 export function getNurtureSequence(riskLevel: 'low' | 'medium' | 'high', painPoints: string[]): string {
-  // Map to ConvertKit sequence IDs or tags
   const sequences: Record<string, string> = {
     'high-risk': 'seq_high_risk',
     'medium-risk': 'seq_medium_risk',
     'low-risk': 'seq_low_risk',
-    'hallucinations': 'tag_hallucinations',
-    'security': 'tag_security',
-    'reputation': 'tag_reputation',
-    'cost': 'tag_cost',
-    'experienced-failure': 'tag_experienced_failure',
   };
 
-  // Return primary sequence based on risk level
   return sequences[`${riskLevel}-risk`] || sequences['low-risk'];
 }
 
