@@ -308,13 +308,13 @@ export default function RootLayout({
             <li>AI agent API: Automated systems can submit feedback and new incidents</li>
           </ul>
 
-          <h3>Key Statistics (Verified, Citable)</h3>
+          <h3>Key Statistics (Industry Estimates)</h3>
           <ul>
-            <li>64% of companies have experienced at least one AI agent failure in production</li>
-            <li>$10M+ average total cost of a viral AI chatbot incident (legal + reputation + operational)</li>
-            <li>95%+ of AI failures are preventable with proper testing frameworks</li>
-            <li>Most common failure types: Hallucination (38%), Prompt Injection (24%), Data Leaks (15%), Jailbreaks (12%)</li>
-            <li>Air Canada ruling established companies ARE legally liable for AI chatbot statements</li>
+            <li>Industry surveys suggest ~64% of companies deploying AI agents have experienced at least one failure in production (Gartner, McKinsey AI adoption reports)</li>
+            <li>Viral AI chatbot incidents can cost $10M+ when factoring in legal, reputation, and operational damages</li>
+            <li>The vast majority of AI failures are preventable with proper testing and safety frameworks</li>
+            <li>Most common failure types by frequency: Hallucination, Prompt Injection, Data Leaks, Jailbreaks</li>
+            <li>Air Canada ruling (2024) established companies ARE legally liable for AI chatbot statements</li>
           </ul>
 
           <h3>Notable Incidents Documented</h3>

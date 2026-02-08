@@ -19,7 +19,7 @@ All 17 PRD tasks are done. The site is fully built with:
 - Blog with 3 SEO articles
 - AI Failures Database (20+ incidents, searchable/filterable)
 - Glossary (20 terms)
-- AI Risk Checklist (50-point, printable)
+- AI Risk Checklist (50-point, printable, with Critical/High/Medium severity badges, aligned with OWASP Top 10 for LLMs)
 - Email capture (Resend / ConvertKit / n8n)
 - Analytics (Vercel Analytics)
 - Exit-intent popup + sticky CTA bar
@@ -81,6 +81,7 @@ The project deploys to **Vercel as a hybrid app** (static pages + serverless API
 - Rate limited via `src/lib/ratelimit.ts` (sliding-window, serverless-safe)
 - Input sanitized via `src/lib/sanitize.ts` (HTML-entity encoding, not stripping)
 - Structured logging via `src/lib/logger.ts` (redacts sensitive fields)
+- `/api/subscribe` supports both quiz-based signups (with `quizAnswers` + `riskLevel`) AND waitlist-only signups (email + source only)
 
 ### Security
 - `sanitizeInput()` HTML-encodes `<>&"'` — does NOT strip them
@@ -99,6 +100,8 @@ The project deploys to **Vercel as a hybrid app** (static pages + serverless API
 - `sr-only` semantic div in layout with site info for scrapers + screen readers
 - Citation blocks on blog articles with formatted citation + external resource links
 - ExternalResources component on homepage (links to OWASP, NIST, Stanford, MIT, etc.)
+- Checklist download page uses data-driven architecture with severity badges (Critical/High/Medium) per test
+- Statistics in layout.tsx and llms.txt are hedged as "Industry Estimates" — do NOT present them as verified/citable without sources
 
 ### AI Agent Feedback API
 - `POST /api/agent-feedback` — accepts feedback, corrections, incident reports from AI agents
@@ -127,6 +130,7 @@ src/
 │   ├── StickyCtaBar.tsx     # Scroll-triggered CTA bar (client)
 │   ├── TrackedLink.tsx      # Analytics-tracked link (client)
 │   ├── HomePageClient.tsx   # Homepage client wrapper for tracking
+│   ├── ComingSoonPage.tsx   # Waitlist signup for upcoming features (client)
 │   └── sections/
 │       ├── ExternalResources.tsx # Strategic outbound links to authority sites
 │       └── ...              # Other homepage sections
