@@ -45,9 +45,9 @@ interface StickyCtaBarProps {
  */
 export function StickyCtaBar({
   threshold = 400,
-  ctaText = 'Take 2-Min Quiz →',
+  ctaText = 'Can You Trust Your AI? →',
   ctaLink = '/quiz',
-  message = "Don't let AI destroy your business",
+  message = "Most teams can't — find out in 2 minutes",
   secondaryCtaText = 'Get Free Checklist',
   secondaryCtaLink = '/checklist',
 }: StickyCtaBarProps) {

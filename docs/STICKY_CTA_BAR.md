@@ -73,7 +73,7 @@ import { StickyCtaBar } from '@/components/StickyCtaBar';
 |------|------|---------|-------------|
 | `threshold` | number | 400 | Pixels scrolled before bar appears |
 | `message` | string | "Don't let AI destroy..." | Main headline text |
-| `ctaText` | string | "Take 2-Min Quiz →" | Primary button text |
+| `ctaText` | string | "Can You Trust Your AI? →" | Primary button text |
 | `ctaLink` | string | "/quiz" | Primary button destination |
 | `secondaryCtaText` | string | "Get Free Checklist" | Secondary button text |
 | `secondaryCtaLink` | string | "/checklist" | Secondary button destination |
