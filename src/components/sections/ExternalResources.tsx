@@ -25,9 +25,9 @@ const authorityResources: ResourceLink[] = [
   },
   {
     title: 'NIST AI Risk Management Framework',
-    url: 'https://www.nist.gov/artificial-intelligence/executive-order-safe-secure-and-trustworthy-artificial-intelligence',
+    url: 'https://www.nist.gov/itl/ai-risk-management-framework',
     source: 'NIST',
-    description: 'Federal AI safety standards and guidelines',
+    description: 'Federal framework for managing AI-associated risks',
   },
   {
     title: 'EU AI Act — Official Text',
@@ -37,7 +37,7 @@ const authorityResources: ResourceLink[] = [
   },
   {
     title: 'Stanford AI Index Report 2025',
-    url: 'https://aiindex.stanford.edu/report/',
+    url: 'https://hai.stanford.edu/ai-index',
     source: 'Stanford HAI',
     description: 'Annual benchmarking of AI progress and safety',
   },
@@ -54,16 +54,28 @@ const authorityResources: ResourceLink[] = [
     description: 'AI safety research and deployment practices',
   },
   {
-    title: 'Google DeepMind Safety Research',
-    url: 'https://deepmind.google/safety-ethics/',
+    title: 'Google DeepMind Responsibility & Safety',
+    url: 'https://deepmind.google/about/responsibility-safety/',
     source: 'Google DeepMind',
-    description: 'Evaluations and safety research for frontier AI',
+    description: 'Responsibility, safety and security research for frontier AI',
+  },
+  {
+    title: 'MITRE ATLAS — AI Threat Matrix',
+    url: 'https://atlas.mitre.org/',
+    source: 'MITRE',
+    description: 'Adversarial tactics and techniques against AI systems',
+  },
+  {
+    title: 'Google Secure AI Framework (SAIF)',
+    url: 'https://safety.google/cybersecurity-advancements/saif/',
+    source: 'Google',
+    description: 'Conceptual framework for securing AI systems',
   },
   {
     title: 'AI Incident Database (AIID)',
     url: 'https://incidentdatabase.ai/',
-    source: 'Partnership on AI',
-    description: 'Community-driven database of AI incidents',
+    source: 'Responsible AI Collaborative',
+    description: 'Community-driven database of real-world AI incidents',
   },
 ];
 
@@ -87,10 +99,10 @@ const highTrafficArticles: ResourceLink[] = [
     description: 'Comprehensive database of AI risks by category',
   },
   {
-    title: 'Red Teaming Language Models — Microsoft Research',
-    url: 'https://www.microsoft.com/en-us/research/blog/red-teaming-language-models/',
-    source: 'Microsoft Research',
-    description: 'Best practices for adversarial AI testing',
+    title: 'Microsoft AI Red Team — Building Future of Safer AI',
+    url: 'https://www.microsoft.com/en-us/security/blog/2023/08/07/microsoft-ai-red-team-building-future-of-safer-ai/',
+    source: 'Microsoft Security',
+    description: 'Best practices for adversarial AI red teaming',
   },
   {
     title: 'A Survey of Large Language Models (Paper)',
@@ -100,9 +112,21 @@ const highTrafficArticles: ResourceLink[] = [
   },
   {
     title: 'Lessons from Red Teaming 100 Generative AI Products',
-    url: 'https://www.microsoft.com/en-us/security/blog/2025/01/13/lessons-from-red-teaming-100-generative-ai-products/',
-    source: 'Microsoft Security',
+    url: 'https://www.microsoft.com/en-us/research/publication/lessons-from-red-teaming-100-generative-ai-products/',
+    source: 'Microsoft Research',
     description: 'Practical insights from real-world AI security testing',
+  },
+  {
+    title: 'PyRIT — Python Risk Identification Toolkit',
+    url: 'https://github.com/Azure/PyRIT',
+    source: 'Microsoft',
+    description: 'Open-source framework for red teaming generative AI',
+  },
+  {
+    title: 'Announcing Microsoft\'s PyRIT for AI Red Teaming',
+    url: 'https://www.microsoft.com/en-us/security/blog/2024/02/22/announcing-microsofts-open-automation-framework-to-red-team-generative-ai-systems/',
+    source: 'Microsoft Security',
+    description: 'Open automation framework for red teaming AI systems',
   },
 ];
 

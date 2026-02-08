@@ -639,7 +639,7 @@ export default function TestingGuideArticle() {
         <div className="bg-gray-50 rounded-lg p-6">
           <h3 className="text-sm font-bold text-gray-900 mb-4">🔗 Testing Tools & Frameworks Referenced</h3>
           <div className="grid sm:grid-cols-2 gap-3">
-            <a href="https://github.com/leondz/garak" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
+            <a href="https://github.com/NVIDIA/garak" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
               garak — LLM Vulnerability Scanner →
             </a>
             <a href="https://github.com/promptfoo/promptfoo" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
@@ -654,8 +654,14 @@ export default function TestingGuideArticle() {
             <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
               OWASP Top 10 for LLMs →
             </a>
-            <a href="https://www.microsoft.com/en-us/security/blog/2025/01/13/lessons-from-red-teaming-100-generative-ai-products/" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
+            <a href="https://www.microsoft.com/en-us/research/publication/lessons-from-red-teaming-100-generative-ai-products/" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
               Microsoft: Red Teaming 100 AI Products →
+            </a>
+            <a href="https://atlas.mitre.org/" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
+              MITRE ATLAS — AI Threat Matrix →
+            </a>
+            <a href="https://github.com/Azure/PyRIT" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-700 hover:text-primary-900 hover:underline">
+              PyRIT — AI Red Teaming Toolkit →
             </a>
           </div>
         </div>
