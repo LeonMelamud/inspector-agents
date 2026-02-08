@@ -27,12 +27,14 @@ export function ComingSoonPage({
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!email) return;
 
     setLoading(true);
+    setError('');
     try {
       // Track demand signal
       trackDemand.waitlistSignup(featureSlug);
@@ -48,12 +50,15 @@ export function ComingSoonPage({
         }),
       });
 
-      if (res.ok) {
+      const result = await res.json();
+
+      if (res.ok && result.success) {
         setSubmitted(true);
+      } else {
+        setError(result.error || 'Something went wrong. Please try again.');
       }
     } catch {
-      // Silent fail — analytics already captured the intent
-      setSubmitted(true);
+      setError('Network error. Please check your connection and try again.');
     } finally {
       setLoading(false);
     }
@@ -143,6 +148,9 @@ export function ComingSoonPage({
                     {loading ? 'Joining…' : 'Notify Me'}
                   </button>
                 </form>
+                {error && (
+                  <p className="text-red-600 text-sm mt-3">{error}</p>
+                )}
               </div>
             )}
           </div>

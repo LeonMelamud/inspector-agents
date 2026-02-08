@@ -71,19 +71,16 @@ export async function POST(request: NextRequest) {
     // Sanitize all inputs
     const email = sanitizeEmail(data.email);
     const firstName = sanitizeName(data.firstName);
+    const source = typeof data.source === 'string' ? data.source : '';
     const quizAnswers = sanitizeQuizAnswers(data.quizAnswers);
     const riskLevel = validateRiskLevel(data.riskLevel);
     const topPainPoints = sanitizeArray(data.topPainPoints);
 
-    // Validate required fields
-    if (!email || Object.keys(quizAnswers).length === 0 || !riskLevel) {
-      logger.warn('Invalid subscription request', { 
-        hasEmail: !!email, 
-        hasQuizAnswers: Object.keys(quizAnswers).length > 0, 
-        hasRiskLevel: !!riskLevel 
-      });
+    // Validate email is always required
+    if (!email) {
+      logger.warn('Invalid subscription request - missing email');
       return NextResponse.json(
-        { error: 'Missing required fields: email, quizAnswers, or riskLevel' },
+        { error: 'Missing required field: email' },
         { status: 400 }
       );
     }
@@ -98,8 +95,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Subscribe via Resend
-    const response = await subscribeWithResend({ email, firstName, quizAnswers, riskLevel, topPainPoints });
+    // Determine if this is a waitlist-only signup (no quiz data)
+    const isWaitlistOnly = !riskLevel || Object.keys(quizAnswers).length === 0;
+
+    let response: NextResponse;
+
+    if (isWaitlistOnly) {
+      // Waitlist-only signup: just add to audience, no welcome email
+      response = await subscribeWaitlist({ email, firstName, source });
+    } else {
+      // Full quiz signup: add to audience + send welcome email
+      response = await subscribeWithResend({ email, firstName, quizAnswers, riskLevel, topPainPoints });
+    }
 
     // Log successful request
     const duration = Date.now() - startTime;
@@ -117,6 +124,66 @@ export async function POST(request: NextRequest) {
     
     return NextResponse.json(
       { error: 'Internal server error. Please try again later.' },
+      { status: 500 }
+    );
+  }
+}
+
+/**
+ * Subscribe waitlist-only (no quiz data) via Resend
+ */
+async function subscribeWaitlist(data: {
+  email: string;
+  firstName: string;
+  source: string;
+}) {
+  const { email, firstName, source } = data;
+
+  try {
+    // Check if Resend is configured
+    if (!resend || !process.env.RESEND_API_KEY) {
+      throw new Error('Resend not configured. Set RESEND_API_KEY environment variable.');
+    }
+
+    // Add contact to Resend audience
+    let contactId: string | undefined;
+    if (AUDIENCE_ID) {
+      try {
+        const contact = await resend.contacts.create({
+          email,
+          firstName: firstName || undefined,
+          audienceId: AUDIENCE_ID,
+          unsubscribed: false,
+        });
+        contactId = contact.data?.id;
+      } catch (audienceError: any) {
+        if (!audienceError.message?.includes('already exists')) {
+          logger.warn('Failed to add waitlist contact to audience', { error: audienceError.message });
+        }
+      }
+    }
+
+    logger.info('Waitlist signup successful', { source });
+
+    return NextResponse.json({
+      success: true,
+      message: 'Successfully joined the waitlist!',
+      ...(contactId && { contactId }),
+      source,
+    });
+
+  } catch (error: any) {
+    logger.error('Waitlist subscription error', error);
+
+    if (error.message?.includes('already exists')) {
+      return NextResponse.json({
+        success: true,
+        message: 'You are already on the waitlist!',
+      });
+    }
+
+    return NextResponse.json(
+      { error: 'Failed to join waitlist. Please try again.' },
       { status: 500 }
     );
   }
@@ -149,7 +216,7 @@ async function subscribeWithResend(data: {
       try {
         const contact = await resend.contacts.create({
           email,
-          firstName: firstName || email.split('@')[0],
+          firstName: firstName || undefined,
           audienceId: AUDIENCE_ID,
           unsubscribed: false,
         });
@@ -163,7 +230,7 @@ async function subscribeWithResend(data: {
     }
 
     // Send immediate welcome email based on risk level
-    await sendWelcomeEmail(email, firstName || email.split('@')[0], riskLevel, topPainPoints);
+    await sendWelcomeEmail(email, firstName || '', riskLevel, topPainPoints);
 
     logger.info('Subscription successful via Resend', { riskLevel });
 

@@ -74,7 +74,7 @@ export default function ThankYouPage() {
 
       const emailData: EmailData = {
         email: parsedAnswers.email || '',
-        firstName: parsedAnswers.email?.split('@')[0],
+        firstName: '',
         quizAnswers: quizData,
         riskLevel: risk,
         topPainPoints,
