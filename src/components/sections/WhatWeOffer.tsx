@@ -12,7 +12,7 @@ const offerings = [
   {
     title: 'AI Risk Assessment',
     description: 'A structured questionnaire that evaluates your specific AI deployment against known risk categories.',
-    detail: 'Answer 7 questions about your AI agent deployment and receive a personalized risk profile with prioritized recommendations tailored to your use case.',
+    detail: 'Answer 3 questions about your AI agent deployment and receive a personalized risk profile with prioritized recommendations tailored to your use case.',
     href: '/quiz',
     linkText: 'Take the Assessment',
     bgClass: 'bg-primary-800',

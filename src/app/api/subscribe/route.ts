@@ -147,6 +147,15 @@ async function subscribeWaitlist(data: {
 
     // Add contact to Resend audience
     let contactId: string | undefined;
+    let audienceStatus = 'no_audience_id';
+    
+    logger.info('Waitlist: attempting contact creation', { 
+      hasAudienceId: !!AUDIENCE_ID, 
+      audienceIdLength: AUDIENCE_ID?.length,
+      audienceIdPrefix: AUDIENCE_ID?.substring(0, 8),
+      email 
+    });
+
     if (AUDIENCE_ID) {
       try {
         const contact = await resend.contacts.create({
@@ -156,19 +165,29 @@ async function subscribeWaitlist(data: {
           unsubscribed: false,
         });
         contactId = contact.data?.id;
+        audienceStatus = contactId ? 'created' : 'no_id_returned';
+        logger.info('Waitlist contact added to audience', { contactId, audienceStatus, contactData: JSON.stringify(contact) });
       } catch (audienceError: any) {
-        if (!audienceError.message?.includes('already exists')) {
-          logger.warn('Failed to add waitlist contact to audience', { error: audienceError.message });
-        }
+        audienceStatus = 'error';
+        // Always log the error for debugging
+        logger.error('Failed to add waitlist contact to audience', { 
+          error: audienceError.message,
+          statusCode: audienceError.statusCode,
+          name: audienceError.name,
+          fullError: JSON.stringify(audienceError),
+        });
       }
+    } else {
+      logger.warn('RESEND_AUDIENCE_ID is not set — contacts will not be saved');
     }
 
-    logger.info('Waitlist signup successful', { source });
+    logger.info('Waitlist signup completed', { source, audienceStatus, contactId });
 
     return NextResponse.json({
       success: true,
       message: 'Successfully joined the waitlist!',
       ...(contactId && { contactId }),
+      audienceStatus,
       source,
     });
 
@@ -212,6 +231,15 @@ async function subscribeWithResend(data: {
 
     // Optionally add contact to Resend audience (if AUDIENCE_ID is configured)
     let contactId: string | undefined;
+    let audienceStatus = 'no_audience_id';
+
+    logger.info('Quiz signup: attempting contact creation', { 
+      hasAudienceId: !!AUDIENCE_ID, 
+      audienceIdLength: AUDIENCE_ID?.length,
+      audienceIdPrefix: AUDIENCE_ID?.substring(0, 8),
+      email 
+    });
+
     if (AUDIENCE_ID) {
       try {
         const contact = await resend.contacts.create({
@@ -221,12 +249,19 @@ async function subscribeWithResend(data: {
           unsubscribed: false,
         });
         contactId = contact.data?.id;
+        audienceStatus = contactId ? 'created' : 'no_id_returned';
+        logger.info('Quiz contact added to audience', { contactId, audienceStatus, contactData: JSON.stringify(contact) });
       } catch (audienceError: any) {
-        // Don't fail if audience add fails — just log it
-        if (!audienceError.message?.includes('already exists')) {
-          logger.warn('Failed to add contact to audience', { error: audienceError.message });
-        }
+        audienceStatus = 'error';
+        logger.error('Failed to add quiz contact to audience', { 
+          error: audienceError.message,
+          statusCode: audienceError.statusCode,
+          name: audienceError.name,
+          fullError: JSON.stringify(audienceError),
+        });
       }
+    } else {
+      logger.warn('RESEND_AUDIENCE_ID is not set — contacts will not be saved');
     }
 
     // Send immediate welcome email based on risk level

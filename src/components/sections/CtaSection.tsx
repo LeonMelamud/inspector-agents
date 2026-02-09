@@ -15,7 +15,7 @@ export function CtaSection() {
           <div className="bg-white border border-gray-200 rounded-lg p-8 mb-8">
             <div className="grid sm:grid-cols-3 gap-6 text-left mb-8">
               {[
-                { step: '1', title: 'Answer 7 Questions', desc: 'About your AI deployment and use case' },
+                { step: '1', title: 'Answer 3 Questions', desc: 'About your AI deployment and use case' },
                 { step: '2', title: 'Receive Your Profile', desc: 'Personalized risk assessment results' },
                 { step: '3', title: 'Get Recommendations', desc: 'Prioritized steps to improve safety' },
               ].map((s) => (
