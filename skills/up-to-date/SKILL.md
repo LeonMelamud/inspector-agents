@@ -80,3 +80,9 @@ Check for mismatches:
 | `catch (e) { return { success: true } }` | Hides failures completely |
 | `if (CONFIG) { callAPI() }` with no else-log | Silent skip when config is missing |
 | Passing extra params API won't reject | Silently ignored, feature broken |
+
+## Related Skills
+
+- **dependency-management** — use alongside when resolving version conflicts or managing lockfiles
+- **third-party-integration** — use alongside when implementing the actual integration patterns after verifying docs
+- **api-versioning-strategy** — use when designing your own API's versioning, not checking upstream
