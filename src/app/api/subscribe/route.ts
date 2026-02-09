@@ -133,16 +133,18 @@ async function subscribeWaitlist(data: {
       throw new Error('Resend not configured. Set RESEND_API_KEY environment variable.');
     }
 
-    // Add contact to Resend (global contacts — no audienceId needed in v6+)
+    // Add contact to Resend (global contacts in v6+ — use segments instead of audienceId)
     let contactId: string | undefined;
     try {
+      const segmentId = process.env.RESEND_AUDIENCE_ID;
       const contact = await resend.contacts.create({
         email,
         firstName: firstName || undefined,
         unsubscribed: false,
+        ...(segmentId ? { segments: [{ id: segmentId }] } : {}),
       });
       contactId = contact.data?.id;
-      logger.info('Waitlist contact created', { contactId, email });
+      logger.info('Waitlist contact created', { contactId, email, segmentId: segmentId || 'none' });
     } catch (contactError: any) {
       // Don't fail the signup if contact creation fails
       logger.error('Failed to create waitlist contact', { 
@@ -196,16 +198,18 @@ async function subscribeWithResend(data: {
     // Generate tags for segmentation
     const tags = getEmailTags(quizAnswers as any, riskLevel);
 
-    // Add contact to Resend (global contacts — no audienceId needed in v6+)
+    // Add contact to Resend (global contacts in v6+ — use segments instead of audienceId)
     let contactId: string | undefined;
     try {
+      const segmentId = process.env.RESEND_AUDIENCE_ID;
       const contact = await resend.contacts.create({
         email,
         firstName: firstName || undefined,
         unsubscribed: false,
+        ...(segmentId ? { segments: [{ id: segmentId }] } : {}),
       });
       contactId = contact.data?.id;
-      logger.info('Quiz contact created', { contactId, email });
+      logger.info('Quiz contact created', { contactId, email, segmentId: segmentId || 'none' });
     } catch (contactError: any) {
       // Don't fail the signup if contact creation fails
       logger.error('Failed to create quiz contact', { 

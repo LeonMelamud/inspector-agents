@@ -81,6 +81,22 @@ Check for mismatches:
 | `if (CONFIG) { callAPI() }` with no else-log | Silent skip when config is missing |
 | Passing extra params API won't reject | Silently ignored, feature broken |
 
+## Bundled Resources
+
+### `scripts/check_versions.py`
+Automated version checker for npm and pip packages. Run it to quickly identify outdated dependencies:
+```bash
+# Check a single npm package
+python3 scripts/check_versions.py npm resend
+# Check all package.json dependencies
+python3 scripts/check_versions.py npm --all
+# Check a pip package
+python3 scripts/check_versions.py pip requests
+```
+
+### `references/doc-urls.md`
+Quick-reference table of official API documentation and changelog URLs for 30+ popular packages (email, payments, AI, databases, auth, cloud, analytics, frameworks). Consult this before searching — the correct URL may already be listed.
+
 ## Related Skills
 
 - **dependency-management** — use alongside when resolving version conflicts or managing lockfiles
