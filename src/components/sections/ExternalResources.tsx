@@ -230,7 +230,7 @@ export function ExternalResources() {
               </p>
 
               {/* Trust proof */}
-              <div className="flex items-center justify-center gap-6 mb-8 text-sm text-primary-300">
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-8 text-sm text-primary-300">
                 <span className="flex items-center gap-1.5">
                   <svg className="w-4 h-4 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
                   500+ failure patterns tracked

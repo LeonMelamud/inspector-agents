@@ -61,16 +61,16 @@ export function WhoWeAre() {
                 Learn More About InspectAgents
               </Link>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 min-[480px]:grid-cols-2 gap-3 sm:gap-4">
               {values.map((v) => (
-                <div key={v.title} className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded bg-primary-100 flex items-center justify-center">
+                <div key={v.title} className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200 shadow-sm">
+                  <div className="flex items-center gap-3 mb-2 sm:mb-3">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded bg-primary-100 flex items-center justify-center flex-shrink-0">
                       {v.icon}
                     </div>
-                    <h3 className="font-bold text-primary-900">{v.title}</h3>
+                    <h3 className="font-bold text-primary-900 text-sm sm:text-base leading-snug">{v.title}</h3>
                   </div>
-                  <p className="text-gray-600 text-sm">{v.description}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">{v.description}</p>
                 </div>
               ))}
             </div>

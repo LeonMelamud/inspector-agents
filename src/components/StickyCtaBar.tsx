@@ -166,7 +166,7 @@ export function StickyCtaBar({
               <Link
                 href={ctaLink}
                 onClick={handlePrimaryClick}
-                className="flex-1 sm:flex-initial bg-accent-500 text-primary-900 font-semibold px-4 sm:px-6 py-2.5 rounded-full hover:bg-accent-400 transition-colors shadow-lg hover:shadow-xl text-sm sm:text-base whitespace-nowrap text-center"
+                className="flex-1 sm:flex-initial bg-accent-500 text-primary-900 font-semibold px-4 sm:px-6 py-2.5 rounded-full hover:bg-accent-400 transition-colors shadow-lg hover:shadow-xl text-xs sm:text-base whitespace-nowrap text-center"
               >
                 {ctaText}
               </Link>
@@ -175,7 +175,7 @@ export function StickyCtaBar({
               <Link
                 href={secondaryCtaLink}
                 onClick={handleSecondaryClick}
-                className="flex-1 sm:flex-initial bg-primary-800 text-white font-medium px-4 sm:px-5 py-2.5 rounded-full hover:bg-primary-700 transition-colors border border-primary-600 text-sm sm:text-base whitespace-nowrap text-center"
+                className="flex-1 sm:flex-initial bg-primary-800 text-white font-medium px-4 sm:px-5 py-2.5 rounded-full hover:bg-primary-700 transition-colors border border-primary-600 text-xs sm:text-base whitespace-nowrap text-center"
               >
                 {secondaryCtaText}
               </Link>
