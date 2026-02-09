@@ -66,11 +66,11 @@ Check for mismatches:
 - Remove deprecated env vars and parameters
 - Update **all** call sites
 - Build to verify types
-- Test live and verify the actual side effect
+- Test live and **verify the actual downstream effect** — don't just check the HTTP status code. Confirm the resource appears where expected (dashboard, database, UI). A 200 with a valid-looking response body can still mean nothing happened.
 
 ## Why This Matters
 
-**Real incident:** Resend SDK v4 required `audienceId` in `contacts.create()`. By v6 it was removed — contacts became global. Code returned 200 but never saved contacts. Undetected for months because the catch block returned `{ success: true }`.
+**Real incident:** Resend deprecated Audiences and replaced them with Segments. `contacts.create()` without a `segments` parameter still returned 200 and a valid contact object — but the contact was a global orphan invisible in the dashboard. First fix removed `audienceId` (training data said it was gone). Second fix added `segments: [{ id }]` after fetching real docs. The 200 OK trap delayed discovery twice.
 
 ## Anti-Patterns
 
@@ -80,6 +80,8 @@ Check for mismatches:
 | `catch (e) { return { success: true } }` | Hides failures completely |
 | `if (CONFIG) { callAPI() }` with no else-log | Silent skip when config is missing |
 | Passing extra params API won't reject | Silently ignored, feature broken |
+| Trusting 200 + valid response body = success | Resource may exist but be orphaned/invisible |
+| Verifying only the API response, not the dashboard/DB | Missed side effects go undetected |
 
 ## Bundled Resources
 
