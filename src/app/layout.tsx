@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Source_Sans_3 } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/next';
 import { ExitIntentPopup } from '@/components/ExitIntentPopup';
 import { StickyCtaBar } from '@/components/StickyCtaBar';
 import { Navbar } from '@/components/Navbar';
