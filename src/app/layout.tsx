@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Source_Sans_3 } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ExitIntentPopup } from '@/components/ExitIntentPopup';
 import { StickyCtaBar } from '@/components/StickyCtaBar';
 import { Navbar } from '@/components/Navbar';
@@ -367,6 +368,7 @@ export default function RootLayout({
         <ExitIntentPopup />
         <StickyCtaBar />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
