@@ -11,7 +11,6 @@
 
 import { Resend } from 'resend';
 import { createElement } from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 import { logger } from '@/lib/logger';
 import WelcomeHighRisk from '@/emails/WelcomeHighRisk';
 import WelcomeMediumRisk from '@/emails/WelcomeMediumRisk';
@@ -101,16 +100,11 @@ export async function sendWelcomeEmail(input: {
 
     const Template = templates[input.riskLevel];
 
-    // Render React component to HTML string ourselves — avoids needing @react-email/render
-    const html = renderToStaticMarkup(
-      createElement(Template, { firstName: input.firstName, topPainPoints: input.topPainPoints }),
-    );
-
     const result = await r.emails.send({
       from: FROM_EMAIL,
       to: input.email,
       subject: subjects[input.riskLevel],
-      html,
+      react: createElement(Template, { firstName: input.firstName, topPainPoints: input.topPainPoints }),
     });
 
     if (result.error) {
