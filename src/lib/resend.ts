@@ -11,6 +11,7 @@
 
 import { Resend } from 'resend';
 import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { logger } from '@/lib/logger';
 import WelcomeHighRisk from '@/emails/WelcomeHighRisk';
 import WelcomeMediumRisk from '@/emails/WelcomeMediumRisk';
@@ -100,14 +101,28 @@ export async function sendWelcomeEmail(input: {
 
     const Template = templates[input.riskLevel];
 
-    await r.emails.send({
+    // Render React component to HTML string ourselves — avoids needing @react-email/render
+    const html = renderToStaticMarkup(
+      createElement(Template, { firstName: input.firstName, topPainPoints: input.topPainPoints }),
+    );
+
+    const result = await r.emails.send({
       from: FROM_EMAIL,
       to: input.email,
       subject: subjects[input.riskLevel],
-      react: createElement(Template, { firstName: input.firstName, topPainPoints: input.topPainPoints }),
+      html,
     });
 
-    logger.info('Welcome email sent', { riskLevel: input.riskLevel, email: input.email });
+    if (result.error) {
+      logger.error('Resend API error sending welcome email', {
+        error: result.error,
+        email: input.email,
+        riskLevel: input.riskLevel,
+      });
+      return;
+    }
+
+    logger.info('Welcome email sent', { riskLevel: input.riskLevel, email: input.email, emailId: result.data?.id });
   } catch (err) {
     logger.error('Failed to send welcome email', err instanceof Error ? err : new Error(String(err)));
     // Non-fatal — don't fail the signup
@@ -131,6 +146,15 @@ export async function sendContactConfirmation(input: {
     subject: `We received your request — ${input.refNumber}`,
     html: buildConfirmationHtml(input),
   });
+
+  if (result.error) {
+    logger.error('Resend API error sending contact confirmation', {
+      error: result.error,
+      email: input.email,
+      refNumber: input.refNumber,
+    });
+    return undefined;
+  }
 
   return result.data?.id;
 }
