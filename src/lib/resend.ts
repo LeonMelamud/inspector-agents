@@ -34,6 +34,7 @@ function ensureResend(): Resend {
 export interface CreateContactInput {
   email: string;
   firstName?: string;
+  source?: string;
 }
 
 /**
@@ -46,10 +47,11 @@ export async function createContact(input: CreateContactInput): Promise<string |
     const result = await r.contacts.create({
       email: input.email,
       firstName: input.firstName || undefined,
+      lastName: input.source || undefined,
       unsubscribed: false,
     });
     const contactId = result.data?.id;
-    logger.info('Contact created', { contactId, email: input.email });
+    logger.info('Contact created', { contactId, email: input.email, source: input.source });
     return contactId;
   } catch (err: any) {
     // Duplicate contact is not an error from the user's perspective

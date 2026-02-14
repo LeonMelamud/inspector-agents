@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 1. Create contact (shared for both flows)
-    const contactId = await createContact({ email, firstName });
+    const contactId = await createContact({ email, firstName, source });
 
     let response: NextResponse;
 
