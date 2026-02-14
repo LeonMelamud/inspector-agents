@@ -118,8 +118,8 @@ export const rateLimiters = {
   /** API endpoint: 5 requests per minute */
   api: createRateLimiter({ limit: 5, windowSeconds: 60, prefix: 'api' }),
   
-  /** Email subscription: 3 requests per 5 minutes */
-  subscribe: createRateLimiter({ limit: 3, windowSeconds: 300, prefix: 'sub' }),
+  /** Email subscription: 5 requests per 5 minutes */
+  subscribe: createRateLimiter({ limit: 5, windowSeconds: 300, prefix: 'sub' }),
   
   /** Strict rate limit: 2 requests per minute */
   strict: createRateLimiter({ limit: 2, windowSeconds: 60, prefix: 'strict' }),
