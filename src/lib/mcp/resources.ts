@@ -71,7 +71,7 @@ export function registerResources(server: McpServer): void {
           mimeType: 'application/json',
           text: JSON.stringify(
             {
-              total: 50,
+              total: CHECKLIST_SECTIONS.reduce((sum, s) => sum + s.count, 0),
               lastUpdated: '2026-02-14',
               source: 'https://inspectagents.com/checklist/',
               framework: 'OWASP Top 10 for LLM Applications',

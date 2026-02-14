@@ -306,13 +306,14 @@ export function registerTools(server: McpServer): void {
       }
 
       // Return full checklist
+      const totalItems = CHECKLIST_SECTIONS.reduce((sum, s) => sum + s.count, 0);
       return {
         content: [
           {
             type: 'text' as const,
             text: JSON.stringify(
               {
-                total: 50,
+                total: totalItems,
                 sections: CHECKLIST_SECTIONS.map((s) => ({
                   title: s.title,
                   subtitle: s.subtitle,
