@@ -15,7 +15,6 @@ if (process.env.RESEND_API_KEY) {
   }
 }
 
-const CONTACT_TO_EMAIL = process.env.CONTACT_EMAIL || 'leonmelamud@gmail.com';
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'InspectAgents <hello@inspectagents.com>';
 
 /**
@@ -93,27 +92,18 @@ export async function POST(request: NextRequest) {
     // Generate a short reference number from timestamp + random
     const refNumber = `INS-${Date.now().toString(36).toUpperCase().slice(-6)}-${Math.random().toString(36).slice(2, 5).toUpperCase()}`;
 
+    // Log full submission details (instead of sending admin email)
+    logger.info('Contact form submission', { refNumber, name, email, subject, message });
+
+    // Send confirmation to the requester
     const result = await resend.emails.send({
       from: FROM_EMAIL,
-      to: CONTACT_TO_EMAIL,
-      replyTo: email,
-      subject: `[Contact] ${subject} (${refNumber})`,
-      html: buildContactEmail({ name, email, subject, message, refNumber }),
+      to: email,
+      subject: `We received your request — ${refNumber}`,
+      html: buildConfirmationEmail({ name, subject, refNumber }),
     });
 
     const resendId = result?.data?.id;
-
-    // Send confirmation to the requester
-    try {
-      await resend.emails.send({
-        from: FROM_EMAIL,
-        to: email,
-        subject: `We received your request — ${refNumber}`,
-        html: buildConfirmationEmail({ name, subject, refNumber }),
-      });
-    } catch (confirmErr) {
-      logger.error('Failed to send confirmation email', confirmErr instanceof Error ? confirmErr : new Error(String(confirmErr)));
-    }
 
     const duration = Date.now() - startTime;
     logger.info('Contact form sent', { email, subject, refNumber, resendId });
@@ -134,55 +124,6 @@ export async function POST(request: NextRequest) {
       { status: 500 },
     );
   }
-}
-
-/**
- * Build a simple HTML email from the contact form data.
- */
-function buildContactEmail(data: {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-  refNumber: string;
-}): string {
-  return `
-    <div style="font-family: system-ui, -apple-system, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-        <h2 style="color: #1a2e44; margin: 0;">New Service Request</h2>
-        <span style="background: #059669; color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">${data.refNumber}</span>
-      </div>
-      <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
-        <tr>
-          <td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-weight: 600; width: 120px; background: #f9fafb;">Reference</td>
-          <td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-family: monospace; font-weight: 600; color: #059669;">${data.refNumber}</td>
-        </tr>
-        <tr>
-          <td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-weight: 600; background: #f9fafb;">Name</td>
-          <td style="padding: 8px 12px; border: 1px solid #e5e7eb;">${data.name || 'Not provided'}</td>
-        </tr>
-        <tr>
-          <td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-weight: 600; background: #f9fafb;">Email</td>
-          <td style="padding: 8px 12px; border: 1px solid #e5e7eb;"><a href="mailto:${data.email}" style="color: #059669;">${data.email}</a></td>
-        </tr>
-        <tr>
-          <td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-weight: 600; background: #f9fafb;">Service</td>
-          <td style="padding: 8px 12px; border: 1px solid #e5e7eb;">${data.subject}</td>
-        </tr>
-        <tr>
-          <td style="padding: 8px 12px; border: 1px solid #e5e7eb; font-weight: 600; background: #f9fafb;">Submitted</td>
-          <td style="padding: 8px 12px; border: 1px solid #e5e7eb;">${new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Jerusalem' })}</td>
-        </tr>
-      </table>
-      <div style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
-        <h3 style="margin: 0 0 8px 0; font-size: 14px; color: #6b7280;">Message</h3>
-        <p style="margin: 0; white-space: pre-wrap; color: #1a2e44; line-height: 1.6;">${data.message}</p>
-      </div>
-      <p style="margin: 0; font-size: 12px; color: #9ca3af;">
-        Sent from <a href="https://inspectagents.com/contact/" style="color: #9ca3af;">InspectAgents.com</a> contact form
-      </p>
-    </div>
-  `;
 }
 
 /**
