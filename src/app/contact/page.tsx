@@ -14,6 +14,7 @@ export default function ContactPage() {
   });
   const [status, setStatus] = useState<FormStatus>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const [refNumber, setRefNumber] = useState('');
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -36,6 +37,7 @@ export default function ContactPage() {
       }
 
       setStatus('success');
+      setRefNumber(data.refNumber || '');
       setForm({ name: '', email: '', subject: '', message: '' });
     } catch {
       setStatus('error');
@@ -101,9 +103,15 @@ export default function ContactPage() {
                   <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
                     <div className="text-4xl mb-3">✅</div>
                     <h3 className="text-xl font-bold text-green-800 mb-2">Request Received!</h3>
+                    {refNumber && (
+                      <div className="bg-white border border-green-200 rounded-lg px-4 py-3 mb-4 inline-block">
+                        <p className="text-xs text-stone-500 uppercase tracking-wider mb-1">Your Reference Number</p>
+                        <p className="text-xl font-mono font-bold text-primary-600">{refNumber}</p>
+                      </div>
+                    )}
                     <p className="text-green-700 mb-4">
-                      Thanks for reaching out. We'll review your request and get back to
-                      you as soon as we have availability.
+                      Thanks for reaching out. We&apos;ll review your request and get back to
+                      you within 24 hours. A confirmation email has been sent to your inbox.
                     </p>
                     <button
                       type="button"
