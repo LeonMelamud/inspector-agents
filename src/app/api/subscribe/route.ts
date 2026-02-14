@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
       response = await subscribeWaitlist({ email, firstName, source });
     } else {
       // Full quiz signup: add to audience + send welcome email
-      response = await subscribeWithResend({ email, firstName, quizAnswers, riskLevel, topPainPoints });
+      response = await subscribeWithResend({ email, firstName, source, quizAnswers, riskLevel, topPainPoints });
     }
 
     // Log successful request
@@ -140,9 +140,14 @@ async function subscribeWaitlist(data: {
         email,
         firstName: firstName || undefined,
         unsubscribed: false,
+        properties: {
+          source: source || 'unknown',
+          signup_type: 'waitlist',
+          signup_date: new Date().toISOString(),
+        },
       });
       contactId = contact.data?.id;
-      logger.info('Waitlist contact created', { contactId, email });
+      logger.info('Waitlist contact created', { contactId, email, source });
     } catch (contactError: any) {
       // Don't fail the signup if contact creation fails
       logger.error('Failed to create waitlist contact', { 
@@ -181,11 +186,12 @@ async function subscribeWaitlist(data: {
 async function subscribeWithResend(data: {
   email: string;
   firstName: string;
+  source: string;
   quizAnswers: Record<string, string | string[]>;
   riskLevel: 'low' | 'medium' | 'high';
   topPainPoints: string[];
 }) {
-  const { email, firstName, quizAnswers, riskLevel, topPainPoints } = data;
+  const { email, firstName, source, quizAnswers, riskLevel, topPainPoints } = data;
 
   try {
     // Check if Resend is configured
@@ -203,9 +209,15 @@ async function subscribeWithResend(data: {
         email,
         firstName: firstName || undefined,
         unsubscribed: false,
+        properties: {
+          source: source || 'quiz',
+          signup_type: 'quiz',
+          risk_level: riskLevel,
+          signup_date: new Date().toISOString(),
+        },
       });
       contactId = contact.data?.id;
-      logger.info('Quiz contact created', { contactId, email });
+      logger.info('Quiz contact created', { contactId, email, source, riskLevel });
     } catch (contactError: any) {
       // Don't fail the signup if contact creation fails
       logger.error('Failed to create quiz contact', { 

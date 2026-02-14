@@ -12,6 +12,7 @@ export interface QuizAnswers {
 export interface EmailData {
   email: string;
   firstName?: string;
+  source?: string;
   quizAnswers: QuizAnswers;
   riskLevel: 'low' | 'medium' | 'high';
   topPainPoints: string[];

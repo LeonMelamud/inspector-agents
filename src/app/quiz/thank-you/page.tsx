@@ -75,6 +75,7 @@ export default function ThankYouPage() {
       const emailData: EmailData = {
         email: parsedAnswers.email || '',
         firstName: '',
+        source: 'quiz',
         quizAnswers: quizData,
         riskLevel: risk,
         topPainPoints,
