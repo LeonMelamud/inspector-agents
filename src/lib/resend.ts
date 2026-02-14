@@ -10,6 +10,7 @@
  */
 
 import { Resend } from 'resend';
+import { createElement } from 'react';
 import { logger } from '@/lib/logger';
 import WelcomeHighRisk from '@/emails/WelcomeHighRisk';
 import WelcomeMediumRisk from '@/emails/WelcomeMediumRisk';
@@ -103,7 +104,7 @@ export async function sendWelcomeEmail(input: {
       from: FROM_EMAIL,
       to: input.email,
       subject: subjects[input.riskLevel],
-      react: Template({ firstName: input.firstName, topPainPoints: input.topPainPoints }),
+      react: createElement(Template, { firstName: input.firstName, topPainPoints: input.topPainPoints }),
     });
 
     logger.info('Welcome email sent', { riskLevel: input.riskLevel, email: input.email });
