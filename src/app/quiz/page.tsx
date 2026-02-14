@@ -216,7 +216,7 @@ export default function QuizPage() {
       <main className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto">
           {/* Question Card */}
-          <div className="bg-white rounded-xl shadow-lg p-8 md:p-12">
+          <div className="bg-white rounded-xl shadow-lg p-8 md:p-12" data-agent-tool="assess_risk" data-agent-description="AI risk assessment quiz">
             <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-3">
               {currentQuestion.title}
             </h1>

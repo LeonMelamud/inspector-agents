@@ -45,6 +45,30 @@ All 17 tasks from PRD.md completed:
 - Simplified: route.ts, email.ts, EMAIL_SETUP.md, .env.example, README.md, DEPLOYMENT.md, PRD.md, privacy page
 - Site deployed on Vercel Hobby tier
 
-## Phase 2 — NOT STARTED
+## Phase 2 — MCP Server (Feb 14, 2026)
 
-See PRD.md for Phase 2 plan (MCP server, GPT Action, A/B testing, paid features).
+MCP server implementation — webMCP pattern (HTTP-based, stateless, open-web):
+
+| # | Task | Status |
+|---|------|--------|
+| 1 | MCP server factory (stateless, Vercel compatible) | Done |
+| 2 | 5 tools: search_failures, get_failure, assess_risk, get_checklist, submit_feedback | Done |
+| 3 | 2 resources: failures/all, checklist/full | Done |
+| 4 | Streamable HTTP route (POST /api/mcp, JSON-RPC 2.0) | Done |
+| 5 | .well-known/mcp.json discovery file | Done |
+| 6 | CORS + OPTIONS preflight on MCP endpoint | Done |
+| 7 | Rate limiting (30 req/min per IP) | Done |
+| 8 | Structured error logging | Done |
+| 9 | submit_feedback wired to logger persistence | Done |
+| 10 | Shared risk calculation (no duplication with email.ts) | Done |
+| 11 | llms.txt + llms-full.txt updated with MCP docs | Done |
+| 12 | Layout meta tags (ai:mcp_server, ai:mcp_discovery) | Done |
+| 13 | Sitemap updated with mcp.json | Done |
+| 14 | trailingSlash rewrite for .well-known files | Done |
+| 15 | CORS headers on .well-known + MCP in next.config | Done |
+
+### Still TODO (Phase 2 remainder)
+
+- GPT Action (ChatGPT Plugin integration)
+- A/B testing framework
+- Paid features / premium tier

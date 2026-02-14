@@ -42,6 +42,16 @@ const nextConfig: NextConfig = {
   },
   trailingSlash: true,
 
+  // Prevent trailingSlash redirects on .well-known files
+  async rewrites() {
+    return [
+      {
+        source: '/.well-known/:file',
+        destination: '/.well-known/:file',
+      },
+    ];
+  },
+
   // Security headers applied to all routes including API
   // For static export, configure headers in hosting provider
   async headers() {
@@ -58,6 +68,43 @@ const nextConfig: NextConfig = {
           {
             key: 'Cache-Control',
             value: 'no-store, max-age=0',
+          },
+        ],
+      },
+      // CORS for MCP endpoint (cross-origin AI agent callers)
+      {
+        source: '/api/mcp',
+        headers: [
+          ...securityHeaders,
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'POST, OPTIONS',
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: 'Content-Type, Authorization',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-store, max-age=0',
+          },
+        ],
+      },
+      // CORS for .well-known discovery files
+      {
+        source: '/.well-known/:path*',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400',
           },
         ],
       },

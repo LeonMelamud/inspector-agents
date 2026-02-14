@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -43,10 +44,14 @@ export default function AboutPage() {
             <div className="bg-white rounded-xl shadow-lg p-8 md:p-12 mb-12">
               <div className="flex flex-col md:flex-row gap-8 items-start mb-8">
                 <div className="flex-shrink-0">
-                  {/* Founder Photo Placeholder */}
-                  <div className="w-32 h-32 bg-gradient-to-br from-primary-600 to-primary-700 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-lg">
-                    LM
-                  </div>
+                  <Image
+                    src="/images/linkedin_profile.jpeg"
+                    alt="Leon Melamud, Founder of InspectAgents"
+                    width={128}
+                    height={128}
+                    className="w-32 h-32 rounded-full object-cover shadow-lg"
+                    priority
+                  />
                 </div>
                 <div>
                   <h2 className="text-3xl font-bold text-stone-900 mb-2">The Story</h2>

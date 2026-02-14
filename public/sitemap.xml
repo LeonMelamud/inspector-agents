@@ -80,7 +80,15 @@
   <!-- AI Plugin Manifest -->
   <url>
     <loc>https://inspectagents.com/.well-known/ai-plugin.json</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- MCP Server Discovery -->
+  <url>
+    <loc>https://inspectagents.com/.well-known/mcp.json</loc>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
