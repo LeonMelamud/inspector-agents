@@ -11,6 +11,9 @@
 
 import { Resend } from 'resend';
 import { logger } from '@/lib/logger';
+import WelcomeHighRisk from '@/emails/WelcomeHighRisk';
+import WelcomeMediumRisk from '@/emails/WelcomeMediumRisk';
+import WelcomeLowRisk from '@/emails/WelcomeLowRisk';
 
 // ─── Singleton ──────────────────────────────────────────────────────────────────
 
@@ -81,11 +84,6 @@ export async function sendWelcomeEmail(input: {
 }): Promise<void> {
   try {
     const r = ensureResend();
-
-    // Dynamic imports — templates are only needed when sending
-    const { default: WelcomeHighRisk } = await import('@/emails/WelcomeHighRisk');
-    const { default: WelcomeMediumRisk } = await import('@/emails/WelcomeMediumRisk');
-    const { default: WelcomeLowRisk } = await import('@/emails/WelcomeLowRisk');
 
     const templates = {
       high: WelcomeHighRisk,
