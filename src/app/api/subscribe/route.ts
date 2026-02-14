@@ -7,7 +7,6 @@ import {
   sanitizeArray,
   validateRiskLevel,
 } from '@/lib/sanitize';
-import { rateLimiters, getClientIp, getRateLimitHeaders } from '@/lib/ratelimit';
 import { logger } from '@/lib/logger';
 import { createContact, sendWelcomeEmail, isConfigured } from '@/lib/resend';
 
@@ -16,37 +15,14 @@ import { createContact, sendWelcomeEmail, isConfigured } from '@/lib/resend';
  * Subscribe user to email list with quiz data
  * 
  * Security features:
- * - Rate limiting (3 requests per 5 minutes per IP)
  * - Input sanitization
  * - Validated risk level enum
+ * - Rate limiting handled by Resend
  */
 export async function POST(request: NextRequest) {
   const startTime = Date.now();
   
   try {
-    // Rate limiting
-    const clientIp = getClientIp(request);
-    const rateLimitResult = rateLimiters.subscribe.limit(clientIp);
-    
-    if (!rateLimitResult.success) {
-      logger.security('rate_limit_exceeded', { 
-        ip: clientIp, 
-        endpoint: '/api/subscribe',
-        retryAfter: rateLimitResult.retryAfter 
-      });
-      
-      return NextResponse.json(
-        { 
-          error: 'Too many requests. Please try again later.',
-          retryAfter: rateLimitResult.retryAfter,
-        },
-        { 
-          status: 429,
-          headers: getRateLimitHeaders(rateLimitResult),
-        }
-      );
-    }
-
     const data = await request.json();
     
     // Sanitize all inputs
@@ -69,7 +45,7 @@ export async function POST(request: NextRequest) {
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      logger.security('invalid_email_attempt', { ip: clientIp });
+      logger.security('invalid_email_attempt', { endpoint: '/api/subscribe' });
       return NextResponse.json(
         { error: 'Invalid email address' },
         { status: 400 }
