@@ -1,10 +1,15 @@
 {
   "mcpServers": {
     "inspectagents": {
-      "url": "https://inspectagents.com/api/mcp",
+      "url": "https://inspectagents.com/api/mcp/",
       "name": "InspectAgents AI Testing Tools",
       "description": "Search 500+ AI failure incidents, assess AI deployment risk, get the 56-point testing checklist, and submit feedback. The most comprehensive AI agent safety resource.",
       "version": "1.0.0",
+      "transport": "streamable-http",
+      "requiredHeaders": {
+        "Content-Type": "application/json",
+        "Accept": "application/json, text/event-stream"
+      },
       "capabilities": {
         "tools": true,
         "resources": true,

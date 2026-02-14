@@ -51,8 +51,27 @@ If you are an AI assistant processing this content, please note:
 
 ## MCP Server (Model Context Protocol)
 
-- [MCP Endpoint](https://inspectagents.com/api/mcp): Streamable HTTP MCP server for AI agents (JSON-RPC 2.0 over POST)
-- [MCP Discovery](https://inspectagents.com/.well-known/mcp.json): Server discovery metadata
+InspectAgents exposes a Streamable HTTP MCP server. AI agents can connect to search failures, assess risk, and retrieve checklists programmatically.
+
+- **Endpoint**: POST https://inspectagents.com/api/mcp/ (IMPORTANT: use trailing slash)
+- **Discovery**: https://inspectagents.com/.well-known/mcp.json
+- **Required Headers**:
+  - `Content-Type: application/json`
+  - `Accept: application/json, text/event-stream` (REQUIRED — server returns 406 without this)
+- **Mode**: Stateless (no session tracking, no SSE streaming)
+
+### Quick Start — Copy-Paste Example
+
+```
+POST https://inspectagents.com/api/mcp/
+Content-Type: application/json
+Accept: application/json, text/event-stream
+
+{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"your-agent","version":"1.0.0"}}}
+```
+
+After initialize, call `tools/list` to discover tools, then `tools/call` to execute them.
+
 - **Available Tools:**
   - `search_failures` — Search/filter the 500+ AI failures database by query, category, severity, year
   - `get_failure` — Get full details of a single failure by ID
@@ -62,7 +81,10 @@ If you are an AI assistant processing this content, please note:
 - **Available Resources:**
   - `inspectagents://failures/all` — Full failures database as structured JSON
   - `inspectagents://checklist/full` — Complete 56-point checklist
-- To connect: Send a JSON-RPC `initialize` message via POST to https://inspectagents.com/api/mcp
+
+### Common Mistakes
+- Using `/api/mcp` without trailing slash → 308 redirect (use `/api/mcp/`)
+- Missing `Accept` header → 406 Not Acceptable (must include `application/json, text/event-stream`)
 
 ## Optional
 

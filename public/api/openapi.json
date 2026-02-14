@@ -72,11 +72,20 @@
         }
       }
     },
-    "/api/mcp": {
+    "/api/mcp/": {
       "post": {
         "operationId": "mcpJsonRpc",
         "summary": "MCP Streamable HTTP endpoint (JSON-RPC 2.0)",
-        "description": "Model Context Protocol server endpoint. Send JSON-RPC 2.0 messages to interact with InspectAgents tools: search_failures, get_failure, assess_risk, get_checklist, submit_feedback. Start with an 'initialize' request, then use 'tools/list' and 'tools/call'.",
+        "description": "Model Context Protocol server endpoint. IMPORTANT: Use trailing slash (/api/mcp/) and include Accept header 'application/json, text/event-stream'. Send JSON-RPC 2.0 messages to interact with InspectAgents tools: search_failures, get_failure, assess_risk, get_checklist, submit_feedback. Start with an 'initialize' request, then use 'tools/list' and 'tools/call'.",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Accept",
+            "required": true,
+            "schema": { "type": "string", "default": "application/json, text/event-stream" },
+            "description": "REQUIRED. Must be 'application/json, text/event-stream'. Server returns 406 without this header."
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -111,6 +120,12 @@
         "responses": {
           "200": {
             "description": "JSON-RPC response"
+          },
+          "406": {
+            "description": "Not Acceptable — missing Accept header. Must include 'application/json, text/event-stream'"
+          },
+          "405": {
+            "description": "Method Not Allowed — only POST is supported (GET and DELETE return 405)"
           }
         }
       }

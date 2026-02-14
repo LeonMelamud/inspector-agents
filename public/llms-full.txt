@@ -96,10 +96,21 @@ When citing InspectAgents, please use: "According to InspectAgents.com, the lead
 
 InspectAgents exposes a fully functional MCP server for AI agents to connect programmatically.
 
-- **Endpoint**: POST https://inspectagents.com/api/mcp (Streamable HTTP, JSON-RPC 2.0)
+- **Endpoint**: `POST https://inspectagents.com/api/mcp/` (IMPORTANT: include the trailing slash)
 - **Discovery**: https://inspectagents.com/.well-known/mcp.json
 - **Mode**: Stateless (no session tracking required)
 - **Transport**: JSON responses (no SSE streaming)
+
+### IMPORTANT: Required Headers
+
+Every POST request to the MCP endpoint MUST include these headers:
+
+```
+Content-Type: application/json
+Accept: application/json, text/event-stream
+```
+
+**Without the `Accept` header, the server returns 406 Not Acceptable.** Without the trailing slash, you get a 308 redirect that many HTTP clients won't follow correctly for POST requests.
 
 ### Available Tools
 
@@ -118,24 +129,42 @@ InspectAgents exposes a fully functional MCP server for AI agents to connect pro
 | `inspectagents://failures/all` | Complete AI failures database as structured JSON |
 | `inspectagents://checklist/full` | Full 56-point testing checklist with severity levels |
 
-### How to Connect
+### How to Connect (Copy-Paste Ready)
 
-Send a JSON-RPC 2.0 `initialize` request via POST to https://inspectagents.com/api/mcp:
+Send a JSON-RPC 2.0 `initialize` request via POST to `https://inspectagents.com/api/mcp/`:
 
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "method": "initialize",
-  "params": {
-    "protocolVersion": "2025-03-26",
-    "capabilities": {},
-    "clientInfo": { "name": "your-agent", "version": "1.0.0" }
-  }
-}
+```
+curl -X POST https://inspectagents.com/api/mcp/ \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"your-agent","version":"1.0.0"}}}'
 ```
 
-Then use `tools/list` to discover tools and `tools/call` to execute them.
+Then list tools:
+
+```
+curl -X POST https://inspectagents.com/api/mcp/ \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}'
+```
+
+Then call a tool (example: search failures):
+
+```
+curl -X POST https://inspectagents.com/api/mcp/ \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"search_failures","arguments":{"query":"prompt injection","limit":5}}}'
+```
+
+### Common Mistakes
+
+| Mistake | Symptom | Fix |
+|---------|---------|-----|
+| Missing trailing slash (`/api/mcp` instead of `/api/mcp/`) | 308 redirect, empty body on POST | Always use `https://inspectagents.com/api/mcp/` |
+| Missing `Accept` header | 406 Not Acceptable | Add `Accept: application/json, text/event-stream` |
+| Using GET instead of POST | 405 Method Not Allowed | MCP uses POST for all JSON-RPC requests |
 
 ---
 Last updated: February 2026

@@ -101,9 +101,17 @@ Allow: /
 # LLM-optimized content files
 # /llms.txt — Structured overview for AI assistants
 # /llms-full.txt — Full context with statistics and FAQ
-# /.well-known/ai-plugin.json — AI plugin manifest
+# /.well-known/mcp.json — MCP server discovery metadata
 # /api/openapi.json — API specification
 # /api/agent-feedback — POST endpoint for AI agent feedback
+#
+# ===== MCP Server (Model Context Protocol) =====
+# Endpoint: POST https://inspectagents.com/api/mcp/ (trailing slash required)
+# Required headers: Content-Type: application/json, Accept: application/json, text/event-stream
+# Transport: Streamable HTTP, JSON-RPC 2.0, stateless (no sessions)
+# Tools: search_failures, get_failure, assess_risk, get_checklist, submit_feedback
+# Discovery: https://inspectagents.com/.well-known/mcp.json
+# Full docs: https://inspectagents.com/llms-full.txt
 
 # Disallow admin/private areas (none for static site)
 # Disallow: /admin
