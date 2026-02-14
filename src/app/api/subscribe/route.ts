@@ -1,22 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getEmailTags } from '@/lib/email';
-import { 
-  sanitizeEmail, 
-  sanitizeName, 
-  sanitizeQuizAnswers, 
+import {
+  sanitizeEmail,
+  sanitizeName,
+  sanitizeQuizAnswers,
   sanitizeArray,
-  validateRiskLevel 
+  validateRiskLevel,
 } from '@/lib/sanitize';
 import { rateLimiters, getClientIp, getRateLimitHeaders } from '@/lib/ratelimit';
 import { logger } from '@/lib/logger';
-import WelcomeHighRisk from '@/emails/WelcomeHighRisk';
-import WelcomeMediumRisk from '@/emails/WelcomeMediumRisk';
-import WelcomeLowRisk from '@/emails/WelcomeLowRisk';
-
-import { Resend } from 'resend';
-
-// Initialize Resend only if API key is available
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+import { createContact, sendWelcomeEmail, isConfigured } from '@/lib/resend';
 
 /**
  * POST /api/subscribe
@@ -86,21 +79,57 @@ export async function POST(request: NextRequest) {
     // Determine if this is a waitlist-only signup (no quiz data)
     const isWaitlistOnly = !riskLevel || Object.keys(quizAnswers).length === 0;
 
+    if (!isConfigured()) {
+      logger.warn('Resend not configured — subscription logged only', { email, source });
+      return NextResponse.json({
+        success: true,
+        message: 'Subscription recorded.',
+        source,
+      });
+    }
+
+    // 1. Create contact (shared for both flows)
+    const contactId = await createContact({ email, firstName });
+
     let response: NextResponse;
 
     if (isWaitlistOnly) {
-      // Waitlist-only signup: just add to audience, no welcome email
-      response = await subscribeWaitlist({ email, firstName, source });
+      // Waitlist-only signup: contact created, done
+      logger.info('Waitlist signup', { email, source, contactId });
+
+      response = NextResponse.json({
+        success: true,
+        message: 'Successfully joined the waitlist!',
+        ...(contactId && { contactId }),
+        source,
+      });
     } else {
-      // Full quiz signup: add to audience + send welcome email
-      response = await subscribeWithResend({ email, firstName, source, quizAnswers, riskLevel, topPainPoints });
+      // Quiz signup: contact created + send welcome email
+      const tags = getEmailTags(quizAnswers as any, riskLevel);
+
+      await sendWelcomeEmail({
+        email,
+        firstName: firstName || '',
+        riskLevel,
+        topPainPoints,
+      });
+
+      logger.info('Quiz subscription successful', { email, source, riskLevel, contactId });
+
+      response = NextResponse.json({
+        success: true,
+        message: 'Successfully subscribed!',
+        ...(contactId && { contactId }),
+        riskLevel,
+        tags,
+      });
     }
 
-    // Log successful request
+    // Log request
     const duration = Date.now() - startTime;
-    logger.apiRequest('/api/subscribe', 'POST', response.status, duration, { 
+    logger.apiRequest('/api/subscribe', 'POST', response.status, duration, {
       provider: 'resend',
-      riskLevel 
+      riskLevel,
     });
 
     return response;
@@ -115,197 +144,4 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-}
-
-/**
- * Subscribe waitlist-only (no quiz data) via Resend
- */
-async function subscribeWaitlist(data: {
-  email: string;
-  firstName: string;
-  source: string;
-}) {
-  const { email, firstName, source } = data;
-
-  try {
-    // Check if Resend is configured
-    if (!resend || !process.env.RESEND_API_KEY) {
-      throw new Error('Resend not configured. Set RESEND_API_KEY environment variable.');
-    }
-
-    // Add contact to Resend (global contacts in v6+)
-    let contactId: string | undefined;
-    try {
-      const contact = await resend.contacts.create({
-        email,
-        firstName: firstName || undefined,
-        unsubscribed: false,
-        properties: {
-          source: source || 'unknown',
-          signup_type: 'waitlist',
-          signup_date: new Date().toISOString(),
-        },
-      });
-      contactId = contact.data?.id;
-      logger.info('Waitlist contact created', { contactId, email, source });
-    } catch (contactError: any) {
-      // Don't fail the signup if contact creation fails
-      logger.error('Failed to create waitlist contact', { 
-        error: contactError.message,
-        statusCode: contactError.statusCode,
-      });
-    }
-
-    return NextResponse.json({
-      success: true,
-      message: 'Successfully joined the waitlist!',
-      ...(contactId && { contactId }),
-      source,
-    });
-
-  } catch (error: any) {
-    logger.error('Waitlist subscription error', error);
-
-    if (error.message?.includes('already exists')) {
-      return NextResponse.json({
-        success: true,
-        message: 'You are already on the waitlist!',
-      });
-    }
-
-    return NextResponse.json(
-      { error: 'Failed to join waitlist. Please try again.' },
-      { status: 500 }
-    );
-  }
-}
-
-/**
- * Subscribe via Resend
- */
-async function subscribeWithResend(data: {
-  email: string;
-  firstName: string;
-  source: string;
-  quizAnswers: Record<string, string | string[]>;
-  riskLevel: 'low' | 'medium' | 'high';
-  topPainPoints: string[];
-}) {
-  const { email, firstName, source, quizAnswers, riskLevel, topPainPoints } = data;
-
-  try {
-    // Check if Resend is configured
-    if (!resend || !process.env.RESEND_API_KEY) {
-      throw new Error('Resend not configured. Set RESEND_API_KEY environment variable.');
-    }
-
-    // Generate tags for segmentation
-    const tags = getEmailTags(quizAnswers as any, riskLevel);
-
-    // Add contact to Resend (global contacts in v6+)
-    let contactId: string | undefined;
-    try {
-      const contact = await resend.contacts.create({
-        email,
-        firstName: firstName || undefined,
-        unsubscribed: false,
-        properties: {
-          source: source || 'quiz',
-          signup_type: 'quiz',
-          risk_level: riskLevel,
-          signup_date: new Date().toISOString(),
-        },
-      });
-      contactId = contact.data?.id;
-      logger.info('Quiz contact created', { contactId, email, source, riskLevel });
-    } catch (contactError: any) {
-      // Don't fail the signup if contact creation fails
-      logger.error('Failed to create quiz contact', { 
-        error: contactError.message,
-        statusCode: contactError.statusCode,
-      });
-    }
-
-    // Send immediate welcome email based on risk level
-    await sendWelcomeEmail(email, firstName || '', riskLevel, topPainPoints);
-
-    logger.info('Subscription successful via Resend', { riskLevel });
-
-    return NextResponse.json({
-      success: true,
-      message: 'Successfully subscribed!',
-      ...(contactId && { contactId }),
-      riskLevel,
-      tags,
-    });
-
-  } catch (error: any) {
-    logger.error('Resend subscription error', error);
-    
-    // Handle duplicate email
-    if (error.message?.includes('already exists')) {
-      return NextResponse.json({
-        success: true,
-        message: 'You are already subscribed!',
-      });
-    }
-
-    return NextResponse.json(
-      { error: 'Failed to subscribe. Please try again.' },
-      { status: 500 }
-    );
-  }
-}
-
-/**
- * Send welcome email via Resend
- */
-async function sendWelcomeEmail(
-  email: string,
-  firstName: string,
-  riskLevel: 'low' | 'medium' | 'high',
-  topPainPoints: string[]
-) {
-  try {
-    // Check if Resend is configured
-    if (!resend || !process.env.RESEND_API_KEY) {
-      logger.warn('Resend not configured. Skipping welcome email.');
-      return;
-    }
-
-    // Select email template based on risk level
-    const templates = {
-      high: WelcomeHighRisk,
-      medium: WelcomeMediumRisk,
-      low: WelcomeLowRisk,
-    };
-
-    const EmailTemplate = templates[riskLevel];
-
-    // Send email
-    await resend.emails.send({
-      from: 'InspectAgents <hello@inspectagents.com>',
-      to: email,
-      subject: getWelcomeSubject(riskLevel),
-      react: EmailTemplate({ firstName, topPainPoints }),
-    });
-
-    logger.info('Welcome email sent', { riskLevel });
-
-  } catch (error) {
-    logger.error('Failed to send welcome email', error instanceof Error ? error : new Error(String(error)));
-    // Don't fail the subscription if email fails
-  }
-}
-
-/**
- * Get welcome email subject based on risk level
- */
-function getWelcomeSubject(riskLevel: 'low' | 'medium' | 'high'): string {
-  const subjects = {
-    high: '🚨 Your AI Risk Report + Urgent Action Steps',
-    medium: '⚠️ Your AI Risk Assessment + What to Do Next',
-    low: '✅ Your AI Safety Checklist + Best Practices',
-  };
-  return subjects[riskLevel];
 }

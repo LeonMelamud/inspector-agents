@@ -1,6 +1,9 @@
 /**
- * Email service integration for InspectAgents
- * Uses Resend for email capture and welcome sequences
+ * Client-side email utilities for InspectAgents.
+ *
+ * Server-side Resend operations live in src/lib/resend.ts.
+ * This file contains client-side helpers: quiz scoring, tag generation,
+ * and the fetch wrapper used by React components to call /api/subscribe/.
  */
 
 export interface QuizAnswers {
@@ -17,6 +20,8 @@ export interface EmailData {
   riskLevel: 'low' | 'medium' | 'high';
   topPainPoints: string[];
 }
+
+// ─── Quiz scoring ───────────────────────────────────────────────────────────────
 
 /**
  * Calculate risk level based on quiz answers (3-question version)
@@ -53,90 +58,43 @@ export function extractTopPainPoints(answers: QuizAnswers): string[] {
   return [...new Set(painPoints)];
 }
 
-/**
- * Subscribe user to email list via Resend
- */
-export async function subscribeWithResend(data: EmailData): Promise<{ success: boolean; error?: string }> {
-  try {
-    const response = await fetch('/api/subscribe/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        provider: 'resend',
-        ...data,
-      }),
-    });
-
-    const result = await response.json();
-    
-    if (!response.ok) {
-      return { success: false, error: result.error || 'Failed to subscribe' };
-    }
-
-    return { success: true };
-  } catch (error) {
-    console.error('Resend subscription error:', error);
-    return { success: false, error: 'Network error. Please try again.' };
-  }
-}
-
-/**
- * Subscribe user to email list (via Resend)
- */
-export async function subscribeToNewsletter(data: EmailData): Promise<{ success: boolean; error?: string }> {
-  try {
-    const response = await fetch('/api/subscribe/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-
-    const result = await response.json();
-    
-    if (!response.ok) {
-      return { success: false, error: result.error || 'Failed to subscribe' };
-    }
-
-    return { success: true };
-  } catch (error) {
-    console.error('Newsletter subscription error:', error);
-    return { success: false, error: 'Network error. Please try again.' };
-  }
-}
-
-/**
- * Get nurture sequence based on risk level and pain points
- */
-export function getNurtureSequence(riskLevel: 'low' | 'medium' | 'high', painPoints: string[]): string {
-  const sequences: Record<string, string> = {
-    'high-risk': 'seq_high_risk',
-    'medium-risk': 'seq_medium_risk',
-    'low-risk': 'seq_low_risk',
-  };
-
-  return sequences[`${riskLevel}-risk`] || sequences['low-risk'];
-}
+// ─── Tag generation ─────────────────────────────────────────────────────────────
 
 /**
  * Get email tags based on quiz answers
  */
 export function getEmailTags(answers: QuizAnswers, riskLevel: 'low' | 'medium' | 'high'): string[] {
   const tags: string[] = [];
-
-  // Risk level tag
   tags.push(`risk-${riskLevel}`);
-
-  // Usage status
   tags.push(`usage-${answers.currentUsage}`);
-
-  // Pain point tags
   answers.biggestFears.forEach(fear => {
     tags.push(`fear-${fear}`);
   });
-
   return tags;
+}
+
+// ─── Client-side fetch wrapper ──────────────────────────────────────────────────
+
+/**
+ * Subscribe user via the /api/subscribe/ endpoint (client-side).
+ */
+export async function subscribeToNewsletter(data: EmailData): Promise<{ success: boolean; error?: string }> {
+  try {
+    const response = await fetch('/api/subscribe/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      return { success: false, error: result.error || 'Failed to subscribe' };
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error('Subscription error:', error);
+    return { success: false, error: 'Network error. Please try again.' };
+  }
 }
