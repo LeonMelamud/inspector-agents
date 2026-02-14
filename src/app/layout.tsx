@@ -11,6 +11,10 @@ const sourceSans = Source_Sans_3({ subsets: ['latin'], weight: ['400', '600', '7
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://inspectagents.com'),
+  icons: {
+    icon: '/images/logo.png',
+    apple: '/images/logo-300.png',
+  },
   title: {
     default: 'InspectAgents - AI Agent Testing & Safety Platform',
     template: '%s | InspectAgents',
