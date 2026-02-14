@@ -143,17 +143,6 @@ async function subscribeWaitlist(data: {
       });
       contactId = contact.data?.id;
       logger.info('Waitlist contact created', { contactId, email });
-
-      // Add to segment if configured
-      const segmentId = process.env.RESEND_AUDIENCE_ID;
-      if (contactId && segmentId) {
-        try {
-          await resend.contacts.segments.add({ contactId, segmentId });
-          logger.info('Contact added to segment', { contactId, segmentId });
-        } catch (segErr: any) {
-          logger.error('Failed to add contact to segment', { error: segErr.message });
-        }
-      }
     } catch (contactError: any) {
       // Don't fail the signup if contact creation fails
       logger.error('Failed to create waitlist contact', { 
@@ -217,17 +206,6 @@ async function subscribeWithResend(data: {
       });
       contactId = contact.data?.id;
       logger.info('Quiz contact created', { contactId, email });
-
-      // Add to segment if configured
-      const segmentId = process.env.RESEND_AUDIENCE_ID;
-      if (contactId && segmentId) {
-        try {
-          await resend.contacts.segments.add({ contactId, segmentId });
-          logger.info('Contact added to segment', { contactId, segmentId });
-        } catch (segErr: any) {
-          logger.error('Failed to add contact to segment', { error: segErr.message });
-        }
-      }
     } catch (contactError: any) {
       // Don't fail the signup if contact creation fails
       logger.error('Failed to create quiz contact', { 
