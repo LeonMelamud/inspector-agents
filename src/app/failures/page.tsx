@@ -9,7 +9,8 @@ export default function FailuresPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedSeverity, setSelectedSeverity] = useState<string>('all');
-  const [selectedYear, setSelectedYear] = useState<string>('all');
+  const [dateFrom, setDateFrom] = useState<string>('');
+  const [dateTo, setDateTo] = useState<string>('');
 
   // Get unique values for filters
   const categories = useMemo(() => {
@@ -17,6 +18,11 @@ export default function FailuresPage() {
   }, []);
 
   const severities: Array<'Low' | 'Medium' | 'High' | 'Critical'> = ['Low', 'Medium', 'High', 'Critical'];
+
+  const dateRange = useMemo(() => {
+    const dates = failures.map(f => f.date).sort();
+    return { min: dates[0], max: dates[dates.length - 1] };
+  }, []);
 
   const years = useMemo(() => {
     return Array.from(new Set(failures.map(f => new Date(f.date).getFullYear()))).sort((a, b) => b - a);
@@ -38,13 +44,13 @@ export default function FailuresPage() {
       // Severity filter
       const matchesSeverity = selectedSeverity === 'all' || failure.severity === selectedSeverity;
 
-      // Year filter
-      const matchesYear = selectedYear === 'all' || 
-        new Date(failure.date).getFullYear().toString() === selectedYear;
+      // Date range filter
+      const matchesDateFrom = !dateFrom || failure.date >= dateFrom;
+      const matchesDateTo = !dateTo || failure.date <= dateTo;
 
-      return matchesSearch && matchesCategory && matchesSeverity && matchesYear;
+      return matchesSearch && matchesCategory && matchesSeverity && matchesDateFrom && matchesDateTo;
     });
-  }, [searchQuery, selectedCategory, selectedSeverity, selectedYear]);
+  }, [searchQuery, selectedCategory, selectedSeverity, dateFrom, dateTo]);
 
   // Severity color mapping
   const getSeverityColor = (severity: string) => {
@@ -123,7 +129,7 @@ export default function FailuresPage() {
           </div>
 
           {/* Filters */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Category Filter */}
             <div>
               <label className="block text-sm font-medium text-stone-700 mb-2">
@@ -160,35 +166,48 @@ export default function FailuresPage() {
               </select>
             </div>
 
-            {/* Year Filter */}
+            {/* Date From Filter */}
             <div>
               <label className="block text-sm font-medium text-stone-700 mb-2">
-                Year
+                From Date
               </label>
-              <select
-                value={selectedYear}
-                onChange={(e) => setSelectedYear(e.target.value)}
-                data-agent-field="year"
+              <input
+                type="date"
+                value={dateFrom}
+                onChange={(e) => setDateFrom(e.target.value)}
+                min={dateRange.min}
+                max={dateTo || dateRange.max}
                 className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-              >
-                <option value="all">All Years</option>
-                {years.map(year => (
-                  <option key={year} value={year}>{year}</option>
-                ))}
-              </select>
+              />
+            </div>
+
+            {/* Date To Filter */}
+            <div>
+              <label className="block text-sm font-medium text-stone-700 mb-2">
+                To Date
+              </label>
+              <input
+                type="date"
+                value={dateTo}
+                onChange={(e) => setDateTo(e.target.value)}
+                min={dateFrom || dateRange.min}
+                max={dateRange.max}
+                className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+              />
             </div>
           </div>
 
           {/* Results Count */}
           <div className="mt-4 text-sm text-stone-600">
             Showing <span className="font-semibold">{filteredFailures.length}</span> of {failures.length} failures
-            {(searchQuery || selectedCategory !== 'all' || selectedSeverity !== 'all' || selectedYear !== 'all') && (
+            {(searchQuery || selectedCategory !== 'all' || selectedSeverity !== 'all' || dateFrom || dateTo) && (
               <button
                 onClick={() => {
                   setSearchQuery('');
                   setSelectedCategory('all');
                   setSelectedSeverity('all');
-                  setSelectedYear('all');
+                  setDateFrom('');
+                  setDateTo('');
                 }}
                 className="ml-4 text-primary-600 hover:text-primary-700 font-medium"
               >
@@ -209,7 +228,8 @@ export default function FailuresPage() {
                 setSearchQuery('');
                 setSelectedCategory('all');
                 setSelectedSeverity('all');
-                setSelectedYear('all');
+                setDateFrom('');
+                setDateTo('');
               }}
               className="mt-4 text-primary-600 hover:text-primary-700 font-medium"
             >
