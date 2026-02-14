@@ -1,6 +1,6 @@
 /**
  * Shared checklist data — used by both the UI and MCP server tools.
- * Single source of truth for the 50-point AI Agent Risk Checklist.
+ * Single source of truth for the 56-point AI Agent Risk Checklist.
  */
 
 export type Severity = 'critical' | 'high' | 'medium';
@@ -19,8 +19,8 @@ export interface CheckSection {
 }
 
 /**
- * 50-point AI Agent Risk Checklist across 8 categories.
- * Aligned with OWASP Top 10 for LLM Applications.
+ * 56-point AI Agent Risk Checklist across 9 categories.
+ * Aligned with OWASP Top 10 for LLM Applications and OWASP Top 10 for Agentic AI.
  */
 export const CHECKLIST_SECTIONS: CheckSection[] = [
   {
@@ -384,6 +384,50 @@ export const CHECKLIST_SECTIONS: CheckSection[] = [
         description:
           'Continuously test against known ground truth examples. Alert if accuracy degrades over time (model provider updates can break things).',
         severity: 'high',
+      },
+    ],
+  },
+  {
+    title: '9. Agentic & Tool-Use Safety',
+    count: 6,
+    subtitle:
+      'Critical checks for AI agents that call tools, use MCP, or take autonomous actions (OWASP Agentic AI Top 10)',
+    items: [
+      {
+        name: 'Tool Authorization Checks',
+        description:
+          'Verify AI only invokes approved tools/functions with validated parameters. Test: Attempt to call unauthorized APIs or pass malicious arguments through tool calls.',
+        severity: 'critical',
+      },
+      {
+        name: 'Excessive Agency Prevention',
+        description:
+          'Test if AI takes high-impact actions (purchases, deletions, data modifications) without explicit user confirmation. Should require human-in-the-loop for irreversible actions.',
+        severity: 'critical',
+      },
+      {
+        name: 'Autonomous Action Boundaries',
+        description:
+          'Verify AI respects action limits and cannot enter infinite loops, make unbounded API calls, or perform recursive tool chains that exhaust resources or budgets.',
+        severity: 'high',
+      },
+      {
+        name: 'Plugin / MCP Supply Chain',
+        description:
+          'Audit third-party tools, plugins, and MCP servers for hidden instructions, data exfiltration, or compromised dependencies before connecting them to your agent.',
+        severity: 'high',
+      },
+      {
+        name: 'Token & Cost Budget Limits',
+        description:
+          'Test that runaway conversations or adversarial inputs cannot generate unbounded API costs. Implement per-session and per-user spending caps with alerts.',
+        severity: 'high',
+      },
+      {
+        name: 'Multi-Agent Trust Boundaries',
+        description:
+          'If using multi-agent systems, verify agents cannot escalate privileges through delegation, impersonate other agents, or share unauthorized context across trust boundaries.',
+        severity: 'medium',
       },
     ],
   },

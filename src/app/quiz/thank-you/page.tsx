@@ -165,7 +165,7 @@ export default function ThankYouPage() {
       recommendations.push({
         icon: '📋',
         title: 'Start With Our Checklist',
-        description: 'Our 50-point checklist covers the risks you haven\'t thought of yet.',
+        description: 'Our 56-point checklist covers the risks you haven\'t thought of yet.',
       });
     }
 
@@ -173,7 +173,7 @@ export default function ThankYouPage() {
       recommendations.push({
         icon: '📋',
         title: 'Download Our Testing Checklist',
-        description: 'Get our comprehensive 50-point AI safety checklist to cover all bases.',
+        description: 'Get our comprehensive 56-point AI safety checklist to cover all bases.',
       });
     }
 
@@ -298,7 +298,7 @@ export default function ThankYouPage() {
                 <span className="text-2xl mr-4">📋</span>
                 <div>
                   <h3 className="font-bold mb-1">2. Grab the Free Checklist</h3>
-                  <p className="text-primary-50">50-point AI safety checklist — covers everything from hallucinations to prompt injection.</p>
+                  <p className="text-primary-50">56-point AI safety checklist — covers everything from hallucinations to prompt injection.</p>
                 </div>
               </div>
               <div className="flex items-start">

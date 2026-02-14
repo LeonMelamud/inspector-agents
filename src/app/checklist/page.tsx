@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Free AI Agent Risk Checklist - 50-Point Safety Testing Guide',
-  description: 'Download our comprehensive 50-point AI agent risk checklist. Prevent hallucinations, prompt injection, security breaches, and costly AI failures before deployment.',
+  title: 'Free AI Agent Risk Checklist - 56-Point Safety Testing Guide',
+  description: 'Download our comprehensive 56-point AI agent risk checklist. Prevent hallucinations, prompt injection, tool misuse, and costly AI failures before deployment.',
   keywords: [
     'AI agent checklist',
     'AI safety checklist',
@@ -14,13 +14,16 @@ export const metadata: Metadata = {
     'AI risk assessment',
     'prompt injection checklist',
     'AI hallucination prevention',
+    'agentic AI safety',
+    'MCP security checklist',
+    'AI tool use safety',
   ],
   alternates: {
     canonical: 'https://inspectagents.com/checklist',
   },
   openGraph: {
-    title: 'Free AI Agent Risk Checklist - 50-Point Safety Testing Guide',
-    description: 'Download our comprehensive 50-point AI agent risk checklist. Prevent hallucinations, prompt injection, security breaches, and costly AI failures.',
+    title: 'Free AI Agent Risk Checklist - 56-Point Safety Testing Guide',
+    description: 'Download our comprehensive 56-point AI agent risk checklist. Prevent hallucinations, prompt injection, security breaches, and costly AI failures.',
     type: 'website',
     url: 'https://inspectagents.com/checklist',
   },
@@ -59,7 +62,7 @@ export default function ChecklistPage() {
             The AI Agent Risk Checklist
           </h1>
           <p className="text-xl md:text-2xl text-stone-600 mb-8 leading-relaxed">
-            Don't deploy your AI agent blindly. Use this comprehensive <strong>50-point checklist</strong> to catch hallucinations, security holes, and reputation risks <em>before</em> they reach customers.
+            Don't deploy your AI agent blindly. Use this comprehensive <strong>56-point checklist</strong> to catch hallucinations, security holes, and reputation risks <em>before</em> they reach customers.
           </p>
           <Link
             href="/checklist/download"
@@ -78,12 +81,12 @@ export default function ChecklistPage() {
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div className="text-center">
                 <div className="text-4xl mb-2">✅</div>
-                <div className="text-3xl font-bold text-primary-600 mb-1">50+</div>
+                <div className="text-3xl font-bold text-primary-600 mb-1">56</div>
                 <p className="text-stone-600 font-semibold">Testing Checkpoints</p>
               </div>
               <div className="text-center">
                 <div className="text-4xl mb-2">🛡️</div>
-                <div className="text-3xl font-bold text-primary-600 mb-1">8</div>
+                <div className="text-3xl font-bold text-primary-600 mb-1">9</div>
                 <p className="text-stone-600 font-semibold">Critical Risk Areas</p>
               </div>
               <div className="text-center">
@@ -202,6 +205,18 @@ export default function ChecklistPage() {
                 </div>
               </div>
             </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-md border-2 border-cyan-200">
+              <div className="flex items-start mb-4">
+                <span className="text-3xl mr-4">🤖</span>
+                <div>
+                  <h3 className="font-bold text-lg text-stone-900 mb-2">Agentic & Tool-Use Safety <span className="text-xs bg-cyan-100 text-cyan-700 px-2 py-0.5 rounded-full font-semibold ml-1">NEW</span></h3>
+                  <p className="text-stone-600 text-sm">
+                    6 critical checks for AI agents that call tools, use MCP, or take autonomous actions. Covers OWASP Agentic AI Top 10.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -269,7 +284,7 @@ export default function ChecklistPage() {
                 <div>
                   <h3 className="font-bold text-lg text-stone-900 mb-2">Before Deployment</h3>
                   <p className="text-stone-600">
-                    Run through all 50 checkpoints before launching your AI agent. Flag any "fails" for immediate attention. Don't ship until you have 100% pass rate on critical items.
+                    Run through all 56 checkpoints before launching your AI agent. Flag any "fails" for immediate attention. Don't ship until you have 100% pass rate on critical items.
                   </p>
                 </div>
               </div>
@@ -320,7 +335,7 @@ export default function ChecklistPage() {
               Ready to Protect Your AI Agent?
             </h2>
             <p className="text-xl text-primary-100 mb-8">
-              Download the complete 50-point checklist now and start testing in the next 5 minutes.
+              Download the complete 56-point checklist now and start testing in the next 5 minutes.
             </p>
             <Link
               href="/checklist/download"
@@ -426,7 +441,7 @@ export default function ChecklistPage() {
                 Will this prevent all AI failures?
               </h3>
               <p className="text-stone-600">
-                No single checklist can prevent 100% of failures, but following these 50 checkpoints will eliminate 95%+ of common preventable risks. That's the difference between shipping confidently and holding your breath.
+                No single checklist can prevent 100% of failures, but following these 56 checkpoints will eliminate 95%+ of common preventable risks. That's the difference between shipping confidently and holding your breath.
               </p>
             </div>
           </div>

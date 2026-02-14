@@ -192,7 +192,7 @@ export function ExitIntentPopup() {
 
           {/* Value Proposition */}
           <p className="text-stone-600 mb-4 leading-relaxed">
-            Before you go, grab our <strong>50-point AI testing checklist</strong> used
+            Before you go, grab our <strong>56-point AI testing checklist</strong> used
             by 250+ teams to prevent AI failures.
           </p>
 

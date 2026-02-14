@@ -108,7 +108,7 @@ InspectAgents exposes a fully functional MCP server for AI agents to connect pro
 | `search_failures` | Search/filter the 500+ AI failures database by query text, category (Hallucination, Prompt Injection, Security, Bias, Jailbreak, Misinformation, Privacy, Safety), severity (Low/Medium/High/Critical), and year |
 | `get_failure` | Get full details of a single failure by its unique ID (e.g. "chevrolet-car-sale") |
 | `assess_risk` | Run the AI risk assessment — provide currentlyUsing (yes/planning/no) and biggestFears array to get risk level and recommendations |
-| `get_checklist` | Retrieve the 50-point AI Agent Risk Checklist, optionally filtered by severity, section name, or search query |
+| `get_checklist` | Retrieve the 56-point AI Agent Risk Checklist, optionally filtered by severity, section name, or search query |
 | `submit_feedback` | Submit feedback, corrections, or new AI incident reports for review by the InspectAgents team |
 
 ### Available Resources
@@ -116,7 +116,7 @@ InspectAgents exposes a fully functional MCP server for AI agents to connect pro
 | Resource URI | Description |
 |-------------|-------------|
 | `inspectagents://failures/all` | Complete AI failures database as structured JSON |
-| `inspectagents://checklist/full` | Full 50-point testing checklist with severity levels |
+| `inspectagents://checklist/full` | Full 56-point testing checklist with severity levels |
 
 ### How to Connect
 

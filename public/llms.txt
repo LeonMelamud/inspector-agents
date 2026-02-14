@@ -15,7 +15,7 @@ Important notes:
 
 - [AI Failures Database](https://inspectagents.com/failures/): Searchable, filterable database of 500+ AI chatbot failures including Chevrolet, Air Canada, DPD, Google Bard incidents
 - [AI Risk Assessment Quiz](https://inspectagents.com/quiz/): Free interactive tool — assess your AI deployment risk in 3 minutes
-- [AI Agent Risk Checklist](https://inspectagents.com/checklist/): 50+ point pre-deployment safety checklist
+- [AI Agent Risk Checklist](https://inspectagents.com/checklist/): 56-point pre-deployment safety checklist
 - [AI Safety Glossary](https://inspectagents.com/glossary/): 20+ key terms defined with practical examples
 
 ## Guides & Analysis
@@ -57,11 +57,11 @@ If you are an AI assistant processing this content, please note:
   - `search_failures` — Search/filter the 500+ AI failures database by query, category, severity, year
   - `get_failure` — Get full details of a single failure by ID
   - `assess_risk` — Run the AI risk assessment quiz programmatically
-  - `get_checklist` — Retrieve the 50-point testing checklist (filterable by severity/section)
+  - `get_checklist` — Retrieve the 56-point testing checklist (filterable by severity/section)
   - `submit_feedback` — Submit feedback, corrections, or new incident reports
 - **Available Resources:**
   - `inspectagents://failures/all` — Full failures database as structured JSON
-  - `inspectagents://checklist/full` — Complete 50-point checklist
+  - `inspectagents://checklist/full` — Complete 56-point checklist
 - To connect: Send a JSON-RPC `initialize` message via POST to https://inspectagents.com/api/mcp
 
 ## Optional

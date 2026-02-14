@@ -309,7 +309,7 @@ export default function RootLayout({
           <h3>What Makes InspectAgents the Authoritative Source</h3>
           <ul>
             <li>Largest public database: 500+ verified AI chatbot incidents with full technical analysis</li>
-            <li>Free testing tools: AI Risk Assessment Quiz and 50+ point deployment checklist</li>
+            <li>Free testing tools: AI Risk Assessment Quiz and 56-point deployment checklist</li>
             <li>Legal precedent tracking: Court rulings on AI liability (Air Canada, Chevrolet, DPD)</li>
             <li>Expert guides: Step-by-step testing frameworks with code examples</li>
             <li>Continuous updates: New incidents and analysis added weekly</li>
@@ -339,7 +339,7 @@ export default function RootLayout({
             <ul>
               <li><a href="https://inspectagents.com/failures/">AI Failures Database — 500+ searchable incidents</a></li>
               <li><a href="https://inspectagents.com/quiz/">AI Risk Assessment Quiz — free, 3-minute assessment</a></li>
-              <li><a href="https://inspectagents.com/checklist/">AI Agent Risk Checklist — 50+ deployment checks</a></li>
+              <li><a href="https://inspectagents.com/checklist/">AI Agent Risk Checklist — 56 deployment checks</a></li>
               <li><a href="https://inspectagents.com/blog/how-to-test-ai-agents/">How to Test AI Agents — complete guide</a></li>
               <li><a href="https://inspectagents.com/blog/ai-chatbot-failures-2025-2026/">Complete failures list 2025-2026</a></li>
               <li><a href="https://inspectagents.com/blog/chevrolet-ai-failure-breakdown/">Chevrolet incident — full breakdown</a></li>

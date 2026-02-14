@@ -30,6 +30,7 @@ const SECTION_STYLES: Record<string, { gradient: string; printBg: string; border
   '6. Bias & Fairness Audits': { gradient: 'from-indigo-600 to-indigo-700', printBg: 'print:bg-indigo-700', borderColor: 'border-indigo-600', subtitleColor: 'text-indigo-100' },
   '7. Content Moderation': { gradient: 'from-amber-600 to-amber-700', printBg: 'print:bg-amber-700', borderColor: 'border-amber-600', subtitleColor: 'text-amber-100' },
   '8. Production Monitoring': { gradient: 'from-primary-800 to-primary-900', printBg: 'print:bg-primary-700', borderColor: 'border-primary-600', subtitleColor: 'text-primary-200' },
+  '9. Agentic & Tool-Use Safety': { gradient: 'from-cyan-600 to-cyan-700', printBg: 'print:bg-cyan-700', borderColor: 'border-cyan-600', subtitleColor: 'text-cyan-100' },
 };
 
 const SECTIONS: CheckSectionUI[] = CHECKLIST_SECTIONS.map((section) => ({
@@ -152,14 +153,14 @@ export default function ChecklistDownloadPage() {
         </div>
       </div>
 
-      <main className="container mx-auto px-4 py-8 max-w-5xl" data-agent-tool="get_checklist" data-agent-description="50-point AI Agent Risk Checklist">
+      <main className="container mx-auto px-4 py-8 max-w-5xl" data-agent-tool="get_checklist" data-agent-description="56-point AI Agent Risk Checklist">
         {/* Title */}
         <div className="text-center mb-12 print:mb-8">
           <h1 className="text-5xl print:text-4xl font-bold text-stone-900 mb-4">
             AI Agent Risk Checklist
           </h1>
           <p className="text-xl text-stone-600 mb-2">
-            50-Point Pre-Deployment Testing Guide
+            56-Point Pre-Deployment Testing Guide
           </p>
           <p className="text-stone-500 text-sm">
             From InspectAgents.com &bull; Free for personal and commercial use
@@ -175,7 +176,7 @@ export default function ChecklistDownloadPage() {
             <li className="flex items-start">
               <span className="font-bold mr-2">&#10003;</span>
               <span>
-                <strong>Before deployment:</strong> Complete all 50 checkpoints.
+                <strong>Before deployment:</strong> Complete all 56 checkpoints.
                 Flag any failures for immediate attention.
               </span>
             </li>
@@ -190,7 +191,7 @@ export default function ChecklistDownloadPage() {
               <span className="font-bold mr-2">&#10003;</span>
               <span>
                 <strong>Ongoing:</strong> Schedule monthly audits to catch model
-                drift and new attack vectors.
+                drift, new attack vectors, and tool/plugin supply chain risks.
               </span>
             </li>
             <li className="flex items-start">
@@ -236,7 +237,16 @@ export default function ChecklistDownloadPage() {
             >
               OWASP Top 10 for LLM Applications
             </a>{' '}
-            framework.
+            and the{' '}
+            <a
+              href="https://genai.owasp.org"
+              className="underline text-primary-700 hover:text-primary-900 print:text-stone-700"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              OWASP Top 10 for Agentic AI
+            </a>{' '}
+            frameworks.
           </p>
         </div>
 
@@ -309,7 +319,7 @@ export default function ChecklistDownloadPage() {
             <strong>AI Agent Risk Checklist</strong> by InspectAgents.com
           </p>
           <p>
-            Free to use &bull; Updated January 2026 &bull; Visit
+            Free to use &bull; Updated February 2026 &bull; Visit
             InspectAgents.com for latest version
           </p>
           <p className="mt-4 text-xs">

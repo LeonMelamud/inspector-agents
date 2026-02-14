@@ -19,7 +19,7 @@ const offerings = [
   },
   {
     title: 'Testing Checklist',
-    description: 'A 50-point checklist covering hallucination detection, prompt injection, security, and compliance testing.',
+    description: 'A 56-point checklist covering hallucination detection, prompt injection, tool-use safety, security, and compliance testing.',
     detail: 'Printable, step-by-step testing guide developed from analysis of hundreds of AI agent failures. Organized by risk category with clear pass/fail criteria.',
     href: '/checklist',
     linkText: 'Download the Checklist',

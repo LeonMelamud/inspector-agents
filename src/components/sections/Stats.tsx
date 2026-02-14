@@ -13,7 +13,7 @@ export function Stats() {
               <p className="text-primary-200 text-sm">Risk Assessments Completed</p>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-accent-400 mb-2 font-display">50+</div>
+              <div className="text-3xl md:text-4xl font-bold text-accent-400 mb-2 font-display">56</div>
               <p className="text-primary-200 text-sm">Testing Criteria</p>
             </div>
             <div>

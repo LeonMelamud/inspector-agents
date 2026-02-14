@@ -3,7 +3,7 @@
     "inspectagents": {
       "url": "https://inspectagents.com/api/mcp",
       "name": "InspectAgents AI Testing Tools",
-      "description": "Search 500+ AI failure incidents, assess AI deployment risk, get the 50-point testing checklist, and submit feedback. The most comprehensive AI agent safety resource.",
+      "description": "Search 500+ AI failure incidents, assess AI deployment risk, get the 56-point testing checklist, and submit feedback. The most comprehensive AI agent safety resource.",
       "version": "1.0.0",
       "capabilities": {
         "tools": true,
@@ -25,7 +25,7 @@
         },
         {
           "name": "get_checklist",
-          "description": "Retrieve the 50-point AI Agent Risk Checklist, optionally filtered"
+          "description": "Retrieve the 56-point AI Agent Risk Checklist, optionally filtered"
         },
         {
           "name": "submit_feedback",
