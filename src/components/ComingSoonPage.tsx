@@ -41,7 +41,7 @@ export function ComingSoonPage({
       trackEmailCapture.submitted(`coming-soon-${featureSlug}`);
 
       // Submit to existing subscribe endpoint
-      const res = await fetch('/api/subscribe', {
+      const res = await fetch('/api/subscribe/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

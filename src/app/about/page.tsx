@@ -55,8 +55,15 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h2 className="text-3xl font-bold text-stone-900 mb-2">The Story</h2>
-                  <p className="text-lg text-stone-600 mb-4">
+                  <p className="text-lg text-stone-600 mb-1">
                     <span className="font-semibold text-stone-900">Leon Melamud, Founder</span>
+                  </p>
+                  <p className="text-sm text-stone-500 mb-4 flex items-center gap-1">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                    </svg>
+                    Miami, Florida
                   </p>
                   <a 
                     href="https://www.linkedin.com/in/leon-melamud" 
