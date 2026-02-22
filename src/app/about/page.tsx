@@ -58,6 +58,9 @@ export default function AboutPage() {
                   <p className="text-lg text-stone-600 mb-1">
                     <span className="font-semibold text-stone-900">Leon Melamud, Founder</span>
                   </p>
+                  <p className="text-sm font-semibold text-primary-600 mb-3">
+                    GenAI Lead &bull; AWS Expert &bull; AI Community Builder
+                  </p>
                   <p className="text-sm text-stone-500 mb-4 flex items-center gap-1">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -65,17 +68,19 @@ export default function AboutPage() {
                     </svg>
                     Miami, Florida
                   </p>
-                  <a 
-                    href="https://www.linkedin.com/in/leon-melamud" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold"
-                  >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                    Connect on LinkedIn
-                  </a>
+                  <div className="flex items-center gap-3">
+                    <a 
+                      href="https://www.linkedin.com/in/leon-melamud" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold"
+                    >
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                      Connect on LinkedIn
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -89,11 +94,28 @@ export default function AboutPage() {
                 </p>
 
                 <p>
-                  I'd spent years building AI systems at scale — products used by millions of people every day. I'd seen the promise. The magic of what these models could do. The excitement in every product meeting when someone said "what if we add AI to this?"
+                  I&apos;m a <span className="font-semibold text-stone-900">GenAI Lead</span> and
+                  full-stack engineer with years of experience building AI-powered products at scale
+                  for major enterprises in the <span className="font-semibold text-stone-900">finance and cybersecurity</span> industries.
+                  From serverless architectures on AWS to complex data pipelines, I&apos;ve shipped
+                  systems used by millions of people every day.
                 </p>
 
                 <p>
-                  But I'd also seen the other side. The late-night Slack messages about hallucinations in production. The support tickets from confused users who got nonsensical answers. The security reviews that found prompt injection vulnerabilities nobody had thought to test for.
+                  Beyond engineering, I&apos;m passionate about growing the AI ecosystem.
+                  I&apos;m a <span className="font-semibold text-stone-900">co-founder of several AI
+                  communities</span>, including <span className="font-semibold text-stone-900">MCP
+                  Israel</span>, <span className="font-semibold text-stone-900">A2A</span>,{' '}
+                  <span className="font-semibold text-stone-900">WebMCP</span>,{' '}
+                  <span className="font-semibold text-stone-900">n8n Israel</span>, and{' '}
+                  <span className="font-semibold text-stone-900">AI Transformation Leaders</span>.
+                  I&apos;m also an active <span className="font-semibold text-stone-900">mentor and
+                  public speaker</span>, sharing practical knowledge on GenAI adoption, agent
+                  architectures, and AI safety at conferences and meetups.
+                </p>
+
+                <p>
+                  But I&apos;d also seen the dark side. The late-night Slack messages about hallucinations in production. The support tickets from confused users who got nonsensical answers. The security reviews that found prompt injection vulnerabilities nobody had thought to test for.
                 </p>
 
                 <p className="font-semibold text-stone-900">
@@ -131,6 +153,68 @@ export default function AboutPage() {
                   That's why I built InspectAgents.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Communities & Leadership */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-stone-900 mb-8 text-center">
+              Communities &amp; Leadership
+            </h2>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  name: 'MCP Israel',
+                  role: 'Co-Founder',
+                  description: 'Model Context Protocol community connecting developers with the latest in AI agent tooling.',
+                },
+                {
+                  name: 'A2A',
+                  role: 'Co-Founder',
+                  description: 'Agent-to-Agent protocol community advancing multi-agent collaboration standards.',
+                },
+                {
+                  name: 'WebMCP',
+                  role: 'Co-Founder',
+                  description: 'Web-based MCP community pushing browser-native AI agent capabilities forward.',
+                },
+                {
+                  name: 'n8n Israel',
+                  role: 'Co-Founder',
+                  description: 'Community for the open-source workflow automation platform — AI-powered automations at scale.',
+                },
+                {
+                  name: 'AI Transformation Leaders',
+                  role: 'Co-Founder',
+                  description: 'Executive community for leaders driving AI adoption and transformation in enterprise organizations.',
+                },
+                {
+                  name: 'Mentoring & Speaking',
+                  role: 'Active Speaker',
+                  description: 'Sharing practical GenAI knowledge at conferences — agent architectures, AI safety, and cloud-native AI.',
+                },
+              ].map(item => (
+                <div
+                  key={item.name}
+                  className="rounded-xl border border-stone-200 bg-stone-50 p-5 shadow-sm"
+                >
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <h3 className="text-base font-bold text-stone-900">
+                      {item.name}
+                    </h3>
+                    <span className="inline-flex items-center rounded-full bg-primary-50 px-2.5 py-0.5 text-xs font-semibold text-primary-700">
+                      {item.role}
+                    </span>
+                  </div>
+                  <p className="text-sm text-stone-500 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

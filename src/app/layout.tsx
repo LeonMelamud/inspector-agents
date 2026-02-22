@@ -384,6 +384,7 @@ export default function RootLayout({
         <StickyCtaBar />
         <Analytics />
         <SpeedInsights />
+        <script src="/webmcp.js" defer />
       </body>
     </html>
   );
