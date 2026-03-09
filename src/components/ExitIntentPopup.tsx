@@ -8,7 +8,6 @@ import { trackCTAClick } from '@/lib/analytics';
 import { track } from '@vercel/analytics';
 
 const STORAGE_KEY = 'exitPopupDismissed:v1';
-const DISMISS_DURATION_DAYS = 7;
 
 // Pages where popup should NOT appear
 const EXCLUDED_PATHS = [
@@ -24,7 +23,7 @@ const EXCLUDED_PATHS = [
  * - Desktop: Mouse moves toward top of viewport (exit intent)
  * - Mobile: After 20 seconds on page
  * 
- * Shows once per 7 days if dismissed
+ * Shows only once — permanently dismissed after close
  * Excluded from checklist pages and thank-you pages
  */
 export function ExitIntentPopup() {
@@ -46,17 +45,9 @@ export function ExitIntentPopup() {
     try {
       const dismissed = localStorage.getItem(STORAGE_KEY);
       if (dismissed) {
-        const dismissedDate = new Date(dismissed);
-        const daysSinceDismiss = (Date.now() - dismissedDate.getTime()) / (1000 * 60 * 60 * 24);
-        
-        if (daysSinceDismiss < DISMISS_DURATION_DAYS) {
-          // Still within dismiss period, don't show
-          setShouldEnable(false);
-          return;
-        }
+        setShouldEnable(false);
+        return;
       }
-      
-      // Not dismissed or dismiss period expired
       setShouldEnable(true);
     } catch {
       // localStorage not available (incognito, etc.) - show popup
@@ -102,8 +93,9 @@ export function ExitIntentPopup() {
 
   const handleClose = () => {
     setIsVisible(false);
+    setShouldEnable(false);
     try {
-      localStorage.setItem(STORAGE_KEY, new Date().toISOString());
+      localStorage.setItem(STORAGE_KEY, '1');
     } catch {
       // localStorage not available, popup won't persist dismiss
     }
@@ -192,14 +184,14 @@ export function ExitIntentPopup() {
 
           {/* Value Proposition */}
           <p className="text-stone-600 mb-4 leading-relaxed">
-            Before you go, grab our <strong>56-point AI testing checklist</strong> used
+            Before you go, grab our <strong>63-point AI testing checklist</strong> used
             by 250+ teams to prevent AI failures.
           </p>
 
           {/* Benefits List */}
           <ul className="space-y-2 mb-6">
             {[
-              'Covers 8 critical risk areas',
+              'Covers 10 critical risk areas',
               'Prevents Chevrolet-style disasters',
               'Takes 30 minutes for first pass',
               '100% free, no signup required',

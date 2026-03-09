@@ -278,16 +278,16 @@ describe('MCP WebMCP Sanity Tests', () => {
   // ────────────────────── get_checklist ──────────────────────────────────
 
   describe('get_checklist', () => {
-    it('full checklist returns 56 items across 9 sections', async () => {
+    it('full checklist returns 63 items across 10 sections', async () => {
       const { parsed } = await toolCall('get_checklist');
 
-      assert.equal(parsed.total, 56, `Expected 56 total, got ${parsed.total}`);
-      assert.equal(parsed.sections.length, 9, `Expected 9 sections, got ${parsed.sections.length}`);
+      assert.equal(parsed.total, 63, `Expected 63 total, got ${parsed.total}`);
+      assert.equal(parsed.sections.length, 10, `Expected 10 sections, got ${parsed.sections.length}`);
       assert.ok(parsed.source);
 
       // Verify item counts sum to total
       const sum = parsed.sections.reduce((s, sec) => s + sec.count, 0);
-      assert.equal(sum, 56, `Section counts should sum to 56, got ${sum}`);
+      assert.equal(sum, 63, `Section counts should sum to 63, got ${sum}`);
     });
 
     it('filter by severity=critical returns only critical items', async () => {
@@ -386,7 +386,7 @@ describe('MCP WebMCP Sanity Tests', () => {
       assert.equal(data.failures.length, data.total);
     });
 
-    it('checklist resource returns 56 items', async () => {
+    it('checklist resource returns 63 items', async () => {
       const body = await mcpCall('resources/read', {
         uri: 'inspectagents://checklist/full',
       });
@@ -395,8 +395,8 @@ describe('MCP WebMCP Sanity Tests', () => {
       assert.ok(contents.length >= 1);
 
       const data = JSON.parse(contents[0].text);
-      assert.equal(data.total, 56, `Expected 56, got ${data.total}`);
-      assert.equal(data.sections.length, 9);
+      assert.equal(data.total, 63, `Expected 63, got ${data.total}`);
+      assert.equal(data.sections.length, 10);
     });
   });
 

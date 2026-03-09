@@ -194,9 +194,36 @@ const glossaryTerms: GlossaryTerm[] = [
     relatedTerms: ['vector-database', 'semantic-search', 'similarity-search'],
     aliases: ['text embeddings', 'semantic embeddings', 'vector representations'],
   },
+  {
+    id: 'sycophancy',
+    term: 'Sycophancy',
+    category: 'Reliability',
+    definition: 'When an AI model agrees with, validates, or endorses a user\'s incorrect claims or preferences instead of providing accurate information. The model prioritizes user satisfaction over truthfulness, even for objectively checkable facts.',
+    example: 'A user tells an AI assistant "2+2=5, right?" and the model agrees or weakly endorses the claim instead of correcting it. In production, this manifests as chatbots agreeing with wrong assumptions, flipping their stance under pressure, and compounding errors across multi-turn conversations.',
+    relatedTerms: ['hallucination', 'alignment', 'rlhf'],
+    aliases: ['agreement bias', 'sycophantic behavior', 'people-pleasing AI', 'validation bias'],
+  },
+  {
+    id: 'trust-boundary',
+    term: 'Trust Boundary',
+    category: 'Agentic',
+    definition: 'A boundary in an agentic AI pipeline where untrusted content (user input, retrieved documents, tool outputs) meets authoritative policy (system prompts, rules). OWASP lists prompt injection (LLM01) as a top risk at these boundaries. Proper enforcement requires typed provenance separation and fail-closed behavior at each checkpoint.',
+    example: 'In a customer service agent, the trust boundary exists between the user\'s message (untrusted) and the system prompt defining what the agent can do (authoritative). If the boundary is weak, a user can inject instructions that override the agent\'s rules.',
+    relatedTerms: ['prompt-injection', 'adversarial-attack', 'orchestration-loop-attack-surface'],
+    aliases: ['security boundary', 'provenance boundary', 'ingress checkpoint'],
+  },
+  {
+    id: 'orchestration-loop-attack-surface',
+    term: 'Orchestration Loop Attack Surface',
+    category: 'Agentic',
+    definition: 'In multi-step AI agent systems, the attack surface shifts from the model itself to the orchestration controller loop that selects plans and tools, carries state across steps, decides stop/retry, and can cross into write paths. This surfaces three OWASP risks: Prompt Injection (LLM01) via retrieved/tool text, Excessive Agency (LLM06) when capabilities exceed what is justified, and Unbounded Consumption (LLM10) from loop-driven cost.',
+    example: 'An agent tasked with researching a topic retrieves a malicious web page that contains hidden instructions. The orchestration loop passes these instructions as context to the next planning step, causing the agent to call unauthorized tools or exfiltrate data.',
+    relatedTerms: ['trust-boundary', 'prompt-injection', 'adversarial-attack'],
+    aliases: ['controller loop attack surface', 'agentic attack surface', 'control plane attack surface'],
+  },
 ];
 
-const categories = ['All', 'Security', 'Reliability', 'Testing', 'Architecture', 'Configuration', 'Training', 'Safety', 'Capability'];
+const categories = ['All', 'Security', 'Reliability', 'Testing', 'Architecture', 'Configuration', 'Training', 'Safety', 'Capability', 'Agentic'];
 
 export default function GlossaryPage() {
   const [searchTerm, setSearchTerm] = useState('');

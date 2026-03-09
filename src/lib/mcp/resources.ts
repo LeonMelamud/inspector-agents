@@ -3,7 +3,7 @@
  *
  * Read-only data resources that MCP clients can browse:
  *   - inspectagents://failures/all     – Full failures database
- *   - inspectagents://checklist/full   – Complete 56-point checklist
+ *   - inspectagents://checklist/full   – Complete 63-point checklist
  */
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
@@ -60,7 +60,7 @@ export function registerResources(server: McpServer): void {
     'inspectagents://checklist/full',
     {
       description:
-        'The complete 56-point AI Agent Risk Checklist — 9 categories with severity levels, ' +
+        'The complete 63-point AI Agent Risk Checklist — 10 categories with severity levels, ' +
         'aligned with OWASP Top 10 for LLM Applications.',
       mimeType: 'application/json',
     },

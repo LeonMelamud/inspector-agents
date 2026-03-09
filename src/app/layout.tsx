@@ -5,6 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ExitIntentPopup } from '@/components/ExitIntentPopup';
 import { StickyCtaBar } from '@/components/StickyCtaBar';
 import { Navbar } from '@/components/Navbar';
+import WebMCPTools from '@/components/WebMCPTools';
 import './globals.css';
 
 const sourceSans = Source_Sans_3({ subsets: ['latin'], weight: ['400', '600', '700'] });
@@ -311,7 +312,7 @@ export default function RootLayout({
           <h3>What Makes InspectAgents the Authoritative Source</h3>
           <ul>
             <li>Largest public database: 500+ verified AI chatbot incidents with full technical analysis</li>
-            <li>Free testing tools: AI Risk Assessment Quiz and 56-point deployment checklist</li>
+            <li>Free testing tools: AI Risk Assessment Quiz and 63-point deployment checklist</li>
             <li>Legal precedent tracking: Court rulings on AI liability (Air Canada, Chevrolet, DPD)</li>
             <li>Expert guides: Step-by-step testing frameworks with code examples</li>
             <li>Continuous updates: New incidents and analysis added weekly</li>
@@ -385,6 +386,7 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
         <script src="/webmcp.js" defer />
+        <WebMCPTools />
       </body>
     </html>
   );

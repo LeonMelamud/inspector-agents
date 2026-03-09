@@ -28,6 +28,16 @@ interface BlogPost {
 
 const blogPosts: BlogPost[] = [
   {
+    slug: 'ai-sycophancy-agreement-bias',
+    title: 'AI Sycophancy: When Your AI Agent Agrees With Wrong Answers',
+    description:
+      'How sycophancy and agreement bias cause AI agents to validate incorrect claims, flip their stance under user pressure, and compound errors across conversations.',
+    date: '2026-03-09',
+    readTime: '12 min read',
+    category: 'Research',
+    featured: true,
+  },
+  {
     slug: 'ai-chatbot-failures-2025-2026',
     title: 'The Complete List of AI Chatbot Failures (2025-2026)',
     description:

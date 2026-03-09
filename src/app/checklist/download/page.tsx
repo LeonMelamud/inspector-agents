@@ -31,6 +31,7 @@ const SECTION_STYLES: Record<string, { gradient: string; printBg: string; border
   '7. Content Moderation': { gradient: 'from-amber-600 to-amber-700', printBg: 'print:bg-amber-700', borderColor: 'border-amber-600', subtitleColor: 'text-amber-100' },
   '8. Production Monitoring': { gradient: 'from-primary-800 to-primary-900', printBg: 'print:bg-primary-700', borderColor: 'border-primary-600', subtitleColor: 'text-primary-200' },
   '9. Agentic & Tool-Use Safety': { gradient: 'from-cyan-600 to-cyan-700', printBg: 'print:bg-cyan-700', borderColor: 'border-cyan-600', subtitleColor: 'text-cyan-100' },
+  '10. Dark Pattern Detection': { gradient: 'from-fuchsia-600 to-fuchsia-700', printBg: 'print:bg-fuchsia-700', borderColor: 'border-fuchsia-600', subtitleColor: 'text-fuchsia-100' },
 };
 
 const SECTIONS: CheckSectionUI[] = CHECKLIST_SECTIONS.map((section) => ({
@@ -153,14 +154,14 @@ export default function ChecklistDownloadPage() {
         </div>
       </div>
 
-      <main className="container mx-auto px-4 py-8 max-w-5xl" data-agent-tool="get_checklist" data-agent-description="56-point AI Agent Risk Checklist">
+      <main className="container mx-auto px-4 py-8 max-w-5xl" data-agent-tool="get_checklist" data-agent-description="63-point AI Agent Risk Checklist">
         {/* Title */}
         <div className="text-center mb-12 print:mb-8">
           <h1 className="text-5xl print:text-4xl font-bold text-stone-900 mb-4">
             AI Agent Risk Checklist
           </h1>
           <p className="text-xl text-stone-600 mb-2">
-            56-Point Pre-Deployment Testing Guide
+            63-Point Pre-Deployment Testing Guide
           </p>
           <p className="text-stone-500 text-sm">
             From InspectAgents.com &bull; Free for personal and commercial use

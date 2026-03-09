@@ -77,6 +77,12 @@ const authorityResources: ResourceLink[] = [
     source: 'Responsible AI Collaborative',
     description: 'Community-driven database of real-world AI incidents',
   },
+  {
+    title: 'AI Agents Playbook — Agentic Security & Trust Boundaries',
+    url: 'https://www.andyagentlab.com/articles/agent-security',
+    source: 'Andy Agent Lab',
+    description: 'Policies, threat models, and audit checklists for tool-using LLM systems',
+  },
 ];
 
 const highTrafficArticles: ResourceLink[] = [
