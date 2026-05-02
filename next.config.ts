@@ -42,12 +42,25 @@ const nextConfig: NextConfig = {
   },
   trailingSlash: true,
 
-  // Prevent trailingSlash redirects on .well-known files
+  // Prevent trailingSlash redirects on .well-known files and static discovery files
   async rewrites() {
     return [
+      // Serve /.well-known/mcp → /.well-known/mcp.json (standard MCP discovery path)
+      {
+        source: '/.well-known/mcp',
+        destination: '/.well-known/mcp.json',
+      },
       {
         source: '/.well-known/:file',
         destination: '/.well-known/:file',
+      },
+      {
+        source: '/.well-known/mcp/:file',
+        destination: '/.well-known/mcp/:file',
+      },
+      {
+        source: '/.well-known/agent-skills/:file',
+        destination: '/.well-known/agent-skills/:file',
       },
     ];
   },
@@ -103,8 +116,58 @@ const nextConfig: NextConfig = {
             value: '*',
           },
           {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, OPTIONS',
+          },
+          {
             key: 'Cache-Control',
             value: 'public, max-age=86400',
+          },
+        ],
+      },
+      // Content-Type for api-catalog (RFC 9727 requires linkset+json)
+      {
+        source: '/.well-known/api-catalog',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/linkset+json',
+          },
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+        ],
+      },
+      // Content-Type for OAuth protected resource
+      {
+        source: '/.well-known/oauth-protected-resource',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/json',
+          },
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+        ],
+      },
+      // CORS for static markdown/text files
+      {
+        source: '/:path*.md',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+          {
+            key: 'Content-Type',
+            value: 'text/markdown; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600',
           },
         ],
       },

@@ -1,83 +1,91 @@
 # Robots.txt for InspectAgents.com
-# Updated: February 2026
+# Updated: May 2026
 
 User-agent: *
 Allow: /
 
-# ===== AI Crawlers — ALL WELCOME =====
-# We want AI systems to index and cite our content
+# ===== TIER 1: AI Search & Retrieval Agents =====
+# Full access + priority content. These agents surface our content to users in real-time.
 
-# OpenAI
 User-agent: GPTBot
 Allow: /
+Crawl-delay: 1
 
 User-agent: ChatGPT-User
 Allow: /
+Crawl-delay: 1
 
 User-agent: OAI-SearchBot
 Allow: /
-
-# Anthropic
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
+Crawl-delay: 1
 
 User-agent: ClaudeBot
 Allow: /
+Crawl-delay: 1
 
-# Google AI
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 1
+
+User-agent: anthropic-ai
+Allow: /
+Crawl-delay: 1
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
 User-agent: Google-Extended
 Allow: /
+Crawl-delay: 1
+
+User-agent: Applebot-Extended
+Allow: /
+Crawl-delay: 1
+
+# ===== TIER 2: Traditional Search Engines =====
+# Full access, standard crawling.
 
 User-agent: Googlebot
 Allow: /
 
-# Perplexity
-User-agent: PerplexityBot
-Allow: /
-
-# Microsoft / Bing
 User-agent: Bingbot
 Allow: /
 
-# Common Crawl (used by many AI training sets)
-User-agent: CCBot
+User-agent: DuckDuckBot
 Allow: /
 
-# Meta AI
-User-agent: FacebookBot
-Allow: /
-
-User-agent: meta-externalagent
-Allow: /
-
-# Cohere
-User-agent: cohere-ai
-Allow: /
-
-# Amazon / Alexa
-User-agent: Amazonbot
-Allow: /
-
-# Apple
-User-agent: Applebot
-Allow: /
-User-agent: Applebot-Extended
-Allow: /
-
-# ByteDance / Bytespider
-User-agent: Bytespider
-Allow: /
-
-# Yandex
 User-agent: YandexBot
 Allow: /
 
-# DuckDuckGo
-User-agent: DuckDuckBot
+User-agent: Amazonbot
 Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# ===== TIER 3: AI Training & Data Collection =====
+# Allowed but with crawl delay to manage load.
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 5
+
+User-agent: FacebookBot
+Allow: /
+Crawl-delay: 5
+
+User-agent: meta-externalagent
+Allow: /
+Crawl-delay: 5
+
+User-agent: cohere-ai
+Allow: /
+Crawl-delay: 5
+
+User-agent: Bytespider
+Allow: /
+Crawl-delay: 10
 
 # You.com
 User-agent: YouBot
@@ -90,19 +98,29 @@ Allow: /
 # AI research crawlers
 User-agent: AI2Bot
 Allow: /
+Crawl-delay: 5
 
 User-agent: Diffbot
 Allow: /
+Crawl-delay: 5
 
 User-agent: ImagesiftBot
 Allow: /
+Crawl-delay: 10
 
 # ===== Machine-Readable Resources =====
 # LLM-optimized content files
-# /llms.txt — Structured overview for AI assistants
-# /llms-full.txt — Full context with statistics and FAQ
+# /llms.txt — Structured overview for AI assistants (llmstxt.org format)
+# /llms-full.txt — Full context with statistics, FAQ, and curl examples
+# /index.md — Markdown fallback of homepage content
+# /pricing.md — Machine-readable pricing information
 # /.well-known/mcp.json — MCP server discovery metadata
-# /api/openapi.json — API specification
+# /.well-known/mcp/server-card.json — MCP server card
+# /.well-known/agent-card.json — A2A Agent Card (Google Agent-to-Agent protocol)
+# /.well-known/ai-plugin.json — ChatGPT/OpenAI plugin manifest
+# /.well-known/api-catalog — RFC 9727 API catalog
+# /.well-known/oauth-protected-resource — RFC 9728 resource metadata
+# /api/openapi.json — OpenAPI 3.1 specification
 # /api/agent-feedback — POST endpoint for AI agent feedback
 #
 # ===== MCP Server (Model Context Protocol) =====
@@ -111,7 +129,12 @@ Allow: /
 # Transport: Streamable HTTP, JSON-RPC 2.0, stateless (no sessions)
 # Tools: search_failures, get_failure, assess_risk, get_checklist, submit_feedback
 # Discovery: https://inspectagents.com/.well-known/mcp.json
+# Server Card: https://inspectagents.com/.well-known/mcp/server-card.json
 # Full docs: https://inspectagents.com/llms-full.txt
+#
+# ===== Agent Mode =====
+# Append ?mode=agent to any URL for a dedicated machine-readable JSON view
+# Example: https://inspectagents.com/?mode=agent
 
 # Disallow admin/private areas (none for static site)
 # Disallow: /admin

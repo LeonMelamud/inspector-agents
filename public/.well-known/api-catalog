@@ -1,0 +1,25 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://inspectagents.com",
+      "item": [
+        {
+          "href": "https://inspectagents.com/api/openapi.json",
+          "type": "application/openapi+json;version=3.1",
+          "title": "InspectAgents REST API"
+        },
+        {
+          "href": "https://inspectagents.com/.well-known/mcp.json",
+          "type": "application/json",
+          "title": "InspectAgents MCP Server Discovery"
+        },
+        {
+          "href": "https://inspectagents.com/.well-known/mcp/server-card.json",
+          "type": "application/json",
+          "title": "InspectAgents MCP Server Card"
+        }
+      ]
+    }
+  ],
+  "profile": "https://www.rfc-editor.org/rfc/rfc9727"
+}

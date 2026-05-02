@@ -1,0 +1,47 @@
+# InspectAgents — API Documentation
+
+> Complete API and integration documentation for AI agents and developers.
+
+## Endpoints
+
+### REST API
+- **POST /api/agent-feedback** — Submit feedback, corrections, or incident reports (no auth required)
+- **GET /api/agent-feedback** — Self-documenting API reference as JSON
+
+### MCP Server (Model Context Protocol)
+- **POST /api/mcp/** — Streamable HTTP MCP endpoint (JSON-RPC 2.0)
+- Required Accept header: `application/json, text/event-stream`
+- Trailing slash required
+- Rate limit: 30 req/min per IP
+
+### Agent Mode
+- **GET /?mode=agent** — Machine-readable JSON view of the full site
+
+## MCP Tools
+1. `search_failures` — Search 500+ AI failures by query, category, severity, year
+2. `get_failure` — Get full details of a single failure by ID
+3. `assess_risk` — Run risk assessment quiz (returns risk level + recommendations)
+4. `get_checklist` — Get 63-point testing checklist (filter by severity/section)
+5. `submit_feedback` — Submit feedback or new incidents
+
+## Error Handling
+All API endpoints return structured JSON errors with:
+- Status code and error message
+- Available endpoints for 404s
+- Rate limit info in X-RateLimit-* headers
+- JSON-RPC error format for MCP endpoint
+
+## Authentication
+None required. All endpoints are free and publicly accessible.
+
+## Rate Limits
+| Endpoint | Limit | Window |
+|----------|-------|--------|
+| POST /api/mcp/ | 30 requests | per minute per IP |
+| POST /api/agent-feedback | 10 requests | per minute per IP |
+
+## Discovery Files
+- OpenAPI: https://inspectagents.com/api/openapi.json
+- MCP: https://inspectagents.com/.well-known/mcp.json
+- Agent Card: https://inspectagents.com/.well-known/agent-card.json
+- Skills: https://inspectagents.com/.well-known/agent-skills/index.json

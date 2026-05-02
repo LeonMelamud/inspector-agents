@@ -19,6 +19,35 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-stone-100">
+      {/* Founder structured data for E-E-A-T */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: 'Leon Melamud',
+            jobTitle: 'Founder & GenAI Lead',
+            url: 'https://www.linkedin.com/in/leon-melamud',
+            worksFor: {
+              '@type': 'Organization',
+              name: 'InspectAgents',
+              url: 'https://inspectagents.com',
+            },
+            knowsAbout: [
+              'Generative AI',
+              'AI Safety',
+              'AI Agent Testing',
+              'Prompt Injection Prevention',
+              'LLM Security',
+              'Model Context Protocol',
+            ],
+            sameAs: [
+              'https://www.linkedin.com/in/leon-melamud',
+            ],
+          }),
+        }}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-primary-50 to-stone-100 py-20">
         <div className="container mx-auto px-4">

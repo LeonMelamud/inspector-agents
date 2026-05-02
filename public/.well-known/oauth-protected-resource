@@ -1,0 +1,8 @@
+{
+  "resource": "https://inspectagents.com",
+  "authorization_servers": [],
+  "bearer_methods_supported": [],
+  "scopes_supported": [],
+  "resource_documentation": "https://inspectagents.com/llms-full.txt",
+  "resource_description": "InspectAgents AI safety platform - all endpoints are publicly accessible without authentication"
+}

@@ -1,0 +1,79 @@
+{
+  "name": "InspectAgents",
+  "description": "AI agent testing and safety platform. Search 500+ documented AI chatbot failures, assess deployment risk, get the 63-point testing checklist, and submit incident reports. The most comprehensive AI agent safety resource.",
+  "version": "1.0.0",
+  "serverUrl": "https://inspectagents.com/api/mcp/",
+  "transport": "streamable-http",
+  "requiredHeaders": {
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream"
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": false
+  },
+  "tools": [
+    {
+      "name": "search_failures",
+      "description": "Search and filter the AI failures database (500+ incidents) by category, severity, year, or free text",
+      "parameters": {
+        "query": { "type": "string", "description": "Free-text search across title, company, description, impact" },
+        "category": { "type": "string", "enum": ["Hallucination", "Prompt Injection", "Security", "Bias", "Jailbreak", "Misinformation", "Privacy", "Safety"] },
+        "severity": { "type": "string", "enum": ["Low", "Medium", "High", "Critical"] },
+        "year": { "type": "integer", "description": "Filter by year (e.g. 2024)" },
+        "limit": { "type": "integer", "description": "1-50, default 10" }
+      }
+    },
+    {
+      "name": "get_failure",
+      "description": "Get full details of a single AI failure by ID",
+      "parameters": {
+        "id": { "type": "string", "description": "Failure ID (e.g. 'chevrolet-car-sale')", "required": true }
+      }
+    },
+    {
+      "name": "assess_risk",
+      "description": "Run the AI risk assessment quiz programmatically and get personalized recommendations",
+      "parameters": {
+        "currentlyUsing": { "type": "string", "enum": ["yes", "planning", "no"], "required": true },
+        "biggestFears": { "type": "array", "items": { "type": "string" }, "required": true }
+      }
+    },
+    {
+      "name": "get_checklist",
+      "description": "Retrieve the 63-point AI Agent Risk Checklist, optionally filtered by severity or section",
+      "parameters": {
+        "severity": { "type": "string", "enum": ["critical", "high", "medium"] },
+        "section": { "type": "string", "description": "Section name (e.g. 'Hallucination', 'Prompt Injection')" },
+        "query": { "type": "string", "description": "Free-text search across item names and descriptions" }
+      }
+    },
+    {
+      "name": "submit_feedback",
+      "description": "Submit feedback, corrections, or new AI incident reports",
+      "parameters": {
+        "type": { "type": "string", "enum": ["feedback", "correction", "incident", "suggestion"], "required": true },
+        "message": { "type": "string", "description": "Content (max 5000 chars)", "required": true },
+        "source": { "type": "string", "description": "Agent identifier" },
+        "url": { "type": "string", "description": "Reference URL" }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "inspectagents://failures/all",
+      "description": "Complete failures database as JSON (500+ incidents)"
+    },
+    {
+      "uri": "inspectagents://checklist/full",
+      "description": "Full 63-point checklist with 10 sections"
+    }
+  ],
+  "contact": {
+    "email": "hello@inspectagents.com",
+    "url": "https://inspectagents.com"
+  },
+  "documentation": "https://inspectagents.com/llms-full.txt",
+  "openapi": "https://inspectagents.com/api/openapi.json"
+}

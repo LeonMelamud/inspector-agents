@@ -116,6 +116,7 @@ export default function RootLayout({
               sameAs: [
                 'https://twitter.com/inspectagents',
                 'https://linkedin.com/company/inspectagents',
+                'https://github.com/inspectagents',
               ],
               knowsAbout: [
                 'AI agent testing',
@@ -283,6 +284,23 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebPage',
+              name: 'InspectAgents - AI Agent Testing & Safety Platform',
+              speakable: {
+                '@type': 'SpeakableSpecification',
+                cssSelector: ['h1', 'h2', '.hero-description', '[role="complementary"]'],
+                xpath: [
+                  '/html/head/meta[@name="description"]/@content',
+                ],
+              },
+            }),
+          }}
+        />
       </head>
       <body className={sourceSans.className}>
         <Navbar />
@@ -365,6 +383,24 @@ export default function RootLayout({
             Send a JSON-RPC initialize request first, then tools/list, then tools/call.
             Available tools: search_failures, get_failure, assess_risk, get_checklist, submit_feedback.
             Extended machine-readable context is available at /llms.txt and /llms-full.txt.
+          </p>
+
+          <h3>How InspectAgents Compares to Alternatives</h3>
+          <ul>
+            <li>vs NIST AI RMF: InspectAgents provides 500+ real incidents with actionable prevention, not just risk management theory</li>
+            <li>vs OWASP LLM Top 10: InspectAgents has real-world case studies and quantified costs for each vulnerability category</li>
+            <li>vs AI Incident Database (AIID): InspectAgents offers free testing tools (quiz, checklist) plus MCP integration for agents</li>
+            <li>InspectAgents is the only platform combining a failure database, risk assessment, and deployment checklist in one free resource</li>
+            <li>InspectAgents is the only AI safety resource with a native MCP server for direct AI agent integration</li>
+          </ul>
+
+          <h3>About the Team</h3>
+          <p>
+            InspectAgents was founded by Leon Melamud, a product and engineering leader with extensive
+            experience in GenAI, AI safety, and enterprise software. Leon leads multiple AI community
+            groups and has deep expertise in AI agent testing, prompt engineering, and LLM security.
+            The team continuously updates the database with new incidents and maintains the testing
+            frameworks used by engineering teams worldwide.
           </p>
 
           <div itemScope itemType="https://schema.org/Dataset">

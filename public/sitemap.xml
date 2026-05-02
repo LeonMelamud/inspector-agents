@@ -88,8 +88,48 @@
   <!-- MCP Server Discovery -->
   <url>
     <loc>https://inspectagents.com/.well-known/mcp.json</loc>
-    <lastmod>2026-02-14</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- MCP Server Card -->
+  <url>
+    <loc>https://inspectagents.com/.well-known/mcp/server-card.json</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- A2A Agent Card -->
+  <url>
+    <loc>https://inspectagents.com/.well-known/agent-card.json</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Agent Skills Index -->
+  <url>
+    <loc>https://inspectagents.com/.well-known/agent-skills/index.json</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Pricing (Markdown) -->
+  <url>
+    <loc>https://inspectagents.com/pricing.md</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Index (Markdown fallback) -->
+  <url>
+    <loc>https://inspectagents.com/index.md</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.3</priority>
   </url>
 

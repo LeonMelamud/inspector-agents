@@ -1,0 +1,37 @@
+{
+  "$schema": "https://skills.sh/schema/v0.2.0/index.json",
+  "type": "skills-index",
+  "url": "https://inspectagents.com/.well-known/agent-skills/index.json",
+  "skills": [
+    {
+      "id": "search-ai-failures",
+      "name": "Search AI Failures Database",
+      "description": "Search and filter 500+ documented AI chatbot failures by category (Hallucination, Prompt Injection, Security, Bias, Jailbreak), severity, year, or free text. Returns incident details, root cause analysis, cost impact, and prevention strategies.",
+      "version": "1.0.0",
+      "url": "https://inspectagents.com/.well-known/agent-skills/search-failures.md",
+      "tags": ["ai-safety", "chatbot-failures", "incident-database", "testing"],
+      "author": "InspectAgents",
+      "license": "proprietary"
+    },
+    {
+      "id": "assess-ai-risk",
+      "name": "AI Deployment Risk Assessment",
+      "description": "Run an interactive AI risk assessment quiz to evaluate deployment readiness. Returns a risk score (Low/Medium/High) with personalized testing recommendations and prioritized checklist items.",
+      "version": "1.0.0",
+      "url": "https://inspectagents.com/.well-known/agent-skills/assess-risk.md",
+      "tags": ["risk-assessment", "ai-testing", "deployment-readiness"],
+      "author": "InspectAgents",
+      "license": "proprietary"
+    },
+    {
+      "id": "get-testing-checklist",
+      "name": "63-Point AI Agent Testing Checklist",
+      "description": "Retrieve a comprehensive 63-point pre-deployment checklist for AI agents covering hallucination, prompt injection, data leakage, jailbreak, bias, content moderation, security, performance, monitoring, and compliance.",
+      "version": "1.0.0",
+      "url": "https://inspectagents.com/.well-known/agent-skills/checklist.md",
+      "tags": ["checklist", "testing", "pre-deployment", "safety"],
+      "author": "InspectAgents",
+      "license": "proprietary"
+    }
+  ]
+}

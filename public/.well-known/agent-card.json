@@ -1,0 +1,54 @@
+{
+  "name": "InspectAgents",
+  "description": "AI agent testing and safety platform with 500+ documented chatbot failures, risk assessment tools, and deployment checklists.",
+  "url": "https://inspectagents.com",
+  "version": "1.0.0",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": ["text"],
+  "defaultOutputModes": ["text"],
+  "skills": [
+    {
+      "id": "search-ai-failures",
+      "name": "Search AI Failures Database",
+      "description": "Search and filter 500+ documented AI chatbot failures by category, severity, year, or free text. Includes incidents from Chevrolet, Air Canada, DPD, Google, and hundreds more.",
+      "tags": ["ai-safety", "chatbot-failures", "incident-database"],
+      "examples": [
+        "Find prompt injection incidents",
+        "Search for hallucination failures in 2024",
+        "Show critical severity AI failures"
+      ]
+    },
+    {
+      "id": "assess-ai-risk",
+      "name": "AI Risk Assessment",
+      "description": "Run the AI risk assessment quiz programmatically to evaluate deployment readiness and get personalized recommendations.",
+      "tags": ["risk-assessment", "ai-testing", "deployment-readiness"]
+    },
+    {
+      "id": "get-testing-checklist",
+      "name": "AI Agent Risk Checklist",
+      "description": "Retrieve the 63-point AI agent pre-deployment checklist covering hallucination, prompt injection, security, bias, and more.",
+      "tags": ["checklist", "testing", "pre-deployment"]
+    },
+    {
+      "id": "submit-incident",
+      "name": "Submit AI Incident Report",
+      "description": "Submit new AI chatbot failures, corrections, or feedback to the InspectAgents database.",
+      "tags": ["incident-report", "feedback", "crowdsourcing"]
+    }
+  ],
+  "provider": {
+    "organization": "InspectAgents",
+    "url": "https://inspectagents.com"
+  },
+  "documentationUrl": "https://inspectagents.com/llms-full.txt",
+  "authentication": {
+    "type": "none",
+    "description": "All endpoints are free and require no authentication"
+  },
+  "supportsAuthenticatedExtendedCard": false
+}
