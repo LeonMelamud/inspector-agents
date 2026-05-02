@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemamap xmlns="https://nlweb.ai/schemas/schemamap/1.0">
+  <site>https://inspectagents.com</site>
+  <updated>2026-05-03</updated>
+  <resources>
+    <resource>
+      <url>https://inspectagents.com/</url>
+      <schema>WebSite</schema>
+      <schema>Organization</schema>
+      <schema>SoftwareApplication</schema>
+      <description>InspectAgents homepage and AI agent testing platform overview.</description>
+      <keywords>AI agent testing, AI safety, chatbot failures, MCP server</keywords>
+    </resource>
+    <resource>
+      <url>https://inspectagents.com/failures/</url>
+      <schema>Dataset</schema>
+      <description>Searchable database of 500+ documented AI chatbot failures with prevention strategies.</description>
+      <keywords>AI failures database, chatbot incidents, hallucination, prompt injection</keywords>
+    </resource>
+    <resource>
+      <url>https://inspectagents.com/checklist/</url>
+      <schema>HowTo</schema>
+      <description>63-point AI agent pre-deployment risk checklist.</description>
+      <keywords>AI testing checklist, deployment safety, LLM security checklist</keywords>
+    </resource>
+    <resource>
+      <url>https://inspectagents.com/quiz/</url>
+      <schema>SoftwareApplication</schema>
+      <description>Free AI deployment risk assessment quiz with personalized recommendations.</description>
+      <keywords>AI risk assessment, deployment readiness, chatbot safety quiz</keywords>
+    </resource>
+    <resource>
+      <url>https://inspectagents.com/api/openapi.json</url>
+      <schema>APIReference</schema>
+      <description>OpenAPI 3.1 specification for InspectAgents REST and MCP endpoints.</description>
+      <keywords>OpenAPI, agent API, feedback endpoint, MCP JSON-RPC</keywords>
+    </resource>
+    <resource>
+      <url>https://inspectagents.com/.well-known/mcp.json</url>
+      <schema>EntryPoint</schema>
+      <description>MCP server discovery manifest for AI agents.</description>
+      <keywords>Model Context Protocol, MCP server, agent integration</keywords>
+    </resource>
+  </resources>
+</schemamap>

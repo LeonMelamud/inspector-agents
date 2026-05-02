@@ -1,8 +1,8 @@
 {
   "resource": "https://inspectagents.com",
-  "authorization_servers": [],
-  "bearer_methods_supported": [],
-  "scopes_supported": [],
+  "authorization_servers": ["https://inspectagents.com"],
+  "bearer_methods_supported": ["header"],
+  "scopes_supported": ["public"],
   "resource_documentation": "https://inspectagents.com/llms-full.txt",
-  "resource_description": "InspectAgents AI safety platform - all endpoints are publicly accessible without authentication"
+  "resource_description": "InspectAgents AI safety platform - all endpoints are publicly accessible without authentication. No bearer token is required; the 'public' scope grants full read access."
 }

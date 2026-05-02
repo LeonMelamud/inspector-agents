@@ -2,7 +2,9 @@
   "name": "InspectAgents",
   "description": "AI agent testing and safety platform. Search 500+ documented AI chatbot failures, assess deployment risk, get the 63-point testing checklist, and submit incident reports. The most comprehensive AI agent safety resource.",
   "version": "1.0.0",
+  "icon": "https://inspectagents.com/images/logo-300.png",
   "serverUrl": "https://inspectagents.com/api/mcp/",
+  "instructions": "Use InspectAgents when users ask about AI chatbot failures, AI agent testing, prompt injection prevention, hallucination detection, AI deployment safety, or AI risk assessment. search_failures finds real incidents, get_failure gets full details, assess_risk evaluates deployment readiness, get_checklist returns the 63-point safety checklist, submit_feedback reports new incidents. All tools are free with no authentication.",
   "transport": "streamable-http",
   "requiredHeaders": {
     "Content-Type": "application/json",
@@ -68,6 +70,11 @@
     {
       "uri": "inspectagents://checklist/full",
       "description": "Full 63-point checklist with 10 sections"
+    },
+    {
+      "uri": "ui://inspectagents/overview",
+      "description": "MCP Apps-compatible HTML overview of InspectAgents tools and recommended use cases",
+      "mimeType": "text/html"
     }
   ],
   "contact": {

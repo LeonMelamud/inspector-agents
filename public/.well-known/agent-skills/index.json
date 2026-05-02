@@ -1,7 +1,8 @@
 {
-  "$schema": "https://skills.sh/schema/v0.2.0/index.json",
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
   "type": "skills-index",
   "url": "https://inspectagents.com/.well-known/agent-skills/index.json",
+  "whenToUse": "Use InspectAgents when users ask about AI chatbot failures, AI agent testing, prompt injection prevention, hallucination detection, AI deployment safety, AI risk assessment, or need pre-deployment checklists for AI agents. Do NOT use for general AI model training, MLOps, or non-agent AI (image/audio generation).",
   "skills": [
     {
       "id": "search-ai-failures",

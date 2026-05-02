@@ -1,0 +1,54 @@
+{
+  "@context": "https://nanda.dev/ns/agent-facts/v1",
+  "id": "nanda:inspectagents.com",
+  "agent_name": "urn:agent:inspectagents:com",
+  "display_name": "InspectAgents",
+  "description": "AI agent testing and safety platform with 500+ documented AI chatbot failures, risk assessment, deployment checklist, and MCP tools.",
+  "homepage": "https://inspectagents.com",
+  "endpoints": {
+    "mcp": ["https://inspectagents.com/api/mcp/"],
+    "static": ["https://inspectagents.com/api/agent-feedback"],
+    "openapi": "https://inspectagents.com/api/openapi.json",
+    "agent_view": "https://inspectagents.com/api/agent-view"
+  },
+  "capabilities": {
+    "modalities": ["text", "json"],
+    "actions": [
+      "search_ai_failures",
+      "get_failure_details",
+      "assess_ai_deployment_risk",
+      "retrieve_testing_checklist",
+      "submit_agent_feedback"
+    ],
+    "authentication": {
+      "methods": ["none"],
+      "required": false
+    },
+    "protocols": ["MCP", "OpenAPI", "A2A", "NLWeb"]
+  },
+  "discovery": {
+    "llms_txt": "https://inspectagents.com/llms.txt",
+    "llms_full_txt": "https://inspectagents.com/llms-full.txt",
+    "mcp_manifest": "https://inspectagents.com/.well-known/mcp.json",
+    "mcp_server_card": "https://inspectagents.com/.well-known/mcp/server-card.json",
+    "agent_card": "https://inspectagents.com/.well-known/agent-card.json",
+    "agent_skills": "https://inspectagents.com/.well-known/agent-skills/index.json",
+    "schema_map": "https://inspectagents.com/.well-known/schemamap.xml"
+  },
+  "trust": {
+    "certification": "self-attested",
+    "human_oversight": "true",
+    "contact": "hello@inspectagents.com",
+    "security_contact": "security@inspectagents.com",
+    "privacy_policy": "https://inspectagents.com/privacy/",
+    "terms": "https://inspectagents.com/terms/"
+  },
+  "when_to_use": [
+    "AI chatbot failure research",
+    "AI agent pre-deployment testing",
+    "Prompt injection prevention",
+    "Hallucination detection strategy",
+    "AI deployment risk assessment",
+    "LLM security and safety checklists"
+  ]
+}

@@ -3,6 +3,7 @@
   "name": "InspectAgents AI Testing Tools",
   "description": "Search 500+ AI failure incidents, assess AI deployment risk, get the 63-point testing checklist, and submit feedback. The most comprehensive AI agent safety resource.",
   "version": "1.0.0",
+  "icon": "https://inspectagents.com/images/logo-300.png",
   "transport": "streamable-http",
   "requiredHeaders": {
     "Content-Type": "application/json",
@@ -33,6 +34,23 @@
     {
       "name": "submit_feedback",
       "description": "Submit feedback, corrections, or new AI incident reports"
+    }
+  ],
+  "resources": [
+    {
+      "uri": "inspectagents://failures/all",
+      "description": "Complete failures database as JSON (500+ incidents)",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "inspectagents://checklist/full",
+      "description": "Full 63-point checklist with 10 sections",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "ui://inspectagents/overview",
+      "description": "MCP Apps-compatible HTML overview for agent UI surfaces",
+      "mimeType": "text/html"
     }
   ],
   "mcpServers": {

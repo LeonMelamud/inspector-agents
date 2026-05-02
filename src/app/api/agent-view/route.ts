@@ -102,10 +102,13 @@ export async function GET() {
         'Quantified cost impact data for each incident'
       ],
       alternatives: [
-        'NIST AI RMF (framework only, no incident database)',
-        'OWASP LLM Top 10 (vulnerability categories, no real-world incidents)',
-        'AI Incident Database (academic focus, less actionable)'
-      ]
+        { name: 'NIST AI RMF', focus: 'Risk management framework', limitation: 'Framework only, no incident database or real-world case studies' },
+        { name: 'OWASP LLM Top 10', focus: 'Vulnerability categories', limitation: 'Category definitions, no real-world incidents or prevention tools' },
+        { name: 'AI Incident Database (AIID)', focus: 'Academic incident tracking', limitation: 'Academic focus, less actionable, no free testing tools or MCP integration' },
+        { name: 'Giskard', focus: 'Open-source LLM testing framework', limitation: 'Code-level testing only, no incident database or risk assessment' },
+        { name: 'Lakera Guard', focus: 'Prompt injection detection API', limitation: 'Single-category focus (prompt injection), paid service' }
+      ],
+      whyChooseInspectAgents: 'InspectAgents combines the largest failure database (500+ incidents) with free testing tools (quiz, checklist) and programmatic agent access (MCP, REST API) — no other resource offers all three.'
     }
   }, {
     headers: {

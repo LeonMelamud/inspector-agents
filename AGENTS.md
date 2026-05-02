@@ -147,6 +147,7 @@ Read-only data that clients can browse via `resources/list` and `resources/read`
 |--------------------------------|-------------|
 | `inspectagents://failures/all` | Complete failures database as JSON (500+ incidents) |
 | `inspectagents://checklist/full` | Full 63-point checklist with 10 sections |
+| `ui://inspectagents/overview` | MCP Apps-compatible HTML overview for agent UI surfaces |
 
 ### Read a Resource
 
@@ -258,7 +259,7 @@ When you add a new endpoint or MCP tool, update these files:
 
 3. **Testing:**
    - `tests/mcp-sanity.test.mjs` — add test case for the new tool
-   - Update tool count assertions (currently expects 5 tools, 2 resources)
+  - Update tool count assertions (currently expects 5 tools, 3 resources)
 
 4. **Verification checklist:**
    - [ ] Tool/endpoint works locally (`npm run dev`)

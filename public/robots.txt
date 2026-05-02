@@ -5,43 +5,90 @@ User-agent: *
 Allow: /
 
 # ===== TIER 1: AI Search & Retrieval Agents =====
-# Full access + priority content. These agents surface our content to users in real-time.
+# Full access + priority content + lowest crawl delay.
+# These agents surface our content to users in real-time.
+# Priority resources: /llms.txt, /llms-full.txt, /index.md, /.well-known/mcp.json
 
 User-agent: GPTBot
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /index.md
+Allow: /.well-known/
+Allow: /api/openapi.json
 Allow: /
 Crawl-delay: 1
 
 User-agent: ChatGPT-User
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /index.md
+Allow: /.well-known/
+Allow: /api/openapi.json
 Allow: /
 Crawl-delay: 1
 
 User-agent: OAI-SearchBot
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /index.md
+Allow: /.well-known/
+Allow: /api/openapi.json
 Allow: /
 Crawl-delay: 1
 
 User-agent: ClaudeBot
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /index.md
+Allow: /.well-known/
+Allow: /api/openapi.json
 Allow: /
 Crawl-delay: 1
 
 User-agent: Claude-Web
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /index.md
+Allow: /.well-known/
+Allow: /api/openapi.json
 Allow: /
 Crawl-delay: 1
 
 User-agent: anthropic-ai
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /index.md
+Allow: /.well-known/
+Allow: /api/openapi.json
 Allow: /
 Crawl-delay: 1
 
 User-agent: PerplexityBot
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /index.md
+Allow: /.well-known/
+Allow: /api/openapi.json
 Allow: /
 Crawl-delay: 1
 
 User-agent: Google-Extended
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /index.md
+Allow: /.well-known/
+Allow: /api/openapi.json
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 2
 
 User-agent: Applebot-Extended
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /index.md
+Allow: /.well-known/
+Allow: /api/openapi.json
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 2
 
 # ===== TIER 2: Traditional Search Engines =====
 # Full access, standard crawling.
@@ -117,6 +164,8 @@ Crawl-delay: 10
 # /.well-known/mcp.json — MCP server discovery metadata
 # /.well-known/mcp/server-card.json — MCP server card
 # /.well-known/agent-card.json — A2A Agent Card (Google Agent-to-Agent protocol)
+# /.well-known/agent-facts — NANDA AgentFacts metadata for AI agent discovery
+# /.well-known/schemamap.xml — NLWeb Schema Map feed
 # /.well-known/ai-plugin.json — ChatGPT/OpenAI plugin manifest
 # /.well-known/api-catalog — RFC 9727 API catalog
 # /.well-known/oauth-protected-resource — RFC 9728 resource metadata
@@ -136,9 +185,5 @@ Crawl-delay: 10
 # Append ?mode=agent to any URL for a dedicated machine-readable JSON view
 # Example: https://inspectagents.com/?mode=agent
 
-# Disallow admin/private areas (none for static site)
-# Disallow: /admin
-
-# Sitemap
+schemamap: https://inspectagents.com/.well-known/schemamap.xml
 Sitemap: https://inspectagents.com/sitemap.xml
-

@@ -166,6 +166,7 @@ Accept: application/json, text/event-stream
 |-------------|-------------|
 | `inspectagents://failures/all` | Complete AI failures database as structured JSON |
 | `inspectagents://checklist/full` | Full 63-point testing checklist with severity levels |
+| `ui://inspectagents/overview` | MCP Apps-compatible HTML overview for agent UI surfaces |
 
 ### How to Connect (Copy-Paste Ready)
 

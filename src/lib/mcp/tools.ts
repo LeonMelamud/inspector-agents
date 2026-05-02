@@ -104,6 +104,13 @@ export function registerTools(server: McpServer): void {
         .default(10)
         .describe('Maximum number of results to return (default 10, max 50)'),
     },
+    {
+      title: 'Search AI Failures',
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: false,
+    },
     async ({ query, category, severity, year, limit }) => {
       let results = [...failures];
 
@@ -166,6 +173,13 @@ export function registerTools(server: McpServer): void {
     {
       id: z.string().describe('The unique failure ID (e.g. "chevrolet-car-sale")'),
     },
+    {
+      title: 'Get Failure Details',
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: false,
+    },
     async ({ id }) => {
       const failure = failures.find((f) => f.id === id);
       if (!failure) {
@@ -175,6 +189,8 @@ export function registerTools(server: McpServer): void {
               type: 'text' as const,
               text: JSON.stringify({
                 error: 'Failure not found',
+                code: 'NOT_FOUND',
+                message: `No failure with ID "${id}" exists. Use search_failures to find valid IDs.`,
                 available_ids: failures.map((f) => f.id),
               }),
             },
@@ -218,6 +234,13 @@ export function registerTools(server: McpServer): void {
         .describe(
           'What worries you most? Select one or more: hallucinations, security, reputation, cost, dontKnow'
         ),
+    },
+    {
+      title: 'Assess AI Deployment Risk',
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: false,
     },
     async ({ currentlyUsing, biggestFears }) => {
       const riskLevel = calculateRiskLevel({ currentlyUsing, biggestFears });
@@ -279,6 +302,13 @@ export function registerTools(server: McpServer): void {
         .string()
         .optional()
         .describe('Free-text search across item names and descriptions'),
+    },
+    {
+      title: 'Get Testing Checklist',
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: false,
     },
     async ({ severity, section, query }) => {
       if (severity || section || query) {
@@ -362,6 +392,13 @@ export function registerTools(server: McpServer): void {
         .max(500)
         .optional()
         .describe('Reference URL if applicable'),
+    },
+    {
+      title: 'Submit Feedback',
+      readOnlyHint: false,
+      destructiveHint: false,
+      idempotentHint: false,
+      openWorldHint: false,
     },
     async ({ type, message, source, url }) => {
       const id = `fb_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;

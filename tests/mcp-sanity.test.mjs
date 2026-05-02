@@ -347,23 +347,24 @@ describe('MCP WebMCP Sanity Tests', () => {
   // ────────────────────── resources/list ─────────────────────────────────
 
   describe('resources/list', () => {
-    it('returns 2 resources with correct URIs', async () => {
+    it('returns 3 resources with correct URIs', async () => {
       const body = await mcpCall('resources/list');
       const resources = body.result.resources;
 
       assert.ok(Array.isArray(resources));
-      assert.equal(resources.length, 2, 'Should have exactly 2 resources');
+      assert.equal(resources.length, 3, 'Should have exactly 3 resources');
 
       const uris = resources.map((r) => r.uri).sort();
       assert.deepEqual(uris, [
         'inspectagents://checklist/full',
         'inspectagents://failures/all',
+        'ui://inspectagents/overview',
       ]);
 
       for (const r of resources) {
         assert.ok(r.name, 'Resource must have a name');
         assert.ok(r.description, 'Resource must have a description');
-        assert.equal(r.mimeType, 'application/json');
+        assert.ok(['application/json', 'text/html'].includes(r.mimeType));
       }
     });
   });
@@ -397,6 +398,18 @@ describe('MCP WebMCP Sanity Tests', () => {
       const data = JSON.parse(contents[0].text);
       assert.equal(data.total, 63, `Expected 63, got ${data.total}`);
       assert.equal(data.sections.length, 10);
+    });
+
+    it('UI resource returns HTML', async () => {
+      const body = await mcpCall('resources/read', {
+        uri: 'ui://inspectagents/overview',
+      });
+
+      const contents = body.result.contents;
+      assert.ok(contents.length >= 1);
+      assert.equal(contents[0].mimeType, 'text/html');
+      assert.ok(contents[0].text.includes('<!doctype html>'));
+      assert.ok(contents[0].text.includes('InspectAgents'));
     });
   });
 

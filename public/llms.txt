@@ -106,6 +106,12 @@ After initialize, call `tools/list` to discover tools, then `tools/call` to exec
 - **Available Resources:**
   - `inspectagents://failures/all` — Full failures database as structured JSON
   - `inspectagents://checklist/full` — Complete 63-point checklist
+  - `ui://inspectagents/overview` — MCP Apps-compatible HTML overview
+
+### Additional Agent Discovery
+
+- [NANDA AgentFacts](https://inspectagents.com/.well-known/agent-facts): Machine-readable agent capability metadata
+- [NLWeb Schema Map](https://inspectagents.com/.well-known/schemamap.xml): Structured schema feed for agentic search
 
 ### Common Mistakes
 - Using `/api/mcp` without trailing slash → 308 redirect (use `/api/mcp/`)

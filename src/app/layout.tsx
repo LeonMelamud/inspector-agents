@@ -101,6 +101,8 @@ export default function RootLayout({
         <link rel="alternate" type="application/json" href="/.well-known/ai-plugin.json" title="AI Plugin Manifest" />
         <link rel="alternate" type="application/json" href="/api/openapi.json" title="OpenAPI Specification" />
         <link rel="alternate" type="application/json" href="/.well-known/mcp.json" title="MCP Server Discovery" />
+        <link rel="alternate" type="application/json" href="/.well-known/agent-facts" title="NANDA AgentFacts" />
+        <link rel="alternate" type="application/xml" href="/.well-known/schemamap.xml" title="NLWeb Schema Map" />
         
         <script
           type="application/ld+json"

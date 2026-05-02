@@ -117,6 +117,22 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- NANDA AgentFacts -->
+  <url>
+    <loc>https://inspectagents.com/.well-known/agent-facts</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- NLWeb Schema Map -->
+  <url>
+    <loc>https://inspectagents.com/.well-known/schemamap.xml</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
   <!-- Pricing (Markdown) -->
   <url>
     <loc>https://inspectagents.com/pricing.md</loc>
