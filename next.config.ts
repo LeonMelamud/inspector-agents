@@ -37,9 +37,6 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   // Removed `output: 'export'` — incompatible with API routes (/api/subscribe).
   // Deploy to Vercel for automatic serverless function support.
-  images: {
-    unoptimized: true,
-  },
   trailingSlash: true,
 
   // Prevent trailingSlash redirects on .well-known files and static discovery files

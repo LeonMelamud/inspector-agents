@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import { HomePageClient, TrackedLink } from '@/components/HomePageClient';
+import { HomeStructuredData } from '@/components/HomeStructuredData';
 import type { Metadata } from 'next';
 
 // Below-the-fold: lazy-loaded via dynamic imports (bundle-dynamic-imports)
@@ -141,6 +142,7 @@ export default function Home() {
         <Footer />
       </Suspense>
 
+      <HomeStructuredData />
     </main>
     </HomePageClient>
   );
