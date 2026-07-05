@@ -2,7 +2,7 @@
 
 > **For AI agents and developers.** This file documents every API endpoint
 > and the WebMCP (Model Context Protocol) server on inspectagents.com.
-> Updated: February 2026
+> Updated: July 2026
 
 ---
 
@@ -77,7 +77,7 @@ curl -X POST https://inspectagents.com/api/mcp/ \
 
 ### 1. `search_failures`
 
-Search and filter the AI failures database (500+ incidents).
+Search and filter the AI failures database.
 
 | Parameter  | Type   | Required | Description |
 |-----------|--------|----------|-------------|
@@ -113,7 +113,7 @@ Run the AI risk assessment quiz programmatically.
 
 ### 4. `get_checklist`
 
-Retrieve the 63-point AI Agent Risk Checklist.
+Retrieve the 67-point AI Agent Risk Checklist.
 
 | Parameter  | Type   | Required | Description |
 |-----------|--------|----------|-------------|
@@ -121,7 +121,7 @@ Retrieve the 63-point AI Agent Risk Checklist.
 | `section` | string | No       | Section name (e.g. `"Hallucination"`, `"Prompt Injection"`) |
 | `query`   | string | No       | Free-text search across item names and descriptions |
 
-**Returns (no filters):** `{ total: 63, sections: [{ title, subtitle, count, items }] }`
+**Returns (no filters):** `{ total: 67, sections: [{ title, subtitle, count, items }] }`
 **Returns (with filters):** `{ total, filters, items: [{ name, description, severity }] }`
 
 ### 5. `submit_feedback`
@@ -145,8 +145,8 @@ Read-only data that clients can browse via `resources/list` and `resources/read`
 
 | Resource URI                    | Description |
 |--------------------------------|-------------|
-| `inspectagents://failures/all` | Complete failures database as JSON (500+ incidents) |
-| `inspectagents://checklist/full` | Full 63-point checklist with 10 sections |
+| `inspectagents://failures/all` | Complete failures database as JSON |
+| `inspectagents://checklist/full` | Full 67-point checklist with 10 sections |
 | `ui://inspectagents/overview` | MCP Apps-compatible HTML overview for agent UI surfaces |
 
 ### Read a Resource

@@ -36,7 +36,7 @@ const authorityResources: ResourceLink[] = [
     description: 'The world\'s first comprehensive AI regulation',
   },
   {
-    title: 'Stanford AI Index Report 2025',
+    title: 'Stanford AI Index Report',
     url: 'https://hai.stanford.edu/ai-index',
     source: 'Stanford HAI',
     description: 'Annual benchmarking of AI progress and safety',

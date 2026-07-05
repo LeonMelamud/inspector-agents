@@ -476,7 +476,7 @@ export default function ChevroletCaseStudy() {
                 Complete List of AI Chatbot Failures
               </h3>
               <p className="text-stone-600 text-sm">
-                See 10+ other major AI incidents including Air Canada and DPD.
+                Browse dozens of other documented AI incidents including Air Canada and DPD.
               </p>
             </Link>
             <Link

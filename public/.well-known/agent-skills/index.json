@@ -26,7 +26,7 @@
     },
     {
       "id": "get-testing-checklist",
-      "name": "63-Point AI Agent Testing Checklist",
+      "name": "67-Point AI Agent Testing Checklist",
       "description": "Retrieve a comprehensive 67-point pre-deployment checklist for AI agents covering hallucination, prompt injection, data leakage, jailbreak, bias, content moderation, security, performance, monitoring, and compliance.",
       "version": "1.0.0",
       "url": "https://inspectagents.com/.well-known/agent-skills/checklist.md",

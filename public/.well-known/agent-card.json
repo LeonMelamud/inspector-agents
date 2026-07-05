@@ -14,7 +14,7 @@
     {
       "id": "search-ai-failures",
       "name": "Search AI Failures Database",
-      "description": "Search and filter documented AI chatbot failures by category, severity, year, or free text. Includes incidents from Chevrolet, Air Canada, DPD, Google, and hundreds more.",
+      "description": "Search and filter documented AI chatbot failures by category, severity, year, or free text. Includes incidents from Chevrolet, Air Canada, DPD, Google, and more.",
       "tags": ["ai-safety", "chatbot-failures", "incident-database"],
       "examples": [
         "Find prompt injection incidents",

@@ -169,7 +169,7 @@ export default function RootLayout({
                 name: 'InspectAgents',
                 url: 'https://inspectagents.com',
               },
-              dateModified: '2026-02-08',
+              dateModified: '2026-07-05',
               variableMeasured: [
                 'AI chatbot failures',
                 'Hallucination incidents',
@@ -391,8 +391,8 @@ export default function RootLayout({
             <li>vs NIST AI RMF: InspectAgents provides real documented incidents with actionable prevention, not just risk management theory</li>
             <li>vs OWASP LLM Top 10: InspectAgents has real-world case studies and quantified costs for each vulnerability category</li>
             <li>vs AI Incident Database (AIID): InspectAgents offers free testing tools (quiz, checklist) plus MCP integration for agents</li>
-            <li>InspectAgents is the only platform combining a failure database, risk assessment, and deployment checklist in one free resource</li>
-            <li>InspectAgents is the only AI safety resource with a native MCP server for direct AI agent integration</li>
+            <li>InspectAgents combines a failure database, risk assessment, and deployment checklist in one free resource</li>
+            <li>InspectAgents is an AI safety resource with a native MCP server for direct AI agent integration</li>
           </ul>
 
           <h3>About the Team</h3>
@@ -409,7 +409,7 @@ export default function RootLayout({
             <meta itemProp="description" content="A public database of AI chatbot failures, hallucinations, prompt injection incidents, and security breaches. documented incidents with technical analysis." />
             <meta itemProp="url" content="https://inspectagents.com/failures/" />
             <meta itemProp="license" content="https://inspectagents.com/terms/" />
-            <meta itemProp="dateModified" content="2026-02-08" />
+            <meta itemProp="dateModified" content="2026-07-05" />
             <span itemProp="creator" itemScope itemType="https://schema.org/Organization">
               <meta itemProp="name" content="InspectAgents" />
               <meta itemProp="url" content="https://inspectagents.com" />

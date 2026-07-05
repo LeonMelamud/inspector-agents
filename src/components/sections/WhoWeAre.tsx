@@ -52,7 +52,7 @@ export function WhoWeAre() {
                 Making AI Agent Testing Accessible, Practical, and Transparent
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                InspectAgents was founded after analyzing over 500 real-world AI agent failures across industries — from customer service chatbots to autonomous systems. Our mission is to ensure every organization deploying AI agents has the knowledge and tools to do so safely.
+                InspectAgents was founded after analyzing real-world AI agent failures across industries — from customer service chatbots to autonomous systems. Our mission is to ensure every organization deploying AI agents has the knowledge and tools to do so safely.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
                 We provide free, independent resources including a comprehensive failures database, risk assessment tools, testing checklists, and educational content to help teams identify and prevent AI agent vulnerabilities before they reach customers.

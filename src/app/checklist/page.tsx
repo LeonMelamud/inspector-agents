@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Free AI Agent Risk Checklist - 63-Point Safety Testing Guide',
+  title: 'Free AI Agent Risk Checklist - 67-Point Safety Testing Guide',
   description: 'Download our comprehensive 67-point AI agent risk checklist. Prevent hallucinations, prompt injection, dark patterns, tool misuse, and costly AI failures before deployment.',
   keywords: [
     'AI agent checklist',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     canonical: 'https://inspectagents.com/checklist/',
   },
   openGraph: {
-    title: 'Free AI Agent Risk Checklist - 63-Point Safety Testing Guide',
+    title: 'Free AI Agent Risk Checklist - 67-Point Safety Testing Guide',
     description: 'Download our comprehensive 67-point AI agent risk checklist. Prevent hallucinations, prompt injection, dark patterns, security breaches, and costly AI failures.',
     type: 'website',
     url: 'https://inspectagents.com/checklist',

@@ -161,7 +161,7 @@ export default function ChecklistDownloadPage() {
             AI Agent Risk Checklist
           </h1>
           <p className="text-xl text-stone-600 mb-2">
-            63-Point Pre-Deployment Testing Guide
+            67-Point Pre-Deployment Testing Guide
           </p>
           <p className="text-stone-500 text-sm">
             From InspectAgents.com &bull; Free for personal and commercial use
@@ -320,7 +320,7 @@ export default function ChecklistDownloadPage() {
             <strong>AI Agent Risk Checklist</strong> by InspectAgents.com
           </p>
           <p>
-            Free to use &bull; Updated February 2026 &bull; Visit
+            Free to use &bull; Updated July 2026 &bull; Visit
             InspectAgents.com for latest version
           </p>
           <p className="mt-4 text-xs">

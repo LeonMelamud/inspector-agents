@@ -48,12 +48,12 @@ and serverless API routes (`/api/subscribe`).
 | Route | Description |
 |-------|-------------|
 | `/` | Landing page with case studies, social proof, FAQ |
-| `/quiz` | Interactive 7-question AI risk assessment |
+| `/quiz` | Interactive 3-step AI risk assessment |
 | `/quiz/thank-you` | Personalized results + email capture |
-| `/blog` | 3 SEO articles on AI failures & testing |
-| `/failures` | Searchable database of 20+ real AI incidents |
-| `/glossary` | 20 AI safety terms (SEO long-tail) |
-| `/checklist` | 50-point AI risk checklist (lead magnet) |
+| `/blog` | 4 in-depth articles on AI failures & testing |
+| `/failures` | Searchable database of documented real AI incidents |
+| `/glossary` | 23 AI safety terms (SEO long-tail) |
+| `/checklist` | 67-point AI risk checklist (lead magnet) |
 | `/checklist/download` | Printable checklist version |
 | `/about` | Founder story + mission |
 | `/api/subscribe` | Email subscription endpoint |

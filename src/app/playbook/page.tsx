@@ -51,7 +51,7 @@ const quickStart = [
   {
     step: '2',
     title: 'Run the Checklist',
-    description: 'Walk through 63 testing checkpoints before you ship.',
+    description: 'Walk through 67 testing checkpoints before you ship.',
     href: '/checklist',
     cta: 'Get the Checklist',
   },
@@ -547,7 +547,7 @@ export default function PlaybookPage() {
               href="/checklist"
               className="inline-block bg-accent-500 text-primary-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accent-400 transition-colors shadow-lg"
             >
-              Get the 63-Point Checklist
+              Get the 67-Point Checklist
             </Link>
           </div>
         </div>

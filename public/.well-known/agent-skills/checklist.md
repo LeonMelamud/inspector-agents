@@ -1,4 +1,4 @@
-# 63-Point AI Agent Testing Checklist
+# 67-Point AI Agent Testing Checklist
 
 ## Skill: get-testing-checklist
 

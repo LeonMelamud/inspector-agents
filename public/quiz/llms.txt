@@ -12,7 +12,7 @@ The AI Risk Assessment Quiz evaluates your AI deployment readiness across:
 
 ## How It Works
 
-1. Answer 7 quick questions about your AI deployment
+1. Answer 3 quick questions about your AI deployment
 2. Receive a personalized risk score (Low / Medium / High)
 3. Get specific testing recommendations tailored to your situation
 4. Download a customized checklist for your risk profile

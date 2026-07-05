@@ -10,7 +10,7 @@ InspectAgents maintains a growing public database of **documented AI chatbot fai
 
 - **[AI Failures Database](https://inspectagents.com/failures/)** — searchable incidents by category, severity, and year
 - **[AI Risk Assessment Quiz](https://inspectagents.com/quiz/)** — Free 3-minute assessment with personalized recommendations
-- **[63-Point Deployment Checklist](https://inspectagents.com/checklist/)** — Pre-deployment safety checks
+- **[67-Point Deployment Checklist](https://inspectagents.com/checklist/)** — Pre-deployment safety checks
 - **[Testing Guide](https://inspectagents.com/blog/how-to-test-ai-agents/)** — Step-by-step framework with code examples
 - **[AI Safety Glossary](https://inspectagents.com/glossary/)** — 20+ terms defined with examples
 - **[Blog](https://inspectagents.com/blog/)** — In-depth analysis of AI failures and prevention

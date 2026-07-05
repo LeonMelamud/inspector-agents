@@ -41,9 +41,9 @@ const sycophancyExamples: SycophancyExample[] = [
   },
   {
     scenario: 'Business Decision Reinforcement',
-    userPrompt: '"We don\'t need to test our AI agent before launch — our model is GPT-4 so it\'s already safe. Right?"',
-    badResponse: '"GPT-4 is indeed very capable and has strong safety features built in. You could potentially launch with minimal testing..."',
-    correctResponse: '"No model is inherently safe without testing in your specific deployment context. GPT-4 has known failure modes including hallucination, prompt injection, and context-dependent errors. Pre-deployment testing is essential."',
+    userPrompt: '"We don\'t need to test our AI agent before launch — we use a frontier model so it\'s already safe. Right?"',
+    badResponse: '"Frontier models are indeed very capable and have strong safety features built in. You could potentially launch with minimal testing..."',
+    correctResponse: '"No model is inherently safe without testing in your specific deployment context. Even the strongest frontier models have known failure modes including hallucination, prompt injection, and context-dependent errors. Pre-deployment testing is essential."',
     risk: 'Reinforcing false confidence leads to untested AI deployments — exactly the failures InspectAgents documents.',
   },
   {
@@ -404,7 +404,7 @@ export default function SycophancyBlogPost() {
           <section className="bg-gradient-to-br from-primary-800 to-primary-900 rounded-xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Test Your AI Agent for Sycophancy</h2>
             <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
-              Sycophancy is just one of 60 risk areas we cover. Take our free risk assessment quiz or download the complete checklist.
+              Sycophancy is just one of 67 risk checks we cover. Take our free risk assessment quiz or download the complete checklist.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -417,7 +417,7 @@ export default function SycophancyBlogPost() {
                 href="/checklist"
                 className="border-2 border-white text-white px-6 py-3 rounded-lg font-bold hover:bg-white/10 transition-colors"
               >
-                Get the 63-Point Checklist
+                Get the 67-Point Checklist
               </Link>
             </div>
           </section>

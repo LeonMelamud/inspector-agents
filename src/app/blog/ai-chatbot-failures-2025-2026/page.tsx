@@ -1,10 +1,11 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { generateArticleSEO, generateArticleJsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
+import { failures as dbFailures } from '@/app/failures/data';
 
 const ARTICLE_URL = 'https://inspectagents.com/blog/ai-chatbot-failures-2025-2026/';
 const ARTICLE_TITLE = 'The Complete List of AI Chatbot Failures (2025-2026)';
-const ARTICLE_DESCRIPTION = 'A comprehensive, continuously updated database of AI agent failures, hallucinations, and security breaches from 2025-2026. Learn from real incidents that cost companies millions in lost revenue, reputation damage, and legal liability.';
+const ARTICLE_DESCRIPTION = 'Deep-dive analyses of the most damaging AI agent failures, hallucinations, and security breaches of 2025-2026. Learn from real incidents that cost companies millions in lost revenue, reputation damage, and legal liability.';
 const ARTICLE_TAGS = ['AI failures', 'chatbot incidents', 'AI hallucinations', 'prompt injection', 'AI security', 'LLM failures'];
 
 export const metadata: Metadata = generateArticleSEO({
@@ -12,6 +13,7 @@ export const metadata: Metadata = generateArticleSEO({
   description: ARTICLE_DESCRIPTION,
   canonical: ARTICLE_URL,
   publishedTime: '2026-01-24T00:00:00.000Z',
+  modifiedTime: '2026-07-05T00:00:00.000Z',
   authors: ['InspectAgents'],
   tags: ARTICLE_TAGS,
 });
@@ -236,9 +238,10 @@ export default function AIFailuresArticle() {
             The Complete List of AI Chatbot Failures (2025-2026)
           </h1>
           <p className="text-xl text-stone-600">
-            A comprehensive database of AI agent failures, from prompt injection
-            attacks to dangerous hallucinations. Learn what went wrong and how
-            to prevent these disasters in your own deployments.
+            Deep-dive analyses of the most damaging AI agent failures, from
+            prompt injection attacks to dangerous hallucinations. Learn what
+            went wrong and how to prevent these disasters in your own
+            deployments.
           </p>
         </div>
       </header>
@@ -250,9 +253,13 @@ export default function AIFailuresArticle() {
           <p className="text-lg text-stone-700 leading-relaxed">
             AI chatbots and agents are being deployed at unprecedented scale.
             But with great power comes great responsibility—and great risk. This
-            continuously updated database tracks every major AI failure from
-            2025-2026, documenting what went wrong, the business impact, and
-            exactly how to prevent similar incidents.
+            post breaks down the most instructive AI failures in depth—what went
+            wrong, the business impact, and exactly how to prevent similar
+            incidents. For the full picture, browse our{' '}
+            <Link href="/failures/" className="text-primary-600 hover:text-primary-700 font-semibold">
+              searchable database of {dbFailures.length} documented AI failures
+            </Link>
+            , updated as new incidents emerge.
           </p>
 
           <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg my-8">
@@ -273,7 +280,7 @@ export default function AIFailuresArticle() {
           <div className="grid md:grid-cols-3 gap-6 not-prose mb-12">
             <div className="bg-white border border-stone-200 rounded-lg p-6 text-center">
               <div className="text-4xl font-bold text-primary-600 mb-2">
-                {failures.length}
+                {dbFailures.length}
               </div>
               <div className="text-stone-600 font-medium">
                 Total Incidents Tracked
@@ -281,14 +288,16 @@ export default function AIFailuresArticle() {
             </div>
             <div className="bg-white border border-stone-200 rounded-lg p-6 text-center">
               <div className="text-4xl font-bold text-red-600 mb-2">
-                {failures.filter((f) => f.severity === 'Critical').length}
+                {dbFailures.filter((f) => f.severity === 'Critical').length}
               </div>
               <div className="text-stone-600 font-medium">
                 Critical Severity
               </div>
             </div>
             <div className="bg-white border border-stone-200 rounded-lg p-6 text-center">
-              <div className="text-4xl font-bold text-amber-600 mb-2">8</div>
+              <div className="text-4xl font-bold text-amber-600 mb-2">
+                {new Set(dbFailures.map((f) => f.category)).size}
+              </div>
               <div className="text-stone-600 font-medium">
                 Failure Categories
               </div>
@@ -428,12 +437,20 @@ export default function AIFailuresArticle() {
             and get a personalized testing plan. Learn which of these failure
             patterns you're most at risk for.
           </p>
-          <Link
-            href="/quiz"
-            className="inline-block bg-white text-primary-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-50 transition-colors shadow-lg"
-          >
-            Assess Your AI Risk →
-          </Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              href="/quiz"
+              className="inline-block bg-white text-primary-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-50 transition-colors shadow-lg"
+            >
+              Assess Your AI Risk →
+            </Link>
+            <Link
+              href="/failures/"
+              className="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition-colors"
+            >
+              Browse All {dbFailures.length} Failures
+            </Link>
+          </div>
         </div>
 
         {/* Related Articles */}

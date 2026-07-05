@@ -124,4 +124,4 @@ After initialize, call `tools/list` to discover tools, then `tools/call` to exec
 - [Privacy Policy](https://inspectagents.com/privacy/): How we handle data
 
 ---
-Last updated: February 2026
+Last updated: July 2026
