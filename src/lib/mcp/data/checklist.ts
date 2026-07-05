@@ -1,6 +1,6 @@
 /**
  * Shared checklist data — used by both the UI and MCP server tools.
- * Single source of truth for the 63-point AI Agent Risk Checklist.
+ * Single source of truth for the 67-point AI Agent Risk Checklist.
  */
 
 export type Severity = 'critical' | 'high' | 'medium';
@@ -19,7 +19,7 @@ export interface CheckSection {
 }
 
 /**
- * 63-point AI Agent Risk Checklist across 10 categories.
+ * 67-point AI Agent Risk Checklist across 10 categories.
  * Aligned with OWASP Top 10 for LLM Applications and OWASP Top 10 for Agentic AI.
  */
 export const CHECKLIST_SECTIONS: CheckSection[] = [
@@ -546,3 +546,9 @@ export function filterChecklist(options: {
 
   return items;
 }
+
+/** Derived item count — always matches the actual data. */
+export const CHECKLIST_ITEM_COUNT = CHECKLIST_SECTIONS.reduce(
+  (sum, s) => sum + s.items.length,
+  0
+);

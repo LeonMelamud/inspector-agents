@@ -155,7 +155,7 @@ export function StickyCtaBar({
                   {message}
                 </p>
                 <p className="text-primary-300 text-xs sm:text-sm">
-                  500+ AI failures analyzed • 250+ teams protected
+                  Real AI failures analyzed • Free 2-minute assessment
                 </p>
               </div>
             </div>

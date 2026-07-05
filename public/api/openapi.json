@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "InspectAgents API",
-    "description": "API for AI agents to interact with InspectAgents — the largest AI chatbot failure database (500+ incidents). Includes REST endpoints for feedback submission and a Model Context Protocol (MCP) server for programmatic access to the failures database, risk assessment, and deployment checklists.",
+    "description": "API for AI agents to interact with InspectAgents — a public database of documented AI chatbot failures. Includes REST endpoints for feedback submission and a Model Context Protocol (MCP) server for programmatic access to the failures database, risk assessment, and deployment checklists.",
     "version": "1.1.0",
     "contact": {
       "email": "hello@inspectagents.com",

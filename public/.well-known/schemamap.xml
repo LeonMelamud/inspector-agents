@@ -14,13 +14,13 @@
     <resource>
       <url>https://inspectagents.com/failures/</url>
       <schema>Dataset</schema>
-      <description>Searchable database of 500+ documented AI chatbot failures with prevention strategies.</description>
+      <description>Searchable database of documented AI chatbot failures with prevention strategies.</description>
       <keywords>AI failures database, chatbot incidents, hallucination, prompt injection</keywords>
     </resource>
     <resource>
       <url>https://inspectagents.com/checklist/</url>
       <schema>HowTo</schema>
-      <description>63-point AI agent pre-deployment risk checklist.</description>
+      <description>67-point AI agent pre-deployment risk checklist.</description>
       <keywords>AI testing checklist, deployment safety, LLM security checklist</keywords>
     </resource>
     <resource>

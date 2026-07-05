@@ -5,7 +5,7 @@ import { generateSEO } from '@/lib/seo';
 export const metadata: Metadata = generateSEO({
   title: 'Blog - AI Agent Testing Insights & Case Studies',
   description:
-    'Expert insights on AI agent testing, real-world failure analysis, and practical guides to prevent AI chatbot disasters. Learn from 500+ documented AI incidents.',
+    'Expert insights on AI agent testing, real-world failure analysis, and practical guides to prevent AI chatbot disasters. Learn from documented real-world AI incidents.',
   keywords: [
     'AI agent testing blog',
     'AI chatbot failures',
@@ -13,7 +13,7 @@ export const metadata: Metadata = generateSEO({
     'LLM testing tutorials',
     'AI incident analysis',
   ],
-  canonical: 'https://inspectagents.com/blog',
+  canonical: 'https://inspectagents.com/blog/',
 });
 
 interface BlogPost {

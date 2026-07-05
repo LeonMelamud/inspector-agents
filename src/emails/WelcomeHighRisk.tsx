@@ -106,7 +106,7 @@ export default function WelcomeHighRisk({ firstName, topPainPoints }: WelcomeHig
                   See How Others Failed (So You Don&apos;t)
                 </p>
                 <p style={{ fontSize: '14px', color: '#627d98', lineHeight: '1.6', margin: '0 0 12px' }}>
-                  500+ documented AI failures — Chevrolet, Air Canada, DPD. See exactly what went wrong.
+                  Documented AI failures — Chevrolet, Air Canada, DPD. See exactly what went wrong.
                 </p>
                 <a 
                   href="https://inspectagents.com/failures?utm_source=email&utm_medium=welcome&utm_campaign=high_risk" 

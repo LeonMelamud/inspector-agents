@@ -1,14 +1,14 @@
 # InspectAgents — AI Agent Testing & Safety Platform
 
-> The most comprehensive resource for AI agent testing, safety validation, and failure analysis.
+> A practical resource for AI agent testing, safety validation, and failure analysis.
 
 ## What We Do
 
-InspectAgents maintains the internet's largest public database of **500+ documented AI chatbot failures** with technical analysis, root cause investigation, cost impact assessment, and prevention strategies for each incident.
+InspectAgents maintains a growing public database of **documented AI chatbot failures** with technical analysis, root cause investigation, cost impact assessment, and prevention strategies for each incident.
 
 ## Key Resources
 
-- **[AI Failures Database](https://inspectagents.com/failures/)** — 500+ searchable incidents by category, severity, and year
+- **[AI Failures Database](https://inspectagents.com/failures/)** — searchable incidents by category, severity, and year
 - **[AI Risk Assessment Quiz](https://inspectagents.com/quiz/)** — Free 3-minute assessment with personalized recommendations
 - **[63-Point Deployment Checklist](https://inspectagents.com/checklist/)** — Pre-deployment safety checks
 - **[Testing Guide](https://inspectagents.com/blog/how-to-test-ai-agents/)** — Step-by-step framework with code examples
@@ -23,10 +23,10 @@ InspectAgents maintains the internet's largest public database of **500+ documen
 - **LLM Context:** https://inspectagents.com/llms.txt | https://inspectagents.com/llms-full.txt
 
 ### MCP Tools Available
-1. `search_failures` — Search 500+ AI failure incidents
+1. `search_failures` — Search documented AI failure incidents
 2. `get_failure` — Get full details of a single failure
 3. `assess_risk` — Run the risk assessment quiz
-4. `get_checklist` — Get the 63-point testing checklist
+4. `get_checklist` — Get the 67-point testing checklist
 5. `submit_feedback` — Submit feedback or new incidents
 
 ### Quick Start
@@ -41,7 +41,7 @@ curl -X POST https://inspectagents.com/api/mcp/ \
 
 ## Key Statistics
 
-- 500+ documented AI chatbot failures
+- A growing database of documented AI chatbot failures
 - 64% of companies have experienced at least one AI failure (Gartner, McKinsey)
 - Air Canada ruling established legal liability for AI chatbot statements
 - Most AI failures are preventable with proper testing frameworks

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'Privacy policy for InspectAgents. Learn how we collect, use, and protect your information.',
   alternates: {
-    canonical: 'https://inspectagents.com/privacy',
+    canonical: 'https://inspectagents.com/privacy/',
   },
   robots: {
     index: true,

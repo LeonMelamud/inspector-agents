@@ -28,11 +28,11 @@ export function createMCPServer(): McpServer {
         resources: {},
       },
       instructions:
-        'InspectAgents is the largest public database of AI chatbot failures (500+ incidents). ' +
+        'InspectAgents maintains a public database of documented AI chatbot failures. ' +
         'Use search_failures to find real-world AI failure examples by category, severity, or keyword. ' +
         'Use get_failure to get full incident details including prevention strategies. ' +
         'Use assess_risk to evaluate AI deployment readiness. ' +
-        'Use get_checklist to retrieve the 63-point pre-deployment safety checklist. ' +
+        'Use get_checklist to retrieve the 67-point pre-deployment safety checklist. ' +
         'Use submit_feedback to report new incidents or corrections. ' +
         'All tools are free to use with no authentication required.',
     }

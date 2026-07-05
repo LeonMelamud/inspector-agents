@@ -18,10 +18,10 @@
 - **GET /?mode=agent** — Machine-readable JSON view of the full site
 
 ## MCP Tools
-1. `search_failures` — Search 500+ AI failures by query, category, severity, year
+1. `search_failures` — Search documented AI failures by query, category, severity, year
 2. `get_failure` — Get full details of a single failure by ID
 3. `assess_risk` — Run risk assessment quiz (returns risk level + recommendations)
-4. `get_checklist` — Get 63-point testing checklist (filter by severity/section)
+4. `get_checklist` — Get 67-point testing checklist (filter by severity/section)
 5. `submit_feedback` — Submit feedback or new incidents
 
 ## Error Handling

@@ -3,7 +3,7 @@
   "id": "nanda:inspectagents.com",
   "agent_name": "urn:agent:inspectagents:com",
   "display_name": "InspectAgents",
-  "description": "AI agent testing and safety platform with 500+ documented AI chatbot failures, risk assessment, deployment checklist, and MCP tools.",
+  "description": "AI agent testing and safety platform with documented AI chatbot failures, risk assessment, deployment checklist, and MCP tools.",
   "homepage": "https://inspectagents.com",
   "endpoints": {
     "mcp": ["https://inspectagents.com/api/mcp/"],

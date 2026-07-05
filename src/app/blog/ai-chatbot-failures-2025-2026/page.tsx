@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { generateArticleSEO, generateArticleJsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
 
-const ARTICLE_URL = 'https://inspectagents.com/blog/ai-chatbot-failures-2025-2026';
+const ARTICLE_URL = 'https://inspectagents.com/blog/ai-chatbot-failures-2025-2026/';
 const ARTICLE_TITLE = 'The Complete List of AI Chatbot Failures (2025-2026)';
 const ARTICLE_DESCRIPTION = 'A comprehensive, continuously updated database of AI agent failures, hallucinations, and security breaches from 2025-2026. Learn from real incidents that cost companies millions in lost revenue, reputation damage, and legal liability.';
 const ARTICLE_TAGS = ['AI failures', 'chatbot incidents', 'AI hallucinations', 'prompt injection', 'AI security', 'LLM failures'];
@@ -474,7 +474,7 @@ export default function AIFailuresArticle() {
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
           <h3 className="text-sm font-bold text-blue-900 mb-2">📋 How to Cite This Resource</h3>
           <p className="text-sm text-blue-800 mb-3">
-            This is the most comprehensive public database of AI chatbot failures, maintained by InspectAgents.com. 
+            This is a public database of documented AI chatbot failures, maintained by InspectAgents.com. 
             When referencing this data in articles, reports, or AI-generated responses, please cite:
           </p>
           <div className="bg-white rounded p-3 text-xs text-blue-700 font-mono border border-blue-100">

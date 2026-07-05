@@ -5,7 +5,7 @@
  *   1. search_failures  – Search/filter the AI failures database
  *   2. get_failure       – Get full details of a single failure
  *   3. assess_risk       – Run the AI risk assessment quiz
- *   4. get_checklist     – Retrieve the 63-point testing checklist
+ *   4. get_checklist     – Retrieve the 67-point testing checklist
  *   5. submit_feedback   – Submit feedback / incident reports
  */
 
@@ -41,7 +41,7 @@ const RISK_RECOMMENDATIONS: Record<string, string[]> = {
     'Immediately audit all production AI agents for prompt injection vulnerabilities',
     'Implement output validation and content filtering on all chatbot responses',
     'Set up real-time monitoring with kill-switch capability',
-    'Run the full 63-point InspectAgents checklist before any new deployment',
+    'Run the full 67-point InspectAgents checklist before any new deployment',
     'Consider a professional red-team assessment',
   ],
   medium: [
@@ -64,7 +64,7 @@ export function registerTools(server: McpServer): void {
   // ──────────────────────── 1. search_failures ────────────────────────────
   server.tool(
     'search_failures',
-    'Search and filter the InspectAgents AI failures database (500+ incidents). ' +
+    'Search and filter the InspectAgents AI failures database. ' +
       'Returns matching incidents with title, company, category, severity, description, ' +
       'impact, cost, and prevention strategies.',
     {
@@ -285,7 +285,7 @@ export function registerTools(server: McpServer): void {
   // ──────────────────────── 4. get_checklist ──────────────────────────────
   server.tool(
     'get_checklist',
-    'Retrieve the InspectAgents 63-point AI Agent Risk Checklist. ' +
+    'Retrieve the InspectAgents 67-point AI Agent Risk Checklist. ' +
       'Optionally filter by severity (critical/high/medium), section name, or search query.',
     {
       severity: z
@@ -336,7 +336,7 @@ export function registerTools(server: McpServer): void {
       }
 
       // Return full checklist
-      const totalItems = CHECKLIST_SECTIONS.reduce((sum, s) => sum + s.count, 0);
+      const totalItems = CHECKLIST_SECTIONS.reduce((sum, s) => sum + s.items.length, 0);
       return {
         content: [
           {
@@ -347,7 +347,7 @@ export function registerTools(server: McpServer): void {
                 sections: CHECKLIST_SECTIONS.map((s) => ({
                   title: s.title,
                   subtitle: s.subtitle,
-                  count: s.count,
+                  count: s.items.length,
                   items: s.items,
                 })),
                 source: 'https://inspectagents.com/checklist/',

@@ -17,13 +17,13 @@ const Footer = dynamic(() => import('@/components/sections/Footer').then(m => ({
 
 export const metadata: Metadata = {
   title: 'AI Agent Testing & Safety Platform - Prevent Chatbot Failures',
-  description: 'Prevent AI agent failures before they cost your business. Learn from 500+ analyzed AI chatbot disasters including Chevrolet, Air Canada, and DPD incidents.',
+  description: 'Prevent AI agent failures before they cost your business. Learn from real analyzed AI chatbot disasters including Chevrolet, Air Canada, and DPD incidents.',
   alternates: {
-    canonical: 'https://inspectagents.com',
+    canonical: 'https://inspectagents.com/',
   },
   openGraph: {
     title: 'AI Agent Testing & Safety Platform - Prevent Chatbot Failures',
-    description: 'Prevent AI agent failures before they cost your business. Learn from 500+ analyzed AI chatbot disasters.',
+    description: 'Prevent AI agent failures before they cost your business. Learn from real analyzed AI chatbot disasters.',
     type: 'website',
     url: 'https://inspectagents.com',
     images: [

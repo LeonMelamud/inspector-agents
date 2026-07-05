@@ -4,13 +4,13 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About InspectAgents - Our Mission to Make AI Safe',
-  description: 'Founded to prevent AI disasters after analyzing 500+ chatbot failures. Learn our story, mission, and commitment to making AI agent testing accessible to every business.',
+  description: 'Founded to prevent AI disasters after analyzing real-world chatbot failures. Learn our story, mission, and commitment to making AI agent testing accessible to every business.',
   alternates: {
-    canonical: 'https://inspectagents.com/about',
+    canonical: 'https://inspectagents.com/about/',
   },
   openGraph: {
     title: 'About InspectAgents - Our Mission to Make AI Safe',
-    description: 'Founded to prevent AI disasters after analyzing 500+ chatbot failures. Learn our story and mission.',
+    description: 'Founded to prevent AI disasters after analyzing real-world chatbot failures. Learn our story and mission.',
     type: 'website',
     url: 'https://inspectagents.com/about',
   },
@@ -160,7 +160,7 @@ export default function AboutPage() {
                 </p>
 
                 <p>
-                  <span className="font-bold text-stone-900">500+ failures later</span>, the patterns became crystal clear:
+                  <span className="font-bold text-stone-900">Dozens of documented failures later</span>, the patterns became crystal clear:
                 </p>
 
                 <ul className="list-disc pl-6 space-y-2">
@@ -326,7 +326,7 @@ export default function AboutPage() {
                 <div>
                   <h3 className="text-xl font-bold text-stone-900 mb-3">📚 The Failure Database</h3>
                   <p className="text-stone-700 mb-2">
-                    500+ documented AI failures with root causes, business impact, and prevention strategies. The most comprehensive public collection of AI incidents anywhere.
+                    Documented AI failures with root causes, business impact, and prevention strategies — a public collection that grows every month.
                   </p>
                   <Link href="/failures" className="text-primary-600 hover:text-primary-700 font-semibold">
                     Browse the database →
@@ -336,7 +336,7 @@ export default function AboutPage() {
                 <div>
                   <h3 className="text-xl font-bold text-stone-900 mb-3">🎯 The Risk Quiz</h3>
                   <p className="text-stone-700 mb-2">
-                    Free 5-minute assessment that identifies your biggest AI vulnerabilities based on 1,000+ real-world failure patterns.
+                    Free 5-minute assessment that identifies your biggest AI vulnerabilities based on real-world failure patterns.
                   </p>
                   <Link href="/quiz" className="text-primary-600 hover:text-primary-700 font-semibold">
                     Take the quiz →
@@ -380,12 +380,12 @@ export default function AboutPage() {
             <div className="bg-white rounded-xl shadow-lg p-8 md:p-12 mb-8">
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
-                  <div className="text-4xl font-bold text-primary-600 mb-2">250+</div>
-                  <div className="text-stone-600">AI teams trust us</div>
+                  <div className="text-4xl font-bold text-primary-600 mb-2">67</div>
+                  <div className="text-stone-600">Testing criteria in our checklist</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-primary-600 mb-2">1,000+</div>
-                  <div className="text-stone-600">Risk assessments completed</div>
+                  <div className="text-4xl font-bold text-primary-600 mb-2">10</div>
+                  <div className="text-stone-600">Risk categories covered</div>
                 </div>
                 <div>
                   <div className="text-4xl font-bold text-primary-600 mb-2">100%</div>

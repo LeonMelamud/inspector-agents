@@ -106,7 +106,7 @@ export default function WelcomeMediumRisk({ firstName, topPainPoints }: WelcomeM
                   Learn From Real Failures
                 </p>
                 <p style={{ fontSize: '14px', color: '#627d98', lineHeight: '1.6', margin: '0 0 12px' }}>
-                  Browse 500+ documented AI failures. See what went wrong at Chevrolet, Air Canada, and others — so you don&apos;t repeat their mistakes.
+                  Browse our documented AI failures. See what went wrong at Chevrolet, Air Canada, and others — so you don&apos;t repeat their mistakes.
                 </p>
                 <a 
                   href="https://inspectagents.com/failures?utm_source=email&utm_medium=welcome&utm_campaign=medium_risk" 

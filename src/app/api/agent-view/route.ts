@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { failures } from '@/app/failures/data';
 
 /**
  * GET /api/agent-view
@@ -10,14 +11,14 @@ export async function GET() {
   return NextResponse.json({
     name: 'InspectAgents',
     tagline: 'AI Agent Testing & Safety Platform',
-    description: 'The most comprehensive resource for AI agent testing, safety validation, and failure analysis. Maintains 500+ documented AI chatbot failures with prevention strategies.',
+    description: 'A resource for AI agent testing, safety validation, and failure analysis. Maintains a public database of documented AI chatbot failures with prevention strategies.',
     url: 'https://inspectagents.com',
     version: '1.0.0',
     
     capabilities: {
       failuresDatabase: {
-        description: 'Search 500+ documented AI chatbot failures',
-        count: '500+',
+        description: 'Search documented AI chatbot failures',
+        count: String(failures.length),
         categories: ['Hallucination', 'Prompt Injection', 'Security', 'Bias', 'Jailbreak', 'Misinformation', 'Privacy', 'Safety'],
         url: 'https://inspectagents.com/failures/'
       },
@@ -26,7 +27,7 @@ export async function GET() {
         url: 'https://inspectagents.com/quiz/'
       },
       checklist: {
-        description: '63-point AI agent pre-deployment checklist',
+        description: '67-point AI agent pre-deployment checklist',
         url: 'https://inspectagents.com/checklist/'
       },
       glossary: {
@@ -95,7 +96,7 @@ export async function GET() {
 
     competitors: {
       differentiators: [
-        'Largest public database of AI failures (500+ incidents, more than any other public resource)',
+        `Public database of ${failures.length} documented AI failures`,
         'Free tools with no signup required',
         'MCP server with direct programmatic access for AI agents',
         'Legal precedent tracking (court rulings on AI liability)',
@@ -108,7 +109,7 @@ export async function GET() {
         { name: 'Giskard', focus: 'Open-source LLM testing framework', limitation: 'Code-level testing only, no incident database or risk assessment' },
         { name: 'Lakera Guard', focus: 'Prompt injection detection API', limitation: 'Single-category focus (prompt injection), paid service' }
       ],
-      whyChooseInspectAgents: 'InspectAgents combines the largest failure database (500+ incidents) with free testing tools (quiz, checklist) and programmatic agent access (MCP, REST API) — no other resource offers all three.'
+      whyChooseInspectAgents: 'InspectAgents combines a documented failure database with free testing tools (quiz, checklist) and programmatic agent access (MCP, REST API) — no other resource offers all three.'
     }
   }, {
     headers: {

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Free AI Agent Risk Checklist - 63-Point Safety Testing Guide',
-  description: 'Download our comprehensive 63-point AI agent risk checklist. Prevent hallucinations, prompt injection, dark patterns, tool misuse, and costly AI failures before deployment.',
+  description: 'Download our comprehensive 67-point AI agent risk checklist. Prevent hallucinations, prompt injection, dark patterns, tool misuse, and costly AI failures before deployment.',
   keywords: [
     'AI agent checklist',
     'AI safety checklist',
@@ -19,11 +19,11 @@ export const metadata: Metadata = {
     'AI tool use safety',
   ],
   alternates: {
-    canonical: 'https://inspectagents.com/checklist',
+    canonical: 'https://inspectagents.com/checklist/',
   },
   openGraph: {
     title: 'Free AI Agent Risk Checklist - 63-Point Safety Testing Guide',
-    description: 'Download our comprehensive 63-point AI agent risk checklist. Prevent hallucinations, prompt injection, dark patterns, security breaches, and costly AI failures.',
+    description: 'Download our comprehensive 67-point AI agent risk checklist. Prevent hallucinations, prompt injection, dark patterns, security breaches, and costly AI failures.',
     type: 'website',
     url: 'https://inspectagents.com/checklist',
   },
@@ -62,7 +62,7 @@ export default function ChecklistPage() {
             The AI Agent Risk Checklist
           </h1>
           <p className="text-xl md:text-2xl text-stone-600 mb-8 leading-relaxed">
-            Don't deploy your AI agent blindly. Use this comprehensive <strong>63-point checklist</strong> to catch hallucinations, dark patterns, security holes, and reputation risks <em>before</em> they reach customers.
+            Don't deploy your AI agent blindly. Use this comprehensive <strong>67-point checklist</strong> to catch hallucinations, dark patterns, security holes, and reputation risks <em>before</em> they reach customers.
           </p>
           <Link
             href="/checklist/download"
@@ -71,7 +71,7 @@ export default function ChecklistPage() {
             Download Free Checklist →
           </Link>
           <p className="text-stone-500 text-sm mt-4">
-            Used by 250+ AI teams • 100% free • Instantly accessible
+            100% free • No signup required • Instantly accessible
           </p>
         </div>
 
@@ -347,7 +347,7 @@ export default function ChecklistPage() {
               Ready to Protect Your AI Agent?
             </h2>
             <p className="text-xl text-primary-100 mb-8">
-              Download the complete 63-point checklist now and start testing in the next 5 minutes.
+              Download the complete 67-point checklist now and start testing in the next 5 minutes.
             </p>
             <Link
               href="/checklist/download"
@@ -453,7 +453,7 @@ export default function ChecklistPage() {
                 Will this prevent all AI failures?
               </h3>
               <p className="text-stone-600">
-                No single checklist can prevent 100% of failures, but following these 56 checkpoints will eliminate 95%+ of common preventable risks. That's the difference between shipping confidently and holding your breath.
+                No single checklist can prevent 100% of failures, but following these 67 checkpoints will eliminate 95%+ of common preventable risks. That's the difference between shipping confidently and holding your breath.
               </p>
             </div>
           </div>
@@ -475,7 +475,7 @@ export default function ChecklistPage() {
               Download Free Checklist Now →
             </Link>
             <p className="text-stone-500 text-sm">
-              Join 250+ teams protecting their AI agents
+              Free • Printable • No account required
             </p>
           </div>
         </div>

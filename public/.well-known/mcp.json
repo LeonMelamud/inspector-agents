@@ -1,7 +1,7 @@
 {
   "url": "https://inspectagents.com/api/mcp/",
   "name": "InspectAgents AI Testing Tools",
-  "description": "Search 500+ AI failure incidents, assess AI deployment risk, get the 63-point testing checklist, and submit feedback. The most comprehensive AI agent safety resource.",
+  "description": "Search documented AI failure incidents, assess AI deployment risk, get the 67-point testing checklist, and submit feedback. A free AI agent safety resource.",
   "version": "1.0.0",
   "icon": "https://inspectagents.com/images/logo-300.png",
   "transport": "streamable-http",
@@ -17,7 +17,7 @@
   "tools": [
     {
       "name": "search_failures",
-      "description": "Search and filter the AI failures database (500+ incidents) by category, severity, year, or free text"
+      "description": "Search and filter the AI failures database by category, severity, year, or free text"
     },
     {
       "name": "get_failure",
@@ -29,7 +29,7 @@
     },
     {
       "name": "get_checklist",
-      "description": "Retrieve the 63-point AI Agent Risk Checklist, optionally filtered"
+      "description": "Retrieve the 67-point AI Agent Risk Checklist, optionally filtered"
     },
     {
       "name": "submit_feedback",
@@ -39,12 +39,12 @@
   "resources": [
     {
       "uri": "inspectagents://failures/all",
-      "description": "Complete failures database as JSON (500+ incidents)",
+      "description": "Complete failures database as JSON",
       "mimeType": "application/json"
     },
     {
       "uri": "inspectagents://checklist/full",
-      "description": "Full 63-point checklist with 10 sections",
+      "description": "Full 67-point checklist with 10 sections",
       "mimeType": "application/json"
     },
     {

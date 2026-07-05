@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { generateArticleSEO, generateArticleJsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
 
-const ARTICLE_URL = 'https://inspectagents.com/blog/chevrolet-ai-failure-breakdown';
+const ARTICLE_URL = 'https://inspectagents.com/blog/chevrolet-ai-failure-breakdown/';
 const ARTICLE_TITLE = "Chevrolet's $1 Car Fiasco: Full Breakdown & Prevention Guide";
 const ARTICLE_DESCRIPTION = 'Deep dive into how a prompt injection attack led Chevrolet\'s chatbot to sell a 2024 Tahoe for $1. Complete timeline, technical analysis, legal implications, and step-by-step prevention strategies.';
 const ARTICLE_TAGS = ['Chevrolet AI failure', 'prompt injection', 'chatbot security', 'AI testing', 'dealership chatbot'];

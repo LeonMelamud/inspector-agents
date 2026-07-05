@@ -15,7 +15,7 @@ export default function HowItWorksPage() {
       description="Full technical transparency into how we test AI agents. Benchmarks, failure taxonomies, scoring models, and the research behind our approach."
       bullets={[
         'Failure taxonomy: 12 categories across safety, accuracy, and compliance',
-        'Benchmark suite based on 500+ real-world incidents',
+        'Benchmark suite based on real-world incidents',
         'Scoring framework with reproducible metrics',
         'Red-teaming methodology for adversarial testing',
         'Model-specific testing profiles (GPT-4, Claude, Gemini, Llama)',

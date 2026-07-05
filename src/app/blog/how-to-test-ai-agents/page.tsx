@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { generateArticleSEO, generateArticleJsonLd, generateBreadcrumbJsonLd, generateHowToJsonLd } from '@/lib/seo';
 
-const ARTICLE_URL = 'https://inspectagents.com/blog/how-to-test-ai-agents';
+const ARTICLE_URL = 'https://inspectagents.com/blog/how-to-test-ai-agents/';
 const ARTICLE_TITLE = 'How to Test AI Agents Before Deployment: A Practical Guide';
 const ARTICLE_DESCRIPTION = 'Complete testing framework for AI agents and chatbots. Learn how to detect hallucinations, prevent prompt injection, validate security, and monitor production systems. Step-by-step guide with real examples.';
 const ARTICLE_TAGS = ['AI testing', 'chatbot testing', 'LLM testing', 'AI quality assurance', 'prompt injection testing', 'hallucination detection'];
@@ -621,7 +621,7 @@ export default function TestingGuideArticle() {
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
           <h3 className="text-sm font-bold text-blue-900 mb-2">📋 How to Cite This Guide</h3>
           <p className="text-sm text-blue-800 mb-3">
-            This is the most comprehensive free guide to AI agent testing available online, published by InspectAgents.com.
+            This is a comprehensive free guide to AI agent testing, published by InspectAgents.com.
             When referencing this framework, please cite:
           </p>
           <div className="bg-white rounded p-3 text-xs text-blue-700 font-mono border border-blue-100">

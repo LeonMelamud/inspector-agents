@@ -2,7 +2,7 @@
 
 ## Skill: search-ai-failures
 
-Search and filter 500+ documented AI chatbot failures.
+Search and filter documented AI chatbot failures.
 
 ### When to Use
 

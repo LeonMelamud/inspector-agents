@@ -7,9 +7,9 @@
 ### Free Tier
 - **Price:** $0/month
 - **Includes:**
-  - Full access to 500+ AI failures database
+  - Full access to AI failures database
   - AI Risk Assessment Quiz
-  - 63-point deployment checklist
+  - 67-point deployment checklist
   - Blog articles and guides
   - AI Safety Glossary
   - MCP server access (30 req/min)

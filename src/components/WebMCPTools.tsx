@@ -76,7 +76,7 @@ function registerTools(mcp: WebMCPInstance): void {
   // 1. search_failures
   mcp.registerTool(
     'search_failures',
-    'Search the InspectAgents AI failures database (500+ incidents). ' +
+    'Search the InspectAgents AI failures database. ' +
       'Supports keyword search, category filtering, severity, and year.',
     {
       type: 'object',
@@ -135,7 +135,7 @@ function registerTools(mcp: WebMCPInstance): void {
   // 4. get_checklist
   mcp.registerTool(
     'get_checklist',
-    'Retrieve the 63-point AI Agent Risk Checklist. Filter by severity, section, or keyword.',
+    'Retrieve the 67-point AI Agent Risk Checklist. Filter by severity, section, or keyword.',
     {
       type: 'object',
       properties: {
@@ -158,8 +158,8 @@ function registerTools(mcp: WebMCPInstance): void {
           name: 'InspectAgents',
           url: 'https://inspectagents.com',
           description:
-            'AI agent safety & testing platform with 500+ documented AI failures, ' +
-            'a 63-point risk checklist, and MCP-powered tools for AI safety research.',
+            'AI agent safety & testing platform with a public database of documented AI failures, ' +
+            'a 67-point risk checklist, and MCP-powered tools for AI safety research.',
         },
         founder: {
           name: 'Leon Melamud',

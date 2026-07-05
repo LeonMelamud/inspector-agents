@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'AI Agent Safety Playbook — Guides, Policies & Testing Procedures',
   description:
-    'Actionable playbook for deploying safe AI agents. Step-by-step prevention guides, reusable operating policies, testing procedures, and curated resources — all informed by 500+ real-world AI failures.',
+    'Actionable playbook for deploying safe AI agents. Step-by-step prevention guides, reusable operating policies, testing procedures, and curated resources — all informed by real-world AI failures.',
   keywords: [
     'AI agent playbook',
     'AI safety playbook',
@@ -18,12 +18,12 @@ export const metadata: Metadata = {
     'agentic AI safety',
   ],
   alternates: {
-    canonical: 'https://inspectagents.com/playbook',
+    canonical: 'https://inspectagents.com/playbook/',
   },
   openGraph: {
     title: 'AI Agent Safety Playbook — Guides, Policies & Testing Procedures',
     description:
-      'Actionable playbook for deploying safe AI agents. Prevention guides, operating policies, and testing procedures informed by 500+ real-world failures.',
+      'Actionable playbook for deploying safe AI agents. Prevention guides, operating policies, and testing procedures informed by real-world failures.',
     type: 'website',
     url: 'https://inspectagents.com/playbook',
   },
@@ -58,7 +58,7 @@ const quickStart = [
   {
     step: '3',
     title: 'Learn from Failures',
-    description: 'Study 500+ real incidents so you don\u2019t repeat them.',
+    description: 'Study real documented incidents so you don\u2019t repeat them.',
     href: '/failures',
     cta: 'Browse Failures',
   },
@@ -303,7 +303,7 @@ export default function PlaybookPage() {
             </h1>
             <p className="text-lg text-primary-200 leading-relaxed max-w-2xl mx-auto">
               Actionable guides, operating policies, and step-by-step testing procedures —
-              all informed by <strong className="text-white">500+ documented AI failures</strong>.
+              all informed by <strong className="text-white">documented real-world AI failures</strong>.
               Stop reading about what goes wrong. Start implementing what works.
             </p>
           </div>
@@ -464,7 +464,7 @@ export default function PlaybookPage() {
                 <div>
                   <h3 className="font-bold text-stone-900 mb-1">Checklists verify the results</h3>
                   <p className="text-stone-600 text-sm">
-                    The 63-point checklist and verification gates ensure nothing slips through before deployment.
+                    The 67-point checklist and verification gates ensure nothing slips through before deployment.
                   </p>
                 </div>
               </div>
@@ -473,7 +473,7 @@ export default function PlaybookPage() {
                 <div>
                   <h3 className="font-bold text-stone-900 mb-1">Failures teach what to watch for</h3>
                   <p className="text-stone-600 text-sm">
-                    500+ real incidents show exactly what goes wrong when these practices are skipped. Learn from others&apos; mistakes.
+                    Our failures database shows exactly what goes wrong when these practices are skipped. Learn from others&apos; mistakes.
                   </p>
                 </div>
               </div>

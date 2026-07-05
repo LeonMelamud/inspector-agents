@@ -4,7 +4,7 @@ const offerings = [
   {
     title: 'AI Failures Database',
     description: 'A comprehensive catalog of documented AI agent incidents with analysis, root causes, and prevention strategies.',
-    detail: 'Browse 500+ real-world AI failures — from chatbots making unauthorized promises to agents leaking sensitive data. Every entry includes what went wrong and how it could have been prevented.',
+    detail: 'Browse real-world AI failures — from chatbots making unauthorized promises to agents leaking sensitive data. Every entry includes what went wrong and how it could have been prevented.',
     href: '/failures',
     linkText: 'Browse the Database',
     bgClass: 'bg-primary-900',
@@ -19,7 +19,7 @@ const offerings = [
   },
   {
     title: 'Testing Checklist',
-    description: 'A 63-point checklist covering hallucination detection, prompt injection, dark patterns, tool-use safety, security, and compliance testing.',
+    description: 'A 67-point checklist covering hallucination detection, prompt injection, dark patterns, tool-use safety, security, and compliance testing.',
     detail: 'Printable, step-by-step testing guide developed from analysis of hundreds of AI agent failures. Organized by risk category with clear pass/fail criteria.',
     href: '/checklist',
     linkText: 'Download the Checklist',

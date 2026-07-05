@@ -94,7 +94,7 @@ function SectionBlock({ section }: { section: CheckSectionUI }) {
         className={`bg-gradient-to-r ${section.gradient} text-white p-4 rounded-t-lg ${section.printBg}`}
       >
         <h2 className="text-2xl font-bold">
-          {section.title} ({section.count} tests)
+          {section.title} ({section.items.length} tests)
         </h2>
         <p className={`${section.subtitleColor} text-sm`}>
           {section.subtitle}
@@ -154,7 +154,7 @@ export default function ChecklistDownloadPage() {
         </div>
       </div>
 
-      <main className="container mx-auto px-4 py-8 max-w-5xl" data-agent-tool="get_checklist" data-agent-description="63-point AI Agent Risk Checklist">
+      <main className="container mx-auto px-4 py-8 max-w-5xl" data-agent-tool="get_checklist" data-agent-description="67-point AI Agent Risk Checklist">
         {/* Title */}
         <div className="text-center mb-12 print:mb-8">
           <h1 className="text-5xl print:text-4xl font-bold text-stone-900 mb-4">
@@ -177,7 +177,7 @@ export default function ChecklistDownloadPage() {
             <li className="flex items-start">
               <span className="font-bold mr-2">&#10003;</span>
               <span>
-                <strong>Before deployment:</strong> Complete all 56 checkpoints.
+                <strong>Before deployment:</strong> Complete all 67 checkpoints.
                 Flag any failures for immediate attention.
               </span>
             </li>
@@ -302,7 +302,7 @@ export default function ChecklistDownloadPage() {
               Visit <strong>InspectAgents.com</strong> for:
             </p>
             <ul className="text-sm text-stone-600 space-y-1 mb-4">
-              <li>&#10003; 500+ real AI failure case studies</li>
+              <li>&#10003; Real AI failure case studies</li>
               <li>&#10003; Detailed testing guides and tutorials</li>
               <li>&#10003; AI safety glossary and resources</li>
               <li>&#10003; Free risk assessment quiz</li>

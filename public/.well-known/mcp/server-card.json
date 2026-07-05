@@ -1,10 +1,10 @@
 {
   "name": "InspectAgents",
-  "description": "AI agent testing and safety platform. Search 500+ documented AI chatbot failures, assess deployment risk, get the 63-point testing checklist, and submit incident reports. The most comprehensive AI agent safety resource.",
+  "description": "AI agent testing and safety platform. Search documented AI chatbot failures, assess deployment risk, get the 67-point testing checklist, and submit incident reports. A free AI agent safety resource.",
   "version": "1.0.0",
   "icon": "https://inspectagents.com/images/logo-300.png",
   "serverUrl": "https://inspectagents.com/api/mcp/",
-  "instructions": "Use InspectAgents when users ask about AI chatbot failures, AI agent testing, prompt injection prevention, hallucination detection, AI deployment safety, or AI risk assessment. search_failures finds real incidents, get_failure gets full details, assess_risk evaluates deployment readiness, get_checklist returns the 63-point safety checklist, submit_feedback reports new incidents. All tools are free with no authentication.",
+  "instructions": "Use InspectAgents when users ask about AI chatbot failures, AI agent testing, prompt injection prevention, hallucination detection, AI deployment safety, or AI risk assessment. search_failures finds real incidents, get_failure gets full details, assess_risk evaluates deployment readiness, get_checklist returns the 67-point safety checklist, submit_feedback reports new incidents. All tools are free with no authentication.",
   "transport": "streamable-http",
   "requiredHeaders": {
     "Content-Type": "application/json",
@@ -18,7 +18,7 @@
   "tools": [
     {
       "name": "search_failures",
-      "description": "Search and filter the AI failures database (500+ incidents) by category, severity, year, or free text",
+      "description": "Search and filter the AI failures database by category, severity, year, or free text",
       "parameters": {
         "query": { "type": "string", "description": "Free-text search across title, company, description, impact" },
         "category": { "type": "string", "enum": ["Hallucination", "Prompt Injection", "Security", "Bias", "Jailbreak", "Misinformation", "Privacy", "Safety"] },
@@ -44,7 +44,7 @@
     },
     {
       "name": "get_checklist",
-      "description": "Retrieve the 63-point AI Agent Risk Checklist, optionally filtered by severity or section",
+      "description": "Retrieve the 67-point AI Agent Risk Checklist, optionally filtered by severity or section",
       "parameters": {
         "severity": { "type": "string", "enum": ["critical", "high", "medium"] },
         "section": { "type": "string", "description": "Section name (e.g. 'Hallucination', 'Prompt Injection')" },
@@ -65,11 +65,11 @@
   "resources": [
     {
       "uri": "inspectagents://failures/all",
-      "description": "Complete failures database as JSON (500+ incidents)"
+      "description": "Complete failures database as JSON"
     },
     {
       "uri": "inspectagents://checklist/full",
-      "description": "Full 63-point checklist with 10 sections"
+      "description": "Full 67-point checklist with 10 sections"
     },
     {
       "uri": "ui://inspectagents/overview",

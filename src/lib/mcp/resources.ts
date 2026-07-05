@@ -3,7 +3,7 @@
  *
  * Read-only data resources that MCP clients can browse:
  *   - inspectagents://failures/all     – Full failures database
- *   - inspectagents://checklist/full   – Complete 63-point checklist
+ *   - inspectagents://checklist/full   – Complete 67-point checklist
  *   - ui://inspectagents/overview      – MCP Apps-compatible HTML overview
  */
 
@@ -18,7 +18,7 @@ export function registerResources(server: McpServer): void {
     'inspectagents://failures/all',
     {
       description:
-        'The complete InspectAgents AI failures database — 500+ documented incidents with ' +
+        'The complete InspectAgents AI failures database — documented incidents with ' +
         'category, severity, description, impact, cost, source, and prevention strategies.',
       mimeType: 'application/json',
     },
@@ -61,7 +61,7 @@ export function registerResources(server: McpServer): void {
     'inspectagents://checklist/full',
     {
       description:
-        'The complete 63-point AI Agent Risk Checklist — 10 categories with severity levels, ' +
+        'The complete 67-point AI Agent Risk Checklist — 10 categories with severity levels, ' +
         'aligned with OWASP Top 10 for LLM Applications.',
       mimeType: 'application/json',
     },
@@ -72,14 +72,14 @@ export function registerResources(server: McpServer): void {
           mimeType: 'application/json',
           text: JSON.stringify(
             {
-              total: CHECKLIST_SECTIONS.reduce((sum, s) => sum + s.count, 0),
+              total: CHECKLIST_SECTIONS.reduce((sum, s) => sum + s.items.length, 0),
               lastUpdated: '2026-02-14',
               source: 'https://inspectagents.com/checklist/',
               framework: 'OWASP Top 10 for LLM Applications',
               sections: CHECKLIST_SECTIONS.map((s) => ({
                 title: s.title,
                 subtitle: s.subtitle,
-                count: s.count,
+                count: s.items.length,
                 items: s.items,
               })),
             },
@@ -132,7 +132,7 @@ export function registerResources(server: McpServer): void {
     <main>
       <span class="badge">No authentication required</span>
       <h1>InspectAgents</h1>
-      <p>AI agent testing and safety platform with 500+ documented chatbot failures, risk assessment, and a 63-point deployment checklist.</p>
+      <p>AI agent testing and safety platform with a public database of documented chatbot failures, risk assessment, and a 67-point deployment checklist.</p>
       <h2>Available MCP tools</h2>
       <ul>
         <li><code>search_failures</code> — find real-world AI failure examples</li>

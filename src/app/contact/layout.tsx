@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     'Request AI agent testing, safety audits, prompt injection testing, or consulting services from InspectAgents. Leave a service request and we\'ll get back to you.',
   alternates: {
-    canonical: 'https://inspectagents.com/contact',
+    canonical: 'https://inspectagents.com/contact/',
   },
   openGraph: {
     title: 'Contact & Service Requests — InspectAgents',

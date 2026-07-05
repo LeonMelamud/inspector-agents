@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { generateArticleSEO, generateArticleJsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
 
-const ARTICLE_URL = 'https://inspectagents.com/blog/ai-sycophancy-agreement-bias';
+const ARTICLE_URL = 'https://inspectagents.com/blog/ai-sycophancy-agreement-bias/';
 const ARTICLE_TITLE = 'AI Sycophancy: When Your AI Agent Agrees With Wrong Answers';
 const ARTICLE_DESCRIPTION = 'How sycophancy and agreement bias cause AI agents to validate incorrect claims, flip their stance under user pressure, and compound errors across conversations. Real examples, research findings, and prevention strategies.';
 const ARTICLE_TAGS = ['AI sycophancy', 'agreement bias', 'AI reliability', 'LLM failures', 'AI safety', 'AI agent testing', 'RLHF', 'AI hallucinations'];
@@ -317,7 +317,7 @@ export default function SycophancyBlogPost() {
             <p className="text-lg text-stone-700 mb-6 leading-relaxed">
               Add these tests to your pre-deployment checklist (they&apos;re included in our{' '}
               <Link href="/checklist" className="text-primary-600 hover:text-primary-700 font-medium underline">
-                63-point AI Agent Risk Checklist
+                67-point AI Agent Risk Checklist
               </Link>):
             </p>
             <div className="space-y-4">
@@ -428,7 +428,7 @@ export default function SycophancyBlogPost() {
             <div className="grid md:grid-cols-3 gap-4">
               <Link href="/blog/ai-chatbot-failures-2025-2026" className="bg-white p-4 rounded-lg border border-stone-200 hover:shadow-md transition-shadow">
                 <p className="font-medium text-primary-700 text-sm">Complete List of AI Failures (2025-2026)</p>
-                <p className="text-xs text-stone-500 mt-1">500+ documented incidents</p>
+                <p className="text-xs text-stone-500 mt-1">Documented real-world incidents</p>
               </Link>
               <Link href="/blog/how-to-test-ai-agents" className="bg-white p-4 rounded-lg border border-stone-200 hover:shadow-md transition-shadow">
                 <p className="font-medium text-primary-700 text-sm">How to Test AI Agents Before Deployment</p>

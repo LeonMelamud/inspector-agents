@@ -20,6 +20,9 @@ export function Footer() {
               <li><Link href="/blog" className="text-primary-300 hover:text-white transition-colors">Blog</Link></li>
               <li><Link href="/glossary" className="text-primary-300 hover:text-white transition-colors">Glossary</Link></li>
               <li><Link href="/checklist" className="text-primary-300 hover:text-white transition-colors">Testing Checklist</Link></li>
+              <li><Link href="/pricing" className="text-primary-300 hover:text-white transition-colors">Pricing (coming soon)</Link></li>
+              <li><Link href="/demo" className="text-primary-300 hover:text-white transition-colors">Live Demo (coming soon)</Link></li>
+              <li><Link href="/how-it-works" className="text-primary-300 hover:text-white transition-colors">Methodology (coming soon)</Link></li>
             </ul>
           </div>
           <div>

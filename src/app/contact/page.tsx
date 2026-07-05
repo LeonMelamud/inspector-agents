@@ -55,35 +55,13 @@ export default function ContactPage() {
               Request a Service
             </h1>
             <p className="text-xl text-stone-600 leading-relaxed mb-4">
-              We're currently <span className="font-semibold text-amber-600">fully booked for this month</span> as
-              we focus on educating the next generation of AI inspectors.
+              Need help testing your AI agent before launch, or want a safety review
+              of an agent already in production?
             </p>
             <p className="text-lg text-stone-600 leading-relaxed">
-              But we're always looking ahead — leave a service request below and
-              we'll reach out as soon as capacity opens up.
+              Tell us about your project below and we'll get back to you within
+              two business days.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Status banner */}
-      <section className="py-0">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto -mt-4 mb-8">
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 flex items-start gap-4">
-              <span className="text-2xl flex-shrink-0 mt-0.5">📅</span>
-              <div>
-                <p className="font-semibold text-amber-800 mb-1">
-                  February 2026 — Fully Booked
-                </p>
-                <p className="text-amber-700 text-sm leading-relaxed">
-                  Our team is currently running hands-on AI safety workshops and training
-                  programs for enterprise teams. We're investing in building the next
-                  wave of certified AI inspectors so we can serve more clients in the
-                  coming months.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -230,10 +208,10 @@ export default function ContactPage() {
                     <div>
                       <div className="font-medium text-stone-700">Email</div>
                       <a
-                        href="mailto:leonmelamud@gmail.com"
+                        href="mailto:hello@inspectagents.com"
                         className="text-primary-600 hover:text-primary-700 break-all"
                       >
-                        leonmelamud@gmail.com
+                        hello@inspectagents.com
                       </a>
                     </div>
                   </div>

@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { failures } from './data';
-import type { AIFailure } from './types';
+import { getCategoryColor, getSeverityColor } from './badges';
 
 export default function FailuresPage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -51,31 +51,6 @@ export default function FailuresPage() {
       return matchesSearch && matchesCategory && matchesSeverity && matchesDateFrom && matchesDateTo;
     });
   }, [searchQuery, selectedCategory, selectedSeverity, dateFrom, dateTo]);
-
-  // Severity color mapping
-  const getSeverityColor = (severity: string) => {
-    switch (severity) {
-      case 'Critical': return 'bg-red-100 text-red-800 border-red-300';
-      case 'High': return 'bg-orange-100 text-orange-800 border-orange-300';
-      case 'Medium': return 'bg-amber-100 text-amber-800 border-amber-300';
-      case 'Low': return 'bg-green-100 text-green-800 border-green-300';
-      default: return 'bg-stone-100 text-stone-800 border-stone-300';
-    }
-  };
-
-  const getCategoryColor = (category: string) => {
-    const colors: { [key: string]: string } = {
-      'Hallucination': 'bg-purple-100 text-purple-800',
-      'Prompt Injection': 'bg-red-100 text-red-800',
-      'Security': 'bg-blue-100 text-blue-800',
-      'Bias': 'bg-pink-100 text-pink-800',
-      'Jailbreak': 'bg-orange-100 text-orange-800',
-      'Misinformation': 'bg-yellow-100 text-yellow-800',
-      'Privacy': 'bg-indigo-100 text-indigo-800',
-      'Safety': 'bg-red-100 text-red-800'
-    };
-    return colors[category] || 'bg-stone-100 text-stone-800';
-  };
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -241,13 +216,16 @@ export default function FailuresPage() {
             {filteredFailures.map(failure => (
               <div
                 key={failure.id}
+                id={failure.id}
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border border-stone-200 p-6"
               >
                 {/* Header */}
                 <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
                   <div className="flex-1 min-w-0">
                     <h3 className="text-2xl font-bold text-stone-900 mb-2">
-                      {failure.title}
+                      <Link href={`/failures/${failure.id}/`} className="hover:text-primary-700">
+                        {failure.title}
+                      </Link>
                     </h3>
                     <div className="flex flex-wrap items-center gap-3 text-sm text-stone-600">
                       <span className="font-medium">{failure.company}</span>
@@ -292,7 +270,7 @@ export default function FailuresPage() {
                 </div>
 
                 {/* Source */}
-                <div className="pt-4 border-t border-stone-200">
+                <div className="pt-4 border-t border-stone-200 flex flex-wrap items-center justify-between gap-3">
                   <a
                     href={failure.sourceUrl}
                     target="_blank"
@@ -304,6 +282,12 @@ export default function FailuresPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
                   </a>
+                  <Link
+                    href={`/failures/${failure.id}/`}
+                    className="text-primary-600 hover:text-primary-700 font-semibold text-sm"
+                  >
+                    Read full analysis →
+                  </Link>
                 </div>
               </div>
             ))}
@@ -327,7 +311,7 @@ export default function FailuresPage() {
             Assess Your AI Risks Now →
           </Link>
           <p className="mt-4 text-sm text-primary-100">
-            Join 1,000+ teams proactively managing AI safety
+            Free • 2 minutes • No account required
           </p>
         </div>
       </div>
