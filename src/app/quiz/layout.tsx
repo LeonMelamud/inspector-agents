@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'AI Risk Quiz - Find Your AI Vulnerabilities in 2 Minutes',
-  description: 'Take our free 2-minute quiz to discover your AI agent vulnerabilities and get a personalized risk assessment.',
+  title: 'AI Risk Quiz - Find Your AI Agent Risks in 3 Steps',
+  description: 'Answer two questions and see your AI agent risk result on screen, with matched real incidents and next steps. Free, no account.',
   alternates: {
     canonical: 'https://inspectagents.com/quiz/',
   },
   openGraph: {
-    title: 'AI Risk Quiz - Find Your AI Vulnerabilities in 2 Minutes',
-    description: 'Take our free 2-minute quiz to discover your AI agent vulnerabilities and get a personalized risk assessment.',
+    title: 'AI Risk Quiz - Find Your AI Agent Risks in 3 Steps',
+    description: 'Answer two questions and see your AI agent risk result on screen, with matched real incidents and next steps. Free, no account.',
     type: 'website',
     url: 'https://inspectagents.com/quiz',
     images: [
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Risk Quiz - Find Your AI Vulnerabilities in 2 Minutes',
-    description: 'Take our free 2-minute quiz to discover your AI agent vulnerabilities and get a personalized risk assessment.',
+    title: 'AI Risk Quiz - Find Your AI Agent Risks in 3 Steps',
+    description: 'Answer two questions and see your AI agent risk result on screen, with matched real incidents and next steps. Free, no account.',
     images: ['https://inspectagents.com/images/og-image.png'],
     creator: '@inspectagents',
   },
