@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Footer } from '@/components/sections/Footer';
 import { CHECKLIST_SECTIONS } from '@/lib/mcp/data/checklist';
 import {
   CHECKLIST_CRITICAL_COUNT,
@@ -261,6 +262,7 @@ export default function ChecklistPage() {
           </p>
         </section>
       </main>
+      <Footer />
     </div>
   );
 }
