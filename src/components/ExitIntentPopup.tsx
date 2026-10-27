@@ -126,7 +126,6 @@ export function ExitIntentPopup({ checklistCount, sectionCount }: ExitIntentPopu
     };
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- handleClose is stable in effect
   }, [isVisible]);
 
   // Don't render if disabled or not visible

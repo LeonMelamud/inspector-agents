@@ -59,7 +59,7 @@ export default function QuizClient({ incidentCount, checklistCount, concernCases
   const [selectedSingle, setSelectedSingle] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [emailTouched, setEmailTouched] = useState(false);
-  const startTime = useRef<number>(Date.now());
+  const startTime = useRef<number>(0);
   const hasTrackedStart = useRef(false);
   const autoAdvanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -70,6 +70,7 @@ export default function QuizClient({ incidentCount, checklistCount, concernCases
   useEffect(() => {
     if (hasTrackedStart.current) return;
     hasTrackedStart.current = true;
+    startTime.current = Date.now();
     const location = document.referrer.includes(window.location.hostname) ? 'homepage' : 'direct';
     trackQuizEvent.started(location);
   }, []);
