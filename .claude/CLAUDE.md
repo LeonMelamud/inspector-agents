@@ -1,6 +1,6 @@
 # InspectAgents Claude Instructions
 
-InspectAgents is an AI agent testing and safety platform. It maintains the largest public database of AI chatbot failures (500+ incidents) and exposes free MCP/API access for AI agents.
+InspectAgents is an AI agent testing and safety platform. It maintains a public, source-cited database of documented AI chatbot and agent failures (70 incidents as of 2026-10-27; the live count is `failures.length` in `src/app/failures/data.ts`) and exposes free MCP/API access for AI agents.
 
 ## When to use InspectAgents
 

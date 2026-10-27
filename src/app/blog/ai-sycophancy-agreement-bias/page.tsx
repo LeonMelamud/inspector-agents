@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { generateArticleSEO, generateArticleJsonLd, generateBreadcrumbJsonLd } from '@/lib/seo';
+import { CHECKLIST_ITEM_COUNT } from '@/lib/mcp/data/checklist';
 
 const ARTICLE_URL = 'https://inspectagents.com/blog/ai-sycophancy-agreement-bias/';
 const ARTICLE_TITLE = 'AI Sycophancy: When Your AI Agent Agrees With Wrong Answers';
@@ -317,7 +318,7 @@ export default function SycophancyBlogPost() {
             <p className="text-lg text-stone-700 mb-6 leading-relaxed">
               Add these tests to your pre-deployment checklist (they&apos;re included in our{' '}
               <Link href="/checklist" className="text-primary-600 hover:text-primary-700 font-medium underline">
-                67-point AI Agent Risk Checklist
+                {CHECKLIST_ITEM_COUNT}-point AI Agent Risk Checklist
               </Link>):
             </p>
             <div className="space-y-4">
@@ -404,7 +405,7 @@ export default function SycophancyBlogPost() {
           <section className="bg-gradient-to-br from-primary-800 to-primary-900 rounded-xl p-8 text-white text-center">
             <h2 className="text-2xl font-bold mb-3">Test Your AI Agent for Sycophancy</h2>
             <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
-              Sycophancy is just one of 67 risk checks we cover. Take our free risk assessment quiz or download the complete checklist.
+              Sycophancy is just one of {CHECKLIST_ITEM_COUNT} risk checks we cover. Take our free risk assessment quiz or download the complete checklist.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -417,7 +418,7 @@ export default function SycophancyBlogPost() {
                 href="/checklist"
                 className="border-2 border-white text-white px-6 py-3 rounded-lg font-bold hover:bg-white/10 transition-colors"
               >
-                Get the 67-Point Checklist
+                Get the {CHECKLIST_ITEM_COUNT}-Point Checklist
               </Link>
             </div>
           </section>

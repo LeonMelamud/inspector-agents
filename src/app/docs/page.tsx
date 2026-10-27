@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CHECKLIST_ITEM_COUNT } from '@/lib/mcp/data/checklist';
 
 export const metadata: Metadata = {
   title: 'API & SDK Documentation',
@@ -94,7 +95,7 @@ curl -X POST https://inspectagents.com/api/mcp/ \\
                 <tr className="border-t border-gray-800"><td className="py-2"><code className="text-green-400">search_failures</code></td><td>Search the AI failures database by query, category, severity, year</td></tr>
                 <tr className="border-t border-gray-800"><td className="py-2"><code className="text-green-400">get_failure</code></td><td>Get full details of a single failure by ID</td></tr>
                 <tr className="border-t border-gray-800"><td className="py-2"><code className="text-green-400">assess_risk</code></td><td>Run the AI risk assessment quiz</td></tr>
-                <tr className="border-t border-gray-800"><td className="py-2"><code className="text-green-400">get_checklist</code></td><td>Retrieve the 67-point testing checklist</td></tr>
+                <tr className="border-t border-gray-800"><td className="py-2"><code className="text-green-400">get_checklist</code></td><td>Retrieve the {CHECKLIST_ITEM_COUNT}-point testing checklist</td></tr>
                 <tr className="border-t border-gray-800"><td className="py-2"><code className="text-green-400">submit_feedback</code></td><td>Submit feedback or new incidents</td></tr>
               </tbody>
             </table>
@@ -136,7 +137,7 @@ curl -X POST https://inspectagents.com/api/mcp/ \\
               <thead><tr className="text-left text-gray-500"><th className="pb-2">URI</th><th className="pb-2">Description</th></tr></thead>
               <tbody className="text-gray-300">
                 <tr className="border-t border-gray-800"><td className="py-2"><code className="text-green-400">inspectagents://failures/all</code></td><td>Complete failures database as JSON</td></tr>
-                <tr className="border-t border-gray-800"><td className="py-2"><code className="text-green-400">inspectagents://checklist/full</code></td><td>Full 67-point checklist</td></tr>
+                <tr className="border-t border-gray-800"><td className="py-2"><code className="text-green-400">inspectagents://checklist/full</code></td><td>Full {CHECKLIST_ITEM_COUNT}-point checklist</td></tr>
               </tbody>
             </table>
           </div>

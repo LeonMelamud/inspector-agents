@@ -20,10 +20,10 @@ Add to your Claude/VS Code MCP settings:
 ```
 
 ### Available Tools
-- `search_failures` — Search 500+ AI chatbot failures
+- `search_failures` — Search the documented AI chatbot failures database (70 incidents as of 2026-10-27)
 - `get_failure` — Get full details of a single failure  
 - `assess_risk` — Run the AI risk assessment quiz
-- `get_checklist` — Get the 63-point deployment checklist
+- `get_checklist` — Get the 67-point deployment checklist
 - `submit_feedback` — Submit feedback or incidents
 
 ### When to Use

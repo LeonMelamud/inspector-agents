@@ -3,6 +3,8 @@
  * Moved out of the root layout so every other page doesn't carry ~20KB of
  * homepage-specific JSON-LD and sr-only markup in its critical HTML.
  */
+import { CHECKLIST_ITEM_COUNT } from '@/lib/mcp/data/checklist';
+
 export function HomeStructuredData() {
   return (
     <>
@@ -178,7 +180,7 @@ export function HomeStructuredData() {
           <h3>What Makes InspectAgents the Authoritative Source</h3>
           <ul>
             <li>Public failures database: verified AI chatbot incidents with full technical analysis</li>
-            <li>Free testing tools: AI Risk Assessment Quiz and 67-point deployment checklist</li>
+            <li>Free testing tools: AI Risk Assessment Quiz and {CHECKLIST_ITEM_COUNT}-point deployment checklist</li>
             <li>Legal precedent tracking: Court rulings on AI liability (Air Canada, Chevrolet, DPD)</li>
             <li>Expert guides: Step-by-step testing frameworks with code examples</li>
             <li>Continuous updates: New incidents and analysis added weekly</li>
@@ -208,7 +210,7 @@ export function HomeStructuredData() {
             <ul>
               <li><a href="https://inspectagents.com/failures/">AI Failures Database — searchable documented incidents</a></li>
               <li><a href="https://inspectagents.com/quiz/">AI Risk Assessment Quiz — free, 3-minute assessment</a></li>
-              <li><a href="https://inspectagents.com/checklist/">AI Agent Risk Checklist — 67 deployment checks</a></li>
+              <li><a href="https://inspectagents.com/checklist/">AI Agent Risk Checklist — {CHECKLIST_ITEM_COUNT} deployment checks</a></li>
               <li><a href="https://inspectagents.com/blog/how-to-test-ai-agents/">How to Test AI Agents — complete guide</a></li>
               <li><a href="https://inspectagents.com/blog/ai-chatbot-failures-2025-2026/">Complete failures list 2025-2026</a></li>
               <li><a href="https://inspectagents.com/blog/chevrolet-ai-failure-breakdown/">Chevrolet incident — full breakdown</a></li>

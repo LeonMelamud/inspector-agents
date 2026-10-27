@@ -5,6 +5,8 @@
  * Brand colors: Primary #486581, Accent #f0b429, Dark #102a43
  */
 
+import { INCIDENT_COUNT } from '@/lib/site-stats';
+
 interface WelcomeLowRiskProps {
   firstName: string;
   topPainPoints: string[];
@@ -39,7 +41,7 @@ export default function WelcomeLowRisk({ firstName, topPainPoints }: WelcomeLowR
         </p>
 
         <p style={{ fontSize: '16px', lineHeight: '1.7', color: '#334e68', margin: '0 0 16px' }}>
-          Your AI Risk Assessment shows <strong style={{ color: '#16a34a' }}>low risk</strong> — your AI practices are in good shape. You&apos;re ahead of 85% of teams when it comes to AI safety.
+          Your AI Risk Assessment shows <strong style={{ color: '#16a34a' }}>low risk</strong> — your AI practices are in good shape.
         </p>
 
         <p style={{ fontSize: '16px', lineHeight: '1.7', color: '#334e68', margin: '0 0 24px' }}>
@@ -149,9 +151,9 @@ export default function WelcomeLowRisk({ firstName, topPainPoints }: WelcomeLowR
 
         {/* Stat callout */}
         <div style={{ backgroundColor: '#f0f4f8', border: '1px solid #d9e2ec', padding: '20px 24px', borderRadius: '8px', margin: '0 0 28px' }}>
-          <p style={{ fontSize: '24px', fontWeight: 700, color: '#102a43', margin: '0 0 4px' }}>Dozens</p>
+          <p style={{ fontSize: '24px', fontWeight: 700, color: '#102a43', margin: '0 0 4px' }}>{INCIDENT_COUNT}</p>
           <p style={{ fontSize: '14px', color: '#627d98', lineHeight: '1.6', margin: 0 }}>
-            of documented AI chatbot failures in our database. Even well-prepared teams find new patterns to watch for.
+            documented AI chatbot failures in our database. Even well-prepared teams find new patterns to watch for.
             {' '}
             <a href="https://inspectagents.com/blog/ai-chatbot-failures-2025-2026?utm_source=email&utm_medium=welcome&utm_campaign=low_risk" style={{ color: '#486581', fontWeight: 600 }}>See the latest →</a>
           </p>

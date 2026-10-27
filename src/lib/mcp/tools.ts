@@ -5,7 +5,7 @@
  *   1. search_failures  – Search/filter the AI failures database
  *   2. get_failure       – Get full details of a single failure
  *   3. assess_risk       – Run the AI risk assessment quiz
- *   4. get_checklist     – Retrieve the 67-point testing checklist
+ *   4. get_checklist     – Retrieve the testing checklist
  *   5. submit_feedback   – Submit feedback / incident reports
  */
 
@@ -16,6 +16,7 @@ import { calculateRiskLevel as calculateEmailRiskLevel } from '@/lib/email';
 import { logger } from '@/lib/logger';
 import {
   CHECKLIST_SECTIONS,
+  CHECKLIST_ITEM_COUNT,
   filterChecklist,
   type Severity,
 } from '@/lib/mcp/data/checklist';
@@ -41,7 +42,7 @@ const RISK_RECOMMENDATIONS: Record<string, string[]> = {
     'Immediately audit all production AI agents for prompt injection vulnerabilities',
     'Implement output validation and content filtering on all chatbot responses',
     'Set up real-time monitoring with kill-switch capability',
-    'Run the full 67-point InspectAgents checklist before any new deployment',
+    `Run the full ${CHECKLIST_ITEM_COUNT}-point InspectAgents checklist before any new deployment`,
     'Consider a professional red-team assessment',
   ],
   medium: [
@@ -285,7 +286,7 @@ export function registerTools(server: McpServer): void {
   // ──────────────────────── 4. get_checklist ──────────────────────────────
   server.tool(
     'get_checklist',
-    'Retrieve the InspectAgents 67-point AI Agent Risk Checklist. ' +
+    `Retrieve the InspectAgents ${CHECKLIST_ITEM_COUNT}-point AI Agent Risk Checklist. ` +
       'Optionally filter by severity (critical/high/medium), section name, or search query.',
     {
       severity: z
