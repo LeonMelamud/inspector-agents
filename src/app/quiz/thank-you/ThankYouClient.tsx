@@ -255,7 +255,7 @@ export default function ThankYouClient({ incidentCount, checklistCount, concernI
                   Keep this result
                 </h2>
                 <p className="text-primary-200 mb-6 max-w-xl">
-                  Get the detailed report in your inbox so you can share it with your team. One email, unsubscribe anytime.
+                  Get this result, a 3-step action plan and the checklist link by email, so you can share it with your team. Unsubscribe anytime.
                 </p>
                 <form onSubmit={handleDraftSubmit} noValidate className="flex flex-col sm:flex-row gap-3 max-w-xl">
                   <label htmlFor="result-email" className="sr-only">Work email</label>

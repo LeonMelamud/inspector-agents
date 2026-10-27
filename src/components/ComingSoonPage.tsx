@@ -108,11 +108,11 @@ export function ComingSoonPage({
           {/* Waitlist signup */}
           <div className="bg-white rounded-lg border border-gray-200 p-8 text-center">
             {submitted ? (
-              <div>
+              <div role="status">
                 <span className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
                   <Icon name="check" className="w-6 h-6" />
                 </span>
-                <h2 className="font-display text-xl font-bold text-primary-900 mb-2" role="status">
+                <h2 className="font-display text-xl font-bold text-primary-900 mb-2">
                   You&apos;re on the list
                 </h2>
                 <p className="text-gray-600 mb-6 max-w-sm mx-auto">

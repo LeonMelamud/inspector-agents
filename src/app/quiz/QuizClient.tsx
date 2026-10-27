@@ -220,7 +220,7 @@ export default function QuizClient({ incidentCount, checklistCount, concernCases
                 >
                   What worries you most about AI agents?
                 </h1>
-                <p className="text-gray-600 mb-8">Select all that apply. Each one has happened to a real company.</p>
+                <p className="text-gray-600 mb-8">Select all that apply. The case under each one shows it has already happened.</p>
                 <fieldset>
                   <legend className="sr-only">Concerns</legend>
                   <div className="space-y-3">
@@ -329,7 +329,7 @@ export default function QuizClient({ incidentCount, checklistCount, concernCases
                     Want the full report in your inbox?
                   </label>
                   <p id="quiz-email-hint" className="text-sm text-gray-600 mb-3">
-                    We&apos;ll send the detailed version with next steps. One email, no spam, unsubscribe anytime.
+                    We&apos;ll email this result with a 3-step action plan and the checklist link. No spam, unsubscribe anytime.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <input

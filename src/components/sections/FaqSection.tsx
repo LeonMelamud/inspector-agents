@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     question: 'Is my company legally liable for what my AI chatbot says?',
-    answer: 'It can be. In the best-known case so far, Moffatt v. Air Canada (2024), a Canadian tribunal held the airline responsible for what its chatbot told a customer. The tribunal found the airline \u201cresponsible for all information on its website,\u201d chatbot answers included.',
+    answer: 'It can be. In the best-known case so far, a Canadian tribunal in 2024 held Air Canada responsible for what its chatbot told a customer. The tribunal found the airline \u201cresponsible for all information on its website,\u201d chatbot answers included.',
   },
   {
     question: 'What is prompt injection and why is it dangerous?',

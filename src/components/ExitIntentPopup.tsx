@@ -11,9 +11,11 @@ const STORAGE_KEY = 'exitPopupDismissed:v1';
 
 // Pages where popup should NOT appear
 const EXCLUDED_PATHS = [
-  '/checklist',           // Already on checklist page
-  '/checklist/download',  // Already downloading
-  '/quiz/thank-you',      // Just completed quiz
+  '/checklist',           // Already on checklist page (covers /checklist/download)
+  '/quiz',                // Taking the quiz or reading the result
+  '/demo',                // Waitlist pages have their own single action
+  '/pricing',
+  '/how-it-works',
 ];
 
 /**
