@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     question: 'Is my company legally liable for what my AI chatbot says?',
-    answer: 'Yes. Courts have consistently ruled that companies are legally responsible for information and promises made by their AI agents. In the Air Canada case, the tribunal ruled that \u201cAir Canada is responsible for information provided by its agents, including its chatbot.\u201d',
+    answer: 'It can be. In the best-known case so far, Moffatt v. Air Canada (2024), a Canadian tribunal held the airline responsible for what its chatbot told a customer. The tribunal found the airline \u201cresponsible for all information on its website,\u201d chatbot answers included.',
   },
   {
     question: 'What is prompt injection and why is it dangerous?',
@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: 'How much does an AI failure cost?',
-    answer: 'For most organizations, a single significant AI failure costs between $100,000 and $10 million in total impact, including legal fees, operational costs, reputational damage, and customer trust erosion. Prevention typically costs 100x less than incident response and recovery.',
+    answer: 'It varies widely. Documented cases in our database range from CA$812 in damages plus legal fees (Air Canada, 2024) and a partial refund on an AU$440,000 contract (Deloitte Australia, 2025) to about $100 billion in lost market value after a wrong answer in a launch demo (Google Bard, 2023). Most cases also carry costs that are hard to price: lost trust, legal exposure and a chatbot taken offline.',
   },
   {
     question: 'How often should I test my AI agent?',
@@ -31,7 +31,6 @@ export function FaqSection() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
-            <p className="section-label">FAQ</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-900 mb-4">
               Frequently Asked Questions
             </h2>

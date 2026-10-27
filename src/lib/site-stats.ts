@@ -85,3 +85,11 @@ export const HEADLINE_INCIDENT_IDS = [
 export function getHeadlineIncidents(): IncidentSummary[] {
   return HEADLINE_INCIDENT_IDS.map(getIncidentSummary);
 }
+
+/** Most recent incidents by date, newest first. */
+export function getLatestIncidents(n: number): IncidentSummary[] {
+  return [...failures]
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, n)
+    .map((f) => getIncidentSummary(f.id));
+}

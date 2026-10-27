@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CHECKLIST_ITEM_COUNT, CHECKLIST_SECTION_COUNT, INCIDENT_COUNT } from '@/lib/site-stats';
 
 const offerings = [
   {
@@ -12,15 +13,15 @@ const offerings = [
   {
     title: 'AI Risk Assessment',
     description: 'A structured questionnaire that evaluates your specific AI deployment against known risk categories.',
-    detail: 'Answer 3 questions about your AI agent deployment and receive a personalized risk profile with prioritized recommendations tailored to your use case.',
+    detail: 'Answer two questions about your AI agent deployment and receive a personalized risk profile with prioritized recommendations tailored to your use case.',
     href: '/quiz',
     linkText: 'Take the Assessment',
     bgClass: 'bg-primary-800',
   },
   {
     title: 'Testing Checklist',
-    description: 'A 67-point checklist covering hallucination detection, prompt injection, dark patterns, tool-use safety, security, and compliance testing.',
-    detail: 'Printable, step-by-step testing guide developed from analysis of hundreds of AI agent failures. Organized by risk category with clear pass/fail criteria.',
+    description: `A ${CHECKLIST_ITEM_COUNT}-point checklist covering hallucination detection, prompt injection, dark patterns, tool-use safety, security, and compliance testing.`,
+    detail: `Printable, step-by-step testing guide in ${CHECKLIST_SECTION_COUNT} risk categories, with a severity on every item. Use it alongside the ${INCIDENT_COUNT} documented incidents.`,
     href: '/checklist',
     linkText: 'Download the Checklist',
     bgClass: 'bg-primary-700',
@@ -42,12 +43,11 @@ export function WhatWeOffer() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <p className="section-label">What We Offer</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-900 mb-4">
               Resources for AI Agent Safety
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Practical tools and knowledge for teams deploying AI agents, from risk assessment to ongoing monitoring.
+              Practical tools and knowledge for teams deploying AI agents, from risk assessment to pre-launch testing.
             </p>
           </div>
 

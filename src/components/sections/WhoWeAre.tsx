@@ -47,7 +47,6 @@ export function WhoWeAre() {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="section-label">Who We Are</p>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-900 mb-6 leading-tight">
                 Making AI Agent Testing Accessible, Practical, and Transparent
               </h2>
