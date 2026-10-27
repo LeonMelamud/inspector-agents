@@ -11,6 +11,12 @@
 
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+
+// Expected checklist size, read from the data file so the test never drifts
+// from the source of truth (each item declares exactly one `severity: '...'`).
+const CHECKLIST_SRC = readFileSync(new URL('../src/lib/mcp/data/checklist.ts', import.meta.url), 'utf8');
+const EXPECTED_CHECKLIST_ITEMS = (CHECKLIST_SRC.match(/severity: '(critical|high|medium)'/g) || []).length;
 
 // ── Config ──────────────────────────────────────────────────────────────────
 
@@ -278,16 +284,16 @@ describe('MCP WebMCP Sanity Tests', () => {
   // ────────────────────── get_checklist ──────────────────────────────────
 
   describe('get_checklist', () => {
-    it('full checklist returns 63 items across 10 sections', async () => {
+    it('full checklist returns every item in the data file across 10 sections', async () => {
       const { parsed } = await toolCall('get_checklist');
 
-      assert.equal(parsed.total, 63, `Expected 63 total, got ${parsed.total}`);
+      assert.equal(parsed.total, EXPECTED_CHECKLIST_ITEMS, `Expected ${EXPECTED_CHECKLIST_ITEMS} total, got ${parsed.total}`);
       assert.equal(parsed.sections.length, 10, `Expected 10 sections, got ${parsed.sections.length}`);
       assert.ok(parsed.source);
 
       // Verify item counts sum to total
       const sum = parsed.sections.reduce((s, sec) => s + sec.count, 0);
-      assert.equal(sum, 63, `Section counts should sum to 63, got ${sum}`);
+      assert.equal(sum, parsed.total, `Section counts should sum to ${parsed.total}, got ${sum}`);
     });
 
     it('filter by severity=critical returns only critical items', async () => {
@@ -387,7 +393,7 @@ describe('MCP WebMCP Sanity Tests', () => {
       assert.equal(data.failures.length, data.total);
     });
 
-    it('checklist resource returns 63 items', async () => {
+    it('checklist resource returns every item in the data file', async () => {
       const body = await mcpCall('resources/read', {
         uri: 'inspectagents://checklist/full',
       });
@@ -396,7 +402,7 @@ describe('MCP WebMCP Sanity Tests', () => {
       assert.ok(contents.length >= 1);
 
       const data = JSON.parse(contents[0].text);
-      assert.equal(data.total, 63, `Expected 63, got ${data.total}`);
+      assert.equal(data.total, EXPECTED_CHECKLIST_ITEMS, `Expected ${EXPECTED_CHECKLIST_ITEMS}, got ${data.total}`);
       assert.equal(data.sections.length, 10);
     });
 

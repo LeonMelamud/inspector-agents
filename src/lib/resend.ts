@@ -12,6 +12,7 @@
 import { Resend } from 'resend';
 import { createElement } from 'react';
 import { logger } from '@/lib/logger';
+import { CHECKLIST_ITEM_COUNT, INCIDENT_COUNT } from '@/lib/site-stats';
 import WelcomeHighRisk from '@/emails/WelcomeHighRisk';
 import WelcomeMediumRisk from '@/emails/WelcomeMediumRisk';
 import WelcomeLowRisk from '@/emails/WelcomeLowRisk';
@@ -194,9 +195,9 @@ function buildConfirmationHtml(data: {
       <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 24px 0;" />
       <p style="color: #4b5563; font-size: 14px; line-height: 1.6; margin-bottom: 4px;">While you wait, explore our free resources:</p>
       <ul style="padding-left: 20px; margin: 8px 0 24px 0;">
-        <li style="margin-bottom: 6px;"><a href="https://inspectagents.com/quiz/" style="color: #059669; text-decoration: none; font-weight: 500;">Take the AI Risk Quiz</a> — 2-min assessment of your AI agent risk level</li>
-        <li style="margin-bottom: 6px;"><a href="https://inspectagents.com/checklist/" style="color: #059669; text-decoration: none; font-weight: 500;">67-Point Safety Checklist</a> — printable checklist aligned with OWASP Top 10</li>
-        <li style="margin-bottom: 6px;"><a href="https://inspectagents.com/failures/" style="color: #059669; text-decoration: none; font-weight: 500;">AI Failures Database</a> — 20+ real-world AI incidents with breakdowns</li>
+        <li style="margin-bottom: 6px;"><a href="https://inspectagents.com/quiz/" style="color: #059669; text-decoration: none; font-weight: 500;">Take the AI Risk Quiz</a> — a 3-step check of your AI agent risk level</li>
+        <li style="margin-bottom: 6px;"><a href="https://inspectagents.com/checklist/" style="color: #059669; text-decoration: none; font-weight: 500;">${CHECKLIST_ITEM_COUNT}-Point Safety Checklist</a> — printable checklist aligned with OWASP Top 10</li>
+        <li style="margin-bottom: 6px;"><a href="https://inspectagents.com/failures/" style="color: #059669; text-decoration: none; font-weight: 500;">AI Failures Database</a> — ${INCIDENT_COUNT} documented AI incidents with breakdowns</li>
         <li style="margin-bottom: 6px;"><a href="https://inspectagents.com/blog/" style="color: #059669; text-decoration: none; font-weight: 500;">Blog &amp; Guides</a> — in-depth articles on testing AI agents</li>
       </ul>
       <p style="color: #9ca3af; font-size: 12px; margin-top: 24px;">

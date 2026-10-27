@@ -8,6 +8,7 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { registerTools } from './tools';
 import { registerResources } from './resources';
+import { CHECKLIST_ITEM_COUNT } from './data/checklist';
 
 const SERVER_NAME = 'inspectagents';
 const SERVER_VERSION = '1.0.0';
@@ -32,7 +33,7 @@ export function createMCPServer(): McpServer {
         'Use search_failures to find real-world AI failure examples by category, severity, or keyword. ' +
         'Use get_failure to get full incident details including prevention strategies. ' +
         'Use assess_risk to evaluate AI deployment readiness. ' +
-        'Use get_checklist to retrieve the 67-point pre-deployment safety checklist. ' +
+        `Use get_checklist to retrieve the ${CHECKLIST_ITEM_COUNT}-point pre-deployment safety checklist. ` +
         'Use submit_feedback to report new incidents or corrections. ' +
         'All tools are free to use with no authentication required.',
     }

@@ -5,6 +5,8 @@
  * Brand colors: Primary #486581, Accent #f0b429, Dark #102a43
  */
 
+import { INCIDENT_COUNT, CRITICAL_INCIDENT_COUNT } from '@/lib/site-stats';
+
 interface WelcomeHighRiskProps {
   firstName: string;
   topPainPoints: string[];
@@ -39,7 +41,7 @@ export default function WelcomeHighRisk({ firstName, topPainPoints }: WelcomeHig
         </p>
 
         <p style={{ fontSize: '16px', lineHeight: '1.7', color: '#334e68', margin: '0 0 16px' }}>
-          Based on your quiz answers, your AI agents are in the <strong style={{ color: '#dc2626' }}>high-risk zone</strong>. You&apos;re not alone — 72% of companies deploying AI face similar challenges.
+          Based on your quiz answers, your AI agents are in the <strong style={{ color: '#dc2626' }}>high-risk zone</strong>. The good news: the failures behind these risks are well documented, so you know what to test for.
         </p>
 
         <p style={{ fontSize: '16px', lineHeight: '1.7', color: '#334e68', margin: '0 0 24px' }}>
@@ -149,9 +151,9 @@ export default function WelcomeHighRisk({ firstName, topPainPoints }: WelcomeHig
 
         {/* Stat callout */}
         <div style={{ backgroundColor: '#f0f4f8', border: '1px solid #d9e2ec', padding: '20px 24px', borderRadius: '8px', margin: '0 0 28px' }}>
-          <p style={{ fontSize: '24px', fontWeight: 700, color: '#102a43', margin: '0 0 4px' }}>$10M+</p>
+          <p style={{ fontSize: '24px', fontWeight: 700, color: '#102a43', margin: '0 0 4px' }}>{INCIDENT_COUNT}</p>
           <p style={{ fontSize: '14px', color: '#627d98', lineHeight: '1.6', margin: 0 }}>
-            Average cost of a major AI failure in production. Chevrolet&apos;s chatbot alone cost them millions in brand damage.
+            documented AI failures in our database, {CRITICAL_INCIDENT_COUNT} of them rated critical. Chevrolet&apos;s dealership chatbot agreed to sell a Tahoe for $1 after a simple prompt injection.
             {' '}
             <a href="https://inspectagents.com/blog/chevrolet-ai-failure-breakdown?utm_source=email&utm_medium=welcome&utm_campaign=high_risk" style={{ color: '#486581', fontWeight: 600 }}>Read the breakdown →</a>
           </p>

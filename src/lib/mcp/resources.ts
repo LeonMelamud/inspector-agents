@@ -3,13 +3,13 @@
  *
  * Read-only data resources that MCP clients can browse:
  *   - inspectagents://failures/all     – Full failures database
- *   - inspectagents://checklist/full   – Complete 67-point checklist
+ *   - inspectagents://checklist/full   – Complete checklist
  *   - ui://inspectagents/overview      – MCP Apps-compatible HTML overview
  */
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { failures } from '@/app/failures/data';
-import { CHECKLIST_SECTIONS } from '@/lib/mcp/data/checklist';
+import { CHECKLIST_SECTIONS, CHECKLIST_ITEM_COUNT } from '@/lib/mcp/data/checklist';
 
 export function registerResources(server: McpServer): void {
   // ── Failures database ─────────────────────────────────────────────────
@@ -61,7 +61,7 @@ export function registerResources(server: McpServer): void {
     'inspectagents://checklist/full',
     {
       description:
-        'The complete 67-point AI Agent Risk Checklist — 10 categories with severity levels, ' +
+        `The complete ${CHECKLIST_ITEM_COUNT}-point AI Agent Risk Checklist — ${CHECKLIST_SECTIONS.length} categories with severity levels, ` +
         'aligned with OWASP Top 10 for LLM Applications.',
       mimeType: 'application/json',
     },
@@ -132,7 +132,7 @@ export function registerResources(server: McpServer): void {
     <main>
       <span class="badge">No authentication required</span>
       <h1>InspectAgents</h1>
-      <p>AI agent testing and safety platform with a public database of documented chatbot failures, risk assessment, and a 67-point deployment checklist.</p>
+      <p>AI agent testing and safety platform with a public database of documented chatbot failures, risk assessment, and a ${CHECKLIST_ITEM_COUNT}-point deployment checklist.</p>
       <h2>Available MCP tools</h2>
       <ul>
         <li><code>search_failures</code> — find real-world AI failure examples</li>

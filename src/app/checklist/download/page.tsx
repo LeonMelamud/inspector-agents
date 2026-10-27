@@ -2,6 +2,7 @@
 
 import {
   CHECKLIST_SECTIONS,
+  CHECKLIST_ITEM_COUNT,
   type Severity,
   type CheckItem,
 } from '@/lib/mcp/data/checklist';
@@ -154,14 +155,14 @@ export default function ChecklistDownloadPage() {
         </div>
       </div>
 
-      <main className="container mx-auto px-4 py-8 max-w-5xl" data-agent-tool="get_checklist" data-agent-description="67-point AI Agent Risk Checklist">
+      <main className="container mx-auto px-4 py-8 max-w-5xl" data-agent-tool="get_checklist" data-agent-description={`${CHECKLIST_ITEM_COUNT}-point AI Agent Risk Checklist`}>
         {/* Title */}
         <div className="text-center mb-12 print:mb-8">
           <h1 className="text-5xl print:text-4xl font-bold text-stone-900 mb-4">
             AI Agent Risk Checklist
           </h1>
           <p className="text-xl text-stone-600 mb-2">
-            67-Point Pre-Deployment Testing Guide
+            {CHECKLIST_ITEM_COUNT}-Point Pre-Deployment Testing Guide
           </p>
           <p className="text-stone-500 text-sm">
             From InspectAgents.com &bull; Free for personal and commercial use
@@ -177,7 +178,7 @@ export default function ChecklistDownloadPage() {
             <li className="flex items-start">
               <span className="font-bold mr-2">&#10003;</span>
               <span>
-                <strong>Before deployment:</strong> Complete all 67 checkpoints.
+                <strong>Before deployment:</strong> Complete all {CHECKLIST_ITEM_COUNT} checkpoints.
                 Flag any failures for immediate attention.
               </span>
             </li>

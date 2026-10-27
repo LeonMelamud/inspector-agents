@@ -17,6 +17,8 @@ const NAV_LINKS = [
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  // Inside the quiz the nav CTA would compete with the quiz itself.
+  const showCta = !pathname?.startsWith('/quiz');
 
   return (
     <header className="sticky top-0 z-40 w-full">
@@ -55,14 +57,14 @@ export function Navbar() {
                 </li>
               );
             })}
-            <li className="ml-3">
+            {showCta && <li className="ml-3">
               <Link
-                href="/quiz"
+                href="/quiz/"
                 className="inline-flex items-center gap-1 rounded-full bg-accent-500 px-5 py-2 text-sm font-bold text-primary-900 hover:bg-accent-400 transition-colors"
               >
                 Get Started
               </Link>
-            </li>
+            </li>}
           </ul>
 
           {/* Mobile hamburger */}
@@ -108,15 +110,15 @@ export function Navbar() {
                 </li>
               );
             })}
-            <li className="pt-2">
+            {showCta && <li className="pt-2">
               <Link
-                href="/quiz"
+                href="/quiz/"
                 onClick={() => setMobileOpen(false)}
                 className="block w-full rounded bg-accent-500 px-4 py-2.5 text-center text-sm font-bold text-primary-900 hover:bg-accent-400 transition-colors"
               >
                 Get Started
               </Link>
-            </li>
+            </li>}
           </ul>
         </div>
       )}

@@ -11,9 +11,11 @@ const STORAGE_KEY = 'exitPopupDismissed:v1';
 
 // Pages where popup should NOT appear
 const EXCLUDED_PATHS = [
-  '/checklist',           // Already on checklist page
-  '/checklist/download',  // Already downloading
-  '/quiz/thank-you',      // Just completed quiz
+  '/checklist',           // Already on checklist page (covers /checklist/download)
+  '/quiz',                // Taking the quiz or reading the result
+  '/demo',                // Waitlist pages have their own single action
+  '/pricing',
+  '/how-it-works',
 ];
 
 /**
@@ -26,7 +28,12 @@ const EXCLUDED_PATHS = [
  * Shows only once — permanently dismissed after close
  * Excluded from checklist pages and thank-you pages
  */
-export function ExitIntentPopup() {
+interface ExitIntentPopupProps {
+  checklistCount: number;
+  sectionCount: number;
+}
+
+export function ExitIntentPopup({ checklistCount, sectionCount }: ExitIntentPopupProps) {
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(false);
   const [shouldEnable, setShouldEnable] = useState(false);
@@ -113,6 +120,16 @@ export function ExitIntentPopup() {
     handleClose();
   };
 
+  // Escape closes the dialog (standard dialog behaviour)
+  useEffect(() => {
+    if (!isVisible) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') handleClose();
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [isVisible]);
+
   // Don't render if disabled or not visible
   if (!shouldEnable || !isVisible) return null;
 
@@ -137,8 +154,8 @@ export function ExitIntentPopup() {
           {/* Close Button */}
           <button
             onClick={handleClose}
-            className="absolute top-4 right-4 text-stone-400 hover:text-stone-600 transition-colors"
-            aria-label="Close popup"
+            className="absolute top-3 right-3 p-2 rounded text-gray-500 hover:text-primary-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
+            aria-label="Close"
           >
             <svg
               className="w-6 h-6"
@@ -157,7 +174,7 @@ export function ExitIntentPopup() {
 
           {/* Icon */}
           <div className="mb-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary-700 to-primary-800 rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 bg-primary-900 rounded-lg flex items-center justify-center">
               <svg
                 className="w-7 h-7 text-white"
                 fill="none"
@@ -177,23 +194,23 @@ export function ExitIntentPopup() {
           {/* Headline */}
           <h2
             id="exit-popup-title"
-            className="text-2xl font-bold text-stone-900 mb-3"
+            className="font-display text-2xl font-bold text-primary-900 mb-3 pr-8 text-balance"
           >
-            Wait! Get Your Free AI Risk Checklist
+            Before you go: take the checklist with you
           </h2>
 
           {/* Value Proposition */}
-          <p className="text-stone-600 mb-4 leading-relaxed">
-            Before you go, grab our <strong>67-point AI testing checklist</strong> to catch failures before your customers do.
+          <p className="text-gray-700 mb-4 leading-relaxed">
+            Our <strong>{checklistCount}-point pre-launch checklist</strong> is free and printable. Run it before your next release.
           </p>
 
           {/* Benefits List */}
           <ul className="space-y-2 mb-6">
             {[
-              'Covers 10 critical risk areas',
-              'Prevents Chevrolet-style disasters',
-              'Takes 30 minutes for first pass',
-              '100% free, no signup required',
+              `${sectionCount} risk categories, from hallucination to tool-use safety`,
+              'Includes the prompt-injection checks behind the Chevrolet $1 case',
+              'A severity on every item, so you know what to fix first',
+              'Free, no signup',
             ].map((benefit) => (
               <li key={benefit} className="flex items-start">
                 <svg
@@ -207,7 +224,7 @@ export function ExitIntentPopup() {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="text-stone-700 text-sm">{benefit}</span>
+                <span className="text-gray-700 text-sm">{benefit}</span>
               </li>
             ))}
           </ul>
@@ -216,17 +233,17 @@ export function ExitIntentPopup() {
           <Link
             href="/checklist"
             onClick={handleDownload}
-            className="block w-full bg-gradient-to-r from-primary-800 to-primary-900 text-white font-semibold py-3 px-6 rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all shadow-md hover:shadow-lg text-center mb-3"
+            className="block w-full bg-accent-500 text-primary-900 font-bold py-3 px-6 rounded-full hover:bg-accent-400 transition-colors text-center mb-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-900 focus-visible:ring-offset-2"
           >
-            Get Free Checklist →
+            Open the checklist
           </Link>
 
           {/* Decline Option */}
           <button
             onClick={handleDecline}
-            className="w-full text-sm text-stone-500 hover:text-stone-700 transition-colors"
+            className="w-full py-2 text-sm text-gray-600 hover:text-primary-900 transition-colors"
           >
-            No thanks, I&apos;ll risk it
+            No thanks
           </button>
         </div>
       </div>

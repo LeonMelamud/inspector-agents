@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { CHECKLIST_ITEM_COUNT, CHECKLIST_SECTION_COUNT, INCIDENT_COUNT } from '@/lib/site-stats';
 
 export const metadata: Metadata = {
   title: 'About InspectAgents - Our Mission to Make AI Safe',
@@ -56,7 +57,7 @@ export default function AboutPage() {
               Making AI Safe Shouldn't Be This Hard
             </h1>
             <p className="text-xl md:text-2xl text-stone-600 mb-8 leading-relaxed">
-              After watching hundreds of companies get burned by AI failures,
+              After documenting {INCIDENT_COUNT} public AI failures, from chatbots to autonomous agents,
               <br />
               <span className="text-stone-900 font-semibold">
                 we decided someone had to fix this.
@@ -380,11 +381,11 @@ export default function AboutPage() {
             <div className="bg-white rounded-xl shadow-lg p-8 md:p-12 mb-8">
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
-                  <div className="text-4xl font-bold text-primary-600 mb-2">67</div>
+                  <div className="text-4xl font-bold text-primary-600 mb-2">{CHECKLIST_ITEM_COUNT}</div>
                   <div className="text-stone-600">Testing criteria in our checklist</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-primary-600 mb-2">10</div>
+                  <div className="text-4xl font-bold text-primary-600 mb-2">{CHECKLIST_SECTION_COUNT}</div>
                   <div className="text-stone-600">Risk categories covered</div>
                 </div>
                 <div>

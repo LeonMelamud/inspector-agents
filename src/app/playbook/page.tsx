@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { CHECKLIST_ITEM_COUNT } from '@/lib/mcp/data/checklist';
 
 export const metadata: Metadata = {
   title: 'AI Agent Safety Playbook — Guides, Policies & Testing Procedures',
@@ -51,7 +52,7 @@ const quickStart = [
   {
     step: '2',
     title: 'Run the Checklist',
-    description: 'Walk through 67 testing checkpoints before you ship.',
+    description: `Walk through ${CHECKLIST_ITEM_COUNT} testing checkpoints before you ship.`,
     href: '/checklist',
     cta: 'Get the Checklist',
   },
@@ -464,7 +465,7 @@ export default function PlaybookPage() {
                 <div>
                   <h3 className="font-bold text-stone-900 mb-1">Checklists verify the results</h3>
                   <p className="text-stone-600 text-sm">
-                    The 67-point checklist and verification gates ensure nothing slips through before deployment.
+                    The {CHECKLIST_ITEM_COUNT}-point checklist and verification gates ensure nothing slips through before deployment.
                   </p>
                 </div>
               </div>
@@ -547,7 +548,7 @@ export default function PlaybookPage() {
               href="/checklist"
               className="inline-block bg-accent-500 text-primary-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accent-400 transition-colors shadow-lg"
             >
-              Get the 67-Point Checklist
+              Get the {CHECKLIST_ITEM_COUNT}-Point Checklist
             </Link>
           </div>
         </div>

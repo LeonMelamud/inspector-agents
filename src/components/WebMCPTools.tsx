@@ -72,7 +72,7 @@ function textResult(obj: unknown) {
   return { content: [{ type: 'text' as const, text: JSON.stringify(obj, null, 2) }] };
 }
 
-function registerTools(mcp: WebMCPInstance): void {
+function registerTools(mcp: WebMCPInstance, checklistCount: number): void {
   // 1. search_failures
   mcp.registerTool(
     'search_failures',
@@ -135,7 +135,7 @@ function registerTools(mcp: WebMCPInstance): void {
   // 4. get_checklist
   mcp.registerTool(
     'get_checklist',
-    'Retrieve the 67-point AI Agent Risk Checklist. Filter by severity, section, or keyword.',
+    `Retrieve the ${checklistCount}-point AI Agent Risk Checklist. Filter by severity, section, or keyword.`,
     {
       type: 'object',
       properties: {
@@ -159,7 +159,7 @@ function registerTools(mcp: WebMCPInstance): void {
           url: 'https://inspectagents.com',
           description:
             'AI agent safety & testing platform with a public database of documented AI failures, ' +
-            'a 67-point risk checklist, and MCP-powered tools for AI safety research.',
+            `a ${checklistCount}-point risk checklist, and MCP-powered tools for AI safety research.`,
         },
         founder: {
           name: 'Leon Melamud',
@@ -186,7 +186,7 @@ function registerTools(mcp: WebMCPInstance): void {
 
 const SHIELD_ICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:60%;height:60%"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>`;
 
-export default function WebMCPTools() {
+export default function WebMCPTools({ checklistCount }: { checklistCount: number }) {
   useEffect(() => {
     // webmcp.js is already loaded via <script> in layout.tsx
     // Wait for it to be available
@@ -208,7 +208,7 @@ export default function WebMCPTools() {
         padding: '14px',
         inactivityTimeout: 24 * 60 * 60 * 1000,
       });
-      registerTools(mcp);
+      registerTools(mcp, checklistCount);
 
       const trigger = document.querySelector('.webmcp-trigger') as HTMLElement | null;
       if (trigger) {
@@ -229,7 +229,7 @@ export default function WebMCPTools() {
         clearTimeout(timeout);
       };
     }
-  }, []);
+  }, [checklistCount]);
 
   return null;
 }

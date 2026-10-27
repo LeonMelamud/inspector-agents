@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { failures } from '@/app/failures/data';
+import { CHECKLIST_ITEM_COUNT } from '@/lib/mcp/data/checklist';
 
 /**
  * GET /api/agent-view
@@ -27,7 +28,7 @@ export async function GET() {
         url: 'https://inspectagents.com/quiz/'
       },
       checklist: {
-        description: '67-point AI agent pre-deployment checklist',
+        description: `${CHECKLIST_ITEM_COUNT}-point AI agent pre-deployment checklist`,
         url: 'https://inspectagents.com/checklist/'
       },
       glossary: {

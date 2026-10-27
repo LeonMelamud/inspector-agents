@@ -3,6 +3,7 @@ import { Source_Sans_3 } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ExitIntentPopup } from '@/components/ExitIntentPopup';
+import { CHECKLIST_ITEM_COUNT, CHECKLIST_SECTIONS } from '@/lib/mcp/data/checklist';
 import { StickyCtaBar } from '@/components/StickyCtaBar';
 import { Navbar } from '@/components/Navbar';
 import WebMCPTools from '@/components/WebMCPTools';
@@ -159,12 +160,12 @@ export default function RootLayout({
         <Navbar />
         {children}
 
-        <ExitIntentPopup />
+        <ExitIntentPopup checklistCount={CHECKLIST_ITEM_COUNT} sectionCount={CHECKLIST_SECTIONS.length} />
         <StickyCtaBar />
         <Analytics />
         <SpeedInsights />
         <script src="/webmcp.js" defer />
-        <WebMCPTools />
+        <WebMCPTools checklistCount={CHECKLIST_ITEM_COUNT} />
       </body>
     </html>
   );

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CHECKLIST_ITEM_COUNT, INCIDENT_COUNT } from '@/lib/site-stats';
 
 /**
  * ExternalResources — Strategic external links section.
@@ -205,74 +206,26 @@ export function ExternalResources() {
             </div>
           </div>
 
-          {/* Emotional CTA — human connection */}
-          <div className="mt-14 relative overflow-hidden rounded-2xl">
-            {/* Background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900" />
-            <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
-
-            <div className="relative px-6 py-12 sm:px-10 sm:py-14 text-center">
-              {/* Decorative line */}
-              <div className="flex justify-center mb-6">
-                <div className="w-12 h-[2px] bg-accent-400 rounded-full" />
-              </div>
-
-              <p className="text-primary-300 text-sm font-medium tracking-wide uppercase mb-4">
-                You don&apos;t have to learn all of this alone
-              </p>
-
-              <h3 className="text-2xl sm:text-3xl font-bold text-white max-w-2xl mx-auto leading-snug mb-4">
-                Your family didn&apos;t sign up for
-                <br className="hidden sm:block" />
-                <span className="text-accent-400"> late nights reading AI safety papers.</span>
-              </h3>
-
-              <p className="text-primary-200 max-w-xl mx-auto text-base sm:text-lg leading-relaxed mb-3">
-                There are 20+ frameworks above. Hundreds of pages of research. Risks that evolve faster than any one person can track.
-              </p>
-
-              <p className="text-white max-w-xl mx-auto text-base sm:text-lg leading-relaxed font-medium mb-8">
-                Or you can let us do the learning — so you can go home on time, be present at dinner, and know your AI agents are safe.
-              </p>
-
-              {/* Trust proof */}
-              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-8 text-sm text-primary-300">
-                <span className="flex items-center gap-1.5">
-                  <svg className="w-4 h-4 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                  Real failure patterns tracked
-                </span>
-                <span className="hidden sm:flex items-center gap-1.5">
-                  <svg className="w-4 h-4 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                  Continuously updated
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <svg className="w-4 h-4 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                  2-min risk assessment
-                </span>
-              </div>
-
-              {/* CTA buttons */}
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link
-                  href="/quiz/"
-                  className="inline-flex items-center justify-center bg-accent-500 text-primary-900 px-8 py-3.5 rounded-full font-bold text-base hover:bg-accent-400 transition-all hover:scale-[1.02] shadow-lg shadow-accent-500/25"
-                >
-                  Find Out If Your AI Is at Risk
-                  <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-                </Link>
-                <Link
-                  href="/failures/"
-                  className="inline-flex items-center justify-center bg-white/10 text-white border border-white/20 px-8 py-3.5 rounded-full font-semibold text-base hover:bg-white/15 transition-all backdrop-blur-sm"
-                >
-                  See What Can Go Wrong
-                </Link>
-              </div>
-
-              {/* Closing emotional line */}
-              <p className="mt-8 text-primary-400 text-sm italic">
-                The people who matter most to you are waiting. We&apos;ll handle the rest.
-              </p>
-            </div>
+          {/* Closing CTA: one primary action */}
+          <div className="mt-14 rounded-lg bg-primary-900 px-6 py-12 sm:px-10 sm:py-14 text-center">
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-white max-w-2xl mx-auto leading-snug mb-4 text-balance">
+              You don&apos;t have to read all {authorityResources.length + highTrafficArticles.length} of these first
+            </h3>
+            <p className="text-primary-200 max-w-xl mx-auto text-base sm:text-lg leading-relaxed mb-8">
+              Start with the 3-step risk quiz. It points you to the checks that matter for your setup, backed by {INCIDENT_COUNT} documented incidents and a {CHECKLIST_ITEM_COUNT}-point checklist.
+            </p>
+            <Link
+              href="/quiz/"
+              className="inline-flex items-center justify-center gap-2 bg-accent-500 text-primary-900 px-8 py-3.5 rounded-full font-bold text-base hover:bg-accent-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
+            >
+              Check your AI risk
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+            </Link>
+            <p className="mt-6 text-sm">
+              <Link href="/failures/" className="link-arrow text-primary-100 hover:text-white">
+                Or browse what has already gone wrong
+              </Link>
+            </p>
           </div>
         </div>
       </div>

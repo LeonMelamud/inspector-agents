@@ -5,6 +5,8 @@
  * Brand colors: Primary #486581, Accent #f0b429, Dark #102a43
  */
 
+import { INCIDENT_COUNT } from '@/lib/site-stats';
+
 interface WelcomeMediumRiskProps {
   firstName: string;
   topPainPoints: string[];
@@ -43,7 +45,7 @@ export default function WelcomeMediumRisk({ firstName, topPainPoints }: WelcomeM
         </p>
 
         <p style={{ fontSize: '16px', lineHeight: '1.7', color: '#334e68', margin: '0 0 24px' }}>
-          You&apos;re ahead of 68% of companies who haven&apos;t thought about AI safety at all. A few targeted fixes will put you in great shape.
+          You&apos;re already thinking about AI safety, which is the hard part. A few targeted fixes will put you in good shape.
         </p>
 
         {/* Your concerns */}
@@ -149,9 +151,9 @@ export default function WelcomeMediumRisk({ firstName, topPainPoints }: WelcomeM
 
         {/* Stat callout */}
         <div style={{ backgroundColor: '#f0f4f8', border: '1px solid #d9e2ec', padding: '20px 24px', borderRadius: '8px', margin: '0 0 28px' }}>
-          <p style={{ fontSize: '24px', fontWeight: 700, color: '#102a43', margin: '0 0 4px' }}>72%</p>
+          <p style={{ fontSize: '24px', fontWeight: 700, color: '#102a43', margin: '0 0 4px' }}>{INCIDENT_COUNT}</p>
           <p style={{ fontSize: '14px', color: '#627d98', lineHeight: '1.6', margin: 0 }}>
-            of companies deploying AI agents have experienced at least one failure. Most were preventable with basic testing.
+            documented AI failures in our database, each with a source and prevention steps.
             {' '}
             <a href="https://inspectagents.com/blog/ai-chatbot-failures-2025-2026?utm_source=email&utm_medium=welcome&utm_campaign=medium_risk" style={{ color: '#486581', fontWeight: 600 }}>See the full list →</a>
           </p>
