@@ -114,7 +114,7 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-stone-200 overflow-hidden"
+                className="group bg-white rounded-lg shadow-xs hover:shadow-md transition-shadow border border-stone-200 overflow-hidden"
               >
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-4">
@@ -160,7 +160,7 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group block bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-stone-200 p-6"
+                className="group block bg-white rounded-lg shadow-xs hover:shadow-md transition-shadow border border-stone-200 p-6"
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div className="flex-1">
@@ -196,7 +196,7 @@ export default function BlogPage() {
       )}
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-primary-800 to-primary-900 py-16">
+      <section className="bg-linear-to-br from-primary-800 to-primary-900 py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Discover Your AI Risk Level

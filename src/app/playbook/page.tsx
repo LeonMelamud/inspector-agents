@@ -255,7 +255,7 @@ function GuideCard({ guide }: { guide: PlaybookGuide }) {
     <Tag
       href={guide.href}
       {...extra}
-      className="group block bg-white rounded-lg border border-stone-200 shadow-sm hover:shadow-md transition-shadow p-6"
+      className="group block bg-white rounded-lg border border-stone-200 shadow-xs hover:shadow-md transition-shadow p-6"
     >
       <div className="flex items-center gap-3 mb-3">
         <span className="inline-block px-3 py-1 text-xs font-medium text-primary-700 bg-primary-50 rounded-full">
@@ -299,7 +299,7 @@ export default function PlaybookPage() {
             <p className="text-xs font-bold tracking-[0.2em] uppercase text-accent-400 mb-4">
               Playbook
             </p>
-            <h1 className="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight text-white">
+            <h1 className="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight text-white md:leading-(--text-5xl--line-height)">
               AI Agent Safety Playbook
             </h1>
             <p className="text-lg text-primary-200 leading-relaxed max-w-2xl mx-auto">
@@ -439,10 +439,10 @@ export default function PlaybookPage() {
           <h2 className="text-2xl font-bold text-stone-900 mb-6 text-center">
             How the Playbook Fits Together
           </h2>
-          <div className="bg-white rounded-xl border border-stone-200 shadow-sm p-8">
+          <div className="bg-white rounded-xl border border-stone-200 shadow-xs p-8">
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <span className="text-2xl flex-shrink-0">📋</span>
+                <span className="text-2xl shrink-0">📋</span>
                 <div>
                   <h3 className="font-bold text-stone-900 mb-1">Policies define the rules</h3>
                   <p className="text-stone-600 text-sm">
@@ -452,7 +452,7 @@ export default function PlaybookPage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <span className="text-2xl flex-shrink-0">🔧</span>
+                <span className="text-2xl shrink-0">🔧</span>
                 <div>
                   <h3 className="font-bold text-stone-900 mb-1">Procedures implement the rules</h3>
                   <p className="text-stone-600 text-sm">
@@ -461,7 +461,7 @@ export default function PlaybookPage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <span className="text-2xl flex-shrink-0">✅</span>
+                <span className="text-2xl shrink-0">✅</span>
                 <div>
                   <h3 className="font-bold text-stone-900 mb-1">Checklists verify the results</h3>
                   <p className="text-stone-600 text-sm">
@@ -470,7 +470,7 @@ export default function PlaybookPage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <span className="text-2xl flex-shrink-0">🔍</span>
+                <span className="text-2xl shrink-0">🔍</span>
                 <div>
                   <h3 className="font-bold text-stone-900 mb-1">Failures teach what to watch for</h3>
                   <p className="text-stone-600 text-sm">
@@ -528,7 +528,7 @@ export default function PlaybookPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-br from-primary-800 to-primary-900 py-16">
+      <section className="bg-linear-to-br from-primary-800 to-primary-900 py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Ready to Ship a Safer AI Agent?

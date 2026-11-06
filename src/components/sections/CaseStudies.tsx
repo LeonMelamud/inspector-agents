@@ -26,7 +26,7 @@ export function CaseStudies() {
             {cases.map((c) => (
               <article key={c.id} className="flex flex-col bg-white border border-gray-200 rounded-lg p-6">
                 <p className="flex items-center gap-2 mb-3 text-xs">
-                  <span className={`font-bold px-2 py-1 rounded ${CATEGORY_TONE[c.category] ?? 'text-primary-800 bg-primary-50'}`}>
+                  <span className={`font-bold px-2 py-1 rounded-sm ${CATEGORY_TONE[c.category] ?? 'text-primary-800 bg-primary-50'}`}>
                     {c.category}
                   </span>
                   <span className="text-gray-600 tabular-nums">{c.year}</span>

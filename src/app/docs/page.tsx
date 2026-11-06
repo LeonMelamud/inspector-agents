@@ -40,7 +40,7 @@ curl -X POST https://inspectagents.com/api/mcp/ \\
             <h3 className="text-lg font-bold mb-2">POST /api/agent-feedback</h3>
             <p className="text-gray-400 mb-3">Submit feedback, corrections, or new AI incident reports.</p>
             <p className="text-sm text-gray-500 mb-3">Rate limit: 10 requests/minute per IP</p>
-            <div className="bg-gray-800 rounded p-3 overflow-x-auto">
+            <div className="bg-gray-800 rounded-sm p-3 overflow-x-auto">
               <pre className="text-sm text-gray-300">
 {`curl -X POST https://inspectagents.com/api/agent-feedback \\
   -H "Content-Type: application/json" \\
@@ -106,7 +106,7 @@ curl -X POST https://inspectagents.com/api/mcp/ \\
             <div className="space-y-4">
               <div>
                 <p className="text-sm font-bold text-gray-400 mb-1">Step 1: Initialize</p>
-                <div className="bg-gray-800 rounded p-3 overflow-x-auto">
+                <div className="bg-gray-800 rounded-sm p-3 overflow-x-auto">
                   <pre className="text-xs text-gray-300">
 {`{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"my-agent","version":"1.0.0"}}}`}
                   </pre>
@@ -114,7 +114,7 @@ curl -X POST https://inspectagents.com/api/mcp/ \\
               </div>
               <div>
                 <p className="text-sm font-bold text-gray-400 mb-1">Step 2: List Tools</p>
-                <div className="bg-gray-800 rounded p-3 overflow-x-auto">
+                <div className="bg-gray-800 rounded-sm p-3 overflow-x-auto">
                   <pre className="text-xs text-gray-300">
 {`{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}`}
                   </pre>
@@ -122,7 +122,7 @@ curl -X POST https://inspectagents.com/api/mcp/ \\
               </div>
               <div>
                 <p className="text-sm font-bold text-gray-400 mb-1">Step 3: Call a Tool</p>
-                <div className="bg-gray-800 rounded p-3 overflow-x-auto">
+                <div className="bg-gray-800 rounded-sm p-3 overflow-x-auto">
                   <pre className="text-xs text-gray-300">
 {`{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"search_failures","arguments":{"query":"prompt injection","limit":5}}}`}
                   </pre>

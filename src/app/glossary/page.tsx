@@ -259,7 +259,7 @@ export default function GlossaryPage() {
   return (
     <div className="min-h-screen bg-stone-100">
       {/* Header */}
-      <header className="bg-gradient-to-br from-primary-800 to-primary-900 text-white py-16">
+      <header className="bg-linear-to-br from-primary-800 to-primary-900 text-white py-16">
         <div className="container mx-auto px-4 max-w-4xl">
           <Link href="/" className="text-primary-200 hover:text-white mb-4 inline-block">
             ← Back to Home
@@ -268,7 +268,7 @@ export default function GlossaryPage() {
           <p className="text-xl text-primary-100 mb-6">
             Essential terms for understanding AI agent risks, testing, and security
           </p>
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+          <div className="bg-white/10 backdrop-blur-xs rounded-lg p-4 border border-white/20">
             <p className="text-primary-100">
               📚 <strong>{glossaryTerms.length} terms</strong> covering hallucinations, prompt injection, jailbreaks, and more
             </p>
@@ -277,7 +277,7 @@ export default function GlossaryPage() {
       </header>
 
       {/* Search and Filter */}
-      <div className="bg-white border-b border-stone-200 sticky top-0 z-10 shadow-sm">
+      <div className="bg-white border-b border-stone-200 sticky top-0 z-10 shadow-xs">
         <div className="container mx-auto px-4 max-w-4xl py-6">
           {/* Search */}
           <div className="mb-4">
@@ -286,7 +286,7 @@ export default function GlossaryPage() {
               placeholder="Search terms, definitions, or aliases..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:outline-hidden focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
           </div>
 
@@ -366,7 +366,7 @@ export default function GlossaryPage() {
                   </h2>
                   <div className="space-y-8">
                     {terms.map((term) => (
-                      <article key={term.id} id={term.id} className="bg-white rounded-lg p-6 shadow-sm border border-stone-200 scroll-mt-32">
+                      <article key={term.id} id={term.id} className="bg-white rounded-lg p-6 shadow-xs border border-stone-200 scroll-mt-32">
                         <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
                           <h3 className="text-2xl font-bold text-stone-900">{term.term}</h3>
                           <span className="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm font-medium">
@@ -419,7 +419,7 @@ export default function GlossaryPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-br from-primary-800 to-primary-900 py-16">
+      <div className="bg-linear-to-br from-primary-800 to-primary-900 py-16">
         <div className="container mx-auto px-4 max-w-3xl text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Ready to Test Your AI Agents?

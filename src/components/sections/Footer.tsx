@@ -7,7 +7,7 @@ export function Footer() {
         <div className="py-14 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded bg-accent-500 text-primary-900 text-sm font-bold">IA</span>
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-sm bg-accent-500 text-primary-900 text-sm font-bold">IA</span>
               <span className="font-display text-lg font-bold">InspectAgents</span>
             </div>
             <p className="text-primary-300 text-sm leading-relaxed">Making AI agent testing accessible, practical, and transparent for every business.</p>

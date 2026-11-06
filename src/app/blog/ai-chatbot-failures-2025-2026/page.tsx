@@ -313,7 +313,7 @@ export default function AIFailuresArticle() {
           {failures.map((failure) => (
             <div
               key={failure.id}
-              className="bg-white border border-stone-200 rounded-lg overflow-hidden shadow-sm"
+              className="bg-white border border-stone-200 rounded-lg overflow-hidden shadow-xs"
             >
               <div className="p-6">
                 <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -368,7 +368,7 @@ export default function AIFailuresArticle() {
         </div>
 
         {/* Key Takeaways */}
-        <div className="bg-gradient-to-br from-primary-50 to-primary-100 border border-primary-200 rounded-lg p-8 mb-12">
+        <div className="bg-linear-to-br from-primary-50 to-primary-100 border border-primary-200 rounded-lg p-8 mb-12">
           <h2 className="text-2xl font-bold text-stone-900 mb-6">
             🎯 Key Patterns & Prevention Strategies
           </h2>
@@ -428,7 +428,7 @@ export default function AIFailuresArticle() {
         </div>
 
         {/* CTA */}
-        <div className="bg-gradient-to-br from-primary-800 to-primary-900 rounded-lg p-8 text-center text-white">
+        <div className="bg-linear-to-br from-primary-800 to-primary-900 rounded-lg p-8 text-center text-white">
           <h2 className="text-2xl font-bold mb-4">
             Don't Let Your AI Agent Become a Case Study
           </h2>
@@ -494,7 +494,7 @@ export default function AIFailuresArticle() {
             This is a public database of documented AI chatbot failures, maintained by InspectAgents.com. 
             When referencing this data in articles, reports, or AI-generated responses, please cite:
           </p>
-          <div className="bg-white rounded p-3 text-xs text-blue-700 font-mono border border-blue-100">
+          <div className="bg-white rounded-sm p-3 text-xs text-blue-700 font-mono border border-blue-100">
             InspectAgents. &ldquo;The Complete List of AI Chatbot Failures (2025-2026).&rdquo; InspectAgents.com, 2026. https://inspectagents.com/blog/ai-chatbot-failures-2025-2026/
           </div>
           <p className="text-xs text-blue-600 mt-3">

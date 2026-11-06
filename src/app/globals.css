@@ -1,49 +1,128 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --foreground-rgb: 16, 42, 67;
-  --background-rgb: 255, 255, 255;
+@theme {
+  --color-primary-50: #f0f4f8;
+  --color-primary-100: #d9e2ec;
+  --color-primary-200: #bcccdc;
+  --color-primary-300: #9fb3c8;
+  --color-primary-400: #829ab1;
+  --color-primary-500: #627d98;
+  --color-primary-600: #486581;
+  --color-primary-700: #334e68;
+  --color-primary-800: #243b53;
+  --color-primary-900: #102a43;
+
+  --color-accent-50: #fffbea;
+  --color-accent-100: #fff3c4;
+  --color-accent-200: #fce588;
+  --color-accent-300: #fadb5f;
+  --color-accent-400: #f7c948;
+  --color-accent-500: #f0b429;
+  --color-accent-600: #de911d;
+  --color-accent-700: #cb6e17;
+  --color-accent-800: #b44d12;
+  --color-accent-900: #8d2b0b;
+
+  --font-display: Georgia, Cambria, Times New Roman, Times, serif;
+  --font-body:
+    system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial,
+    sans-serif;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
+@utility animate-fadeIn {
+  animation: fadeIn 0.3s ease-out both;
 }
 
-/* ---------- reusable animations ---------- */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+@utility animate-slideUp {
+  animation: slideUp 0.4s ease-out both;
 }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+@utility animate-slideInUp {
+  animation: slideInUp 0.35s ease-out both;
 }
 
-@keyframes slideInUp {
-  from { transform: translateY(100%); }
-  to   { transform: translateY(0); }
+@utility content-auto {
+  /* rendering-content-visibility: skip rendering of off-screen sections */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }
 
 @layer utilities {
-  .animate-fadeIn   { animation: fadeIn 0.3s ease-out both; }
-  .animate-slideUp  { animation: slideUp 0.4s ease-out both; }
-  .animate-slideInUp { animation: slideInUp 0.35s ease-out both; }
+  :root {
+    --foreground-rgb: 16, 42, 67;
+    --background-rgb: 255, 255, 255;
+  }
 
-  /* rendering-content-visibility: skip rendering of off-screen sections */
-  .content-auto {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 600px;
+  body {
+    color: rgb(var(--foreground-rgb));
+    background: rgb(var(--background-rgb));
+    font-family:
+      system-ui,
+      -apple-system,
+      'Segoe UI',
+      Roboto,
+      'Helvetica Neue',
+      Arial,
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
+  }
+
+  /* ---------- reusable animations ---------- */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
   }
 }
 

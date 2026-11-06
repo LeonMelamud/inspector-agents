@@ -84,7 +84,7 @@ export default async function FailurePage({
       />
 
       {/* Header */}
-      <div className="bg-gradient-to-b from-primary-600 to-primary-700 text-white">
+      <div className="bg-linear-to-b from-primary-600 to-primary-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <nav className="text-sm text-primary-100 mb-6">
             <Link href="/" className="hover:text-white">Home</Link>
@@ -167,7 +167,7 @@ export default async function FailurePage({
                 <Link
                   key={r.id}
                   href={`/failures/${r.id}/`}
-                  className="block bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-stone-200 p-4"
+                  className="block bg-white rounded-lg shadow-xs hover:shadow-md transition-shadow border border-stone-200 p-4"
                 >
                   <h3 className="font-bold text-stone-900">{r.title}</h3>
                   <p className="text-sm text-stone-600 mt-1">{r.company} • {new Date(r.date).getFullYear()}</p>
@@ -179,7 +179,7 @@ export default async function FailurePage({
       </div>
 
       {/* CTA */}
-      <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white">
+      <div className="bg-linear-to-r from-primary-600 to-primary-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Don&apos;t Let Your Company Be the Next Case Study

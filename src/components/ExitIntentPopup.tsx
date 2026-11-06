@@ -137,7 +137,7 @@ export function ExitIntentPopup({ checklistCount, sectionCount }: ExitIntentPopu
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 animate-fadeIn"
+        className="fixed inset-0 bg-stone-900/60 backdrop-blur-xs z-50 animate-fadeIn"
         onClick={handleClose}
         aria-hidden="true"
       />
@@ -154,7 +154,7 @@ export function ExitIntentPopup({ checklistCount, sectionCount }: ExitIntentPopu
           {/* Close Button */}
           <button
             onClick={handleClose}
-            className="absolute top-3 right-3 p-2 rounded text-gray-500 hover:text-primary-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
+            className="absolute top-3 right-3 p-2 rounded-sm text-gray-500 hover:text-primary-900 transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent-500"
             aria-label="Close"
           >
             <svg
@@ -214,7 +214,7 @@ export function ExitIntentPopup({ checklistCount, sectionCount }: ExitIntentPopu
             ].map((benefit) => (
               <li key={benefit} className="flex items-start">
                 <svg
-                  className="w-5 h-5 text-primary-600 mr-2 mt-0.5 flex-shrink-0"
+                  className="w-5 h-5 text-primary-600 mr-2 mt-0.5 shrink-0"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -233,7 +233,7 @@ export function ExitIntentPopup({ checklistCount, sectionCount }: ExitIntentPopu
           <Link
             href="/checklist"
             onClick={handleDownload}
-            className="block w-full bg-accent-500 text-primary-900 font-bold py-3 px-6 rounded-full hover:bg-accent-400 transition-colors text-center mb-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-900 focus-visible:ring-offset-2"
+            className="block w-full bg-accent-500 text-primary-900 font-bold py-3 px-6 rounded-full hover:bg-accent-400 transition-colors text-center mb-3 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary-900 focus-visible:ring-offset-2"
           >
             Open the checklist
           </Link>

@@ -55,7 +55,7 @@ export default function FailuresPage() {
   return (
     <div className="min-h-screen bg-stone-50">
       {/* Header */}
-      <div className="bg-gradient-to-b from-primary-600 to-primary-700 text-white">
+      <div className="bg-linear-to-b from-primary-600 to-primary-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -83,7 +83,7 @@ export default function FailuresPage() {
       </div>
 
       {/* Search and Filters */}
-      <div className="bg-white border-b border-stone-200 sticky top-0 z-10 shadow-sm" data-agent-tool="search_failures" data-agent-description="Search and filter AI failures database">
+      <div className="bg-white border-b border-stone-200 sticky top-0 z-10 shadow-xs" data-agent-tool="search_failures" data-agent-description="Search and filter AI failures database">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           {/* Search Bar */}
           <div className="mb-6">
@@ -296,7 +296,7 @@ export default function FailuresPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white">
+      <div className="bg-linear-to-r from-primary-600 to-primary-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Don't Let Your Company Be the Next Case Study

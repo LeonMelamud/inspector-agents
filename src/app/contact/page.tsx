@@ -48,10 +48,10 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-stone-100">
       {/* Hero */}
-      <section className="bg-gradient-to-b from-primary-50 to-stone-100 py-16 md:py-20">
+      <section className="bg-linear-to-b from-primary-50 to-stone-100 py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight md:leading-(--text-5xl--line-height)">
               Request a Service
             </h1>
             <p className="text-xl text-stone-600 leading-relaxed mb-4">
@@ -237,15 +237,15 @@ export default function ContactPage() {
                 <h3 className="text-lg font-bold text-stone-900 mb-4">What to Expect</h3>
                 <ol className="space-y-3 text-sm text-stone-700">
                   <li className="flex items-start gap-3">
-                    <span className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700 text-xs font-bold">1</span>
+                    <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700 text-xs font-bold">1</span>
                     <span>We acknowledge your request within 24 hours</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700 text-xs font-bold">2</span>
+                    <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700 text-xs font-bold">2</span>
                     <span>We schedule a 15-min discovery call when capacity opens</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700 text-xs font-bold">3</span>
+                    <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700 text-xs font-bold">3</span>
                     <span>You get a tailored proposal with a clear scope & timeline</span>
                   </li>
                 </ol>

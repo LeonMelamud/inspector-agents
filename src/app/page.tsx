@@ -52,9 +52,9 @@ function SectionSkeleton() {
     <div className="py-20 animate-pulse">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-6xl mx-auto space-y-4">
-          <div className="h-4 w-24 bg-gray-200 rounded mx-auto" />
-          <div className="h-8 w-96 bg-gray-200 rounded mx-auto" />
-          <div className="h-4 w-80 bg-gray-100 rounded mx-auto" />
+          <div className="h-4 w-24 bg-gray-200 rounded-sm mx-auto" />
+          <div className="h-8 w-96 bg-gray-200 rounded-sm mx-auto" />
+          <div className="h-4 w-80 bg-gray-100 rounded-sm mx-auto" />
         </div>
       </div>
     </div>
@@ -73,10 +73,10 @@ export default function Home() {
         <div className="relative container mx-auto px-4 lg:px-8 py-16 md:py-20 lg:py-24">
           <div className="grid lg:grid-cols-[minmax(0,1fr)_22rem] gap-12 items-center max-w-6xl">
             <div className="max-w-3xl">
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-[1.08] tracking-tight text-white text-balance">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-[1.08] tracking-tight text-white text-balance md:leading-(--text-5xl--line-height) lg:leading-(--text-6xl--line-height)">
                 Find out how your AI agent could fail, before your customers do
               </h1>
-              <p className="text-lg md:text-xl text-primary-200 mb-10 leading-relaxed max-w-2xl">
+              <p className="text-lg md:text-xl text-primary-200 mb-10 leading-relaxed max-w-2xl md:leading-(--text-xl--line-height)">
                 Learn from {INCIDENT_COUNT} documented AI failures, then check your own agent with a 3-step risk quiz and a {CHECKLIST_ITEM_COUNT}-point pre-launch checklist. Free, no account.
               </p>
               <div className="flex flex-col sm:flex-row sm:items-center gap-x-8 gap-y-5">
@@ -84,7 +84,7 @@ export default function Home() {
                   href="/quiz/"
                   trackingLabel="Check your AI risk"
                   location="hero"
-                  className="inline-flex items-center justify-center gap-2 bg-accent-500 text-primary-900 px-8 py-3.5 rounded-full font-bold hover:bg-accent-400 transition-colors text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
+                  className="inline-flex items-center justify-center gap-2 bg-accent-500 text-primary-900 px-8 py-3.5 rounded-full font-bold hover:bg-accent-400 transition-colors text-base focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
                 >
                   Check your AI risk
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
@@ -107,7 +107,7 @@ export default function Home() {
               <ul className="space-y-4">
                 {latest.map((i) => (
                   <li key={i.id}>
-                    <Link href={`/failures/${i.id}/`} className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 rounded">
+                    <Link href={`/failures/${i.id}/`} className="group block focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent-400 rounded-sm">
                       <span className="block text-xs text-primary-300 mb-0.5"><span className="tabular-nums">{i.year}</span> · {i.category} · {i.severity}</span>
                       <span className="block text-sm font-semibold text-white leading-snug group-hover:underline underline-offset-4">{i.title}</span>
                     </Link>

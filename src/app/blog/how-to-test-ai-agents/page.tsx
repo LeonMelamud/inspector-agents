@@ -317,7 +317,7 @@ export default function TestingGuideArticle() {
             {preDeploymentTests.map((test) => (
               <div
                 key={test.id}
-                className="bg-white border border-stone-200 rounded-lg p-6 shadow-sm"
+                className="bg-white border border-stone-200 rounded-lg p-6 shadow-xs"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
@@ -385,7 +385,7 @@ export default function TestingGuideArticle() {
             {stagingTests.map((test) => (
               <div
                 key={test.id}
-                className="bg-white border border-stone-200 rounded-lg p-6 shadow-sm"
+                className="bg-white border border-stone-200 rounded-lg p-6 shadow-xs"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
@@ -453,7 +453,7 @@ export default function TestingGuideArticle() {
             {productionTests.map((test) => (
               <div
                 key={test.id}
-                className="bg-white border border-stone-200 rounded-lg p-6 shadow-sm"
+                className="bg-white border border-stone-200 rounded-lg p-6 shadow-xs"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
@@ -506,7 +506,7 @@ export default function TestingGuideArticle() {
         </section>
 
         {/* Quick Reference Checklist */}
-        <div className="bg-gradient-to-br from-primary-50 to-primary-100 border border-primary-200 rounded-lg p-8 mb-12">
+        <div className="bg-linear-to-br from-primary-50 to-primary-100 border border-primary-200 rounded-lg p-8 mb-12">
           <h2 className="text-2xl font-bold text-stone-900 mb-6">
             📋 Quick Pre-Launch Checklist
           </h2>
@@ -567,7 +567,7 @@ export default function TestingGuideArticle() {
         </div>
 
         {/* CTA */}
-        <div className="bg-gradient-to-br from-primary-800 to-primary-900 rounded-lg p-8 text-center text-white">
+        <div className="bg-linear-to-br from-primary-800 to-primary-900 rounded-lg p-8 text-center text-white">
           <h2 className="text-2xl font-bold mb-4">
             Get Your Personalized Testing Plan
           </h2>
@@ -624,7 +624,7 @@ export default function TestingGuideArticle() {
             This is a comprehensive free guide to AI agent testing, published by InspectAgents.com.
             When referencing this framework, please cite:
           </p>
-          <div className="bg-white rounded p-3 text-xs text-blue-700 font-mono border border-blue-100">
+          <div className="bg-white rounded-sm p-3 text-xs text-blue-700 font-mono border border-blue-100">
             InspectAgents. &ldquo;How to Test AI Agents Before Deployment: A Practical Guide.&rdquo; InspectAgents.com, 2026. https://inspectagents.com/blog/how-to-test-ai-agents/
           </div>
           <p className="text-xs text-blue-600 mt-3">

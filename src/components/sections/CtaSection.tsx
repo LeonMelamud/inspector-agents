@@ -19,7 +19,7 @@ export function CtaSection() {
                 { step: '3', title: 'Act on it', desc: 'Three priority actions and matched real cases' },
               ].map((s) => (
                 <div key={s.step} className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded bg-primary-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-sm bg-primary-100 flex items-center justify-center shrink-0 mt-0.5">
                     <span className="text-primary-700 font-bold text-sm">{s.step}</span>
                   </div>
                   <div>
@@ -33,7 +33,7 @@ export function CtaSection() {
               href="/quiz/"
               trackingLabel="Check your AI risk"
               location="cta-section"
-              className="inline-flex items-center justify-center bg-accent-500 text-primary-900 px-10 py-3.5 rounded-full font-bold hover:bg-accent-400 transition-colors text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-900 focus-visible:ring-offset-2"
+              className="inline-flex items-center justify-center bg-accent-500 text-primary-900 px-10 py-3.5 rounded-full font-bold hover:bg-accent-400 transition-colors text-base focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary-900 focus-visible:ring-offset-2"
             >
               Check your AI risk
             </TrackedLink>

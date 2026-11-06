@@ -136,22 +136,22 @@ export function StickyCtaBar({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           <div className="flex items-center justify-between gap-3 sm:gap-6">
             <div className="min-w-0">
-              <p className="text-white font-semibold text-sm sm:text-lg leading-snug">{message}</p>
+              <p className="text-white font-semibold text-sm sm:text-lg leading-snug sm:leading-(--text-lg--line-height)">{message}</p>
               <p className="hidden sm:block text-primary-200 text-sm">{detail}</p>
             </div>
 
-            <div className="flex items-center gap-1 sm:gap-3 flex-shrink-0">
+            <div className="flex items-center gap-1 sm:gap-3 shrink-0">
               <Link
                 href={ctaLink}
                 onClick={handlePrimaryClick}
-                className="bg-accent-500 text-primary-900 font-bold px-4 sm:px-6 py-2.5 rounded-full hover:bg-accent-400 transition-colors text-sm sm:text-base whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
+                className="bg-accent-500 text-primary-900 font-bold px-4 sm:px-6 py-2.5 rounded-full hover:bg-accent-400 transition-colors text-sm sm:text-base whitespace-nowrap focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
               >
                 {ctaText}
               </Link>
               <button
                 type="button"
                 onClick={handleDismiss}
-                className="text-primary-200 hover:text-white transition-colors p-2.5 -mr-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="text-primary-200 hover:text-white transition-colors p-2.5 -mr-2 rounded-sm focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white"
                 aria-label="Dismiss"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

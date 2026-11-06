@@ -30,7 +30,7 @@ export function Navbar() {
             href="/"
             className="flex items-center gap-3 text-white"
           >
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded bg-accent-500 text-primary-900 text-sm font-bold">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-sm bg-accent-500 text-primary-900 text-sm font-bold">
               IA
             </span>
             <span className="font-display text-xl font-bold tracking-tight">
@@ -70,7 +70,7 @@ export function Navbar() {
           {/* Mobile hamburger */}
           <button
             type="button"
-            className="lg:hidden inline-flex items-center justify-center rounded p-2 text-primary-200 hover:bg-primary-800 hover:text-white transition-colors"
+            className="lg:hidden inline-flex items-center justify-center rounded-sm p-2 text-primary-200 hover:bg-primary-800 hover:text-white transition-colors"
             onClick={() => setMobileOpen((o) => !o)}
             aria-expanded={mobileOpen}
             aria-label="Toggle navigation menu"
@@ -114,7 +114,7 @@ export function Navbar() {
               <Link
                 href="/quiz/"
                 onClick={() => setMobileOpen(false)}
-                className="block w-full rounded bg-accent-500 px-4 py-2.5 text-center text-sm font-bold text-primary-900 hover:bg-accent-400 transition-colors"
+                className="block w-full rounded-sm bg-accent-500 px-4 py-2.5 text-center text-sm font-bold text-primary-900 hover:bg-accent-400 transition-colors"
               >
                 Get Started
               </Link>
