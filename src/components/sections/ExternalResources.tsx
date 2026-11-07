@@ -164,7 +164,7 @@ export function ExternalResources() {
                       href={r.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all"
+                      className="block p-3 rounded-lg hover:bg-white hover:shadow-xs transition-all"
                     >
                       <span className="text-sm font-medium text-primary-700 group-hover:text-primary-900 block">
                         {r.title}
@@ -191,7 +191,7 @@ export function ExternalResources() {
                       href={r.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all"
+                      className="block p-3 rounded-lg hover:bg-white hover:shadow-xs transition-all"
                     >
                       <span className="text-sm font-medium text-primary-700 group-hover:text-primary-900 block">
                         {r.title}
@@ -208,15 +208,15 @@ export function ExternalResources() {
 
           {/* Closing CTA: one primary action */}
           <div className="mt-14 rounded-lg bg-primary-900 px-6 py-12 sm:px-10 sm:py-14 text-center">
-            <h3 className="font-display text-2xl sm:text-3xl font-bold text-white max-w-2xl mx-auto leading-snug mb-4 text-balance">
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-white max-w-2xl mx-auto leading-snug mb-4 text-balance sm:leading-(--text-3xl--line-height)">
               You don&apos;t have to read all {authorityResources.length + highTrafficArticles.length} of these first
             </h3>
-            <p className="text-primary-200 max-w-xl mx-auto text-base sm:text-lg leading-relaxed mb-8">
+            <p className="text-primary-200 max-w-xl mx-auto text-base sm:text-lg leading-relaxed mb-8 sm:leading-(--text-lg--line-height)">
               Start with the 3-step risk quiz. It points you to the checks that matter for your setup, backed by {INCIDENT_COUNT} documented incidents and a {CHECKLIST_ITEM_COUNT}-point checklist.
             </p>
             <Link
               href="/quiz/"
-              className="inline-flex items-center justify-center gap-2 bg-accent-500 text-primary-900 px-8 py-3.5 rounded-full font-bold text-base hover:bg-accent-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
+              className="inline-flex items-center justify-center gap-2 bg-accent-500 text-primary-900 px-8 py-3.5 rounded-full font-bold text-base hover:bg-accent-400 transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
             >
               Check your AI risk
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>

@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 };
 
 const PRIMARY_BTN =
-  'inline-flex items-center justify-center gap-2 bg-accent-500 text-primary-900 px-8 py-3.5 rounded-full font-bold hover:bg-accent-400 transition-colors text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-900 focus-visible:ring-offset-2';
+  'inline-flex items-center justify-center gap-2 bg-accent-500 text-primary-900 px-8 py-3.5 rounded-full font-bold hover:bg-accent-400 transition-colors text-base focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary-900 focus-visible:ring-offset-2';
 
 const ARROW = (
   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
@@ -108,10 +108,10 @@ export default function ChecklistPage() {
       <section className="bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 lg:px-8 py-16 md:py-20">
           <div className="max-w-3xl">
-            <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-900 mb-6 leading-[1.08] tracking-tight text-balance">
+            <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-900 mb-6 leading-[1.08] tracking-tight text-balance md:leading-(--text-6xl--line-height)">
               The AI Agent Risk Checklist
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed max-w-2xl">
+            <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed max-w-2xl md:leading-(--text-xl--line-height)">
               {CHECKLIST_ITEM_COUNT} checks to catch hallucinations, prompt injection, data leaks and unsafe tool use <em>before</em> they reach your customers.
             </p>
             <Link href="/checklist/download/" className={PRIMARY_BTN}>
@@ -198,7 +198,7 @@ export default function ChecklistPage() {
           <ol className="grid md:grid-cols-2 gap-x-10 gap-y-8">
             {USAGE_STEPS.map((step, i) => (
               <li key={step.title} className="flex gap-4">
-                <span className="w-9 h-9 rounded bg-primary-100 text-primary-800 font-bold flex items-center justify-center flex-shrink-0 tabular-nums">
+                <span className="w-9 h-9 rounded-sm bg-primary-100 text-primary-800 font-bold flex items-center justify-center shrink-0 tabular-nums">
                   {i + 1}
                 </span>
                 <div>
@@ -250,7 +250,7 @@ export default function ChecklistPage() {
           </p>
           <Link
             href="/checklist/download/"
-            className="inline-flex items-center justify-center gap-2 bg-accent-500 text-primary-900 px-8 py-3.5 rounded-full font-bold hover:bg-accent-400 transition-colors text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
+            className="inline-flex items-center justify-center gap-2 bg-accent-500 text-primary-900 px-8 py-3.5 rounded-full font-bold hover:bg-accent-400 transition-colors text-base focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
           >
             Open the checklist
             {ARROW}

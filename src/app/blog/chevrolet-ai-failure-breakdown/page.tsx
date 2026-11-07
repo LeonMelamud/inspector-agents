@@ -188,8 +188,8 @@ export default function ChevroletCaseStudy() {
               <p className="text-primary-800 text-sm">
                 Implement input validation to detect and block prompt injection
                 patterns. Use libraries like{' '}
-                <code className="bg-white px-2 py-1 rounded">rebuff</code> or{' '}
-                <code className="bg-white px-2 py-1 rounded">prompt-inject</code>{' '}
+                <code className="bg-white px-2 py-1 rounded-sm">rebuff</code> or{' '}
+                <code className="bg-white px-2 py-1 rounded-sm">prompt-inject</code>{' '}
                 to identify adversarial inputs.
               </p>
             </div>
@@ -214,7 +214,7 @@ export default function ChevroletCaseStudy() {
               <p className="text-primary-800 text-sm mb-2">
                 Use multi-layered system prompts with explicit restrictions:
               </p>
-              <div className="bg-white p-3 rounded border border-primary-300 font-mono text-xs text-stone-700">
+              <div className="bg-white p-3 rounded-sm border border-primary-300 font-mono text-xs text-stone-700">
                 <p className="mb-2">
                   "You are a Chevrolet customer service assistant."
                 </p>
@@ -333,7 +333,7 @@ export default function ChevroletCaseStudy() {
             Prevention Playbook: 10 Steps to Avoid This
           </h2>
 
-          <div className="bg-gradient-to-br from-primary-50 to-primary-100 border border-primary-200 rounded-lg p-8 mb-12">
+          <div className="bg-linear-to-br from-primary-50 to-primary-100 border border-primary-200 rounded-lg p-8 mb-12">
             <ol className="space-y-4 text-stone-800">
               <li className="flex gap-3">
                 <span className="font-bold text-primary-700 text-lg">1.</span>
@@ -446,7 +446,7 @@ export default function ChevroletCaseStudy() {
         </div>
 
         {/* CTA */}
-        <div className="bg-gradient-to-br from-primary-800 to-primary-900 rounded-lg p-8 text-center text-white mb-12">
+        <div className="bg-linear-to-br from-primary-800 to-primary-900 rounded-lg p-8 text-center text-white mb-12">
           <h2 className="text-2xl font-bold mb-4">
             Is Your Chatbot Vulnerable to Prompt Injection?
           </h2>

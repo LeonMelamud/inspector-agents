@@ -74,7 +74,7 @@ export function ComingSoonPage({
               <span className="w-2 h-2 rounded-full bg-accent-400" aria-hidden="true" />
               In development · join the waitlist
             </p>
-            <h1 className="font-display text-3xl md:text-5xl font-bold mb-6 leading-tight text-white">
+            <h1 className="font-display text-3xl md:text-5xl font-bold mb-6 leading-tight text-white md:leading-(--text-5xl--line-height)">
               {title}
             </h1>
             <p className="text-lg text-primary-200 mb-8 leading-relaxed">
@@ -94,7 +94,7 @@ export function ComingSoonPage({
             <ul className="space-y-3">
               {bullets.map((bullet) => (
                 <li key={bullet} className="flex items-start gap-3">
-                  <span className="mt-1 text-accent-500 flex-shrink-0">
+                  <span className="mt-1 text-accent-500 shrink-0">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
@@ -121,7 +121,7 @@ export function ComingSoonPage({
                 <p className="font-semibold text-primary-900 mb-3">While you wait, check your own agent</p>
                 <Link
                   href="/quiz/"
-                  className="inline-flex items-center justify-center gap-2 bg-accent-500 text-primary-900 px-6 py-3 rounded-full font-bold hover:bg-accent-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-900 focus-visible:ring-offset-2"
+                  className="inline-flex items-center justify-center gap-2 bg-accent-500 text-primary-900 px-6 py-3 rounded-full font-bold hover:bg-accent-400 transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary-900 focus-visible:ring-offset-2"
                 >
                   Take the 3-step risk quiz
                   <Icon name="arrowRight" className="w-4 h-4" />
@@ -151,12 +151,12 @@ export function ComingSoonPage({
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@company.com"
                     required
-                    className="flex-1 min-w-0 px-4 py-3 border border-gray-300 rounded-full text-base placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent text-primary-900"
+                    className="flex-1 min-w-0 px-4 py-3 border border-gray-300 rounded-full text-base placeholder:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-accent-500 focus:border-transparent text-primary-900"
                   />
                   <button
                     type="submit"
                     disabled={loading}
-                    className="inline-flex items-center justify-center bg-accent-500 text-primary-900 px-6 py-3 rounded-full font-bold hover:bg-accent-400 transition-colors disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-900 focus-visible:ring-offset-2"
+                    className="inline-flex items-center justify-center bg-accent-500 text-primary-900 px-6 py-3 rounded-full font-bold hover:bg-accent-400 transition-colors disabled:opacity-60 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary-900 focus-visible:ring-offset-2"
                   >
                     {loading ? 'Joining…' : 'Join the waitlist'}
                   </button>

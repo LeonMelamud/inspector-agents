@@ -63,7 +63,7 @@ function SeverityBadge({ severity }: { severity: Severity }) {
   const cfg = SEVERITY_CFG[severity];
   return (
     <span
-      className={`ml-2 text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded ${cfg.className}`}
+      className={`ml-2 text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded-sm ${cfg.className}`}
     >
       {cfg.label}
     </span>
@@ -72,7 +72,7 @@ function SeverityBadge({ severity }: { severity: Severity }) {
 
 function ChecklistItem({ item }: { item: CheckItem }) {
   return (
-    <label className="flex items-start p-3 hover:bg-stone-50 rounded cursor-pointer">
+    <label className="flex items-start p-3 hover:bg-stone-50 rounded-sm cursor-pointer">
       <input
         type="checkbox"
         className="mt-1 mr-3 w-5 h-5 print:appearance-none print:border print:border-stone-400 print:w-4 print:h-4"
@@ -92,7 +92,7 @@ function SectionBlock({ section }: { section: CheckSectionUI }) {
   return (
     <section className="mb-12 print:mb-8 print:break-inside-avoid">
       <div
-        className={`bg-gradient-to-r ${section.gradient} text-white p-4 rounded-t-lg ${section.printBg}`}
+        className={`bg-linear-to-r ${section.gradient} text-white p-4 rounded-t-lg ${section.printBg}`}
       >
         <h2 className="text-2xl font-bold">
           {section.title} ({section.items.length} tests)
@@ -211,17 +211,17 @@ export default function ChecklistDownloadPage() {
               Severity levels:
             </p>
             <div className="flex gap-2 flex-wrap items-center text-sm">
-              <span className="px-1.5 py-0.5 rounded bg-red-100 text-red-800 text-[10px] font-semibold uppercase tracking-wide">
+              <span className="px-1.5 py-0.5 rounded-sm bg-red-100 text-red-800 text-[10px] font-semibold uppercase tracking-wide">
                 Critical
               </span>
               <span className="text-stone-600 mr-3">Deploy blocker</span>
-              <span className="px-1.5 py-0.5 rounded bg-orange-100 text-orange-800 text-[10px] font-semibold uppercase tracking-wide">
+              <span className="px-1.5 py-0.5 rounded-sm bg-orange-100 text-orange-800 text-[10px] font-semibold uppercase tracking-wide">
                 High
               </span>
               <span className="text-stone-600 mr-3">
                 Fix before production
               </span>
-              <span className="px-1.5 py-0.5 rounded bg-yellow-100 text-yellow-800 text-[10px] font-semibold uppercase tracking-wide">
+              <span className="px-1.5 py-0.5 rounded-sm bg-yellow-100 text-yellow-800 text-[10px] font-semibold uppercase tracking-wide">
                 Medium
               </span>
               <span className="text-stone-600">Recommended practice</span>

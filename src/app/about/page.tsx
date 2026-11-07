@@ -50,13 +50,13 @@ export default function AboutPage() {
         }}
       />
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-primary-50 to-stone-100 py-20">
+      <section className="bg-linear-to-b from-primary-50 to-stone-100 py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-stone-900 mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold text-stone-900 mb-6 leading-tight md:leading-(--text-6xl--line-height)">
               Making AI Safe Shouldn't Be This Hard
             </h1>
-            <p className="text-xl md:text-2xl text-stone-600 mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-stone-600 mb-8 leading-relaxed md:leading-(--text-2xl--line-height)">
               After documenting {INCIDENT_COUNT} public AI failures, from chatbots to autonomous agents,
               <br />
               <span className="text-stone-900 font-semibold">
@@ -73,7 +73,7 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-xl shadow-lg p-8 md:p-12 mb-12">
               <div className="flex flex-col md:flex-row gap-8 items-start mb-8">
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <Image
                     src="/images/linkedin_profile.jpeg"
                     alt="Leon Melamud, Founder of InspectAgents"
@@ -230,7 +230,7 @@ export default function AboutPage() {
               ].map(item => (
                 <div
                   key={item.name}
-                  className="rounded-xl border border-stone-200 bg-stone-50 p-5 shadow-sm"
+                  className="rounded-xl border border-stone-200 bg-stone-50 p-5 shadow-xs"
                 >
                   <div className="flex items-center gap-2 mb-1.5">
                     <h3 className="text-base font-bold text-stone-900">
@@ -251,7 +251,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 bg-gradient-to-b from-stone-100 to-primary-50">
+      <section className="py-20 bg-linear-to-b from-stone-100 to-primary-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -370,7 +370,7 @@ export default function AboutPage() {
       </section>
 
       {/* Community Section */}
-      <section className="py-20 bg-gradient-to-b from-stone-100 to-primary-50">
+      <section className="py-20 bg-linear-to-b from-stone-100 to-primary-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-stone-900 mb-6">Join the Movement</h2>

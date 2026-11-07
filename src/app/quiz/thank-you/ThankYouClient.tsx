@@ -140,12 +140,12 @@ export default function ThankYouClient({ incidentCount, checklistCount, concernI
       <main className="container mx-auto px-4 py-10 md:py-14">
         <div className="max-w-3xl mx-auto space-y-6">
           {/* Result */}
-          <section className="bg-white rounded-lg border border-gray-200 shadow-sm p-6 sm:p-10" aria-labelledby="result-heading">
+          <section className="bg-white rounded-lg border border-gray-200 shadow-xs p-6 sm:p-10" aria-labelledby="result-heading">
             <p className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-bold ${styles.badge}`}>
               <span className={`w-2 h-2 rounded-full ${styles.dot}`} aria-hidden="true" />
               {copy.label}
             </p>
-            <h1 id="result-heading" className="font-display text-3xl md:text-5xl font-bold text-primary-900 mt-4 mb-4 leading-tight text-balance">
+            <h1 id="result-heading" className="font-display text-3xl md:text-5xl font-bold text-primary-900 mt-4 mb-4 leading-tight text-balance md:leading-(--text-5xl--line-height)">
               {copy.headline}
             </h1>
             <p className="text-lg text-gray-700 leading-relaxed max-w-2xl mb-6">{copy.body}</p>
@@ -153,7 +153,7 @@ export default function ThankYouClient({ incidentCount, checklistCount, concernI
             <ul className="text-gray-700 space-y-1">
               {riskFactors(answers).map((f) => (
                 <li key={f} className="flex items-start gap-2">
-                  <Icon name="check" className="w-4 h-4 mt-1 text-primary-500 flex-shrink-0" />
+                  <Icon name="check" className="w-4 h-4 mt-1 text-primary-500 shrink-0" />
                   {f}
                 </li>
               ))}
@@ -187,14 +187,14 @@ export default function ThankYouClient({ incidentCount, checklistCount, concernI
           </section>
 
           {/* Actions */}
-          <section className="bg-white rounded-lg border border-gray-200 shadow-sm p-6 sm:p-10" aria-labelledby="actions-heading">
+          <section className="bg-white rounded-lg border border-gray-200 shadow-xs p-6 sm:p-10" aria-labelledby="actions-heading">
             <h2 id="actions-heading" className="font-display text-2xl md:text-3xl font-bold text-primary-900 mb-6">
               Your first three actions
             </h2>
             <ol className="space-y-6">
               {recs.map((r, i) => (
                 <li key={r.title} className="flex gap-4">
-                  <span className="w-8 h-8 rounded bg-primary-100 text-primary-800 font-bold flex items-center justify-center flex-shrink-0 tabular-nums">
+                  <span className="w-8 h-8 rounded-sm bg-primary-100 text-primary-800 font-bold flex items-center justify-center shrink-0 tabular-nums">
                     {i + 1}
                   </span>
                   <div>
@@ -269,12 +269,12 @@ export default function ThankYouClient({ incidentCount, checklistCount, concernI
                     placeholder="you@company.com"
                     aria-invalid={draftTouched && !draftValid}
                     aria-describedby={draftTouched && !draftValid ? 'result-email-error' : undefined}
-                    className="flex-1 min-w-0 px-4 py-3 rounded-full text-base text-primary-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-400"
+                    className="flex-1 min-w-0 px-4 py-3 rounded-full text-base text-primary-900 placeholder:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-accent-400"
                   />
                   <button
                     type="submit"
                     disabled={sendState === 'sending'}
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold bg-accent-500 text-primary-900 hover:bg-accent-400 transition-colors disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold bg-accent-500 text-primary-900 hover:bg-accent-400 transition-colors disabled:opacity-60 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
                   >
                     {sendState === 'sending' ? 'Sending…' : 'Email my report'}
                   </button>
@@ -301,7 +301,7 @@ export default function ThankYouClient({ incidentCount, checklistCount, concernI
                 <Link
                   href="/checklist/"
                   onClick={() => trackCTAClick('Open the checklist', 'quiz-result', '/checklist/')}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold bg-accent-500 text-primary-900 hover:bg-accent-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold bg-accent-500 text-primary-900 hover:bg-accent-400 transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-900"
                 >
                   Open the {checklistCount}-point checklist
                   <Icon name="arrowRight" className="w-4 h-4" />

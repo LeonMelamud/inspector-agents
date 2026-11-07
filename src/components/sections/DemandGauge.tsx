@@ -109,7 +109,7 @@ export function DemandGauge() {
                   {feature.tag}
                 </span>
 
-                <span className="w-10 h-10 rounded bg-primary-100 text-primary-700 flex items-center justify-center mb-4"><Icon name={feature.icon} /></span>
+                <span className="w-10 h-10 rounded-sm bg-primary-100 text-primary-700 flex items-center justify-center mb-4"><Icon name={feature.icon} /></span>
                 <h3 className="font-display text-lg font-bold text-primary-900 mb-2 group-hover:text-primary-700 transition-colors pr-24">
                   {feature.title}
                 </h3>

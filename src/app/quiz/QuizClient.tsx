@@ -170,7 +170,7 @@ export default function QuizClient({ incidentCount, checklistCount, concernCases
       <main className="container mx-auto px-4 py-10 md:py-14">
         <div className="max-w-2xl mx-auto">
           <div
-            className="bg-white rounded-lg border border-gray-200 shadow-sm p-6 sm:p-10"
+            className="bg-white rounded-lg border border-gray-200 shadow-xs p-6 sm:p-10"
             data-agent-tool="assess_risk"
             data-agent-description="AI risk assessment quiz"
           >
@@ -191,7 +191,7 @@ export default function QuizClient({ incidentCount, checklistCount, concernCases
                         onClick={() => handleUsage(o.value)}
                         disabled={selectedSingle !== null}
                         aria-pressed={chosen}
-                        className={`w-full flex items-center gap-4 text-left px-5 py-4 rounded-lg border-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 ${
+                        className={`w-full flex items-center gap-4 text-left px-5 py-4 rounded-lg border-2 transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 ${
                           chosen
                             ? 'border-primary-900 bg-primary-50'
                             : selectedSingle !== null
@@ -199,7 +199,7 @@ export default function QuizClient({ incidentCount, checklistCount, concernCases
                               : 'border-gray-200 bg-white hover:border-primary-500 hover:bg-primary-50'
                         }`}
                       >
-                        <span className="w-10 h-10 rounded bg-primary-100 text-primary-700 flex items-center justify-center flex-shrink-0">
+                        <span className="w-10 h-10 rounded-sm bg-primary-100 text-primary-700 flex items-center justify-center shrink-0">
                           <Icon name={o.icon} />
                         </span>
                         <span className="text-lg font-medium text-primary-900">{o.label}</span>
@@ -216,7 +216,7 @@ export default function QuizClient({ incidentCount, checklistCount, concernCases
                 <h1
                   ref={headingRef}
                   tabIndex={-1}
-                  className="font-display text-3xl md:text-4xl font-bold text-primary-900 mb-3 text-balance focus:outline-none"
+                  className="font-display text-3xl md:text-4xl font-bold text-primary-900 mb-3 text-balance focus:outline-hidden"
                 >
                   What worries you most about AI agents?
                 </h1>
@@ -234,14 +234,14 @@ export default function QuizClient({ incidentCount, checklistCount, concernCases
                           role="checkbox"
                           aria-checked={selected}
                           onClick={() => toggleConcern(o.value)}
-                          className={`w-full flex items-start gap-4 text-left px-5 py-4 rounded-lg border-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 ${
+                          className={`w-full flex items-start gap-4 text-left px-5 py-4 rounded-lg border-2 transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 ${
                             selected
                               ? 'border-primary-900 bg-primary-50'
                               : 'border-gray-200 bg-white hover:border-primary-500 hover:bg-primary-50'
                           }`}
                         >
                           <span
-                            className={`mt-1 w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-colors ${
+                            className={`mt-1 w-5 h-5 rounded border-2 flex items-center justify-center shrink-0 transition-colors ${
                               selected ? 'bg-primary-900 border-primary-900 text-white' : 'border-gray-400 bg-white'
                             }`}
                           >
@@ -249,7 +249,7 @@ export default function QuizClient({ incidentCount, checklistCount, concernCases
                           </span>
                           <span className="min-w-0">
                             <span className="flex items-center gap-2 text-lg font-medium text-primary-900">
-                              <Icon name={o.icon} className="w-5 h-5 text-primary-600 flex-shrink-0" />
+                              <Icon name={o.icon} className="w-5 h-5 text-primary-600 shrink-0" />
                               {o.label}
                             </span>
                             {realCase && o.value !== 'dontKnow' && (
@@ -268,7 +268,7 @@ export default function QuizClient({ incidentCount, checklistCount, concernCases
                   <button
                     type="button"
                     onClick={() => goTo(0)}
-                    className="inline-flex items-center gap-1.5 px-5 py-3 border border-gray-300 rounded-full font-semibold text-primary-800 hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
+                    className="inline-flex items-center gap-1.5 px-5 py-3 border border-gray-300 rounded-full font-semibold text-primary-800 hover:bg-gray-50 transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent-500"
                   >
                     <Icon name="arrowLeft" className="w-4 h-4" />
                     Back
@@ -280,7 +280,7 @@ export default function QuizClient({ incidentCount, checklistCount, concernCases
                       goTo(2);
                     }}
                     disabled={!concernsChosen}
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-bold text-base transition-colors bg-accent-500 text-primary-900 hover:bg-accent-400 disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-900 focus-visible:ring-offset-2"
+                    className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-bold text-base transition-colors bg-accent-500 text-primary-900 hover:bg-accent-400 disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary-900 focus-visible:ring-offset-2"
                   >
                     {concernsChosen ? 'See my result' : 'Pick at least one'}
                     {concernsChosen && <Icon name="arrowRight" className="w-4 h-4" />}
@@ -299,14 +299,14 @@ export default function QuizClient({ incidentCount, checklistCount, concernCases
                 <h1
                   ref={headingRef}
                   tabIndex={-1}
-                  className="font-display text-3xl md:text-4xl font-bold text-primary-900 mt-4 mb-3 text-balance focus:outline-none"
+                  className="font-display text-3xl md:text-4xl font-bold text-primary-900 mt-4 mb-3 text-balance focus:outline-hidden"
                 >
                   {copy.headline}
                 </h1>
                 <ul className="text-gray-600 mb-6 space-y-1">
                   {riskFactors(answers).map((f) => (
                     <li key={f} className="flex items-start gap-2">
-                      <Icon name="check" className="w-4 h-4 mt-1 text-primary-500 flex-shrink-0" />
+                      <Icon name="check" className="w-4 h-4 mt-1 text-primary-500 shrink-0" />
                       {f}
                     </li>
                   ))}
@@ -343,12 +343,12 @@ export default function QuizClient({ incidentCount, checklistCount, concernCases
                       placeholder="you@company.com"
                       aria-describedby={emailTouched && !emailValid ? 'quiz-email-error' : 'quiz-email-hint'}
                       aria-invalid={emailTouched && !emailValid}
-                      className="flex-1 min-w-0 px-4 py-3 border border-gray-300 rounded-full text-base text-primary-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                      className="flex-1 min-w-0 px-4 py-3 border border-gray-300 rounded-full text-base text-primary-900 placeholder:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-accent-500 focus:border-transparent"
                     />
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold bg-accent-500 text-primary-900 hover:bg-accent-400 transition-colors disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-900 focus-visible:ring-offset-2"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold bg-accent-500 text-primary-900 hover:bg-accent-400 transition-colors disabled:opacity-60 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-primary-900 focus-visible:ring-offset-2"
                     >
                       {isSubmitting ? 'Opening your report…' : 'Email my report'}
                     </button>
@@ -364,7 +364,7 @@ export default function QuizClient({ incidentCount, checklistCount, concernCases
                   <button
                     type="button"
                     onClick={() => goTo(1)}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 hover:text-primary-900 focus-visible:outline-none focus-visible:underline"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 hover:text-primary-900 focus-visible:outline-hidden focus-visible:underline"
                   >
                     <Icon name="arrowLeft" className="w-4 h-4" />
                     Change answers

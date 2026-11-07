@@ -47,7 +47,7 @@ export function WhoWeAre() {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-900 mb-6 leading-tight">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-900 mb-6 leading-tight md:leading-(--text-4xl--line-height)">
                 Making AI Agent Testing Accessible, Practical, and Transparent
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
@@ -62,12 +62,12 @@ export function WhoWeAre() {
             </div>
             <div className="grid grid-cols-1 min-[480px]:grid-cols-2 gap-3 sm:gap-4">
               {values.map((v) => (
-                <div key={v.title} className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200 shadow-sm">
+                <div key={v.title} className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200 shadow-xs">
                   <div className="flex items-center gap-3 mb-2 sm:mb-3">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded bg-primary-100 flex items-center justify-center flex-shrink-0">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-sm bg-primary-100 flex items-center justify-center shrink-0">
                       {v.icon}
                     </div>
-                    <h3 className="font-bold text-primary-900 text-sm sm:text-base leading-snug">{v.title}</h3>
+                    <h3 className="font-bold text-primary-900 text-sm sm:text-base leading-snug sm:leading-(--text-base--line-height)">{v.title}</h3>
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed">{v.description}</p>
                 </div>
